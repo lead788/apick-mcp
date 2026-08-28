@@ -386,6 +386,10 @@ Authenticity checks for Korean ID documents against government registries, real-
 
 주민등록증·운전면허증·여권·외국인등록증 진위확인, 실명확인, 개인정보 마스킹.
 
+마스킹 5종의 실패 결과는 기존 텍스트 오류와 함께 `structuredContent.error_code` 및 `structuredContent.error`를 제공합니다. 오류 코드는 `IDENTITY_TEXT_UNREADABLE`, `IDENTITY_DOCUMENT_MISMATCH`, `IDENTITY_PROCESSING_FAILED`입니다. 과금 없이 실패하며 브리지는 서버 결과를 그대로 전달합니다.
+
+The five masking tools preserve the text error and also return `structuredContent.error_code` and `structuredContent.error`. The service codes are `IDENTITY_TEXT_UNREADABLE`, `IDENTITY_DOCUMENT_MISMATCH`, and `IDENTITY_PROCESSING_FAILED`; failed calls are not charged and the bridge forwards the server result unchanged.
+
 | Tool | 기능 | Required 필수 |
 | --- | --- | --- |
 | [`identi_card1`](#identi-card1) | [Text] 주민등록증 진위 확인 | `name`, `rrn1`, `rrn2`, `date` |

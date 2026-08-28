@@ -1,6 +1,6 @@
 {
   "name": "apick-mcp",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "APICK MCP — 82 Korean data & AI tools for AI agents. 사업자조회·신분증 진위확인·OCR·택배 배송조회·계좌 실명조회·파일변환·WHOIS·구글검색·LLM. Korean business registry, ID verification, OCR, parcel tracking, bank account verification, file conversion, web intelligence and LLM over MCP.",
   "type": "module",
   "license": "MIT",

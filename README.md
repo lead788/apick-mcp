@@ -265,7 +265,7 @@ Built for phishing and copycat-site investigation: resolve the host, trace its I
 | **Annotations** | Every tool declares `title`, `readOnlyHint`, `openWorldHint`. Only 3 of 82 are not read-only | 전 Tool이 `title`·`readOnlyHint`·`openWorldHint` 선언. 82개 중 부작용은 3개뿐 |
 | **Results** | Text (JSON) + `structuredContent`. Images as image content, files as base64 up to 8MB | 텍스트(JSON)와 `structuredContent` 동시 반환. 이미지는 이미지 콘텐츠, 파일은 8MB까지 base64 |
 | **File input** | File-taking tools accept a public `https` URL (`image_url`, `pdf_url`, …) — APICK downloads and processes it | 파일 Tool은 공개 `https` URL을 받습니다. 에이픽 서버가 내려받아 처리합니다 |
-| **Errors** | Delivered via the tool result's `isError` flag so the agent can read the cause and adapt | Tool 결과의 `isError` 플래그로 전달돼 AI가 원인을 읽고 대처합니다 |
+| **Errors** | Delivered via `isError`; identity masking also preserves `structuredContent.error_code` | `isError`로 전달되며 신분증 마스킹은 `structuredContent.error_code`도 보존합니다 |
 | **Auth** | `Authorization: Bearer <key>`; `X-API-Key` also accepted | `Authorization: Bearer 인증키`, `X-API-Key`도 지원 |
 
 ### Tools with side effects / 부작용이 있는 Tool

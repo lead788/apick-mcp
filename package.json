@@ -1,0 +1,88 @@
+{
+  "name": "apick-mcp",
+  "version": "1.1.1",
+  "description": "APICK MCP — 82 Korean data & AI tools for AI agents. 사업자조회·신분증 진위확인·OCR·택배 배송조회·계좌 실명조회·파일변환·WHOIS·구글검색·LLM. Korean business registry, ID verification, OCR, parcel tracking, bank account verification, file conversion, web intelligence and LLM over MCP.",
+  "type": "module",
+  "license": "MIT",
+  "author": "APICK",
+  "homepage": "https://apick.app/dev_guide/mcp",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lead788/apick-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lead788/apick-mcp/issues"
+  },
+  "mcpName": "app.apick/all",
+  "bin": {
+    "apick-mcp": "src/index.js"
+  },
+  "exports": {
+    ".": "./src/bridge.js"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "TOOLS.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [
+    "mcp",
+    "modelcontextprotocol",
+    "model-context-protocol",
+    "mcp-server",
+    "mcp-tools",
+    "claude",
+    "claude-code",
+    "claude-desktop",
+    "chatgpt",
+    "cursor",
+    "cline",
+    "windsurf",
+    "ai-agent",
+    "llm",
+    "apick",
+    "korea",
+    "korean",
+    "korea-api",
+    "business-registry",
+    "business-registration-number",
+    "identity-verification",
+    "kyc",
+    "kyb",
+    "id-card-verification",
+    "pii-masking",
+    "ocr",
+    "korean-ocr",
+    "parcel-tracking",
+    "delivery-tracking",
+    "shipment-tracking",
+    "bank-account-verification",
+    "account-holder-lookup",
+    "real-estate-price",
+    "address-search",
+    "holiday-api",
+    "whois",
+    "dns-lookup",
+    "ip-geolocation",
+    "web-scraping",
+    "screenshot-api",
+    "google-search",
+    "pdf-conversion",
+    "docx",
+    "excel",
+    "watermark",
+    "speech-to-text",
+    "text-to-speech",
+    "face-detection",
+    "face-blur",
+    "nsfw-detection",
+    "image-similarity",
+  ]
+}

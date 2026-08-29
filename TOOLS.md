@@ -1,7 +1,7 @@
 # APICK MCP — Full Tool Catalog / 전체 Tool 목록
 
-**82 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 82개**, 분야별 서버 8개와 통합 서버 `all`.
+**79 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 79개**, 분야별 서버 8개와 통합 서버 `all`.
 
 Official site 공식 사이트: **<https://apick.app>** · Docs 연동 가이드: **<https://apick.app/dev_guide/mcp>**
 
@@ -18,11 +18,11 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 3 | 계좌 예금주 실명조회와 1원 인증. |
 | [Web & Search · 웹 · 검색](#web) | `/mcp/web` | 13 | 도메인·IP 조회, WHOIS, 웹페이지 수집, 구글 검색, 유튜브. |
 | [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 15 | PDF·DOCX·엑셀 변환, 음성인식(STT), 음성합성(TTS), 워터마크. |
-| [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 8 | 사람·차량·얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
-| [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 5 | LLM 챗(다중 모델), 텍스트 요약·교정, . |
-| **All 통합** | `/mcp/all` | **82** | 아래 전부 |
+| [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
+| [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 4 | LLM 챗(다중 모델), 텍스트 요약·교정. |
+| **All 통합** | `/mcp/all` | **79** | 아래 전부 |
 
-<details><summary><b>All 82 tool names / 전체 Tool 이름</b></summary>
+<details><summary><b>All 79 tool names / 전체 Tool 이름</b></summary>
 
 `biz_detail` · `venture_biz_info` · `land_rt_price` · `req_pccc` · `get_pccc` · `check_pccc` · `get_car_flooding` · `get_car_scrap` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info`
 
@@ -36,9 +36,9 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 `stt` · `tts` · `voice_change` · `face_blur` · `pdf_to_docx` · `pdf_to_image` · `pdf_merge` · `html_to_pdf` · `docx_to_pdf` · `json_to_excel` · `base64_to_image` · `set_watermark` · `get_watermark` · `draw_watermark_pdf` · `draw_watermark_image`
 
-`nsfw_detection` · `image_similarity` · `video_to_mp3` · `extract_video_thumbnail` · `word_cloud` · `person_detection` · `car_detection` · `face_detection`
+`nsfw_detection` · `image_similarity` · `video_to_mp3` · `extract_video_thumbnail` · `word_cloud` · `face_detection`
 
-`llm_models` · `llm_chat` · `text_summary` · `text_polish` ·
+`llm_models` · `llm_chat` · `text_summary` · `text_polish`
 
 </details>
 
@@ -1520,11 +1520,11 @@ Draw a visible text watermark across an image.
 
 ## Vision · 이미지 · 영상 분석
 
-`https://apick.app/mcp/vision` — 8 tools
+`https://apick.app/mcp/vision` — 6 tools
 
-Object and face detection, image similarity, NSFW detection, and video extraction.
+Face detection, image similarity, NSFW detection, and video extraction.
 
-사람·차량·얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출.
+얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출.
 
 | Tool | 기능 | Required 필수 |
 | --- | --- | --- |
@@ -1533,8 +1533,6 @@ Object and face detection, image similarity, NSFW detection, and video extractio
 | [`video_to_mp3`](#video-to-mp3) | 동영상 MP3 추출 | `video_url` |
 | [`extract_video_thumbnail`](#extract-video-thumbnail) | 동영상 미리보기 이미지 추출 | `video_url` |
 | [`word_cloud`](#word-cloud) | 워드클라우드 생성 | `text` |
-| [`person_detection`](#person-detection) | 이미지 사람 인식 | `image_url` |
-| [`car_detection`](#car-detection) | 이미지 자동차 인식 | `image_url` |
 | [`face_detection`](#face-detection) | 이미지 얼굴 인식 | `image_url` |
 
 <a id="nsfw-detection"></a>
@@ -1631,46 +1629,6 @@ Generate a word cloud image (JPEG) from input text, sizing each word by frequenc
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"word_cloud","arguments":{"text":"<text>"}}}
 ```
 
-<a id="person-detection"></a>
-
-### `person_detection` — 이미지 사람 인식
-
-Detect people in an image and return their bounding boxes.
-
-이미지에 나타나는 사람을 인식해 위치 정보를 반환합니다. include_img=1 입력 시 인식 결과가 표시된 이미지를 함께 반환합니다.
-
-> 읽기 전용 / read-only · 입력 변환 / transforms your input · server `vision`
-
-| Parameter | Type | Required | Description 설명 |
-| --- | --- | --- | --- |
-| `confident` | `string` | 선택 / optional | 인식 정확도 (범위: 0 ~ 1, 기본값 0.5) |
-| `include_img` | `string` | 선택 / optional | 인식 결과 이미지 포함 여부 (포함: 1, 미포함: 0, 기본값 0) |
-| `image_url` | `string` (file) | **필수 / required** | https URL, image/jpeg, image/png, image/webp, image/bmp, 최대 25MB |
-
-```json
-{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"person_detection","arguments":{"image_url":"https://example.com/file"}}}
-```
-
-<a id="car-detection"></a>
-
-### `car_detection` — 이미지 자동차 인식
-
-Detect vehicles (cars, motorcycles, bicycles, trucks, etc.) in an image and return their bounding boxes.
-
-이미지에 나타나는 자동차·오토바이·자전거·트럭 등을 인식해 위치 정보를 반환합니다. include_img=1 입력 시 인식 결과가 표시된 이미지를 함께 반환합니다.
-
-> 읽기 전용 / read-only · 입력 변환 / transforms your input · server `vision`
-
-| Parameter | Type | Required | Description 설명 |
-| --- | --- | --- | --- |
-| `confident` | `string` | 선택 / optional | 인식 정확도 (범위: 0 ~ 1, 기본값 0.5) |
-| `include_img` | `string` | 선택 / optional | 인식 결과 이미지 포함 여부 (포함: 1, 미포함: 0, 기본값 0) |
-| `image_url` | `string` (file) | **필수 / required** | https URL, image/jpeg, image/png, image/webp, image/bmp, 최대 25MB |
-
-```json
-{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"car_detection","arguments":{"image_url":"https://example.com/file"}}}
-```
-
 <a id="face-detection"></a>
 
 ### `face_detection` — 이미지 얼굴 인식
@@ -1697,11 +1655,11 @@ Detect faces in an image and return their coordinates.
 
 ## AI & LLM · AI · LLM
 
-`https://apick.app/mcp/ai` — 5 tools
+`https://apick.app/mcp/ai` — 4 tools
 
-LLM chat across multiple models, text summarization, polishing, and retired image capability.
+LLM chat across multiple models, text summarization, and polishing.
 
-LLM 챗(다중 모델), 텍스트 요약·교정, .
+LLM 챗(다중 모델), 텍스트 요약·교정.
 
 | Tool | 기능 | Required 필수 |
 | --- | --- | --- |
@@ -1709,7 +1667,6 @@ LLM 챗(다중 모델), 텍스트 요약·교정, .
 | [`llm_chat`](#llm-chat) | LLM 채팅 | `model` |
 | [`text_summary`](#text-summary) | 텍스트 요약 AI | `text` |
 | [`text_polish`](#text-polish) | 텍스트 다듬기 AI | `text` |
-| [](#retired_image_capability) |  | `model`, `prompt` |
 
 <a id="llm-models"></a>
 
@@ -1792,7 +1749,6 @@ Polish a text (up to 100,000 characters) by fixing grammar, spelling, and awkwar
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"text_polish","arguments":{"text":"<text>"}}}
 ```
-
 
 ---
 

@@ -1,7 +1,7 @@
 # APICK MCP — Full Tool Catalog / 전체 Tool 목록
 
-**79 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 79개**, 분야별 서버 8개와 통합 서버 `all`.
+**78 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 78개**, 분야별 서버 8개와 통합 서버 `all`.
 
 Official site 공식 사이트: **<https://apick.app>** · Docs 연동 가이드: **<https://apick.app/dev_guide/mcp>**
 
@@ -17,12 +17,12 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | [OCR · OCR 문자인식](#ocr) | `/mcp/ocr` | 6 | 이미지 텍스트 추출과 신분증 항목 추출. |
 | [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 3 | 계좌 예금주 실명조회와 1원 인증. |
 | [Web & Search · 웹 · 검색](#web) | `/mcp/web` | 13 | 도메인·IP 조회, WHOIS, 웹페이지 수집, 구글 검색, 유튜브. |
-| [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 15 | PDF·DOCX·엑셀 변환, 음성인식(STT), 음성합성(TTS), 워터마크. |
+| [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 14 | PDF·DOCX·엑셀 변환, 음성인식(STT), 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 4 | LLM 챗(다중 모델), 텍스트 요약·교정. |
-| **All 통합** | `/mcp/all` | **79** | 아래 전부 |
+| **All 통합** | `/mcp/all` | **78** | 아래 전부 |
 
-<details><summary><b>All 79 tool names / 전체 Tool 이름</b></summary>
+<details><summary><b>All 78 tool names / 전체 Tool 이름</b></summary>
 
 `biz_detail` · `venture_biz_info` · `land_rt_price` · `req_pccc` · `get_pccc` · `check_pccc` · `get_car_flooding` · `get_car_scrap` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info`
 
@@ -34,7 +34,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 `nslookup` · `reverse_ip` · `location` · `ip_history` · `whois` · `url_html` · `url_screenshot` · `url_similarity` · `google_search` · `google_image_search` · `google_lens_search` · `crawl_youtube` · `download_youtube_video`
 
-`stt` · `tts` · `voice_change` · `face_blur` · `pdf_to_docx` · `pdf_to_image` · `pdf_merge` · `html_to_pdf` · `docx_to_pdf` · `json_to_excel` · `base64_to_image` · `set_watermark` · `get_watermark` · `draw_watermark_pdf` · `draw_watermark_image`
+`stt` · `voice_change` · `face_blur` · `pdf_to_docx` · `pdf_to_image` · `pdf_merge` · `html_to_pdf` · `docx_to_pdf` · `json_to_excel` · `base64_to_image` · `set_watermark` · `get_watermark` · `draw_watermark_pdf` · `draw_watermark_image`
 
 `nsfw_detection` · `image_similarity` · `video_to_mp3` · `extract_video_thumbnail` · `word_cloud` · `face_detection`
 
@@ -1199,16 +1199,15 @@ Download a publicly available YouTube video and return it as an MP4 file.
 
 ## File Conversion · 파일 변환 · 워터마크
 
-`https://apick.app/mcp/convert` — 15 tools
+`https://apick.app/mcp/convert` — 14 tools
 
-PDF, DOCX, Excel, speech-to-text, text-to-speech, and watermarking.
+PDF, DOCX, Excel, speech-to-text, and watermarking.
 
-PDF·DOCX·엑셀 변환, 음성인식(STT), 음성합성(TTS), 워터마크.
+PDF·DOCX·엑셀 변환, 음성인식(STT), 워터마크.
 
 | Tool | 기능 | Required 필수 |
 | --- | --- | --- |
 | [`stt`](#stt) | 오디오 텍스트 변환(STT) | `audio_url` |
-| [`tts`](#tts) | 텍스트 오디오 변환(TTS) | `content` |
 | [`voice_change`](#voice-change) | 음성 변조 | `type`, `media_url` |
 | [`face_blur`](#face-blur) | 얼굴 모자이크 처리 | `image_url` |
 | [`pdf_to_docx`](#pdf-to-docx) | PDF 파일 DOCX 변환 | `pdf_url` |
@@ -1240,25 +1239,6 @@ Convert a speech audio file to text (STT).
 
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"stt","arguments":{"audio_url":"https://example.com/file"}}}
-```
-
-<a id="tts"></a>
-
-### `tts` — 텍스트 오디오 변환(TTS)
-
-Convert text to a speech audio file (TTS, MP3).
-
-텍스트를 오디오(MP3) 파일로 변환합니다. 한글/영어 최대 1,000자까지 입력할 수 있으며, 결과는 MP3 파일로 반환됩니다.
-
-> 읽기 전용 / read-only · 입력 변환 / transforms your input · server `convert`
-
-| Parameter | Type | Required | Description 설명 |
-| --- | --- | --- | --- |
-| `content` | `string` | **필수 / required** | 오디오로 변환할 텍스트 (한글/영어 최대 1,000자) |
-| `language` | `string` | 선택 / optional | 언어 코드 (예: ko, en). 기본값 ko |
-
-```json
-{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"tts","arguments":{"content":"<content>"}}}
 ```
 
 <a id="voice-change"></a>

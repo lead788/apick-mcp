@@ -22,9 +22,9 @@
 
 ## What is this? / 이게 뭔가요?
 
-**EN** — APICK is a Korean data and AI API platform. This MCP server exposes **79 tools** that let Claude, ChatGPT, Cursor, Cline and any other MCP client look up Korean business registries, verify ID documents, track parcels, run OCR, convert files, query DNS/WHOIS, search the web, and call LLMs — using one API key, billed per call.
+**EN** — APICK is a Korean data and AI API platform. This MCP server exposes **78 tools** that let Claude, ChatGPT, Cursor, Cline and any other MCP client look up Korean business registries, verify ID documents, track parcels, run OCR, convert files, query DNS/WHOIS, search the web, and call LLMs — using one API key, billed per call.
 
-**KO** — 에이픽(APICK)은 대한민국 데이터·AI API 플랫폼입니다. 이 MCP 서버는 **Tool 79개**를 열어, Claude·ChatGPT·Cursor·Cline 등 MCP 클라이언트가 사업자 조회, 신분증 진위확인, 택배 배송조회, OCR, 파일 변환, DNS/WHOIS 조회, 웹 검색, LLM 호출을 **인증키 하나로** 직접 수행하게 합니다. 호출당 과금입니다.
+**KO** — 에이픽(APICK)은 대한민국 데이터·AI API 플랫폼입니다. 이 MCP 서버는 **Tool 78개**를 열어, Claude·ChatGPT·Cursor·Cline 등 MCP 클라이언트가 사업자 조회, 신분증 진위확인, 택배 배송조회, OCR, 파일 변환, DNS/WHOIS 조회, 웹 검색, LLM 호출을 **인증키 하나로** 직접 수행하게 합니다. 호출당 과금입니다.
 
 **The server is hosted by APICK. Nothing to install, build, or keep running.**
 **서버는 에이픽이 운영합니다. 설치할 것도, 띄워둘 것도 없습니다.**
@@ -42,8 +42,8 @@ https://apick.app/mcp/all
 Sign up at **[apick.app](https://apick.app)** and copy your license key from the dashboard. New accounts get **1,000 free points**.
 **[apick.app](https://apick.app)** 에서 가입하고 대시보드에서 인증키를 복사하세요. 신규 가입 시 **1,000포인트 무료**.
 
-> `tools/list` works **without** a key — a client can connect and discover all 79 tools before you sign up. Only `tools/call` needs the key.
-> `tools/list`는 **인증 없이** 동작합니다. 가입 전에도 클라이언트가 연결해 79개 Tool을 확인할 수 있고, `tools/call`부터 키가 필요합니다.
+> `tools/list` works **without** a key — a client can connect and discover all 78 tools before you sign up. Only `tools/call` needs the key.
+> `tools/list`는 **인증 없이** 동작합니다. 가입 전에도 클라이언트가 연결해 78개 Tool을 확인할 수 있고, `tools/call`부터 키가 필요합니다.
 
 ### 2. Connect / 연결
 
@@ -146,10 +146,10 @@ Connect to `all` for everything, or to one server to keep the tool list short an
 
 | Server 서버 | Endpoint | Tools | Coverage 범위 |
 | --- | --- | --- | --- |
-| **All 통합** | `https://apick.app/mcp/all` | **79** | 아래 전부 |
+| **All 통합** | `https://apick.app/mcp/all` | **78** | 아래 전부 |
 | [Business 사업자·커머스](TOOLS.md#business) | `https://apick.app/mcp/business` | 16 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 유효성 검사 |
 | [Identity 신분증](TOOLS.md#identity) | `https://apick.app/mcp/identity` | 16 | 주민등록증·운전면허증·여권·외국인등록증 진위확인, 실명확인, 개인정보 마스킹 |
-| [Convert 파일변환](TOOLS.md#convert) | `https://apick.app/mcp/convert` | 15 | PDF·DOCX·엑셀 변환, STT, TTS, 워터마크 |
+| [Convert 파일변환](TOOLS.md#convert) | `https://apick.app/mcp/convert` | 14 | PDF·DOCX·엑셀 변환, STT, 워터마크 |
 | [Web 웹·검색](TOOLS.md#web) | `https://apick.app/mcp/web` | 13 | 도메인·IP·WHOIS, 웹페이지 수집, 구글 검색, 유튜브 |
 | [Vision 이미지·영상](TOOLS.md#vision) | `https://apick.app/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출 |
 | [OCR 문자인식](TOOLS.md#ocr) | `https://apick.app/mcp/ocr` | 6 | 이미지 텍스트 추출, 신분증 항목 추출 |
@@ -158,8 +158,8 @@ Connect to `all` for everything, or to one server to keep the tool list short an
 
 ### Every tool / 전체 Tool
 
-**[→ TOOLS.md](TOOLS.md)** — all 79 tools with parameters, types, and copy-paste JSON-RPC examples.
-**[→ TOOLS.md](TOOLS.md)** — 79개 전체를 파라미터·타입·호출 예시까지 정리했습니다.
+**[→ TOOLS.md](TOOLS.md)** — all 78 tools with parameters, types, and copy-paste JSON-RPC examples.
+**[→ TOOLS.md](TOOLS.md)** — 78개 전체를 파라미터·타입·호출 예시까지 정리했습니다.
 
 <details>
 <summary><b>Tool names at a glance / Tool 이름 한눈에 보기</b></summary>
@@ -174,7 +174,7 @@ Connect to `all` for everything, or to one server to keep the tool list short an
 
 **Web** `nslookup` `reverse_ip` `location` `ip_history` `whois` `url_html` `url_screenshot` `url_similarity` `google_search` `google_image_search` `google_lens_search` `crawl_youtube` `download_youtube_video`
 
-**Convert** `stt` `tts` `voice_change` `face_blur` `pdf_to_docx` `pdf_to_image` `pdf_merge` `html_to_pdf` `docx_to_pdf` `json_to_excel` `base64_to_image` `set_watermark` `get_watermark` `draw_watermark_pdf` `draw_watermark_image`
+**Convert** `stt` `voice_change` `face_blur` `pdf_to_docx` `pdf_to_image` `pdf_merge` `html_to_pdf` `docx_to_pdf` `json_to_excel` `base64_to_image` `set_watermark` `get_watermark` `draw_watermark_pdf` `draw_watermark_image`
 
 **Vision** `nsfw_detection` `image_similarity` `video_to_mp3` `extract_video_thumbnail` `word_cloud` `face_detection`
 
@@ -223,8 +223,8 @@ Auto-detects the carrier from the number alone across **33 Korean carriers** (CJ
 
 `pdf_merge` → `draw_watermark_pdf` → `pdf_to_docx`
 
-Also: `html_to_pdf` for invoices and reports, `json_to_excel` for data exports, `stt`/`tts` for audio.
-견적서·리포트는 `html_to_pdf`, 데이터 내보내기는 `json_to_excel`, 음성은 `stt`/`tts`.
+Also: `html_to_pdf` for invoices and reports, `json_to_excel` for data exports, and `stt` for speech recognition.
+견적서·리포트는 `html_to_pdf`, 데이터 내보내기는 `json_to_excel`, 음성 인식은 `stt`를 사용합니다.
 
 ### 5. Domain & fraud investigation — 도메인·사기 조사
 
@@ -262,7 +262,7 @@ Built for phishing and copycat-site investigation: resolve the host, trace its I
 | **Transport** | Streamable HTTP — one endpoint per server, JSON-RPC 2.0 over HTTPS POST, stateless | 서버당 단일 엔드포인트, HTTPS POST로 JSON-RPC 2.0, 세션 없이 요청 단위 |
 | **Protocol** | MCP `2026-07-28`, auto-compatible with earlier client versions | MCP `2026-07-28` 기본, 이전 규격 클라이언트 자동 호환 |
 | **Discovery** | `tools/list` returns every tool with JSON Schema, description and live price — no key needed | `tools/list`가 스키마·설명·실시간 단가를 반환, 인증 불필요 |
-| **Annotations** | Every tool declares `title`, `readOnlyHint`, `openWorldHint`. Only 3 of 79 are not read-only | 전 Tool이 `title`·`readOnlyHint`·`openWorldHint` 선언. 79개 중 부작용은 3개뿐 |
+| **Annotations** | Every tool declares `title`, `readOnlyHint`, `openWorldHint`. Only 3 of 78 are not read-only | 전 Tool이 `title`·`readOnlyHint`·`openWorldHint` 선언. 78개 중 부작용은 3개뿐 |
 | **Results** | Text (JSON) + `structuredContent`. Images as image content, files as base64 up to 8MB | 텍스트(JSON)와 `structuredContent` 동시 반환. 이미지는 이미지 콘텐츠, 파일은 8MB까지 base64 |
 | **File input** | File-taking tools accept a public `https` URL (`image_url`, `pdf_url`, …) — APICK downloads and processes it | 파일 Tool은 공개 `https` URL을 받습니다. 에이픽 서버가 내려받아 처리합니다 |
 | **Errors** | Delivered via `isError`; identity masking also preserves `structuredContent.error_code` | `isError`로 전달되며 신분증 마스킹은 `structuredContent.error_code`도 보존합니다 |
@@ -270,8 +270,8 @@ Built for phishing and copycat-site investigation: resolve the host, trace its I
 
 ### Tools with side effects / 부작용이 있는 Tool
 
-76 of 79 tools are read-only. These 3 change something in the real world and carry `readOnlyHint: false` so your client can require approval:
-79개 중 76개는 조회입니다. 아래 3개만 현실에 영향을 주며 `readOnlyHint: false`가 붙어 클라이언트가 승인을 요구할 수 있습니다.
+75 of 78 tools are read-only. These 3 change something in the real world and carry `readOnlyHint: false` so your client can require approval:
+78개 중 75개는 조회입니다. 아래 3개만 현실에 영향을 주며 `readOnlyHint: false`가 붙어 클라이언트가 승인을 요구할 수 있습니다.
 
 | Tool | What it does / 하는 일 |
 | --- | --- |
@@ -340,11 +340,11 @@ Prepaid points, charged per call, at the same rate as the APICK REST API. No sub
 
 ## Keywords / 검색 키워드
 
-Korean business registry API · 사업자등록번호 조회 API · business registration number lookup · 휴폐업 조회 · 법인등록번호 · 벤처기업 조회 · Korean ID verification · 신분증 진위확인 API · 주민등록증 진위확인 · 운전면허증 진위확인 · 여권 진위확인 · 외국인등록증 · 실명확인 · 주민번호 마스킹 · 개인정보 비식별화 · Korean OCR API · 신분증 OCR · 문자인식 · parcel tracking API Korea · 택배 배송조회 API · 운송장 조회 · CJ대한통운 한진 롯데택배 우체국 로젠 · 계좌 실명조회 · 예금주 조회 · 1원 인증 API · 개인통관고유부호 · PCCC · 부동산 실거래가 API · 침수차 조회 · 폐차 조회 · 도로명주소 검색 API · 공휴일 API · WHOIS API · DNS lookup · IP 위치조회 · 웹페이지 스크린샷 API · 구글 검색 API · 구글 이미지 검색 · 구글 렌즈 · 유튜브 크롤링 · PDF 변환 API · PDF to DOCX · HTML to PDF · 엑셀 변환 · 워터마크 API · STT 음성인식 API · TTS 음성합성 API · 얼굴 인식 API · 얼굴 블러 · 유해이미지 판별 · NSFW detection · 이미지 유사도 · 워드클라우드 · LLM API
+Korean business registry API · 사업자등록번호 조회 API · business registration number lookup · 휴폐업 조회 · 법인등록번호 · 벤처기업 조회 · Korean ID verification · 신분증 진위확인 API · 주민등록증 진위확인 · 운전면허증 진위확인 · 여권 진위확인 · 외국인등록증 · 실명확인 · 주민번호 마스킹 · 개인정보 비식별화 · Korean OCR API · 신분증 OCR · 문자인식 · parcel tracking API Korea · 택배 배송조회 API · 운송장 조회 · CJ대한통운 한진 롯데택배 우체국 로젠 · 계좌 실명조회 · 예금주 조회 · 1원 인증 API · 개인통관고유부호 · PCCC · 부동산 실거래가 API · 침수차 조회 · 폐차 조회 · 도로명주소 검색 API · 공휴일 API · WHOIS API · DNS lookup · IP 위치조회 · 웹페이지 스크린샷 API · 구글 검색 API · 구글 이미지 검색 · 구글 렌즈 · 유튜브 크롤링 · PDF 변환 API · PDF to DOCX · HTML to PDF · 엑셀 변환 · 워터마크 API · STT 음성인식 API · 얼굴 인식 API · 얼굴 블러 · 유해이미지 판별 · NSFW detection · 이미지 유사도 · 워드클라우드 · LLM API
 
 ## Hashtags
 
-`#MCP` `#ModelContextProtocol` `#MCPServer` `#MCPTools` `#AIAgent` `#ClaudeMCP` `#ClaudeCode` `#ClaudeDesktop` `#ChatGPT` `#Cursor` `#Cline` `#Windsurf` `#VSCode` `#APICK` `#에이픽` `#OpenAPI` `#RESTAPI` `#KoreaAPI` `#한국API` `#사업자조회` `#사업자등록번호조회` `#휴폐업조회` `#신분증진위확인` `#실명확인` `#본인인증` `#개인정보마스킹` `#OCR` `#문자인식` `#택배조회` `#배송조회` `#운송장조회` `#계좌실명조회` `#1원인증` `#통관고유부호` `#부동산실거래가` `#도로명주소` `#공휴일API` `#WHOIS` `#DNS` `#IP조회` `#웹크롤링` `#구글검색API` `#스크린샷API` `#PDF변환` `#DOCX변환` `#엑셀변환` `#워터마크` `#STT` `#TTS` `#음성인식` `#음성합성` `#얼굴인식` `#얼굴블러` `#유해이미지` `#NSFW` `#이미지유사도` `#LLM` `#AI이미지생성` `#KYC` `#KYB` `#핀테크` `#이커머스` `#물류자동화` `#업무자동화`
+`#MCP` `#ModelContextProtocol` `#MCPServer` `#MCPTools` `#AIAgent` `#ClaudeMCP` `#ClaudeCode` `#ClaudeDesktop` `#ChatGPT` `#Cursor` `#Cline` `#Windsurf` `#VSCode` `#APICK` `#에이픽` `#OpenAPI` `#RESTAPI` `#KoreaAPI` `#한국API` `#사업자조회` `#사업자등록번호조회` `#휴폐업조회` `#신분증진위확인` `#실명확인` `#본인인증` `#개인정보마스킹` `#OCR` `#문자인식` `#택배조회` `#배송조회` `#운송장조회` `#계좌실명조회` `#1원인증` `#통관고유부호` `#부동산실거래가` `#도로명주소` `#공휴일API` `#WHOIS` `#DNS` `#IP조회` `#웹크롤링` `#구글검색API` `#스크린샷API` `#PDF변환` `#DOCX변환` `#엑셀변환` `#워터마크` `#STT` `#음성인식` `#얼굴인식` `#얼굴블러` `#유해이미지` `#NSFW` `#이미지유사도` `#LLM` `#KYC` `#KYB` `#핀테크` `#이커머스` `#물류자동화` `#업무자동화`
 
 ---
 

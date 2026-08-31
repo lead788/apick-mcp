@@ -22,11 +22,11 @@ test('신분증 structuredContent 오류 코드를 변경 없이 전달한다', 
 	assert.deepEqual(output, [serverMessage]);
 });
 
-test('2.1.1 공개 메타데이터는 운영 82개·Convert 18개·AI 4개 계약과 일치한다', () => {
+test('2.1.2 공개 메타데이터는 운영 82개·Convert 18개·AI 4개 계약과 일치한다', () => {
 	const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
 	const readme = readFileSync(new URL('../README.md', import.meta.url), 'utf8');
 	const tools = readFileSync(new URL('../TOOLS.md', import.meta.url), 'utf8');
-	assert.equal(pkg.version, '2.1.1');
+	assert.equal(pkg.version, '2.1.2');
 	assert.match(pkg.description, /82 Korean data & AI tools/);
 	assert.match(readme, /\| \[AI · LLM\]\(TOOLS\.md#ai\) \| `https:\/\/apick\.app\/mcp\/ai` \| 4 \|/);
 	assert.match(tools, /\| \*\*All 통합\*\* \| `\/mcp\/all` \| \*\*82\*\* \|/);
@@ -44,6 +44,8 @@ test('2.1.1 공개 메타데이터는 운영 82개·Convert 18개·AI 4개 계�
 	}
 	assert.match(tools, /재다운로드할 수 없습니다/);
 	assert.match(tools, /MP3\(`audio\/mpeg`\)/);
+	assert.match(tools, /`waiting` 또는 `processing` 상태에서 취소/);
+	assert.match(readme, /Cancels a waiting or processing job without a refund/);
 	assert.doesNotMatch(tools, /완료된 ZIP 결과/);
 	assert.match(readme, /1회용 TTS MP3/);
 	assert.match(tools, /`google_lens_search`/);

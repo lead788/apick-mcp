@@ -1210,7 +1210,7 @@ PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크.
 | [`stt`](#stt) | 오디오 텍스트 변환(STT) | `audio_url` |
 | [`tts_jobs_create`](#tts-jobs-create) | TTS 작업 접수 | `voice_id`, `text` |
 | [`tts_jobs_status`](#tts-jobs-status) | TTS 작업 상태 조회 | `job_id` |
-| [`tts_jobs_cancel`](#tts-jobs-cancel) | TTS 대기 작업 취소 | `job_id` |
+| [`tts_jobs_cancel`](#tts-jobs-cancel) | TTS 대기·생성 중 작업 취소 | `job_id` |
 | [`tts_jobs_result`](#tts-jobs-result) | TTS 결과 1회 다운로드 | `job_id` |
 | [`voice_change`](#voice-change) | 음성 변조 | `type`, `media_url` |
 | [`face_blur`](#face-blur) | 얼굴 모자이크 처리 | `image_url` |
@@ -1251,6 +1251,8 @@ Convert a speech audio file to text (STT).
 
 17개 중립 내레이션 목소리 중 하나로 유료 비동기 TTS 작업을 접수합니다. 접수 성공 시 즉시 과금되며 취소해도 환불되지 않습니다. `text`는 최대 20,000자입니다.
 
+표시 이름: `narrator_m_01` 태준, `narrator_m_02` 민석, `narrator_m_03` 도현, `narrator_m_04` 강우, `narrator_m_05` 성훈, `narrator_f_10s_01` 서아, `narrator_f_10s_02` 하린, `narrator_f_10s_03` 예린, `narrator_m_20s_01` 도윤, `narrator_f_20s_01` 지안, `narrator_f_20s_02` 서윤, `narrator_f_20s_03` 소연, `narrator_f_20s_04` 유나, `narrator_m_30s_01` 현우, `narrator_m_30s_02` 준혁, `narrator_m_40s_01` 정우, `narrator_m_80s_01` 영수.
+
 > **부작용 있음 / has side effects** · 접수 시 과금 / charged on acceptance · server `convert`
 
 | Parameter | Type | Required | Description 설명 |
@@ -1280,9 +1282,9 @@ Convert a speech audio file to text (STT).
 
 <a id="tts-jobs-cancel"></a>
 
-### `tts_jobs_cancel` — TTS 대기 작업 취소
+### `tts_jobs_cancel` — TTS 대기·생성 중 작업 취소
 
-`waiting` 상태에서만 취소할 수 있으며 접수 시 과금된 금액은 환불되지 않습니다.
+`waiting` 또는 `processing` 상태에서 취소할 수 있으며 접수 시 과금된 금액은 환불되지 않습니다.
 
 > **부작용 있음 / has side effects** · 환불 없음 / no refund · server `convert`
 

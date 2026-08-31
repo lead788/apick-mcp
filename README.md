@@ -279,8 +279,10 @@ Built for phishing and copycat-site investigation: resolve the host, trace its I
 | `req_pccc` | Sends a verification SMS to the person · 본인 휴대폰으로 인증 SMS를 발송합니다 |
 | `get_pccc` | Consumes a one-time verification code · 1회용 인증 응답을 소모합니다 |
 | `tts_jobs_create` | Accepts and charges a TTS job once · TTS 작업을 접수하고 1회 과금합니다 |
-| `tts_jobs_cancel` | Cancels a waiting job without a refund · 대기 작업을 환불 없이 취소합니다 |
+| `tts_jobs_cancel` | Cancels a waiting or processing job without a refund · 대기·생성 중 작업을 환불 없이 취소합니다 |
 | `tts_jobs_result` | Permanently consumes the one-time result · 1회용 결과 원본을 영구 소모합니다 |
+
+TTS 보이스 표시 이름: `narrator_m_01` 태준, `narrator_m_02` 민석, `narrator_m_03` 도현, `narrator_m_04` 강우, `narrator_m_05` 성훈, `narrator_f_10s_01` 서아, `narrator_f_10s_02` 하린, `narrator_f_10s_03` 예린, `narrator_m_20s_01` 도윤, `narrator_f_20s_01` 지안, `narrator_f_20s_02` 서윤, `narrator_f_20s_03` 소연, `narrator_f_20s_04` 유나, `narrator_m_30s_01` 현우, `narrator_m_30s_02` 준혁, `narrator_m_40s_01` 정우, `narrator_m_80s_01` 영수.
 
 ### Try it with curl / curl로 바로 확인
 

@@ -1,7 +1,7 @@
 # APICK MCP — Full Tool Catalog / 전체 Tool 목록
 
-**82 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 82개**, 분야별 서버 8개와 통합 서버 `all`.
+**83 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 83개**, 분야별 서버 8개와 통합 서버 `all`.
 
 Official site 공식 사이트: **<https://apick.app>** · Docs 연동 가이드: **<https://apick.app/dev_guide/mcp>**
 
@@ -17,12 +17,12 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | [OCR · OCR 문자인식](#ocr) | `/mcp/ocr` | 6 | 이미지 텍스트 추출과 신분증 항목 추출. |
 | [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 3 | 계좌 예금주 실명조회와 1원 인증. |
 | [Web & Search · 웹 · 검색](#web) | `/mcp/web` | 13 | 도메인·IP 조회, WHOIS, 웹페이지 수집, 구글 검색, 유튜브. |
-| [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 18 | PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크. |
+| [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 19 | PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 4 | LLM 챗(다중 모델), 텍스트 요약·교정. |
-| **All 통합** | `/mcp/all` | **82** | 아래 전부 |
+| **All 통합** | `/mcp/all` | **83** | 아래 전부 |
 
-<details><summary><b>All 82 tool names / 전체 Tool 이름</b></summary>
+<details><summary><b>All 83 tool names / 전체 Tool 이름</b></summary>
 
 `biz_detail` · `venture_biz_info` · `land_rt_price` · `req_pccc` · `get_pccc` · `check_pccc` · `get_car_flooding` · `get_car_scrap` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info`
 
@@ -34,7 +34,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 `nslookup` · `reverse_ip` · `location` · `ip_history` · `whois` · `url_html` · `url_screenshot` · `url_similarity` · `google_search` · `google_image_search` · `google_lens_search` · `crawl_youtube` · `download_youtube_video`
 
-`stt` · `tts_jobs_create` · `tts_jobs_status` · `tts_jobs_cancel` · `tts_jobs_result` · `voice_change` · `face_blur` · `pdf_to_docx` · `pdf_to_image` · `pdf_merge` · `html_to_pdf` · `docx_to_pdf` · `json_to_excel` · `base64_to_image` · `set_watermark` · `get_watermark` · `draw_watermark_pdf` · `draw_watermark_image`
+`stt` · `tts_jobs_create` · `tts_jobs_status` · `tts_jobs_cancel` · `tts_jobs_result` · `tts_jobs_subtitles` · `voice_change` · `face_blur` · `pdf_to_docx` · `pdf_to_image` · `pdf_merge` · `html_to_pdf` · `docx_to_pdf` · `json_to_excel` · `base64_to_image` · `set_watermark` · `get_watermark` · `draw_watermark_pdf` · `draw_watermark_image`
 
 `nsfw_detection` · `image_similarity` · `video_to_mp3` · `extract_video_thumbnail` · `word_cloud` · `face_detection`
 
@@ -1199,7 +1199,7 @@ Download a publicly available YouTube video and return it as an MP4 file.
 
 ## File Conversion · 파일 변환 · 워터마크
 
-`https://apick.app/mcp/convert` — 18 tools
+`https://apick.app/mcp/convert` — 19 tools
 
 PDF, DOCX, Excel, speech-to-text, asynchronous TTS jobs, and watermarking.
 
@@ -1212,6 +1212,7 @@ PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크.
 | [`tts_jobs_status`](#tts-jobs-status) | TTS 작업 상태 조회 | `job_id` |
 | [`tts_jobs_cancel`](#tts-jobs-cancel) | TTS 대기·생성 중 작업 취소 | `job_id` |
 | [`tts_jobs_result`](#tts-jobs-result) | TTS 결과 1회 다운로드 | `job_id` |
+| [`tts_jobs_subtitles`](#tts-jobs-subtitles) | TTS ASS 자막 1회 다운로드 | `job_id` |
 | [`voice_change`](#voice-change) | 음성 변조 | `type`, `media_url` |
 | [`face_blur`](#face-blur) | 얼굴 모자이크 처리 | `image_url` |
 | [`pdf_to_docx`](#pdf-to-docx) | PDF 파일 DOCX 변환 | `pdf_url` |
@@ -1249,7 +1250,7 @@ Convert a speech audio file to text (STT).
 
 ### `tts_jobs_create` — TTS 작업 접수
 
-17개 중립 내레이션 목소리 중 하나로 유료 비동기 TTS 작업을 접수합니다. 접수 성공 시 즉시 과금되며 취소해도 환불되지 않습니다. `text`는 최대 20,000자입니다.
+17개 중립 내레이션 목소리 중 하나로 유료 비동기 TTS 작업을 접수합니다. 접수 성공 시 즉시 과금되며 취소해도 환불되지 않습니다. `text`는 최대 800자입니다.
 
 표시 이름: `narrator_m_01` 태준, `narrator_m_02` 민석, `narrator_m_03` 도현, `narrator_m_04` 강우, `narrator_m_05` 성훈, `narrator_f_10s_01` 서아, `narrator_f_10s_02` 하린, `narrator_f_10s_03` 예린, `narrator_m_20s_01` 도윤, `narrator_f_20s_01` 지안, `narrator_f_20s_02` 서윤, `narrator_f_20s_03` 소연, `narrator_f_20s_04` 유나, `narrator_m_30s_01` 현우, `narrator_m_30s_02` 준혁, `narrator_m_40s_01` 정우, `narrator_m_80s_01` 영수.
 
@@ -1258,7 +1259,7 @@ Convert a speech audio file to text (STT).
 | Parameter | Type | Required | Description 설명 |
 | --- | --- | --- | --- |
 | `voice_id` | `string` | **필수 / required** | 지원 `voice_id`. `narrator_m_01`–`05`, `narrator_f_10s_01`–`03`, `narrator_m_20s_01`, `narrator_f_20s_01`–`04`, `narrator_m_30s_01`–`02`, `narrator_m_40s_01`, `narrator_m_80s_01` |
-| `text` | `string` | **필수 / required** | 합성할 한국어 텍스트, 최대 20,000자 |
+| `text` | `string` | **필수 / required** | 합성할 한국어 텍스트, 최대 800자 |
 
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"tts_jobs_create","arguments":{"voice_id":"narrator_m_03","text":"오늘의 이야기를 시작합니다."}}}
@@ -1310,6 +1311,22 @@ Convert a speech audio file to text (STT).
 
 ```json
 {"jsonrpc":"2.0","id":4,"method":"tools/call","params":{"name":"tts_jobs_result","arguments":{"job_id":"<job_id>"}}}
+```
+
+<a id="tts-jobs-subtitles"></a>
+
+### `tts_jobs_subtitles` — TTS ASS 자막 1회 다운로드
+
+완료된 ASS 타이밍 자막(`text/x-ass`)을 base64로 반환합니다. MP3와 별도의 1회용 원본이므로 MP3를 먼저 다운로드해도 자막을 한 번 받을 수 있습니다. Tool 호출로 자막 다운로드가 시작되는 즉시 자막 원본이 폐기되므로, 호출 실패나 전송 중단을 포함해 재다운로드할 수 없습니다.
+
+> **파괴적 부작용 / destructive side effect** · 재실행 불가 / not idempotent · server `convert`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `job_id` | `string` | **필수 / required** | `completed` 상태인 32자리 ID |
+
+```json
+{"jsonrpc":"2.0","id":5,"method":"tools/call","params":{"name":"tts_jobs_subtitles","arguments":{"job_id":"<job_id>"}}}
 ```
 
 <a id="voice-change"></a>
@@ -1810,3 +1827,5 @@ Prepaid points, charged per call, identical to the APICK REST API rate. No subsc
 포인트 선불, 호출당 차감이며 단가는 에이픽 REST API와 동일합니다. 구독료·좌석당 요금 없음. **실패한 호출은 과금되지 않습니다.** 각 Tool의 현재 단가는 `tools/list` 응답의 설명에 자동으로 붙으므로 AI가 호출 전에 비용을 보고 판단합니다.
 
 Current rates 단가표: <https://apick.app/dev_guide/mcp> · Sign up for 1,000 free points 가입 시 1,000포인트 무료: <https://apick.app>
+
+`tools/list`는 API Key와 허용 IP를 검사하지 않으며 실제 검증은 `tools/call`에서 수행됩니다. 마이페이지의 허용 IP 목록이 공란이면 IP 제한이 없고, 제한하려면 APICK에 도착하는 공인 IPv4를 단일 주소 또는 CIDR(`/32` 등)로 등록하세요. 저장 즉시 반영되며 별도 동기화나 대기시간은 없습니다.

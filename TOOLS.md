@@ -657,9 +657,9 @@ Mask resident registration numbers found in an image and return the masked image
 
 ### `identity_document_residence_card` — 외국인등록증 개인정보 마스킹
 
-Extract key fields from a Korean alien registration card (residence card) image and mask the last 6 digits of the registration number.
+Extract key fields from a Korean residence card, permanent resident card, or overseas Korean resident card image and mask the last 6 digits of the registration or domestic residence report number.
 
-외국인등록증 이미지에서 지정 정보를 추출하고 등록번호 뒷자리 6자리를 마스킹한 이미지를 함께 반환합니다. PNG 또는 JPEG 이미지 파일 하나만 전달하면 되며, 마스킹된 이미지는 JSON 응답의 masked_image 필드에 base64로 포함됩니다. 정보주체의 동의 등 적법한 처리 근거를 확보한 경우에만 사용하십시오.
+외국인등록증·영주증·외국국적동포 국내거소신고증 이미지에서 지정 정보를 추출하고 등록번호 또는 거소신고번호 뒷자리 6자리를 마스킹한 이미지를 함께 반환합니다. 한 번에 신분증 한 장이 포함된 PNG 또는 JPEG 이미지만 전달해야 하며, 마스킹된 이미지는 JSON 응답의 masked_image 필드에 base64로 포함됩니다. 영주증과 외국국적동포 국내거소신고증은 마스킹만 지원하며 진위확인 Tool의 범위에는 포함되지 않습니다. 정보주체의 동의 등 적법한 처리 근거를 확보한 경우에만 사용하십시오.
 
 > 읽기 전용 / read-only · 입력 변환 / transforms your input · server `identity`
 

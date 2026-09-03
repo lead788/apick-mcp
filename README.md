@@ -209,6 +209,9 @@ Pull registry status, representative, industry code and address for each busines
 Checks the document against the government registry, extracts the fields, then returns a masked image safe to store. Covers 주민등록증 · 운전면허증 · 여권 · 외국인등록증 · 주민등록등본.
 정부 registry 대조로 진위를 확인하고, 항목을 추출한 뒤, 보관 가능한 마스킹 사본까지 한 번에 만듭니다.
 
+`identity_document_residence_card`는 외국인등록증·영주증·외국국적동포 국내거소신고증의 개인정보 마스킹을 지원합니다. 영주증과 외국국적동포 국내거소신고증은 마스킹만 지원하며 외국인등록증 진위확인 Tool의 범위에는 포함되지 않습니다.
+`identity_document_residence_card` masks residence cards, permanent resident cards, and overseas Korean resident cards. The latter two are masking-only and are not accepted by the alien registration card authenticity-check tools.
+
 ### 3. Logistics & CS automation — 배송 문의 자동응답
 
 > "운송장 123456789012 지금 어디야? 지연되면 고객 안내문도 써줘"

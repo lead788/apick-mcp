@@ -22,11 +22,11 @@ test('신분증 structuredContent 오류 코드를 변경 없이 전달한다', 
 	assert.deepEqual(output, [serverMessage]);
 });
 
-test('2.2.0 공개 메타데이터는 운영 83개·Convert 19개·AI 4개 계약과 일치한다', () => {
+test('2.3.0 공개 메타데이터는 운영 83개·Convert 19개·AI 4개와 외국인 신분증 마스킹 계약에 일치한다', () => {
 	const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
 	const readme = readFileSync(new URL('../README.md', import.meta.url), 'utf8');
 	const tools = readFileSync(new URL('../TOOLS.md', import.meta.url), 'utf8');
-	assert.equal(pkg.version, '2.2.0');
+	assert.equal(pkg.version, '2.3.0');
 	assert.match(pkg.description, /83 Korean data & AI tools/);
 	assert.match(readme, /\| \[AI · LLM\]\(TOOLS\.md#ai\) \| `https:\/\/apick\.app\/mcp\/ai` \| 4 \|/);
 	assert.match(tools, /\| \*\*All 통합\*\* \| `\/mcp\/all` \| \*\*83\*\* \|/);
@@ -53,6 +53,11 @@ test('2.2.0 공개 메타데이터는 운영 83개·Convert 19개·AI 4개 계�
 	assert.match(tools, /ASS 타이밍 자막/);
 	assert.match(readme, /8MB/);
 	assert.match(readme, /허용 IP가 공란이면 제한 없이/);
+	for (const document of ['외국인등록증', '영주증', '외국국적동포 국내거소신고증']) {
+		assert.match(readme, new RegExp(document));
+		assert.match(tools, new RegExp(document));
+	}
+	assert.match(tools, /마스킹만 지원하며 진위확인 Tool의 범위에는 포함되지 않습니다/);
 	assert.match(tools, /`google_lens_search`/);
 	assert.match(tools, /`face_detection`/);
 });

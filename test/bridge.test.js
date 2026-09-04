@@ -22,16 +22,17 @@ test('신분증 structuredContent 오류 코드를 변경 없이 전달한다', 
 	assert.deepEqual(output, [serverMessage]);
 });
 
-test('2.3.0 공개 메타데이터는 운영 83개·Convert 19개·AI 4개와 외국인 신분증 마스킹 계약에 일치한다', () => {
+test('2.4.0 공개 메타데이터는 운영 89개·Convert 19개·AI 10개와 이미지 작업 계약에 일치한다', () => {
 	const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
 	const readme = readFileSync(new URL('../README.md', import.meta.url), 'utf8');
 	const tools = readFileSync(new URL('../TOOLS.md', import.meta.url), 'utf8');
-	assert.equal(pkg.version, '2.3.0');
-	assert.match(pkg.description, /83 Korean data & AI tools/);
-	assert.match(readme, /\| \[AI · LLM\]\(TOOLS\.md#ai\) \| `https:\/\/apick\.app\/mcp\/ai` \| 4 \|/);
-	assert.match(tools, /\| \*\*All 통합\*\* \| `\/mcp\/all` \| \*\*83\*\* \|/);
+	assert.equal(pkg.version, '2.4.0');
+	assert.match(pkg.description, /89 Korean data, AI, and image tools/);
+	assert.match(readme, /\| \[AI · LLM\]\(TOOLS\.md#ai\) \| `https:\/\/apick\.app\/mcp\/ai` \| 10 \|/);
+	assert.match(tools, /\| \*\*All 통합\*\* \| `\/mcp\/all` \| \*\*89\*\* \|/);
 	assert.match(tools, /`https:\/\/apick\.app\/mcp\/convert` — 19 tools/);
-	assert.match(tools, /`https:\/\/apick\.app\/mcp\/ai` — 4 tools/);
+	assert.match(tools, /`https:\/\/apick\.app\/mcp\/ai` — 10 tools/);
+	for (const name of ['image_generate','image_edit','image_batch_create','image_batch_status','image_batch_cancel','image_batch_result']) assert.match(tools, new RegExp('`'+name+'`'));
 	for (const retired of ['ai_' + 'image_generation', 'person_' + 'detection', 'car_' + 'detection']) {
 		assert.doesNotMatch(readme, new RegExp(retired));
 		assert.doesNotMatch(tools, new RegExp(retired));

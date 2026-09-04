@@ -1,7 +1,7 @@
 # APICK MCP — Full Tool Catalog / 전체 Tool 목록
 
-**83 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 83개**, 분야별 서버 8개와 통합 서버 `all`.
+**89 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 89개**, 분야별 서버 8개와 통합 서버 `all`.
 
 Official site 공식 사이트: **<https://apick.app>** · Docs 연동 가이드: **<https://apick.app/dev_guide/mcp>**
 
@@ -19,10 +19,10 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | [Web & Search · 웹 · 검색](#web) | `/mcp/web` | 13 | 도메인·IP 조회, WHOIS, 웹페이지 수집, 구글 검색, 유튜브. |
 | [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 19 | PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
-| [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 4 | LLM 챗(다중 모델), 텍스트 요약·교정. |
-| **All 통합** | `/mcp/all` | **83** | 아래 전부 |
+| [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 10 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업. |
+| **All 통합** | `/mcp/all` | **89** | 아래 전부 |
 
-<details><summary><b>All 83 tool names / 전체 Tool 이름</b></summary>
+<details><summary><b>All 89 tool names / 전체 Tool 이름</b></summary>
 
 `biz_detail` · `venture_biz_info` · `land_rt_price` · `req_pccc` · `get_pccc` · `check_pccc` · `get_car_flooding` · `get_car_scrap` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info`
 
@@ -38,7 +38,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 `nsfw_detection` · `image_similarity` · `video_to_mp3` · `extract_video_thumbnail` · `word_cloud` · `face_detection`
 
-`llm_models` · `llm_chat` · `text_summary` · `text_polish`
+`llm_models` · `llm_chat` · `text_summary` · `text_polish` · `image_generate` · `image_edit` · `image_batch_create` · `image_batch_status` · `image_batch_cancel` · `image_batch_result`
 
 </details>
 
@@ -1723,7 +1723,7 @@ Detect faces in an image and return their coordinates.
 
 ## AI & LLM · AI · LLM
 
-`https://apick.app/mcp/ai` — 4 tools
+`https://apick.app/mcp/ai` — 10 tools
 
 LLM chat across multiple models, text summarization, and polishing.
 
@@ -1735,6 +1735,14 @@ LLM 챗(다중 모델), 텍스트 요약·교정.
 | [`llm_chat`](#llm-chat) | LLM 채팅 | `model` |
 | [`text_summary`](#text-summary) | 텍스트 요약 AI | `text` |
 | [`text_polish`](#text-polish) | 텍스트 다듬기 AI | `text` |
+| `image_generate` | 이미지 한 장 생성 | `prompt`, `size?`, `output_format?`, `background?`, `output_compression?`, `idempotency_key?` |
+| `image_edit` | 이미지 한 장 편집 | `image_url`, `mask_url?`, `prompt` 및 출력 옵션 |
+| `image_batch_create` | 이미지 대량 작업 생성 | `mode`, `prompt`, `count`, 편집 파일 및 출력 옵션 |
+| `image_batch_status` | 대량 작업 상태 조회 | `job_id` |
+| `image_batch_cancel` | 대량 작업 취소 | `job_id` |
+| `image_batch_result` | 대량 작업 개별 결과 | `job_id`, `index` |
+
+이미지 생성·편집은 성공 결과 한 장당 25포인트입니다. 동기 Tool은 응답 크기를 위해 한 장만 반환하며, 대량 작업은 최대 50장 접수 후 `image_batch_result`로 한 장씩 가져옵니다. PNG·JPEG·WebP, 다양한 비율, PNG/WebP 투명 배경 미리보기를 지원합니다. 프롬프트는 최대 6,000자이고 완료 결과는 24시간 동안 반복 조회할 수 있습니다.
 
 <a id="llm-models"></a>
 
@@ -1769,8 +1777,8 @@ Send a chat request to a selected LLM model and receive the assistant reply.
 
 | Parameter | Type | Required | Description 설명 |
 | --- | --- | --- | --- |
-| `model` | `string` | **필수 / required** | 모델 id (llm_models Tool로 조회 가능, 예: openai/gpt-oss-120b) |
-| `messages` | `array` | 선택 / optional | OpenAI 형식 [{role, content}] 배열. role 은 'system'\|'user'\|'assistant'. content 와 둘 중 하나는 필수, 동시 지정 시 messages 우선. 멀티턴 대화는 응답의 compacted_messages 를 다음 턴에 그대로 전송 |
+| `model` | `string` | **필수 / required** | 모델 id (`llm_models` Tool로 조회) |
+| `messages` | `array` | 선택 / optional | 채팅 메시지 [{role, content}] 배열. role 은 'system'\|'user'\|'assistant'. content 와 둘 중 하나는 필수, 동시 지정 시 messages 우선. 멀티턴 대화는 응답의 compacted_messages 를 다음 턴에 그대로 전송 |
 | `content` | `string` | 선택 / optional | 단발 입력 — 사용자 메시지 한 건만 보내는 간편 형태. messages 와 둘 중 하나는 필수 |
 | `system` | `string` | 선택 / optional | system 프롬프트 (역할·페르소나·정책·배경지식). 미지정 시 기본 한국어 어시스턴트 프롬프트가 적용됩니다 |
 | `compact` | `object` | 선택 / optional | 히스토리 압축 옵션 { strategy: 'none'(기본) \| 'sliding_window', window_pairs: 유지할 user/assistant 페어 수 (기본 10, 최소 1) }. 긴 대화의 input 토큰 누적 방지 |

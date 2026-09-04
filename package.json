@@ -1,7 +1,7 @@
 {
   "name": "apick-mcp",
-  "version": "2.3.0",
-  "description": "APICK MCP — 83 Korean data & AI tools for AI agents. 사업자조회·신분증 진위확인·OCR·택배 배송조회·비동기 TTS·파일변환·WHOIS·구글검색·LLM. Korean business registry, ID verification, OCR, parcel tracking, asynchronous TTS, file conversion, web intelligence and LLM over MCP.",
+  "version": "2.4.0",
+  "description": "APICK MCP — 89 Korean data, AI, and image tools for AI agents. 사업자조회·신분증·OCR·배송조회·이미지 생성·편집·파일변환·검색·LLM.",
   "type": "module",
   "license": "MIT",
   "author": "APICK",
@@ -42,7 +42,6 @@
     "claude",
     "claude-code",
     "claude-desktop",
-    "chatgpt",
     "cursor",
     "cline",
     "windsurf",
@@ -83,6 +82,8 @@
     "face-detection",
     "face-blur",
     "nsfw-detection",
-    "image-similarity"
+    "image-similarity",
+    "image-generation",
+    "image-editing"
   ]
 }

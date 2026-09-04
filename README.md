@@ -2,7 +2,7 @@
 
 <img src="https://raw.githubusercontent.com/lead788/apick-mcp/main/assets/logo-400.png" alt="APICK" width="88" height="88">
 
-# APICK MCP — 83 Korean Data & AI Tools
+# APICK MCP — 89 Korean Data, AI & Image Tools
 
 **Korean business registry, ID verification, OCR, parcel tracking, file conversion, web intelligence and LLM — as MCP tools for any AI agent.**
 
@@ -22,9 +22,9 @@
 
 ## What is this? / 이게 뭔가요?
 
-**EN** — APICK is a Korean data and AI API platform. This MCP server exposes **83 tools** that let Claude, ChatGPT, Cursor, Cline and any other MCP client look up Korean business registries, verify ID documents, track parcels, run OCR, create asynchronous TTS jobs, convert files, query DNS/WHOIS, search the web, and call LLMs — using one API key, billed per call.
+**EN** — APICK is a Korean data and AI API platform. This MCP server exposes **89 tools** for Korean business data, identity verification, OCR, parcel tracking, image generation and editing, file conversion, web intelligence, and LLM calls.
 
-**KO** — 에이픽(APICK)은 대한민국 데이터·AI API 플랫폼입니다. 이 MCP 서버는 **Tool 83개**를 열어, Claude·ChatGPT·Cursor·Cline 등 MCP 클라이언트가 사업자 조회, 신분증 진위확인, 택배 배송조회, OCR, 비동기 TTS, 파일 변환, DNS/WHOIS 조회, 웹 검색, LLM 호출을 **인증키 하나로** 직접 수행하게 합니다. 호출당 과금입니다.
+**KO** — 에이픽(APICK)은 대한민국 데이터·AI API 플랫폼입니다. 이 MCP 서버는 **Tool 89개**로 사업자 조회, 신분증 진위확인, 택배 배송조회, OCR, 이미지 생성·편집, 파일 변환, 웹 검색과 LLM 호출을 **인증키 하나로** 제공합니다.
 
 **The server is hosted by APICK. Nothing to install, build, or keep running.**
 **서버는 에이픽이 운영합니다. 설치할 것도, 띄워둘 것도 없습니다.**
@@ -42,8 +42,8 @@ https://apick.app/mcp/all
 Sign up at **[apick.app](https://apick.app)** and copy your license key from the dashboard. New accounts get **1,000 free points**.
 **[apick.app](https://apick.app)** 에서 가입하고 대시보드에서 인증키를 복사하세요. 신규 가입 시 **1,000포인트 무료**.
 
-> `tools/list` works **without** a key — a client can connect and discover all 83 tools before you sign up. Only `tools/call` validates the key and allowed IP.
-> `tools/list`는 **인증 없이** 동작합니다. 가입 전에도 클라이언트가 연결해 83개 Tool을 확인할 수 있고, 키와 허용 IP는 `tools/call`부터 검증합니다.
+> `tools/list` works **without** a key — a client can connect and discover all 89 tools before you sign up. Only `tools/call` validates the key and allowed IP.
+> `tools/list`는 **인증 없이** 동작합니다. 가입 전에도 클라이언트가 연결해 89개 Tool을 확인할 수 있고, 키와 허용 IP는 `tools/call`부터 검증합니다.
 
 Leave the allowed-IP list blank for unrestricted access. To restrict access, register the public IPv4 address seen by APICK as an exact address or CIDR such as `/32`. Changes apply immediately with no separate synchronization.
 마이페이지의 허용 IP가 공란이면 제한 없이 사용할 수 있습니다. 제한하려면 APICK에 도착하는 공인 IPv4를 단일 주소 또는 CIDR(`/32` 등)로 등록하세요. 저장 즉시 반영되며 별도 동기화는 필요하지 않습니다.
@@ -149,20 +149,20 @@ Connect to `all` for everything, or to one server to keep the tool list short an
 
 | Server 서버 | Endpoint | Tools | Coverage 범위 |
 | --- | --- | --- | --- |
-| **All 통합** | `https://apick.app/mcp/all` | **83** | 아래 전부 |
+| **All 통합** | `https://apick.app/mcp/all` | **89** | 아래 전부 |
 | [Business 사업자·커머스](TOOLS.md#business) | `https://apick.app/mcp/business` | 16 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 유효성 검사 |
 | [Identity 신분증](TOOLS.md#identity) | `https://apick.app/mcp/identity` | 16 | 주민등록증·운전면허증·여권·외국인등록증 진위확인, 실명확인, 개인정보 마스킹 |
 | [Convert 파일변환](TOOLS.md#convert) | `https://apick.app/mcp/convert` | 19 | PDF·DOCX·엑셀 변환, STT, 비동기 TTS, 워터마크 |
 | [Web 웹·검색](TOOLS.md#web) | `https://apick.app/mcp/web` | 13 | 도메인·IP·WHOIS, 웹페이지 수집, 구글 검색, 유튜브 |
 | [Vision 이미지·영상](TOOLS.md#vision) | `https://apick.app/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출 |
 | [OCR 문자인식](TOOLS.md#ocr) | `https://apick.app/mcp/ocr` | 6 | 이미지 텍스트 추출, 신분증 항목 추출 |
-| [AI · LLM](TOOLS.md#ai) | `https://apick.app/mcp/ai` | 4 | LLM 챗, 텍스트 요약·교정 |
+| [AI · LLM](TOOLS.md#ai) | `https://apick.app/mcp/ai` | 10 | LLM 챗, 텍스트 요약·교정, 이미지 생성·편집·대량 작업 |
 | [Finance 금융](TOOLS.md#finance) | `https://apick.app/mcp/finance` | 3 | 계좌 예금주 조회, 1원 인증 |
 
 ### Every tool / 전체 Tool
 
-**[→ TOOLS.md](TOOLS.md)** — all 83 tools with parameters, types, and copy-paste JSON-RPC examples.
-**[→ TOOLS.md](TOOLS.md)** — 83개 전체를 파라미터·타입·호출 예시까지 정리했습니다.
+**[→ TOOLS.md](TOOLS.md)** — all 89 tools with parameters, types, and copy-paste JSON-RPC examples.
+**[→ TOOLS.md](TOOLS.md)** — 89개 전체를 파라미터·타입·호출 예시까지 정리했습니다.
 
 <details>
 <summary><b>Tool names at a glance / Tool 이름 한눈에 보기</b></summary>
@@ -181,7 +181,7 @@ Connect to `all` for everything, or to one server to keep the tool list short an
 
 **Vision** `nsfw_detection` `image_similarity` `video_to_mp3` `extract_video_thumbnail` `word_cloud` `face_detection`
 
-**AI** `llm_models` `llm_chat` `text_summary` `text_polish`
+**AI** `llm_models` `llm_chat` `text_summary` `text_polish` `image_generate` `image_edit` `image_batch_create` `image_batch_status` `image_batch_cancel` `image_batch_result`
 
 </details>
 
@@ -268,7 +268,7 @@ Built for phishing and copycat-site investigation: resolve the host, trace its I
 | **Transport** | Streamable HTTP — one endpoint per server, JSON-RPC 2.0 over HTTPS POST, stateless | 서버당 단일 엔드포인트, HTTPS POST로 JSON-RPC 2.0, 세션 없이 요청 단위 |
 | **Protocol** | MCP `2026-07-28`, auto-compatible with earlier client versions | MCP `2026-07-28` 기본, 이전 규격 클라이언트 자동 호환 |
 | **Discovery** | `tools/list` returns every tool with JSON Schema, description and live price — no key needed | `tools/list`가 스키마·설명·실시간 단가를 반환, 인증 불필요 |
-| **Annotations** | Every tool declares `title`, `readOnlyHint`, `openWorldHint`. Only 7 of 83 are not read-only | 전 Tool이 `title`·`readOnlyHint`·`openWorldHint` 선언. 83개 중 부작용은 7개뿐 |
+| **Annotations** | Every tool declares `title`, `readOnlyHint`, `openWorldHint`. 11 of 89 are not read-only | 전 Tool이 `title`·`readOnlyHint`·`openWorldHint` 선언. 89개 중 상태 변경 Tool은 11개 |
 | **Results** | Text (JSON) + `structuredContent`. Images as image content; files up to 8MB as base64 | 텍스트(JSON)와 `structuredContent` 동시 반환. 이미지는 이미지 콘텐츠, 8MB 이하 파일은 base64 |
 | **File input** | File-taking tools accept a public `https` URL (`image_url`, `pdf_url`, …) — APICK downloads and processes it | 파일 Tool은 공개 `https` URL을 받습니다. 에이픽 서버가 내려받아 처리합니다 |
 | **Errors** | Delivered via `isError`; identity masking also preserves `structuredContent.error_code` | `isError`로 전달되며 신분증 마스킹은 `structuredContent.error_code`도 보존합니다 |
@@ -276,8 +276,8 @@ Built for phishing and copycat-site investigation: resolve the host, trace its I
 
 ### Tools with side effects / 부작용이 있는 Tool
 
-76 of 83 tools are read-only. These 7 change state, charge points, cancel work, or consume a one-time result and carry `readOnlyHint: false` so your client can require approval:
-83개 중 76개는 조회입니다. 아래 7개는 과금·취소·1회 결과 소모 등 상태를 바꾸므로 `readOnlyHint: false`가 붙어 클라이언트가 승인을 요구할 수 있습니다.
+78 of 89 tools are read-only. The other 11 change state, charge points, cancel work, or consume a result and carry `readOnlyHint: false` so your client can require approval:
+89개 중 78개는 조회입니다. 나머지 11개는 과금·취소·결과 생성 등 상태를 바꾸므로 `readOnlyHint: false`가 붙습니다.
 
 | Tool | What it does / 하는 일 |
 | --- | --- |
@@ -358,7 +358,7 @@ Korean business registry API · 사업자등록번호 조회 API · business reg
 
 ## Hashtags
 
-`#MCP` `#ModelContextProtocol` `#MCPServer` `#MCPTools` `#AIAgent` `#ClaudeMCP` `#ClaudeCode` `#ClaudeDesktop` `#ChatGPT` `#Cursor` `#Cline` `#Windsurf` `#VSCode` `#APICK` `#에이픽` `#OpenAPI` `#RESTAPI` `#KoreaAPI` `#한국API` `#사업자조회` `#사업자등록번호조회` `#휴폐업조회` `#신분증진위확인` `#실명확인` `#본인인증` `#개인정보마스킹` `#OCR` `#문자인식` `#택배조회` `#배송조회` `#운송장조회` `#계좌실명조회` `#1원인증` `#통관고유부호` `#부동산실거래가` `#도로명주소` `#공휴일API` `#WHOIS` `#DNS` `#IP조회` `#웹크롤링` `#구글검색API` `#스크린샷API` `#PDF변환` `#DOCX변환` `#엑셀변환` `#워터마크` `#STT` `#음성인식` `#얼굴인식` `#얼굴블러` `#유해이미지` `#NSFW` `#이미지유사도` `#LLM` `#KYC` `#KYB` `#핀테크` `#이커머스` `#물류자동화` `#업무자동화`
+`#MCP` `#ModelContextProtocol` `#MCPServer` `#MCPTools` `#AIAgent` `#ClaudeMCP` `#ClaudeCode` `#ClaudeDesktop` `#Cursor` `#Cline` `#Windsurf` `#VSCode` `#APICK` `#에이픽` `#OpenAPI` `#RESTAPI` `#KoreaAPI` `#한국API` `#사업자조회` `#사업자등록번호조회` `#휴폐업조회` `#신분증진위확인` `#실명확인` `#본인인증` `#개인정보마스킹` `#OCR` `#문자인식` `#택배조회` `#배송조회` `#운송장조회` `#계좌실명조회` `#1원인증` `#통관고유부호` `#부동산실거래가` `#도로명주소` `#공휴일API` `#WHOIS` `#DNS` `#IP조회` `#웹크롤링` `#구글검색API` `#스크린샷API` `#PDF변환` `#DOCX변환` `#엑셀변환` `#워터마크` `#STT` `#음성인식` `#얼굴인식` `#얼굴블러` `#유해이미지` `#NSFW` `#이미지유사도` `#LLM` `#KYC` `#KYB` `#핀테크` `#이커머스` `#물류자동화` `#업무자동화`
 
 ---
 

@@ -1,6 +1,6 @@
 {
   "name": "apick-mcp",
-  "version": "2.4.1",
+  "version": "2.5.0",
   "description": "APICK MCP — 89 Korean data, AI, and image tools for AI agents. 사업자조회·신분증·OCR·배송조회·이미지 생성·편집·파일변환·검색·LLM.",
   "type": "module",
   "license": "MIT",

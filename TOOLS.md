@@ -1735,14 +1735,16 @@ LLM 챗(다중 모델), 텍스트 요약·교정.
 | [`llm_chat`](#llm-chat) | LLM 채팅 | `model` |
 | [`text_summary`](#text-summary) | 텍스트 요약 AI | `text` |
 | [`text_polish`](#text-polish) | 텍스트 다듬기 AI | `text` |
-| `image_generate` | 이미지 한 장 생성 | `prompt`, `size?`, `output_format?`, `background?`, `output_compression?`, `idempotency_key?` |
+| `image_generate` | 텍스트 또는 참고 이미지와 텍스트로 이미지 한 장 생성 | `prompt`, `reference_image_url?`, `size?`, `output_format?`, `background?`, `idempotency_key?` |
 | `image_edit` | 이미지 한 장 편집 | `image_url`, `prompt` 및 출력 옵션 |
-| `image_batch_create` | 이미지 대량 작업 생성 | `mode`, `prompt`, `count`, 편집 파일 및 출력 옵션 |
+| `image_batch_create` | 이미지 대량 작업 생성 | `mode`, `prompt`, `image_count`, 참고·편집 파일 및 출력 옵션 |
 | `image_batch_status` | 대량 작업 상태 조회 | `job_id` |
 | `image_batch_cancel` | 대량 작업 취소 | `job_id` |
 | `image_batch_result` | 대량 작업 개별 결과 | `job_id`, `index` |
 
-이미지 생성·편집은 성공 결과 한 장당 25포인트입니다. 편집은 원본 이미지 한 장과 프롬프트만 받으며 마스크 파일은 지원하지 않습니다. 동기 Tool은 응답 크기를 위해 한 장만 반환하며, 대량 작업은 최대 50장 접수 후 `image_batch_result`로 한 장씩 가져옵니다. PNG·JPEG·WebP, 다양한 비율, PNG/WebP 투명 배경 미리보기를 지원합니다. 프롬프트는 최대 6,000자이고 완료 결과는 24시간 동안 반복 조회할 수 있습니다.
+이미지 생성·편집은 성공 결과 한 장당 25포인트입니다. `image_generate`에 `reference_image_url`을 더하면 참고 이미지의 구도·색감·제품 형태와 프롬프트를 함께 반영할 수 있습니다. 편집은 원본 이미지 한 장과 프롬프트만 받으며 마스크 파일은 지원하지 않습니다. 동기 Tool은 응답 크기를 위해 한 장만 반환하며, 대량 작업은 `image_count`에 1~50을 지정한 뒤 `image_batch_result`로 한 장씩 가져옵니다. 크기는 `1024x1024`, `1536x1024`, `1024x1536`, `1152x864`, `864x1152` 중에서 고릅니다. PNG·JPEG·WebP와 PNG/WebP 투명 배경 미리보기를 지원합니다. 프롬프트는 최대 6,000자이고 완료 결과는 24시간 동안 반복 조회할 수 있습니다. `idempotency_key`는 같은 요청의 중복 생성·과금을 막는 8~128자 안전번호이며, 동일 요청을 재전송할 때만 같은 값을 사용합니다.
+
+예: `흰색 대리석 테이블 위의 무광 검정 텀블러, 부드러운 아침 자연광, 제품 전체가 프레임 안에 보이게, 이미지 안 글자 없음`처럼 피사체·배경·조명·구도·금지 요소를 구체적으로 적습니다. 글자를 넣을 때는 `상단 중앙에 '가을 산책'을 또렷한 짙은 남색 한글로, 다른 글자 없음`처럼 실제 문구와 위치를 함께 지정합니다.
 
 <a id="llm-models"></a>
 

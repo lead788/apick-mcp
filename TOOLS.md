@@ -1,7 +1,7 @@
 # APICK MCP — Full Tool Catalog / 전체 Tool 목록
 
-**88 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 88개**, 분야별 서버 8개와 통합 서버 `all`.
+**91 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 91개**, 분야별 서버 8개와 통합 서버 `all`.
 
 Official site 공식 사이트: **<https://apick.app>** · Docs 연동 가이드: **<https://apick.app/dev_guide/mcp>**
 
@@ -17,12 +17,12 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | [OCR · OCR 문자인식](#ocr) | `/mcp/ocr` | 6 | 이미지 텍스트 추출과 신분증 항목 추출. |
 | [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 3 | 계좌 예금주 실명조회와 1원 인증. |
 | [Web & Search · 웹 · 검색](#web) | `/mcp/web` | 13 | 도메인·IP 조회, WHOIS, 웹페이지 수집, 구글 검색, 유튜브. |
-| [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 19 | PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크. |
+| [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 22 | PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
-| [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 10 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업. |
-| **All 통합** | `/mcp/all` | **88** | 아래 전부 |
+| [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 9 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업. |
+| **All 통합** | `/mcp/all` | **91** | 아래 전부 |
 
-<details><summary><b>All 88 tool names / 전체 Tool 이름</b></summary>
+<details><summary><b>All 91 tool names / 전체 Tool 이름</b></summary>
 
 `biz_detail` · `venture_biz_info` · `land_rt_price` · `req_pccc` · `get_pccc` · `check_pccc` · `get_car_flooding` · `get_car_scrap` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info`
 
@@ -34,7 +34,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 `nslookup` · `reverse_ip` · `location` · `ip_history` · `whois` · `url_html` · `url_screenshot` · `url_similarity` · `google_search` · `google_image_search` · `google_lens_search` · `crawl_youtube` · `download_youtube_video`
 
-`stt` · `tts_jobs_create` · `tts_jobs_status` · `tts_jobs_cancel` · `tts_jobs_result` · `tts_jobs_subtitles` · `voice_change` · `face_blur` · `pdf_to_docx` · `pdf_to_image` · `pdf_merge` · `html_to_pdf` · `docx_to_pdf` · `json_to_excel` · `base64_to_image` · `set_watermark` · `get_watermark` · `draw_watermark_pdf` · `draw_watermark_image`
+`stt` · `tts_jobs_create` · `tts_jobs_status` · `tts_jobs_cancel` · `tts_jobs_result` · `tts_jobs_subtitles` · `tts_jobs_quality` · `tts_jobs_retry` · `tts_jobs_candidate_audio` · `voice_change` · `face_blur` · `pdf_to_docx` · `pdf_to_image` · `pdf_merge` · `html_to_pdf` · `docx_to_pdf` · `json_to_excel` · `base64_to_image` · `set_watermark` · `get_watermark` · `draw_watermark_pdf` · `draw_watermark_image`
 
 `nsfw_detection` · `image_similarity` · `video_to_mp3` · `extract_video_thumbnail` · `word_cloud` · `face_detection`
 
@@ -1199,7 +1199,7 @@ Download a publicly available YouTube video and return it as an MP4 file.
 
 ## File Conversion · 파일 변환 · 워터마크
 
-`https://apick.app/mcp/convert` — 19 tools
+`https://apick.app/mcp/convert` — 22 tools
 
 PDF, DOCX, Excel, speech-to-text, asynchronous TTS jobs, and watermarking.
 
@@ -1838,3 +1838,11 @@ Prepaid points, charged per call, identical to the APICK REST API rate. No subsc
 Current rates 단가표: <https://apick.app/dev_guide/mcp> · Sign up for 1,000 free points 가입 시 1,000포인트 무료: <https://apick.app>
 
 `tools/list`는 API Key와 허용 IP를 검사하지 않으며 실제 검증은 `tools/call`에서 수행됩니다. 마이페이지의 허용 IP 목록이 공란이면 IP 제한이 없고, 제한하려면 APICK에 도착하는 공인 IPv4를 단일 주소 또는 CIDR(`/32` 등)로 등록하세요. 저장 즉시 반영되며 별도 동기화나 대기시간은 없습니다.
+
+## TTS quality and recovery / TTS 검수와 재개
+
+`tts_jobs_quality` takes `job_id` and returns utterance quality and candidate history. `tts_jobs_candidate_audio` takes `job_id` and `candidate_id` and returns candidate WAV audio without consuming the final downloads. Candidates remain available for 72 hours after termination.
+
+`tts_jobs_retry` takes `job_id`, `utterance_ids` (such as `["u002"]`), and `idempotency_key`. Reuse the same key and IDs after a lost response. Technical recovery does not add a charge. This tool changes job state (`readOnlyHint: false`).
+
+`tts_jobs_quality`는 작업 ID로 발화 검수와 후보 이력을 조회합니다. `tts_jobs_candidate_audio`는 작업 ID·후보 ID로 WAV를 조회하며 최종 다운로드를 소비하지 않습니다. 후보는 종료 후 72시간 보존됩니다. `tts_jobs_retry`는 발화 ID 목록과 멱등 키로 같은 작업을 추가 과금 없이 재개합니다. 응답 단절 시 동일한 키와 목록을 재사용하세요.

@@ -22,15 +22,15 @@ test('신분증 structuredContent 오류 코드를 변경 없이 전달한다', 
 	assert.deepEqual(output, [serverMessage]);
 });
 
-test('3.0.0 공개 메타데이터는 운영 88개·Convert 19개·AI 9개와 이미지 작업 계약에 일치한다', () => {
+test('3.1.0 공개 메타데이터는 운영 91개·Convert 22개·AI 9개와 이미지 작업 계약에 일치한다', () => {
 	const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
 	const readme = readFileSync(new URL('../README.md', import.meta.url), 'utf8');
 	const tools = readFileSync(new URL('../TOOLS.md', import.meta.url), 'utf8');
-	assert.equal(pkg.version, '3.0.0');
-	assert.match(pkg.description, /88 Korean data, AI, and image tools/);
+	assert.equal(pkg.version, '3.1.0');
+	assert.match(pkg.description, /91 Korean data, AI, and image tools/);
 	assert.match(readme, /\| \[AI · LLM\]\(TOOLS\.md#ai\) \| `https:\/\/apick\.app\/mcp\/ai` \| 9 \|/);
-	assert.match(tools, /\| \*\*All 통합\*\* \| `\/mcp\/all` \| \*\*88\*\* \|/);
-	assert.match(tools, /`https:\/\/apick\.app\/mcp\/convert` — 19 tools/);
+	assert.match(tools, /\| \*\*All 통합\*\* \| `\/mcp\/all` \| \*\*91\*\* \|/);
+	assert.match(tools, /`https:\/\/apick\.app\/mcp\/convert` — 22 tools/);
 	assert.match(tools, /`https:\/\/apick\.app\/mcp\/ai` — 9 tools/);
 	for (const name of ['image_generate','image_edit','image_batch_create','image_batch_status','image_batch_result']) assert.match(tools, new RegExp('`'+name+'`'));
 	assert.doesNotMatch(tools, /image_batch_cancel/);
@@ -46,7 +46,7 @@ test('3.0.0 공개 메타데이터는 운영 88개·Convert 19개·AI 9개와 �
 	}
 	assert.doesNotMatch(readme, /`tts`(?!_jobs)|text-to-speech|음성합성\(TTS\)/i);
 	assert.doesNotMatch(tools, /`tts`(?!_jobs)|text-to-speech|음성합성\(TTS\)/i);
-	for (const name of ['tts_jobs_create', 'tts_jobs_status', 'tts_jobs_cancel', 'tts_jobs_result', 'tts_jobs_subtitles']) {
+	for (const name of ['tts_jobs_create', 'tts_jobs_status', 'tts_jobs_cancel', 'tts_jobs_result', 'tts_jobs_subtitles', 'tts_jobs_quality', 'tts_jobs_retry', 'tts_jobs_candidate_audio']) {
 		assert.match(readme, new RegExp('`' + name + '`'));
 		assert.match(tools, new RegExp('`' + name + '`'));
 	}

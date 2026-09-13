@@ -1841,7 +1841,7 @@ Polish a text (up to 100,000 characters) by fixing grammar, spelling, and awkwar
 
 Submit an asynchronous Seedance video generation job combining text, image, or reference inputs into up to a 30-second video.
 
-Seedance 영상 생성 작업을 비동기로 접수합니다. text/image/reference 세 가지 mode를 지원하며, `seedance_jobs_status` Tool로 상태를 조회하고 완료되면 응답의 `result_url`(REST 다운로드 주소, 7일 이내 유효)로 다운로드합니다. 접수 시 `duration × 초당 610포인트`가 예약 차감되고 완료 시 확정, 실패·시간 초과 시 전액 환불됩니다.
+Seedance 영상 생성 작업을 비동기로 접수합니다. text/image/reference 세 가지 mode를 지원하며, `seedance_jobs_status` Tool로 상태를 조회하고 완료되면 응답의 `result_url`(REST 다운로드 주소, 7일 이내 유효)로 다운로드합니다. 접수 시 `duration × 초당 포인트`(해상도별 단가는 요금 절 참고)가 예약 차감되고 완료 시 확정, 실패·시간 초과 시 전액 환불됩니다.
 
 > **부작용 있음 / has side effects** · 외부 데이터 조회 / external lookup · server `ai`
 
@@ -1851,7 +1851,7 @@ Seedance 영상 생성 작업을 비동기로 접수합니다. text/image/refere
 | `mode` | `string` | 선택 / optional | 입력 방식 — 'text'(텍스트만) \| 'image'(첫 프레임 이미지 지정) \| 'reference'(참조 이미지·영상으로 주체 지정). 기본 text |
 | `duration` | `integer` | 선택 / optional | 영상 길이(초), 4~30, 기본 5 |
 | `aspect_ratio` | `string` | 선택 / optional | 가로세로 비율 — `16:9`, `4:3`, `1:1`, `3:4`, `9:16`, `21:9`, `adaptive` 중 하나, 기본 16:9 |
-| `resolution` | `string` | 선택 / optional | 해상도 — `480p`, `720p` 중 하나, 기본 720p |
+| `resolution` | `string` | 선택 / optional | 해상도 — `480p`, `720p`, `1080p` 중 하나, 기본 720p. 해상도별로 초당 포인트가 다릅니다(요금 절 참고, 높을수록 비용 증가) |
 | `audio` | `boolean` | 선택 / optional | 오디오 생성 여부, 기본 true. 생성된 오디오가 정책(저작권 등) 검수에서 거부되면 작업이 실패하고 전액 환불됩니다 |
 | `idempotency_key` | `string` | 선택 / optional | 같은 요청의 재전송으로 인한 중복 접수·과금을 막는 고유 키 |
 | `image_url` | `string` (file) | 선택 / optional | image 모드에서 사용할 첫 프레임 이미지 URL — https URL, image/png, image/jpeg, image/webp, 최대 50MB |
@@ -1998,13 +1998,15 @@ Current rates 단가표: <https://apick.app/dev_guide/mcp> · Sign up for 1,000 
 Video generation is billed per second of output (`duration × per-second points`), not per call — the rate above is per second, not per video.
 영상 생성은 호출당이 아니라 초당 과금입니다(`duration × 초당 포인트`) — 아래 단가는 1초당 포인트입니다.
 
-| Model 모델 | Tier 등급 | Points/sec 초당 포인트 |
+| Model 모델 | Tier·Resolution 등급·해상도 | Points/sec 초당 포인트 |
 | --- | --- | --- |
-| Seedance | standard | 610P |
+| Seedance | standard · 480p | 560P |
+| Seedance | standard · 720p | 1,250P |
+| Seedance | standard · 1080p | 2,810P |
 | Veo | standard | 900P |
 | Veo | fast | 360P |
-| Kling | std | 320P |
-| Kling | pro | 430P |
+| Kling | std | 410P |
+| Kling | pro | 550P |
 
 ## TTS quality and recovery / TTS 검수와 재개
 

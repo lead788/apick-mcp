@@ -1,7 +1,7 @@
 # APICK MCP — Full Tool Catalog / 전체 Tool 목록
 
-**91 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 91개**, 분야별 서버 8개와 통합 서버 `all`.
+**97 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 97개**, 분야별 서버 8개와 통합 서버 `all`.
 
 Official site 공식 사이트: **<https://apick.app>** · Docs 연동 가이드: **<https://apick.app/dev_guide/mcp>**
 
@@ -19,10 +19,10 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | [Web & Search · 웹 · 검색](#web) | `/mcp/web` | 13 | 도메인·IP 조회, WHOIS, 웹페이지 수집, 구글 검색, 유튜브. |
 | [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 22 | PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
-| [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 9 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업. |
-| **All 통합** | `/mcp/all` | **91** | 아래 전부 |
+| [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
+| **All 통합** | `/mcp/all` | **97** | 아래 전부 |
 
-<details><summary><b>All 91 tool names / 전체 Tool 이름</b></summary>
+<details><summary><b>All 97 tool names / 전체 Tool 이름</b></summary>
 
 `biz_detail` · `venture_biz_info` · `land_rt_price` · `req_pccc` · `get_pccc` · `check_pccc` · `get_car_flooding` · `get_car_scrap` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info`
 
@@ -38,7 +38,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 `nsfw_detection` · `image_similarity` · `video_to_mp3` · `extract_video_thumbnail` · `word_cloud` · `face_detection`
 
-`llm_models` · `llm_chat` · `text_summary` · `text_polish` · `image_generate` · `image_edit` · `image_batch_create` · `image_batch_status` · `image_batch_result`
+`llm_models` · `llm_chat` · `text_summary` · `text_polish` · `image_generate` · `image_edit` · `image_batch_create` · `image_batch_status` · `image_batch_result` · `seedance_jobs_create` · `seedance_jobs_status` · `veo_jobs_create` · `veo_jobs_status` · `kling_jobs_create` · `kling_jobs_status`
 
 </details>
 
@@ -1723,11 +1723,11 @@ Detect faces in an image and return their coordinates.
 
 ## AI & LLM · AI · LLM
 
-`https://apick.app/mcp/ai` — 9 tools
+`https://apick.app/mcp/ai` — 15 tools
 
-LLM chat across multiple models, text summarization, and polishing.
+LLM chat across multiple models, text summarization and polishing, and asynchronous AI video generation.
 
-LLM 챗(다중 모델), 텍스트 요약·교정.
+LLM 챗(다중 모델), 텍스트 요약·교정, 비동기 AI 영상 생성.
 
 | Tool | 기능 | Required 필수 |
 | --- | --- | --- |
@@ -1740,6 +1740,12 @@ LLM 챗(다중 모델), 텍스트 요약·교정.
 | `image_batch_create` | 이미지 대량 작업 생성 | `mode`, `prompt`, `image_count`, 참고·편집 파일 및 출력 옵션 |
 | `image_batch_status` | 대량 작업 상태 조회 | `job_id` |
 | `image_batch_result` | 대량 작업 개별 결과 | `job_id`, `index` |
+| [`seedance_jobs_create`](#seedance-jobs-create) | Seedance 영상 작업 접수 | `prompt` |
+| [`seedance_jobs_status`](#seedance-jobs-status) | Seedance 영상 작업 상태 | `job_id` |
+| [`veo_jobs_create`](#veo-jobs-create) | Veo 영상 작업 접수 | `prompt` |
+| [`veo_jobs_status`](#veo-jobs-status) | Veo 영상 작업 상태 | `job_id` |
+| [`kling_jobs_create`](#kling-jobs-create) | Kling 영상 작업 접수 | `prompt` |
+| [`kling_jobs_status`](#kling-jobs-status) | Kling 영상 작업 상태 | `job_id` |
 
 이미지 생성·편집은 한 장당 25포인트입니다. 작업 접수 시 요청 장수 전체 금액을 먼저 차감하고, 생성에 실패한 이미지가 있으면 해당 장수의 포인트를 즉시 환급합니다. 접수된 작업은 취소할 수 없습니다. `image_generate`에 `reference_image_url`을 더하면 참고 이미지의 구도·색감·제품 형태와 프롬프트를 함께 반영할 수 있습니다. 편집은 원본 이미지 한 장과 프롬프트만 받으며 마스크 파일은 지원하지 않습니다. 동기 Tool은 응답 크기를 위해 한 장만 반환하며, 대량 작업은 `image_count`에 1~50을 지정한 뒤 `image_batch_result`로 한 장씩 가져옵니다. 크기는 `1024x1024`, `1536x1024`, `1024x1536`, `1152x864`, `864x1152` 중에서 고릅니다. PNG·JPEG·WebP와 PNG/WebP 투명 배경 미리보기를 지원합니다. 프롬프트는 최대 28,000자이고 완료 결과는 24시간 동안 반복 조회할 수 있습니다. `idempotency_key`는 같은 요청의 중복 생성·과금을 막는 8~128자 안전번호이며, 동일 요청을 재전송할 때만 같은 값을 사용합니다.
 
@@ -1827,6 +1833,156 @@ Polish a text (up to 100,000 characters) by fixing grammar, spelling, and awkwar
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"text_polish","arguments":{"text":"<text>"}}}
 ```
 
+영상 생성 3종(`seedance_jobs_create`, `veo_jobs_create`, `kling_jobs_create`)은 모두 **비동기**입니다 — 접수하면 `job_id`와 함께 `waiting` 상태를 받고, 각 `*_jobs_status` Tool로 폴링하다가 `completed`가 되면 응답의 `result_url`(REST 다운로드 주소, 완료 후 7일 이내 유효)로 내려받습니다. 영상 파일 자체는 Tool 응답 크기 제한 때문에 MCP로 직접 전달하지 않습니다. 과금은 `duration × 초당 포인트`가 접수 시 예약 차감되고 완료 시 그대로 확정되며, 실패하거나 처리 시간이 초과되면 전액 환불됩니다. Seedance는 기본적으로 오디오를 함께 생성하는데(`audio: true`), 생성된 오디오가 저작권 등 정책 검수에서 거부되면 작업이 실패로 끝나고 예약 포인트가 전액 환불됩니다 — 이 거부를 피하려면 `audio: false`로 접수하세요.
+
+<a id="seedance-jobs-create"></a>
+
+### `seedance_jobs_create` — Seedance 영상 작업 접수
+
+Submit an asynchronous Seedance video generation job combining text, image, or reference inputs into up to a 30-second video.
+
+Seedance 영상 생성 작업을 비동기로 접수합니다. text/image/reference 세 가지 mode를 지원하며, `seedance_jobs_status` Tool로 상태를 조회하고 완료되면 응답의 `result_url`(REST 다운로드 주소, 7일 이내 유효)로 다운로드합니다. 접수 시 `duration × 초당 610포인트`가 예약 차감되고 완료 시 확정, 실패·시간 초과 시 전액 환불됩니다.
+
+> **부작용 있음 / has side effects** · 외부 데이터 조회 / external lookup · server `ai`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `prompt` | `string` | **필수 / required** | 영상 생성 프롬프트, 최대 2,000자 |
+| `mode` | `string` | 선택 / optional | 입력 방식 — 'text'(텍스트만) \| 'image'(첫 프레임 이미지 지정) \| 'reference'(참조 이미지·영상으로 주체 지정). 기본 text |
+| `duration` | `integer` | 선택 / optional | 영상 길이(초), 4~30, 기본 5 |
+| `aspect_ratio` | `string` | 선택 / optional | 가로세로 비율 — `16:9`, `4:3`, `1:1`, `3:4`, `9:16`, `21:9`, `adaptive` 중 하나, 기본 16:9 |
+| `resolution` | `string` | 선택 / optional | 해상도 — `480p`, `720p` 중 하나, 기본 720p |
+| `audio` | `boolean` | 선택 / optional | 오디오 생성 여부, 기본 true. 생성된 오디오가 정책(저작권 등) 검수에서 거부되면 작업이 실패하고 전액 환불됩니다 |
+| `idempotency_key` | `string` | 선택 / optional | 같은 요청의 재전송으로 인한 중복 접수·과금을 막는 고유 키 |
+| `image_url` | `string` (file) | 선택 / optional | image 모드에서 사용할 첫 프레임 이미지 URL — https URL, image/png, image/jpeg, image/webp, 최대 50MB |
+| `last_image_url` | `string` (file) | 선택 / optional | image 모드에서 사용할 마지막 프레임 이미지 URL(선택) — https URL, image/png, image/jpeg, image/webp, 최대 50MB |
+| `reference_image_url` | `string` (file) | 선택 / optional | reference 모드에서 주체를 지정할 참조 이미지 URL — https URL, image/png, image/jpeg, image/webp, 최대 50MB |
+| `reference_image_url_2` | `string` (file) | 선택 / optional | reference 모드 참조 이미지 URL(2번째) — https URL, image/png, image/jpeg, image/webp, 최대 50MB |
+| `reference_image_url_3` | `string` (file) | 선택 / optional | reference 모드 참조 이미지 URL(3번째) — https URL, image/png, image/jpeg, image/webp, 최대 50MB |
+| `reference_video_url` | `string` (file) | 선택 / optional | reference 모드에서 동작을 참조할 영상 URL — https URL, video/mp4, video/quicktime, video/webm, 최대 50MB |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"seedance_jobs_create","arguments":{"prompt":"<prompt>"}}}
+```
+
+<a id="seedance-jobs-status"></a>
+
+### `seedance_jobs_status` — Seedance 영상 작업 상태
+
+Check the status of a Seedance video generation job submitted via `seedance_jobs_create`.
+
+Seedance 영상 작업의 진행 상태를 조회합니다. 완료되면 응답의 `result_url`(REST 다운로드 주소)로 안내하며, 결과는 완료 후 7일간 유효합니다. 무료입니다.
+
+> 읽기 전용 / read-only · 입력 변환 / transforms your input · server `ai`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `job_id` | `string` | **필수 / required** | 작업 ID |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"seedance_jobs_status","arguments":{"job_id":"<job_id>"}}}
+```
+
+<a id="veo-jobs-create"></a>
+
+### `veo_jobs_create` — Veo 영상 작업 접수
+
+Submit an asynchronous Veo video generation job combining text, image, or reference images into a 4/6/8-second high-quality video.
+
+Veo 영상 생성 작업을 비동기로 접수합니다. text/image/reference 세 가지 mode를 지원하며, `veo_jobs_status` Tool로 상태를 조회하고 완료되면 응답의 `result_url`(REST 다운로드 주소, 7일 이내 유효)로 다운로드합니다. 접수 시 `duration × 초당 포인트`(등급별 단가는 요금 절 참고)가 예약 차감되고 완료 시 확정, 실패·시간 초과 시 전액 환불됩니다.
+
+> **부작용 있음 / has side effects** · 외부 데이터 조회 / external lookup · server `ai`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `prompt` | `string` | **필수 / required** | 영상 생성 프롬프트, 최대 2,000자 |
+| `mode` | `string` | 선택 / optional | 입력 방식 — 'text'(텍스트만) \| 'image'(첫 프레임 이미지 지정) \| 'reference'(참조 이미지로 주체 지정). 기본 text |
+| `duration` | `integer` | 선택 / optional | 영상 길이(초). 4, 6, 8 중 하나만 허용, 기본 8 |
+| `aspect_ratio` | `string` | 선택 / optional | 가로세로 비율 — `16:9`, `9:16` 중 하나, 기본 16:9 |
+| `resolution` | `string` | 선택 / optional | 해상도 — `720p`, `1080p`, `4k` 중 하나, 기본 720p |
+| `audio` | `boolean` | 선택 / optional | 오디오 생성 여부, 기본 true |
+| `tier` | `string` | 선택 / optional | 품질/속도 등급 — `standard`, `fast` 중 하나, 기본 standard |
+| `negative_prompt` | `string` | 선택 / optional | 제외할 요소를 설명하는 텍스트 |
+| `seed` | `integer` | 선택 / optional | 재현성을 위한 시드 값 |
+| `idempotency_key` | `string` | 선택 / optional | 같은 요청의 재전송으로 인한 중복 접수·과금을 막는 고유 키 |
+| `image_url` | `string` (file) | 선택 / optional | image 모드에서 사용할 첫 프레임 이미지 URL — https URL, image/png, image/jpeg, image/webp, 최대 50MB |
+| `last_image_url` | `string` (file) | 선택 / optional | image 모드에서 사용할 마지막 프레임 이미지 URL(선택) — https URL, image/png, image/jpeg, image/webp, 최대 50MB |
+| `reference_image_url` | `string` (file) | 선택 / optional | reference 모드에서 주체를 지정할 참조 이미지 URL — https URL, image/png, image/jpeg, image/webp, 최대 50MB |
+| `reference_image_url_2` | `string` (file) | 선택 / optional | reference 모드 참조 이미지 URL(2번째) — https URL, image/png, image/jpeg, image/webp, 최대 50MB |
+| `reference_image_url_3` | `string` (file) | 선택 / optional | reference 모드 참조 이미지 URL(3번째) — https URL, image/png, image/jpeg, image/webp, 최대 50MB |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"veo_jobs_create","arguments":{"prompt":"<prompt>"}}}
+```
+
+<a id="veo-jobs-status"></a>
+
+### `veo_jobs_status` — Veo 영상 작업 상태
+
+Check the status of a Veo video generation job submitted via `veo_jobs_create`.
+
+Veo 영상 작업의 진행 상태를 조회합니다. 완료되면 응답의 `result_url`(REST 다운로드 주소)로 안내하며, 결과는 완료 후 7일간 유효합니다. 무료입니다.
+
+> 읽기 전용 / read-only · 입력 변환 / transforms your input · server `ai`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `job_id` | `string` | **필수 / required** | 작업 ID |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"veo_jobs_status","arguments":{"job_id":"<job_id>"}}}
+```
+
+<a id="kling-jobs-create"></a>
+
+### `kling_jobs_create` — Kling 영상 작업 접수
+
+Submit an asynchronous Kling video generation job combining text, image, or reference subjects into a 3-15 second video.
+
+Kling 영상 생성 작업을 비동기로 접수합니다. text/image/reference 세 가지 mode를 지원하며, `kling_jobs_status` Tool로 상태를 조회하고 완료되면 응답의 `result_url`(REST 다운로드 주소, 7일 이내 유효)로 다운로드합니다. 접수 시 `duration × 초당 포인트`(등급별 단가는 요금 절 참고)가 예약 차감되고 완료 시 확정, 실패·시간 초과 시 전액 환불됩니다.
+
+> **부작용 있음 / has side effects** · 외부 데이터 조회 / external lookup · server `ai`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `prompt` | `string` | **필수 / required** | 영상 생성 프롬프트, 최대 2,000자 |
+| `mode` | `string` | 선택 / optional | 입력 방식 — 'text'(텍스트만) \| 'image'(첫 프레임 이미지 지정) \| 'reference'(참조 이미지·영상으로 주체 지정). 기본 text |
+| `duration` | `integer` | 선택 / optional | 영상 길이(초), 3~15, 기본 5 |
+| `aspect_ratio` | `string` | 선택 / optional | 가로세로 비율 — `16:9`, `9:16`, `1:1` 중 하나, 기본 16:9 |
+| `resolution` | `string` | 선택 / optional | image 모드 전용 해상도(다른 모드에서는 지원하지 않음) — `720P`, `1080P-SR`, `1440P-SR`, `1080P` 중 tier별 허용 목록에서 선택, 기본은 std=720P·pro=1080P |
+| `audio` | `boolean` | 선택 / optional | 오디오 생성 여부, 기본 true |
+| `tier` | `string` | 선택 / optional | 품질/속도 등급 — `std`, `pro` 중 하나, 기본 std |
+| `negative_prompt` | `string` | 선택 / optional | 제외할 요소를 설명하는 텍스트 |
+| `cfg_scale` | `number` | 선택 / optional | 프롬프트 반영 강도(0~1), 기본 0.5 |
+| `idempotency_key` | `string` | 선택 / optional | 같은 요청의 재전송으로 인한 중복 접수·과금을 막는 고유 키 |
+| `image_url` | `string` (file) | 선택 / optional | image 모드에서 사용할 첫 프레임 이미지 URL — https URL, image/png, image/jpeg, image/webp, 최대 10MB |
+| `last_image_url` | `string` (file) | 선택 / optional | image 모드에서 사용할 마지막 프레임 이미지 URL(선택) — https URL, image/png, image/jpeg, image/webp, 최대 10MB |
+| `reference_image_url` | `string` (file) | 선택 / optional | reference 모드에서 주체를 지정할 참조 이미지 URL — https URL, image/png, image/jpeg, image/webp, 최대 10MB |
+| `reference_image_url_2` | `string` (file) | 선택 / optional | reference 모드 참조 이미지 URL(2번째) — https URL, image/png, image/jpeg, image/webp, 최대 10MB |
+| `reference_image_url_3` | `string` (file) | 선택 / optional | reference 모드 참조 이미지 URL(3번째) — https URL, image/png, image/jpeg, image/webp, 최대 10MB |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"kling_jobs_create","arguments":{"prompt":"<prompt>"}}}
+```
+
+<a id="kling-jobs-status"></a>
+
+### `kling_jobs_status` — Kling 영상 작업 상태
+
+Check the status of a Kling video generation job submitted via `kling_jobs_create`.
+
+Kling 영상 작업의 진행 상태를 조회합니다. 완료되면 응답의 `result_url`(REST 다운로드 주소)로 안내하며, 결과는 완료 후 7일간 유효합니다. 무료입니다.
+
+> 읽기 전용 / read-only · 입력 변환 / transforms your input · server `ai`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `job_id` | `string` | **필수 / required** | 작업 ID |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"kling_jobs_status","arguments":{"job_id":"<job_id>"}}}
+```
+
 ---
 
 ## Pricing / 요금
@@ -1838,6 +1994,17 @@ Prepaid points, charged per call, identical to the APICK REST API rate. No subsc
 Current rates 단가표: <https://apick.app/dev_guide/mcp> · Sign up for 1,000 free points 가입 시 1,000포인트 무료: <https://apick.app>
 
 `tools/list`는 API Key와 허용 IP를 검사하지 않으며 실제 검증은 `tools/call`에서 수행됩니다. 마이페이지의 허용 IP 목록이 공란이면 IP 제한이 없고, 제한하려면 APICK에 도착하는 공인 IPv4를 단일 주소 또는 CIDR(`/32` 등)로 등록하세요. 저장 즉시 반영되며 별도 동기화나 대기시간은 없습니다.
+
+Video generation is billed per second of output (`duration × per-second points`), not per call — the rate above is per second, not per video.
+영상 생성은 호출당이 아니라 초당 과금입니다(`duration × 초당 포인트`) — 아래 단가는 1초당 포인트입니다.
+
+| Model 모델 | Tier 등급 | Points/sec 초당 포인트 |
+| --- | --- | --- |
+| Seedance | standard | 610P |
+| Veo | standard | 900P |
+| Veo | fast | 360P |
+| Kling | std | 320P |
+| Kling | pro | 430P |
 
 ## TTS quality and recovery / TTS 검수와 재개
 

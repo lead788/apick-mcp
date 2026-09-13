@@ -2,7 +2,7 @@
 
 <img src="https://raw.githubusercontent.com/lead788/apick-mcp/main/assets/logo-400.png" alt="APICK" width="88" height="88">
 
-# APICK MCP — 91 Korean Data, AI & Image Tools
+# APICK MCP — 97 Korean Data, AI, Image & Video Tools
 
 **Korean business registry, ID verification, OCR, parcel tracking, file conversion, web intelligence and LLM — as MCP tools for any AI agent.**
 
@@ -22,9 +22,9 @@
 
 ## What is this? / 이게 뭔가요?
 
-**EN** — APICK is a Korean data and AI API platform. This MCP server exposes **91 tools** for Korean business data, identity verification, OCR, parcel tracking, image generation and editing, file conversion, web intelligence, and LLM calls.
+**EN** — APICK is a Korean data and AI API platform. This MCP server exposes **97 tools** for Korean business data, identity verification, OCR, parcel tracking, image and video generation, file conversion, web intelligence, and LLM calls.
 
-**KO** — 에이픽(APICK)은 대한민국 데이터·AI API 플랫폼입니다. 이 MCP 서버는 **Tool 91개**로 사업자 조회, 신분증 진위확인, 택배 배송조회, OCR, 이미지 생성·편집, 파일 변환, 웹 검색과 LLM 호출을 **인증키 하나로** 제공합니다.
+**KO** — 에이픽(APICK)은 대한민국 데이터·AI API 플랫폼입니다. 이 MCP 서버는 **Tool 97개**로 사업자 조회, 신분증 진위확인, 택배 배송조회, OCR, 이미지·영상 생성, 파일 변환, 웹 검색과 LLM 호출을 **인증키 하나로** 제공합니다.
 
 **The server is hosted by APICK. Nothing to install, build, or keep running.**
 **서버는 에이픽이 운영합니다. 설치할 것도, 띄워둘 것도 없습니다.**
@@ -42,8 +42,8 @@ https://apick.app/mcp/all
 Sign up at **[apick.app](https://apick.app)** and copy your license key from the dashboard. New accounts get **1,000 free points**.
 **[apick.app](https://apick.app)** 에서 가입하고 대시보드에서 인증키를 복사하세요. 신규 가입 시 **1,000포인트 무료**.
 
-> `tools/list` works **without** a key — a client can connect and discover all 91 tools before you sign up. Only `tools/call` validates the key and allowed IP.
-> `tools/list`는 **인증 없이** 동작합니다. 가입 전에도 클라이언트가 연결해 91개 Tool을 확인할 수 있고, 키와 허용 IP는 `tools/call`부터 검증합니다.
+> `tools/list` works **without** a key — a client can connect and discover all 97 tools before you sign up. Only `tools/call` validates the key and allowed IP.
+> `tools/list`는 **인증 없이** 동작합니다. 가입 전에도 클라이언트가 연결해 97개 Tool을 확인할 수 있고, 키와 허용 IP는 `tools/call`부터 검증합니다.
 
 Leave the allowed-IP list blank for unrestricted access. To restrict access, register the public IPv4 address seen by APICK as an exact address or CIDR such as `/32`. Changes apply immediately with no separate synchronization.
 마이페이지의 허용 IP가 공란이면 제한 없이 사용할 수 있습니다. 제한하려면 APICK에 도착하는 공인 IPv4를 단일 주소 또는 CIDR(`/32` 등)로 등록하세요. 저장 즉시 반영되며 별도 동기화는 필요하지 않습니다.
@@ -149,20 +149,20 @@ Connect to `all` for everything, or to one server to keep the tool list short an
 
 | Server 서버 | Endpoint | Tools | Coverage 범위 |
 | --- | --- | --- | --- |
-| **All 통합** | `https://apick.app/mcp/all` | **91** | 아래 전부 |
+| **All 통합** | `https://apick.app/mcp/all` | **97** | 아래 전부 |
 | [Business 사업자·커머스](TOOLS.md#business) | `https://apick.app/mcp/business` | 16 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 유효성 검사 |
 | [Identity 신분증](TOOLS.md#identity) | `https://apick.app/mcp/identity` | 16 | 주민등록증·운전면허증·여권·외국인등록증 진위확인, 실명확인, 개인정보 마스킹 |
 | [Convert 파일변환](TOOLS.md#convert) | `https://apick.app/mcp/convert` | 22 | PDF·DOCX·엑셀 변환, STT, 비동기 TTS, 워터마크 |
 | [Web 웹·검색](TOOLS.md#web) | `https://apick.app/mcp/web` | 13 | 도메인·IP·WHOIS, 웹페이지 수집, 구글 검색, 유튜브 |
 | [Vision 이미지·영상](TOOLS.md#vision) | `https://apick.app/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출 |
 | [OCR 문자인식](TOOLS.md#ocr) | `https://apick.app/mcp/ocr` | 6 | 이미지 텍스트 추출, 신분증 항목 추출 |
-| [AI · LLM](TOOLS.md#ai) | `https://apick.app/mcp/ai` | 9 | LLM 챗, 텍스트 요약·교정, 이미지 생성·편집·대량 작업 |
+| [AI · LLM](TOOLS.md#ai) | `https://apick.app/mcp/ai` | 15 | LLM 챗, 텍스트 요약·교정, 이미지 생성·편집·대량 작업, 비동기 영상 생성 |
 | [Finance 금융](TOOLS.md#finance) | `https://apick.app/mcp/finance` | 3 | 계좌 예금주 조회, 1원 인증 |
 
 ### Every tool / 전체 Tool
 
-**[→ TOOLS.md](TOOLS.md)** — all 91 tools with parameters, types, and copy-paste JSON-RPC examples.
-**[→ TOOLS.md](TOOLS.md)** — 91개 전체를 파라미터·타입·호출 예시까지 정리했습니다.
+**[→ TOOLS.md](TOOLS.md)** — all 97 tools with parameters, types, and copy-paste JSON-RPC examples.
+**[→ TOOLS.md](TOOLS.md)** — 97개 전체를 파라미터·타입·호출 예시까지 정리했습니다.
 
 <details>
 <summary><b>Tool names at a glance / Tool 이름 한눈에 보기</b></summary>
@@ -181,7 +181,7 @@ Connect to `all` for everything, or to one server to keep the tool list short an
 
 **Vision** `nsfw_detection` `image_similarity` `video_to_mp3` `extract_video_thumbnail` `word_cloud` `face_detection`
 
-**AI** `llm_models` `llm_chat` `text_summary` `text_polish` `image_generate` `image_edit` `image_batch_create` `image_batch_status` `image_batch_result`
+**AI** `llm_models` `llm_chat` `text_summary` `text_polish` `image_generate` `image_edit` `image_batch_create` `image_batch_status` `image_batch_result` `seedance_jobs_create` `seedance_jobs_status` `veo_jobs_create` `veo_jobs_status` `kling_jobs_create` `kling_jobs_status`
 
 </details>
 
@@ -259,6 +259,16 @@ Built for phishing and copycat-site investigation: resolve the host, trace its I
 `account_realname` reads the holder name; `transfer_1won` proves ownership by depositing 1 KRW with a code in the memo.
 `account_realname`은 예금주명을 읽고, `transfer_1won`은 적요에 인증코드를 담아 1원을 입금해 실소유를 증명합니다.
 
+### 8. AI video generation — AI 영상 생성
+
+> "제품 사진으로 4초짜리 짧은 홍보 영상 만들어줘"
+> "Turn this product photo into a short 4-second promo video"
+
+`veo_jobs_create` → `veo_jobs_status`
+
+Video generation (`seedance_jobs_create`, `veo_jobs_create`, `kling_jobs_create`) is asynchronous — submit a job, poll status, then download once it's `completed` via the status result's `result_url`. Billed per second (`duration × per-second points`), refunded in full on failure or timeout.
+영상 생성(`seedance_jobs_create`, `veo_jobs_create`, `kling_jobs_create`)은 비동기입니다 — 접수 후 상태를 조회하다가 `completed`가 되면 상태 결과의 `result_url`로 다운로드합니다. 초당 포인트 × 길이(초)로 과금되며 실패·시간 초과 시 전액 환불됩니다.
+
 ---
 
 ## How it works / 동작 방식
@@ -268,7 +278,7 @@ Built for phishing and copycat-site investigation: resolve the host, trace its I
 | **Transport** | Streamable HTTP — one endpoint per server, JSON-RPC 2.0 over HTTPS POST, stateless | 서버당 단일 엔드포인트, HTTPS POST로 JSON-RPC 2.0, 세션 없이 요청 단위 |
 | **Protocol** | MCP `2026-07-28`, auto-compatible with earlier client versions | MCP `2026-07-28` 기본, 이전 규격 클라이언트 자동 호환 |
 | **Discovery** | `tools/list` returns every tool with JSON Schema, description and live price — no key needed | `tools/list`가 스키마·설명·실시간 단가를 반환, 인증 불필요 |
-| **Annotations** | Every tool declares `title`, `readOnlyHint`, `openWorldHint`. 11 of 91 are not read-only | 전 Tool이 `title`·`readOnlyHint`·`openWorldHint` 선언. 91개 중 상태 변경 Tool은 11개 |
+| **Annotations** | Every tool declares `title`, `readOnlyHint`, `openWorldHint`. 14 of 97 are not read-only | 전 Tool이 `title`·`readOnlyHint`·`openWorldHint` 선언. 97개 중 상태 변경 Tool은 14개 |
 | **Results** | Text (JSON) + `structuredContent`. Images as image content; files up to 8MB as base64 | 텍스트(JSON)와 `structuredContent` 동시 반환. 이미지는 이미지 콘텐츠, 8MB 이하 파일은 base64 |
 | **File input** | File-taking tools accept a public `https` URL (`image_url`, `pdf_url`, …) — APICK downloads and processes it | 파일 Tool은 공개 `https` URL을 받습니다. 에이픽 서버가 내려받아 처리합니다 |
 | **Errors** | Delivered via `isError`; identity masking also preserves `structuredContent.error_code` | `isError`로 전달되며 신분증 마스킹은 `structuredContent.error_code`도 보존합니다 |
@@ -276,8 +286,8 @@ Built for phishing and copycat-site investigation: resolve the host, trace its I
 
 ### Tools with side effects / 부작용이 있는 Tool
 
-78 of 91 tools are read-only. The other 11 change state, charge points, cancel work, or consume a result and carry `readOnlyHint: false` so your client can require approval:
-91개 중 80개는 조회입니다. 나머지 11개는 과금·취소·결과 생성 등 상태를 바꾸므로 `readOnlyHint: false`가 붙습니다.
+83 of 97 tools are read-only. The other 14 change state, charge points, cancel work, or consume a result and carry `readOnlyHint: false` so your client can require approval:
+97개 중 83개는 조회입니다. 나머지 14개는 과금·취소·결과 생성 등 상태를 바꾸므로 `readOnlyHint: false`가 붙습니다.
 
 | Tool | What it does / 하는 일 |
 | --- | --- |
@@ -288,6 +298,9 @@ Built for phishing and copycat-site investigation: resolve the host, trace its I
 | `tts_jobs_cancel` | Cancels a waiting or processing job without a refund · 대기·생성 중 작업을 환불 없이 취소합니다 |
 | `tts_jobs_result` | Permanently consumes the one-time result · 1회용 결과 원본을 영구 소모합니다 |
 | `tts_jobs_subtitles` | Permanently consumes the one-time ASS subtitles · 1회용 ASS 자막 원본을 영구 소모합니다 |
+| `seedance_jobs_create` | Submits and charges an async Seedance video job · Seedance 영상 작업을 접수하고 과금합니다 |
+| `veo_jobs_create` | Submits and charges an async Veo video job · Veo 영상 작업을 접수하고 과금합니다 |
+| `kling_jobs_create` | Submits and charges an async Kling video job · Kling 영상 작업을 접수하고 과금합니다 |
 
 TTS 보이스 표시 이름: `narrator_m_01` 태준, `narrator_m_02` 민석, `narrator_m_03` 도현, `narrator_m_04` 강우, `narrator_m_05` 성훈, `narrator_f_10s_01` 서아, `narrator_f_10s_02` 하린, `narrator_f_10s_03` 예린, `narrator_m_20s_01` 도윤, `narrator_f_20s_01` 지안, `narrator_f_20s_02` 서윤, `narrator_f_20s_03` 소연, `narrator_f_20s_04` 유나, `narrator_m_30s_01` 현우, `narrator_m_30s_02` 준혁, `narrator_m_40s_01` 정우, `narrator_m_80s_01` 영수.
 

@@ -1843,30 +1843,77 @@ Polish a text (up to 100,000 characters) by fixing grammar, spelling, and awkwar
 
 ### `seedance_jobs_create` — Seedance 영상 작업 접수
 
-Submit an asynchronous Seedance video generation job combining text, image, or reference inputs into up to a 30-second video.
+Submit an asynchronous Seedance video generation job. Select version and tier; supported modes, durations and prices depend on the selected version. Seedance 영상 생성 작업을 비동기로 접수합니다. text/image/reference 세 가지 mode를 지원하며, seedance_jobs_status Tool로 상태를 조회하고 완료되면 응답의 result_url(REST 다운로드 주소, 7일 이내 유효)로 다운로드합니다. 접수 시 duration × 초당 포인트(해상도별로 다름, resolution 참고)가 예약 차감되고 완료 시 확정, 실패·시간 초과 시 전액 환불됩니다.
 
-Seedance 영상 생성 작업을 비동기로 접수합니다. text/image/reference 세 가지 mode를 지원하며, `seedance_jobs_status` Tool로 상태를 조회하고 완료되면 응답의 `result_url`(REST 다운로드 주소, 7일 이내 유효)로 다운로드합니다. 접수 시 `duration × 초당 포인트`(해상도별 단가는 요금 절 참고)가 예약 차감되고 완료 시 확정, 실패·시간 초과 시 전액 환불됩니다.
-
-> **부작용 있음 / has side effects** · 외부 데이터 조회 / external lookup · server `ai`
+기본 버전 기준: 초당 480p 560P·720p 1,250P·1080p 2,810P × duration(초). 다른 버전은 개발가이드의 버전별 요금표 참고.
 
 | Parameter | Type | Required | Description 설명 |
 | --- | --- | --- | --- |
-| `prompt` | `string` | **필수 / required** | 영상 생성 프롬프트, 최대 2,000자 |
-| `mode` | `string` | 선택 / optional | 입력 방식 — 'text'(텍스트만) \| 'image'(첫 프레임 이미지 지정) \| 'reference'(참조 이미지·영상으로 주체 지정). 기본 text |
-| `duration` | `integer` | 선택 / optional | 영상 길이(초), 4~30, 기본 5 |
-| `aspect_ratio` | `string` | 선택 / optional | 가로세로 비율 — `16:9`, `4:3`, `1:1`, `3:4`, `9:16`, `21:9`, `adaptive` 중 하나, 기본 16:9 |
-| `resolution` | `string` | 선택 / optional | 해상도 — `480p`, `720p`, `1080p` 중 하나, 기본 720p. 해상도별로 초당 포인트가 다릅니다(요금 절 참고, 높을수록 비용 증가) |
-| `audio` | `boolean` | 선택 / optional | 오디오 생성 여부, 기본 true. 생성된 오디오가 정책(저작권 등) 검수에서 거부되면 작업이 실패하고 전액 환불됩니다 |
+| `version` | `string` | 선택 / optional | 영상 모델 버전. 생략 시 2.5. 등급·해상도·길이·오디오·파일 제약과 요금은 선택 버전별 개발가이드 표를 확인하세요. `2.5`, `2.0`, `1.5`, `1.0` |
+| `prompt` | `string` | 필수 / required | 영상 생성 프롬프트, 최대 2,000자 |
+| `mode` | `string` | 선택 / optional | 입력 방식 — 'text'(텍스트만) \| 'image'(첫 프레임 이미지 지정) \| 'reference'(참조 이미지·영상으로 주체 지정). 기본 text `text`, `image`, `reference` |
+| `duration` | `integer` | 선택 / optional | 영상 길이(초), 전체 버전 범위 2~30. 허용 값과 기본값은 버전·등급별로 다릅니다. |
+| `aspect_ratio` | `string` | 선택 / optional | 출력 화면 비율. 선택 버전·등급·모드에서 허용하는 값만 사용하세요. `16:9`, `4:3`, `1:1`, `3:4`, `9:16`, `21:9`, `adaptive` |
+| `resolution` | `string` | 선택 / optional | 출력 해상도. 전체 버전의 값 목록이며 허용 조합·기본값·요금은 버전별 개발가이드를 따릅니다. `480p`, `720p`, `1080p` |
+| `audio` | `boolean` | 선택 / optional | 오디오 생성 여부. 선택 가능한 버전은 기본 true, 무음 전용 버전은 false, 오디오 필수 버전은 true만 허용합니다. |
+| `tier` | `string` | 선택 / optional | 품질·속도 등급. 지원 등급과 생략 시 기본값은 version과 mode에 따라 다릅니다. `standard`, `fast`, `mini`, `pro` |
+| `seed` | `integer` | 선택 / optional | 재현성을 위한 시드 값 |
 | `idempotency_key` | `string` | 선택 / optional | 같은 요청의 재전송으로 인한 중복 접수·과금을 막는 고유 키 |
-| `image_url` | `string` (file) | 선택 / optional | image 모드에서 사용할 첫 프레임 이미지 URL — https URL, image/png, image/jpeg, image/webp, 최대 50MB |
-| `last_image_url` | `string` (file) | 선택 / optional | image 모드에서 사용할 마지막 프레임 이미지 URL(선택) — https URL, image/png, image/jpeg, image/webp, 최대 50MB |
-| `reference_image_url` | `string` (file) | 선택 / optional | reference 모드에서 주체를 지정할 참조 이미지 URL — https URL, image/png, image/jpeg, image/webp, 최대 50MB |
-| `reference_image_url_2` | `string` (file) | 선택 / optional | reference 모드 참조 이미지 URL(2번째) — https URL, image/png, image/jpeg, image/webp, 최대 50MB |
-| `reference_image_url_3` | `string` (file) | 선택 / optional | reference 모드 참조 이미지 URL(3번째) — https URL, image/png, image/jpeg, image/webp, 최대 50MB |
-| `reference_video_url` | `string` (file) | 선택 / optional | reference 모드에서 동작을 참조할 영상 URL — https URL, video/mp4, video/quicktime, video/webm, 최대 50MB |
+| `image_url` | `string (file)` | 선택 / optional | image 모드에서 사용할 첫 프레임 이미지 URL |
+| `last_image_url` | `string (file)` | 선택 / optional | image 모드에서 사용할 마지막 프레임 이미지 URL(선택) |
+| `reference_image_url` | `string (file)` | 선택 / optional | reference 모드에서 주체를 지정할 참조 이미지 URL |
+| `reference_image_url_2` | `string (file)` | 선택 / optional | reference 모드 참조 이미지 URL(2번째) |
+| `reference_image_url_3` | `string (file)` | 선택 / optional | reference 모드 참조 이미지 URL(3번째) |
+| `reference_video_url` | `string (file)` | 선택 / optional | reference 모드에서 동작을 참조할 영상 URL |
+| `reference_image_url_4` | `string (file)` | 선택 / optional | 참조 이미지 URL(4번째). 버전별 최대 개수를 확인하세요. |
+| `reference_image_url_5` | `string (file)` | 선택 / optional | 참조 이미지 URL(5번째). 버전별 최대 개수를 확인하세요. |
+| `reference_image_url_6` | `string (file)` | 선택 / optional | 참조 이미지 URL(6번째). 버전별 최대 개수를 확인하세요. |
+| `reference_image_url_7` | `string (file)` | 선택 / optional | 참조 이미지 URL(7번째). 버전별 최대 개수를 확인하세요. |
+| `reference_image_url_8` | `string (file)` | 선택 / optional | 참조 이미지 URL(8번째). 버전별 최대 개수를 확인하세요. |
+| `reference_image_url_9` | `string (file)` | 선택 / optional | 참조 이미지 URL(9번째). 버전별 최대 개수를 확인하세요. |
+| `reference_image_url_10` | `string (file)` | 선택 / optional | 참조 이미지 URL(10번째). 버전별 최대 개수를 확인하세요. |
+| `reference_image_url_11` | `string (file)` | 선택 / optional | 참조 이미지 URL(11번째). 버전별 최대 개수를 확인하세요. |
+| `reference_image_url_12` | `string (file)` | 선택 / optional | 참조 이미지 URL(12번째). 버전별 최대 개수를 확인하세요. |
+| `reference_image_url_13` | `string (file)` | 선택 / optional | 참조 이미지 URL(13번째). 버전별 최대 개수를 확인하세요. |
+| `reference_image_url_14` | `string (file)` | 선택 / optional | 참조 이미지 URL(14번째). 버전별 최대 개수를 확인하세요. |
+| `reference_image_url_15` | `string (file)` | 선택 / optional | 참조 이미지 URL(15번째). 버전별 최대 개수를 확인하세요. |
+| `reference_image_url_16` | `string (file)` | 선택 / optional | 참조 이미지 URL(16번째). 버전별 최대 개수를 확인하세요. |
+| `reference_image_url_17` | `string (file)` | 선택 / optional | 참조 이미지 URL(17번째). 버전별 최대 개수를 확인하세요. |
+| `reference_image_url_18` | `string (file)` | 선택 / optional | 참조 이미지 URL(18번째). 버전별 최대 개수를 확인하세요. |
+| `reference_image_url_19` | `string (file)` | 선택 / optional | 참조 이미지 URL(19번째). 버전별 최대 개수를 확인하세요. |
+| `reference_image_url_20` | `string (file)` | 선택 / optional | 참조 이미지 URL(20번째). 버전별 최대 개수를 확인하세요. |
+| `reference_image_url_21` | `string (file)` | 선택 / optional | 참조 이미지 URL(21번째). 버전별 최대 개수를 확인하세요. |
+| `reference_image_url_22` | `string (file)` | 선택 / optional | 참조 이미지 URL(22번째). 버전별 최대 개수를 확인하세요. |
+| `reference_image_url_23` | `string (file)` | 선택 / optional | 참조 이미지 URL(23번째). 버전별 최대 개수를 확인하세요. |
+| `reference_image_url_24` | `string (file)` | 선택 / optional | 참조 이미지 URL(24번째). 버전별 최대 개수를 확인하세요. |
+| `reference_image_url_25` | `string (file)` | 선택 / optional | 참조 이미지 URL(25번째). 버전별 최대 개수를 확인하세요. |
+| `reference_image_url_26` | `string (file)` | 선택 / optional | 참조 이미지 URL(26번째). 버전별 최대 개수를 확인하세요. |
+| `reference_image_url_27` | `string (file)` | 선택 / optional | 참조 이미지 URL(27번째). 버전별 최대 개수를 확인하세요. |
+| `reference_image_url_28` | `string (file)` | 선택 / optional | 참조 이미지 URL(28번째). 버전별 최대 개수를 확인하세요. |
+| `reference_image_url_29` | `string (file)` | 선택 / optional | 참조 이미지 URL(29번째). 버전별 최대 개수를 확인하세요. |
+| `reference_image_url_30` | `string (file)` | 선택 / optional | 참조 이미지 URL(30번째). 버전별 최대 개수를 확인하세요. |
+| `reference_video_url_2` | `string (file)` | 선택 / optional | 참조 영상 URL. 지원 버전과 개수 제한은 개발가이드를 확인하세요. |
+| `reference_video_url_3` | `string (file)` | 선택 / optional | 참조 영상 URL. 지원 버전과 개수 제한은 개발가이드를 확인하세요. |
+| `reference_video_url_4` | `string (file)` | 선택 / optional | 참조 영상 URL. 지원 버전과 개수 제한은 개발가이드를 확인하세요. |
+| `reference_video_url_5` | `string (file)` | 선택 / optional | 참조 영상 URL. 지원 버전과 개수 제한은 개발가이드를 확인하세요. |
+| `reference_video_url_6` | `string (file)` | 선택 / optional | 참조 영상 URL. 지원 버전과 개수 제한은 개발가이드를 확인하세요. |
+| `reference_video_url_7` | `string (file)` | 선택 / optional | 참조 영상 URL. 지원 버전과 개수 제한은 개발가이드를 확인하세요. |
+| `reference_video_url_8` | `string (file)` | 선택 / optional | 참조 영상 URL. 지원 버전과 개수 제한은 개발가이드를 확인하세요. |
+| `reference_video_url_9` | `string (file)` | 선택 / optional | 참조 영상 URL. 지원 버전과 개수 제한은 개발가이드를 확인하세요. |
+| `reference_video_url_10` | `string (file)` | 선택 / optional | 참조 영상 URL. 지원 버전과 개수 제한은 개발가이드를 확인하세요. |
+| `reference_audio_url` | `string (file)` | 선택 / optional | 참조 오디오 URL. 지원 버전과 개수 제한은 개발가이드를 확인하세요. |
+| `reference_audio_url_2` | `string (file)` | 선택 / optional | 참조 오디오 URL. 지원 버전과 개수 제한은 개발가이드를 확인하세요. |
+| `reference_audio_url_3` | `string (file)` | 선택 / optional | 참조 오디오 URL. 지원 버전과 개수 제한은 개발가이드를 확인하세요. |
+| `reference_audio_url_4` | `string (file)` | 선택 / optional | 참조 오디오 URL. 지원 버전과 개수 제한은 개발가이드를 확인하세요. |
+| `reference_audio_url_5` | `string (file)` | 선택 / optional | 참조 오디오 URL. 지원 버전과 개수 제한은 개발가이드를 확인하세요. |
+| `reference_audio_url_6` | `string (file)` | 선택 / optional | 참조 오디오 URL. 지원 버전과 개수 제한은 개발가이드를 확인하세요. |
+| `reference_audio_url_7` | `string (file)` | 선택 / optional | 참조 오디오 URL. 지원 버전과 개수 제한은 개발가이드를 확인하세요. |
+| `reference_audio_url_8` | `string (file)` | 선택 / optional | 참조 오디오 URL. 지원 버전과 개수 제한은 개발가이드를 확인하세요. |
+| `reference_audio_url_9` | `string (file)` | 선택 / optional | 참조 오디오 URL. 지원 버전과 개수 제한은 개발가이드를 확인하세요. |
+| `reference_audio_url_10` | `string (file)` | 선택 / optional | 참조 오디오 URL. 지원 버전과 개수 제한은 개발가이드를 확인하세요. |
 
 ```json
-{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"seedance_jobs_create","arguments":{"prompt":"<prompt>"}}}
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"seedance_jobs_create","arguments":{"prompt":"A red sports car racing through a rainy city","version":"2.0","tier":"mini","duration":4,"resolution":"480p"}}}
 ```
 
 <a id="seedance-jobs-status"></a>
@@ -1891,32 +1938,31 @@ Seedance 영상 작업의 진행 상태를 조회합니다. 완료되면 응답�
 
 ### `veo_jobs_create` — Veo 영상 작업 접수
 
-Submit an asynchronous Veo video generation job combining text, image, or reference images into a 4/6/8-second high-quality video.
+Submit an asynchronous Veo video generation job. Select version and tier; supported modes, durations and prices depend on the selected version. Veo 영상 생성 작업을 비동기로 접수합니다. text/image/reference 세 가지 mode를 지원하며, veo_jobs_status Tool로 상태를 조회하고 완료되면 응답의 result_url(REST 다운로드 주소, 7일 이내 유효)로 다운로드합니다. 접수 시 duration × 초당 900포인트가 예약 차감되고 완료 시 확정, 실패·시간 초과 시 전액 환불됩니다.
 
-Veo 영상 생성 작업을 비동기로 접수합니다. text/image/reference 세 가지 mode를 지원하며, `veo_jobs_status` Tool로 상태를 조회하고 완료되면 응답의 `result_url`(REST 다운로드 주소, 7일 이내 유효)로 다운로드합니다. 접수 시 `duration × 초당 포인트`(등급별 단가는 요금 절 참고)가 예약 차감되고 완료 시 확정, 실패·시간 초과 시 전액 환불됩니다.
-
-> **부작용 있음 / has side effects** · 외부 데이터 조회 / external lookup · server `ai`
+기본 버전 기준: 초당 900포인트 × duration(초). 다른 버전은 개발가이드의 버전별 요금표 참고.
 
 | Parameter | Type | Required | Description 설명 |
 | --- | --- | --- | --- |
-| `prompt` | `string` | **필수 / required** | 영상 생성 프롬프트, 최대 2,000자 |
-| `mode` | `string` | 선택 / optional | 입력 방식 — 'text'(텍스트만) \| 'image'(첫 프레임 이미지 지정) \| 'reference'(참조 이미지로 주체 지정). 기본 text |
-| `duration` | `integer` | 선택 / optional | 영상 길이(초). 4, 6, 8 중 하나만 허용, 기본 8 |
-| `aspect_ratio` | `string` | 선택 / optional | 가로세로 비율 — `16:9`, `9:16` 중 하나, 기본 16:9 |
-| `resolution` | `string` | 선택 / optional | 해상도 — `720p`, `1080p`, `4k` 중 하나, 기본 720p |
-| `audio` | `boolean` | 선택 / optional | 오디오 생성 여부, 기본 true |
-| `tier` | `string` | 선택 / optional | 품질/속도 등급 — `standard`, `fast` 중 하나, 기본 standard |
+| `version` | `string` | 선택 / optional | 영상 모델 버전. 생략 시 3.1. 등급·해상도·길이·오디오·파일 제약과 요금은 선택 버전별 개발가이드 표를 확인하세요. `3.1` |
+| `prompt` | `string` | 필수 / required | 영상 생성 프롬프트, 최대 2,000자 |
+| `mode` | `string` | 선택 / optional | 입력 방식 — 'text'(텍스트만) \| 'image'(첫 프레임 이미지 지정) \| 'reference'(참조 이미지·영상으로 주체 지정). 기본 text `text`, `image`, `reference` |
+| `duration` | `integer` | 선택 / optional | 영상 길이(초), 전체 버전 범위 4~8. 허용 값과 기본값은 버전·등급별로 다릅니다. |
+| `aspect_ratio` | `string` | 선택 / optional | 출력 화면 비율. 선택 버전·등급·모드에서 허용하는 값만 사용하세요. `16:9`, `9:16` |
+| `resolution` | `string` | 선택 / optional | 출력 해상도. 전체 버전의 값 목록이며 허용 조합·기본값·요금은 버전별 개발가이드를 따릅니다. `720p`, `1080p`, `4k` |
+| `audio` | `boolean` | 선택 / optional | 오디오 생성 여부. 선택 가능한 버전은 기본 true, 무음 전용 버전은 false, 오디오 필수 버전은 true만 허용합니다. |
+| `tier` | `string` | 선택 / optional | 품질·속도 등급. 지원 등급과 생략 시 기본값은 version과 mode에 따라 다릅니다. `standard`, `fast`, `lite` |
 | `negative_prompt` | `string` | 선택 / optional | 제외할 요소를 설명하는 텍스트 |
 | `seed` | `integer` | 선택 / optional | 재현성을 위한 시드 값 |
 | `idempotency_key` | `string` | 선택 / optional | 같은 요청의 재전송으로 인한 중복 접수·과금을 막는 고유 키 |
-| `image_url` | `string` (file) | 선택 / optional | image 모드에서 사용할 첫 프레임 이미지 URL — https URL, image/png, image/jpeg, image/webp, 최대 50MB |
-| `last_image_url` | `string` (file) | 선택 / optional | image 모드에서 사용할 마지막 프레임 이미지 URL(선택) — https URL, image/png, image/jpeg, image/webp, 최대 50MB |
-| `reference_image_url` | `string` (file) | 선택 / optional | reference 모드에서 주체를 지정할 참조 이미지 URL — https URL, image/png, image/jpeg, image/webp, 최대 50MB |
-| `reference_image_url_2` | `string` (file) | 선택 / optional | reference 모드 참조 이미지 URL(2번째) — https URL, image/png, image/jpeg, image/webp, 최대 50MB |
-| `reference_image_url_3` | `string` (file) | 선택 / optional | reference 모드 참조 이미지 URL(3번째) — https URL, image/png, image/jpeg, image/webp, 최대 50MB |
+| `image_url` | `string (file)` | 선택 / optional | image 모드에서 사용할 첫 프레임 이미지 URL |
+| `last_image_url` | `string (file)` | 선택 / optional | image 모드에서 사용할 마지막 프레임 이미지 URL(선택) |
+| `reference_image_url` | `string (file)` | 선택 / optional | reference 모드에서 주체를 지정할 참조 이미지 URL |
+| `reference_image_url_2` | `string (file)` | 선택 / optional | reference 모드 참조 이미지 URL(2번째) |
+| `reference_image_url_3` | `string (file)` | 선택 / optional | reference 모드 참조 이미지 URL(3번째) |
 
 ```json
-{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"veo_jobs_create","arguments":{"prompt":"<prompt>"}}}
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"veo_jobs_create","arguments":{"prompt":"A boat crossing the sea","version":"3.1"}}}
 ```
 
 <a id="veo-jobs-status"></a>
@@ -1941,32 +1987,39 @@ Veo 영상 작업의 진행 상태를 조회합니다. 완료되면 응답의 `r
 
 ### `kling_jobs_create` — Kling 영상 작업 접수
 
-Submit an asynchronous Kling video generation job combining text, image, or reference subjects into a 3-15 second video.
+Submit an asynchronous Kling video generation job. Select version and tier; supported modes, durations and prices depend on the selected version. Kling 영상 생성 작업을 비동기로 접수합니다. text/image/reference 세 가지 mode를 지원하며, kling_jobs_status Tool로 상태를 조회하고 완료되면 응답의 result_url(REST 다운로드 주소, 7일 이내 유효)로 다운로드합니다. 접수 시 duration × 초당 410포인트가 예약 차감되고 완료 시 확정, 실패·시간 초과 시 전액 환불됩니다.
 
-Kling 영상 생성 작업을 비동기로 접수합니다. text/image/reference 세 가지 mode를 지원하며, `kling_jobs_status` Tool로 상태를 조회하고 완료되면 응답의 `result_url`(REST 다운로드 주소, 7일 이내 유효)로 다운로드합니다. 접수 시 `duration × 초당 포인트`(등급별 단가는 요금 절 참고)가 예약 차감되고 완료 시 확정, 실패·시간 초과 시 전액 환불됩니다.
-
-> **부작용 있음 / has side effects** · 외부 데이터 조회 / external lookup · server `ai`
+기본 버전 기준: 초당 410포인트 × duration(초). 다른 버전은 개발가이드의 버전별 요금표 참고.
 
 | Parameter | Type | Required | Description 설명 |
 | --- | --- | --- | --- |
-| `prompt` | `string` | **필수 / required** | 영상 생성 프롬프트, 최대 2,000자 |
-| `mode` | `string` | 선택 / optional | 입력 방식 — 'text'(텍스트만) \| 'image'(첫 프레임 이미지 지정) \| 'reference'(참조 이미지·영상으로 주체 지정). 기본 text |
-| `duration` | `integer` | 선택 / optional | 영상 길이(초), 3~15, 기본 5 |
-| `aspect_ratio` | `string` | 선택 / optional | 가로세로 비율 — `16:9`, `9:16`, `1:1` 중 하나, 기본 16:9 |
-| `resolution` | `string` | 선택 / optional | image 모드 전용 해상도(다른 모드에서는 지원하지 않음) — `720P`, `1080P-SR`, `1440P-SR`, `1080P` 중 tier별 허용 목록에서 선택, 기본은 std=720P·pro=1080P |
-| `audio` | `boolean` | 선택 / optional | 오디오 생성 여부, 기본 true |
-| `tier` | `string` | 선택 / optional | 품질/속도 등급 — `std`, `pro` 중 하나, 기본 std |
+| `version` | `string` | 선택 / optional | 영상 모델 버전. 생략 시 3.0. 등급·해상도·길이·오디오·파일 제약과 요금은 선택 버전별 개발가이드 표를 확인하세요. `3.0`, `o3`, `o1`, `2.6`, `2.5`, `2.1`, `2.0`, `1.6` |
+| `prompt` | `string` | 필수 / required | 영상 생성 프롬프트, 최대 2,000자 |
+| `mode` | `string` | 선택 / optional | 입력 방식 — 'text'(텍스트만) \| 'image'(첫 프레임 이미지 지정) \| 'reference'(참조 이미지·영상으로 주체 지정). 기본 text `text`, `image`, `reference` |
+| `duration` | `integer` | 선택 / optional | 영상 길이(초), 전체 버전 범위 3~15. 허용 값과 기본값은 버전·등급별로 다릅니다. |
+| `aspect_ratio` | `string` | 선택 / optional | 출력 화면 비율. 선택 버전·등급·모드에서 허용하는 값만 사용하세요. `16:9`, `9:16`, `1:1` |
+| `resolution` | `string` | 선택 / optional | 출력 해상도. 전체 버전의 값 목록이며 허용 조합·기본값·요금은 버전별 개발가이드를 따릅니다. `720p`, `1080p`, `720P`, `1080P-SR`, `1440P-SR`, `1080P` |
+| `audio` | `boolean` | 선택 / optional | 오디오 생성 여부. 선택 가능한 버전은 기본 true, 무음 전용 버전은 false, 오디오 필수 버전은 true만 허용합니다. |
+| `tier` | `string` | 선택 / optional | 품질·속도 등급. 지원 등급과 생략 시 기본값은 version과 mode에 따라 다릅니다. `std`, `pro`, `turbo`, `4k`, `standard`, `master` |
 | `negative_prompt` | `string` | 선택 / optional | 제외할 요소를 설명하는 텍스트 |
 | `cfg_scale` | `number` | 선택 / optional | 프롬프트 반영 강도(0~1), 기본 0.5 |
 | `idempotency_key` | `string` | 선택 / optional | 같은 요청의 재전송으로 인한 중복 접수·과금을 막는 고유 키 |
-| `image_url` | `string` (file) | 선택 / optional | image 모드에서 사용할 첫 프레임 이미지 URL — https URL, image/png, image/jpeg, image/webp, 최대 10MB |
-| `last_image_url` | `string` (file) | 선택 / optional | image 모드에서 사용할 마지막 프레임 이미지 URL(선택) — https URL, image/png, image/jpeg, image/webp, 최대 10MB |
-| `reference_image_url` | `string` (file) | 선택 / optional | reference 모드에서 주체를 지정할 참조 이미지 URL — https URL, image/png, image/jpeg, image/webp, 최대 10MB |
-| `reference_image_url_2` | `string` (file) | 선택 / optional | reference 모드 참조 이미지 URL(2번째) — https URL, image/png, image/jpeg, image/webp, 최대 10MB |
-| `reference_image_url_3` | `string` (file) | 선택 / optional | reference 모드 참조 이미지 URL(3번째) — https URL, image/png, image/jpeg, image/webp, 최대 10MB |
+| `image_url` | `string (file)` | 선택 / optional | image 모드에서 사용할 첫 프레임 이미지 URL |
+| `last_image_url` | `string (file)` | 선택 / optional | image 모드에서 사용할 마지막 프레임 이미지 URL(선택) |
+| `reference_image_url` | `string (file)` | 선택 / optional | reference 모드에서 주체를 지정할 참조 이미지 URL |
+| `reference_image_url_2` | `string (file)` | 선택 / optional | reference 모드 참조 이미지 URL(2번째) |
+| `reference_image_url_3` | `string (file)` | 선택 / optional | reference 모드 참조 이미지 URL(3번째) |
+| `reference_image_url_4` | `string (file)` | 선택 / optional | 참조 이미지 URL(4번째). 버전별 최대 개수를 확인하세요. |
+| `reference_image_url_5` | `string (file)` | 선택 / optional | 참조 이미지 URL(5번째). 버전별 최대 개수를 확인하세요. |
+| `reference_image_url_6` | `string (file)` | 선택 / optional | 참조 이미지 URL(6번째). 버전별 최대 개수를 확인하세요. |
+| `reference_image_url_7` | `string (file)` | 선택 / optional | 참조 이미지 URL(7번째). 버전별 최대 개수를 확인하세요. |
+| `reference_video_url` | `string (file)` | 선택 / optional | 참조 영상 URL. 지원 버전과 개수 제한은 개발가이드를 확인하세요. |
+| `reference_video_url_2` | `string (file)` | 선택 / optional | 참조 영상 URL. 지원 버전과 개수 제한은 개발가이드를 확인하세요. |
+| `reference_video_url_3` | `string (file)` | 선택 / optional | 참조 영상 URL. 지원 버전과 개수 제한은 개발가이드를 확인하세요. |
+| `reference_video_url_4` | `string (file)` | 선택 / optional | 참조 영상 URL. 지원 버전과 개수 제한은 개발가이드를 확인하세요. |
 
 ```json
-{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"kling_jobs_create","arguments":{"prompt":"<prompt>"}}}
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"kling_jobs_create","arguments":{"prompt":"A boat crossing the sea","version":"3.0"}}}
 ```
 
 <a id="kling-jobs-status"></a>
@@ -2019,3 +2072,21 @@ Video generation is billed per second of output (`duration × per-second points`
 `tts_jobs_retry` takes `job_id`, `utterance_ids` (such as `["u002"]`), and `idempotency_key`. Reuse the same key and IDs after a lost response. Technical recovery does not add a charge. This tool changes job state (`readOnlyHint: false`).
 
 `tts_jobs_quality`는 작업 ID로 발화 검수와 후보 이력을 조회합니다. `tts_jobs_candidate_audio`는 작업 ID·후보 ID로 WAV를 조회하며 최종 다운로드를 소비하지 않습니다. 후보는 종료 후 72시간 보존됩니다. `tts_jobs_retry`는 발화 ID 목록과 멱등 키로 같은 작업을 추가 과금 없이 재개합니다. 응답 단절 시 동일한 키와 목록을 재사용하세요.
+
+## Video model versions
+
+Omitting `version` preserves Seedance 2.5, Veo 3.1 and Kling 3.0. Set `version` and `tier` explicitly to select a generation; jobs are never silently switched to another version. Submission and status responses include `version`.
+
+Available generations: Seedance 1.0/1.5/2.0/2.5, including Seedance 2.0 Standard/Fast/Mini; Veo 3.1 (Standard/Fast/Lite); Kling 1.6/2.0/2.1/2.5/2.6/3.0/O1/O3. Veo 3.0 is unavailable. Seedance 2.0 Mini supports 480p/720p and 4–15 seconds. Modes, tiers, resolutions, durations, audio, file limits and prices vary by combination. See the [Seedance](https://apick.app/dev_guide/seedancejobs), [Veo](https://apick.app/dev_guide/veojobs) and [Kling](https://apick.app/dev_guide/klingjobs) version tables. Unsupported combinations are rejected before submission.
+
+## 영상 모델 버전 선택
+
+`version`을 생략하면 Seedance 2.5, Veo 3.1, Kling 3.0을 사용합니다. 버전과 등급을 명시하면 해당 조합으로 생성하며 다른 모델로 자동 대체하지 않습니다. 생성과 상태 응답의 `version`으로 확인할 수 있습니다.
+
+| 제품 | 제공 버전 | 제약과 요금 |
+|---|---|---|
+| Seedance | 2.5, 2.0(Standard·Fast·Mini), 1.5, 1.0 | [버전별 지원표](https://apick.app/dev_guide/seedancejobs) |
+| Veo | 3.1 (Standard, Fast, Lite) | [버전별 지원표](https://apick.app/dev_guide/veojobs) |
+| Kling | 3.0, O3, O1, 2.6, 2.5, 2.1, 2.0, 1.6 | [버전별 지원표](https://apick.app/dev_guide/klingjobs) |
+
+등급·해상도·길이·오디오·파일 개수와 초당 포인트는 선택 조합별로 다릅니다. Seedance 2.0은 Standard·Fast·Mini를 제공하며 Mini는 480p·720p와 4~15초를 지원합니다. 무음 전용 모델은 `audio=false`, 오디오 필수 모델은 `audio=true`만 허용합니다. Veo 3.0은 현재 제공하지 않습니다. 지원하지 않는 조합은 접수 전에 거절됩니다.

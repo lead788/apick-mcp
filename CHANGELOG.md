@@ -1,5 +1,13 @@
 # 변경 기록
 
+## 3.3.0 — 2026-09-14
+
+- Seedance 참조 소재의 이미지·영상·오디오 파일 인자를 문서화했습니다.
+- Add video generation version selection documentation and compatibility tests.
+- 영상 생성 버전 선택, 버전별 옵션·요금 안내와 호환 검증을 추가했습니다.
+- Pass version and tier through the existing bridge; no transport change.
+- Document and verify Seedance 2.0 Fast and Mini tier pass-through.
+
 ## 3.2.2 - 2026-09-14
 
 - 운전면허 `ghost_num`의 생략·빈값·임의 문자열 허용과 판정 미사용 계약을 한영 문서에 명시했습니다.

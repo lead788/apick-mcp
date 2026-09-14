@@ -269,6 +269,8 @@ Built for phishing and copycat-site investigation: resolve the host, trace its I
 Video generation (`seedance_jobs_create`, `veo_jobs_create`, `kling_jobs_create`) is asynchronous — submit a job, poll status, then download once it's `completed` via the status result's `result_url`. Billed per second (`duration × per-second points`), refunded in full on failure or timeout.
 영상 생성(`seedance_jobs_create`, `veo_jobs_create`, `kling_jobs_create`)은 비동기입니다 — 접수 후 상태를 조회하다가 `completed`가 되면 상태 결과의 `result_url`로 다운로드합니다. 초당 포인트 × 길이(초)로 과금되며 실패·시간 초과 시 전액 환불됩니다.
 
+Seedance 참조 소재 모드는 지원 버전에서 참조 이미지·영상·오디오(MP3·WAV) URL을 함께 받을 수 있습니다.
+
 ---
 
 ## How it works / 동작 방식
@@ -402,3 +404,21 @@ MIT — [LICENSE](LICENSE) 참고. 이 저장소(문서와 stdio 브릿지)에 �
 `tts_jobs_retry` takes `job_id`, `utterance_ids` (such as `["u002"]`), and `idempotency_key`. Reuse the same key and IDs after a lost response. Technical recovery does not add a charge. This tool changes job state (`readOnlyHint: false`).
 
 `tts_jobs_quality`는 작업 ID로 발화 검수와 후보 이력을 조회합니다. `tts_jobs_candidate_audio`는 작업 ID·후보 ID로 WAV를 조회하며 최종 다운로드를 소비하지 않습니다. 후보는 종료 후 72시간 보존됩니다. `tts_jobs_retry`는 발화 ID 목록과 멱등 키로 같은 작업을 추가 과금 없이 재개합니다. 응답 단절 시 동일한 키와 목록을 재사용하세요.
+
+## Video model versions
+
+Omitting `version` preserves Seedance 2.5, Veo 3.1 and Kling 3.0. Set `version` and `tier` explicitly to select a generation; jobs are never silently switched to another version. Submission and status responses include `version`.
+
+Available generations: Seedance 1.0/1.5/2.0/2.5, including Seedance 2.0 Standard/Fast/Mini; Veo 3.1 (Standard/Fast/Lite); Kling 1.6/2.0/2.1/2.5/2.6/3.0/O1/O3. Veo 3.0 is unavailable. Modes, tiers, resolutions, durations, audio, file limits and prices vary by combination. See the [Seedance](https://apick.app/dev_guide/seedancejobs), [Veo](https://apick.app/dev_guide/veojobs) and [Kling](https://apick.app/dev_guide/klingjobs) version tables. Unsupported combinations are rejected before submission.
+
+## 영상 모델 버전 선택
+
+`version`을 생략하면 Seedance 2.5, Veo 3.1, Kling 3.0을 사용합니다. 버전과 등급을 명시하면 해당 조합으로 생성하며 다른 모델로 자동 대체하지 않습니다. 생성과 상태 응답의 `version`으로 확인할 수 있습니다.
+
+| 제품 | 제공 버전 | 제약과 요금 |
+|---|---|---|
+| Seedance | 2.5, 2.0(Standard·Fast·Mini), 1.5, 1.0 | [버전별 지원표](https://apick.app/dev_guide/seedancejobs) |
+| Veo | 3.1 (Standard, Fast, Lite) | [버전별 지원표](https://apick.app/dev_guide/veojobs) |
+| Kling | 3.0, O3, O1, 2.6, 2.5, 2.1, 2.0, 1.6 | [버전별 지원표](https://apick.app/dev_guide/klingjobs) |
+
+등급·해상도·길이·오디오·파일 개수와 초당 포인트는 선택 조합별로 다릅니다. Seedance 2.0은 Standard·Fast·Mini를 제공하며 Mini는 480p·720p와 4~15초를 지원합니다. 무음 전용 모델은 `audio=false`, 오디오 필수 모델은 `audio=true`만 허용합니다. Veo 3.0은 현재 제공하지 않습니다. 지원하지 않는 조합은 접수 전에 거절됩니다.

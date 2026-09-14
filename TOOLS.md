@@ -434,9 +434,13 @@ Verify the authenticity of a Korean resident registration card (jumin-deungnokje
 
 ### `identi_card2` — [Text] 운전면허증 진위 확인
 
-Verify the authenticity of a Korean driver license using text input.
+Check Korean driver license number and personal details. `ghost_num` is optional: omit it, send an empty string, or send any string. Its content is not used in the match decision. This tool does not verify the serial number itself or the physical document's authenticity.
 
-운전면허증의 기재 정보를 입력해 진위 여부를 확인합니다. birth_y, birth_m, birth_d, name과 면허번호 4구획(licen_no0~licen_no3)은 모두 필수이며, ghost_num(식별번호)과 rrn1, rrn2는 선택 입력입니다. 정보주체의 동의 등 적법한 처리 근거를 확보한 경우에만 사용하십시오.
+운전면허번호와 인적사항의 일치 여부를 조회합니다. birth_y, birth_m, birth_d, name과 면허번호 4구획(licen_no0~licen_no3)은 필수입니다. ghost_num(식별번호)은 생략·빈값·임의 문자열 모두 허용하며 전달값은 판정에 사용하지 않습니다. rrn1, rrn2도 선택 입력입니다. 암호일련번호 자체나 실물 면허증의 위·변조 여부는 검증하지 않습니다. 정보주체의 동의 등 적법한 처리 근거를 확보한 경우에만 사용하십시오.
+
+`result=0` means a mismatch and `result=1` means a match. An unconfirmed result returns HTTP 424 (`result=2`); a timeout returns HTTP 408 (`result=3`). These processing failures are not charged. Responses contain short public messages, never source-page HTML.
+
+`result=0`은 불일치, `result=1`은 일치입니다. 판정 확인 실패는 HTTP 424(`result=2`), 시간 초과는 HTTP 408(`result=3`)이며 과금되지 않습니다. 응답에는 짧은 안내 문구만 포함되고 조회 페이지 HTML은 포함되지 않습니다.
 
 > 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `identity`
 
@@ -450,7 +454,7 @@ Verify the authenticity of a Korean driver license using text input.
 | `licen_no1` | `string` | **필수 / required** | 면허번호 2구획 (예: 19) |
 | `licen_no2` | `string` | **필수 / required** | 면허번호 3구획 (예: 174133) |
 | `licen_no3` | `string` | **필수 / required** | 면허번호 4구획 (예: 01) |
-| `ghost_num` | `string` | 선택 / optional | 식별번호 (면허증 우측 표기, 예: 8H1X3Y) |
+| `ghost_num` | `string` | 선택 / optional | 생략·빈값 허용, 전달값은 판정에 사용하지 않음 / May be omitted or empty; not used in the match decision |
 | `rrn1` | `string` | 선택 / optional | 주민등록번호 앞 6자리 (선택) |
 | `rrn2` | `string` | 선택 / optional | 주민등록번호 뒤 7자리 (선택) |
 

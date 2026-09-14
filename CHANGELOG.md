@@ -1,5 +1,11 @@
 # 변경 기록
 
+## 3.2.2 - 2026-09-14
+
+- 운전면허 `ghost_num`의 생략·빈값·임의 문자열 허용과 판정 미사용 계약을 한영 문서에 명시했습니다.
+- 운전면허 불일치와 무과금 처리 실패를 구분하고, 응답에 조회 페이지 HTML을 포함하지 않는 계약을 안내합니다.
+- Clarify optional driver-license serial input, match semantics, safe messages, and uncharged processing failures.
+
 ## 3.2.1 - 2026-09-14
 
 - Seedance 영상 생성 요금을 해상도별로 세분화(480p 560P·720p 1,250P·1080p 2,810P)하고 1080p 해상도를 지원합니다.

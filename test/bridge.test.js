@@ -22,14 +22,22 @@ test('신분증 structuredContent 오류 코드를 변경 없이 전달한다', 
 	assert.deepEqual(output, [serverMessage]);
 });
 
-test('3.3.0 공개 메타데이터는 운영 97개·Convert 22개·AI 15개와 이미지 작업 계약에 일치한다', () => {
+test('3.4.0 공개 메타데이터는 운영 96개·Convert 22개·AI 15개와 이미지 작업 계약에 일치한다', () => {
 	const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
 	const readme = readFileSync(new URL('../README.md', import.meta.url), 'utf8');
 	const tools = readFileSync(new URL('../TOOLS.md', import.meta.url), 'utf8');
-	assert.equal(pkg.version, '3.3.0');
-	assert.match(pkg.description, /97 Korean data, AI, image & video tools/);
+	assert.equal(pkg.version, '3.4.0');
+	assert.match(pkg.description, /96 Korean data, AI, image & video tools/);
 	assert.match(readme, /\| \[AI · LLM\]\(TOOLS\.md#ai\) \| `https:\/\/apick\.app\/mcp\/ai` \| 15 \|/);
-	assert.match(tools, /\| \*\*All 통합\*\* \| `\/mcp\/all` \| \*\*97\*\* \|/);
+	assert.match(tools, /\| \*\*All 통합\*\* \| `\/mcp\/all` \| \*\*96\*\* \|/);
+	assert.match(tools, /`https:\/\/apick\.app\/mcp\/business` — 15 tools/);
+	assert.doesNotMatch(tools, /`check_pccc`/);
+	assert.doesNotMatch(readme, /`check_pccc`/);
+	assert.match(tools, /\| `birthday` \| `string` \| \*\*필수 \/ required\*\* \| 생년월일 8자리/);
+	assert.match(tools, /\| `tx_id` \| `string` \| \*\*필수 \/ required\*\* \| req_pccc/);
+	assert.match(tools, /조회된 개인통관고유부호가 없습니다/);
+	assert.doesNotMatch(tools, /`auth_key`/);
+	assert.doesNotMatch(tools, /인증번호 6자리/);
 	assert.match(tools, /`https:\/\/apick\.app\/mcp\/convert` — 22 tools/);
 	assert.match(tools, /`https:\/\/apick\.app\/mcp\/ai` — 15 tools/);
 	for (const name of ['image_generate','image_edit','image_batch_create','image_batch_status','image_batch_result']) assert.match(tools, new RegExp('`'+name+'`'));

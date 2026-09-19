@@ -1,5 +1,13 @@
 # 변경 기록
 
+## 3.4.0 — 2026-09-19
+
+- 개인통관고유부호 조회가 문자(SMS) 인증번호 방식에서 간편인증 방식으로 바뀌었습니다. 기존 `rrn1`·`rrn2`·`auth_key`·`answer` 인자는 더 이상 쓰지 않습니다.
+- `req_pccc` 는 `name`, `birthday`(생년월일 8자리), `phone`, `provider`(간편인증 방식)를 받아 tx_id 를 즉시 반환합니다.
+- `get_pccc` 는 `tx_id` 만 받아 처리 상태와 결과를 확인합니다. 결과는 수집 시각(`checked_at`) 기준 24시간 동안 재조회할 수 있습니다.
+- `check_pccc` Tool 이 제거되어 전체 Tool 이 97개에서 96개로 줄었습니다.
+- Replace the SMS-verification PCCC flow with simple authentication; `check_pccc` is removed.
+
 ## 3.3.0 — 2026-09-14
 
 - Seedance 참조 소재의 이미지·영상·오디오 파일 인자를 문서화했습니다.

@@ -1,7 +1,7 @@
 # APICK MCP — Full Tool Catalog / 전체 Tool 목록
 
-**97 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 97개**, 분야별 서버 8개와 통합 서버 `all`.
+**96 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 96개**, 분야별 서버 8개와 통합 서버 `all`.
 
 Official site 공식 사이트: **<https://apick.app>** · Docs 연동 가이드: **<https://apick.app/dev_guide/mcp>**
 
@@ -12,7 +12,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 | Server 서버 | Endpoint | Tools | Coverage 범위 |
 | --- | --- | --- | --- |
-| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 16 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 유효성 검사. |
+| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 15 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 유효성 검사. |
 | [Identity Verification · 신분증 진위확인 · 마스킹](#identity) | `/mcp/identity` | 16 | 주민등록증·운전면허증·여권·외국인등록증 진위확인, 실명확인, 개인정보 마스킹. |
 | [OCR · OCR 문자인식](#ocr) | `/mcp/ocr` | 6 | 이미지 텍스트 추출과 신분증 항목 추출. |
 | [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 3 | 계좌 예금주 실명조회와 1원 인증. |
@@ -20,11 +20,11 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 22 | PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
-| **All 통합** | `/mcp/all` | **97** | 아래 전부 |
+| **All 통합** | `/mcp/all` | **96** | 아래 전부 |
 
-<details><summary><b>All 97 tool names / 전체 Tool 이름</b></summary>
+<details><summary><b>All 96 tool names / 전체 Tool 이름</b></summary>
 
-`biz_detail` · `venture_biz_info` · `land_rt_price` · `req_pccc` · `get_pccc` · `check_pccc` · `get_car_flooding` · `get_car_scrap` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info`
+`biz_detail` · `venture_biz_info` · `land_rt_price` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info`
 
 `identi_card1` · `identi_card2` · `identi_card3` · `identi_card4` · `identi_card5` · `identi_card_image1` · `identi_card_image2` · `identi_card_image3` · `identi_card_image4` · `identi_card_image5` · `name_rrn_auth` · `hide_rrn` · `identity_document_residence_card` · `identity_document_passport` · `identity_document_id_card` · `identity_document_driver_license`
 
@@ -48,7 +48,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 ## Business & Commerce · 사업자 · 커머스
 
-`https://apick.app/mcp/business` — 16 tools
+`https://apick.app/mcp/business` — 15 tools
 
 Korean business registry, corporate credit, parcel tracking, real-estate prices, vehicle history, and input validation.
 
@@ -59,9 +59,8 @@ Korean business registry, corporate credit, parcel tracking, real-estate prices,
 | [`biz_detail`](#biz-detail) | 사업자 정보 조회 | `biz_no` |
 | [`venture_biz_info`](#venture-biz-info) | 벤처기업 정보조회 | `biz_no` |
 | [`land_rt_price`](#land-rt-price) | 부동산 실거래가 조회 | `addr1`, `addr2`, `type`, `year` |
-| [`req_pccc`](#req-pccc) | 개인통관고유부호 인증 요청 | `name`, `rrn1`, `rrn2`, `phone` |
-| [`get_pccc`](#get-pccc) | 개인통관고유부호 조회 | `auth_key`, `answer` |
-| [`check_pccc`](#check-pccc) | 개인통관부호 검증 | `name`, `pccc`, `zip`, `phone` |
+| [`req_pccc`](#req-pccc) | 개인통관고유부호 인증 요청 | `name`, `birthday`, `phone`, `provider` |
+| [`get_pccc`](#get-pccc) | 개인통관고유부호 조회 | `tx_id` |
 | [`get_car_flooding`](#get-car-flooding) | 차량 침수차 여부 조회 | `type`, `value` |
 | [`get_car_scrap`](#get-car-scrap) | 차량 폐차사고처리 여부 조회 | `type`, `value` |
 | [`parcel_tracking`](#parcel-tracking) | 택배 배송조회 | `carrier`, `trackingNumber` |
@@ -134,61 +133,41 @@ Look up real estate transaction price records in Korea by region, property type,
 
 ### `req_pccc` — 개인통관고유부호 인증 요청
 
-Request SMS verification to retrieve a Korean Personal Customs Clearance Code (PCCC).
+Request simple authentication (KakaoTalk, Toss, PASS, etc.) to retrieve a Korean Personal Customs Clearance Code (PCCC).
 
-개인통관고유부호 조회를 위한 본인 인증을 요청합니다. 인증번호 6자리가 문자(SMS)로 발송되며, 응답의 auth_key와 수신한 인증번호를 get_pccc Tool에 입력해 부호를 조회합니다.
+이름, 생년월일, 휴대전화번호, 간편인증 방식을 입력하면 해당 휴대폰으로 간편인증 요청을 보내고 결과 조회에 사용할 tx_id 를 즉시 반환합니다. 사용자가 휴대폰에서 직접 승인해야 하며, 승인 결과는 `get_pccc` 에 tx_id 를 넣어 확인합니다.
 
 > **부작용 있음 / has side effects** · 외부 데이터 조회 / external lookup · server `business`
 
 | Parameter | Type | Required | Description 설명 |
 | --- | --- | --- | --- |
 | `name` | `string` | **필수 / required** | 이름 |
-| `rrn1` | `string` | **필수 / required** | 주민등록번호 앞 6자리 |
-| `rrn2` | `string` | **필수 / required** | 주민등록번호 뒤 7자리 |
+| `birthday` | `string` | **필수 / required** | 생년월일 8자리 (YYYYMMDD, 예: 19900101) |
 | `phone` | `string` | **필수 / required** | 휴대전화 번호 (본인 명의, 숫자만) |
+| `provider` | `string` | **필수 / required** | 간편인증 방식: `kakao`, `naver`, `toss`, `pass`, `samsung`, `kb`, `shinhan`, `hana`, `woori`, `ibk`, `nh`, `kakaobank`, `banksalad` |
 
 ```json
-{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"req_pccc","arguments":{"name":"<name>","rrn1":"<rrn1>","rrn2":"<rrn2>","phone":"<phone>"}}}
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"req_pccc","arguments":{"name":"<name>","birthday":"19900101","phone":"<phone>","provider":"kakao"}}}
 ```
+
+인증 요청이 실제 발송된 접수 시점에 과금됩니다. 이미 대기 중인 요청을 다시 보내면 인증을 재발송하지 않고 기존 tx_id 를 반환하며 과금되지 않습니다. 인증 유효시간은 5분입니다.
 
 <a id="get-pccc"></a>
 
 ### `get_pccc` — 개인통관고유부호 조회
 
-Retrieve a Korean Personal Customs Clearance Code (PCCC) using the auth key and SMS verification code.
+Retrieve a Korean Personal Customs Clearance Code (PCCC) by transaction ID.
 
-req_pccc Tool 호출로 받은 auth_key와 문자(SMS)로 수신한 인증번호 6자리를 입력해 개인통관고유부호를 조회합니다.
+req_pccc Tool 호출로 받은 tx_id 를 입력해 처리 상태를 확인합니다. 아직 승인 전이면 status 는 `pending`, message 는 "인증 대기중입니다." 이며 과금되지 않습니다. 승인이 끝나면 서버가 최종 정보를 조회해 개인통관고유부호와 주소, 수집 시각 `checked_at` 을 반환하며 이때 과금됩니다. 발급된 부호가 없으면 message 는 "조회된 개인통관고유부호가 없습니다." 이고 과금되지 않습니다. 결과는 24시간 동안 재조회할 수 있고 재조회할 때마다 과금됩니다.
 
 > **부작용 있음 / has side effects** · 외부 데이터 조회 / external lookup · server `business`
 
 | Parameter | Type | Required | Description 설명 |
 | --- | --- | --- | --- |
-| `auth_key` | `string` | **필수 / required** | req_pccc(개인통관고유부호 인증 요청) 응답의 인증 키 |
-| `answer` | `string` | **필수 / required** | 문자(SMS)로 발송된 인증번호 6자리 |
+| `tx_id` | `string` | **필수 / required** | req_pccc(개인통관고유부호 인증 요청) 응답의 트랜잭션 ID |
 
 ```json
-{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"get_pccc","arguments":{"auth_key":"<auth_key>","answer":"<answer>"}}}
-```
-
-<a id="check-pccc"></a>
-
-### `check_pccc` — 개인통관부호 검증
-
-Verify that a Korean Personal Customs Clearance Code (PCCC) matches the given name, zip code, and phone number.
-
-이름, 개인통관고유부호, 우편번호, 전화번호를 입력하여 개인통관부호 일치 여부를 검증합니다. 해외직구 주문 정보 검증 등에 사용합니다.
-
-> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
-
-| Parameter | Type | Required | Description 설명 |
-| --- | --- | --- | --- |
-| `name` | `string` | **필수 / required** | 이름 |
-| `pccc` | `string` | **필수 / required** | 개인통관고유부호 (P + 숫자 12자리, 예: P123456789012) |
-| `zip` | `string` | **필수 / required** | 우편번호 (5자리, 예: 12345) |
-| `phone` | `string` | **필수 / required** | 전화번호 (숫자만, 예: 01012341234) |
-
-```json
-{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"check_pccc","arguments":{"name":"<name>","pccc":"<pccc>","zip":"<zip>","phone":"<phone>"}}}
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"get_pccc","arguments":{"tx_id":"<tx_id>"}}}
 ```
 
 <a id="get-car-flooding"></a>

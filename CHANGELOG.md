@@ -1,5 +1,10 @@
 # 변경 기록
 
+## 3.4.1 — 2026-09-27
+
+- 이미지 생성·편집 요금을 장당 25포인트에서 40포인트로 인상했습니다.
+- Image generation/editing price increased from 25 to 40 points per image.
+
 ## 3.4.0 — 2026-09-19
 
 - 개인통관고유부호 조회가 문자(SMS) 인증번호 방식에서 간편인증 방식으로 바뀌었습니다. 기존 `rrn1`·`rrn2`·`auth_key`·`answer` 인자는 더 이상 쓰지 않습니다.

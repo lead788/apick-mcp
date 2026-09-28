@@ -47,28 +47,77 @@ function documentedResultKey(tools, product) {
 	return section.match(/성공 결과: `result\.([A-Za-z]+)`/)[1];
 }
 
-// 상태 묶음별로 클라이언트가 판단에 쓰는 필드를 채운 get_* 응답 data. 중첩 객체·배열·null·한글이
-// 섞여 있어 브릿지가 값을 바꾸거나 누락하면 바로 드러난다.
-function statusData({ product, status, errorCode, resultKey, transactionId }) {
-	const group = Object.keys(statusGroups).find(key => statusGroups[key].includes(status));
-	const done = group === 'done';
-	const data = {
-		schemaVersion: 1, transactionId, product, status, resultAvailable: done, charged: done, success: group !== 'stopped',
-		message: status + ' 상태입니다.',
-		sources: [
-			{ id: 'source-1', status: done ? 'SUCCESS' : status, detail: null },
-			{ id: 'source-2', status: status === 'PARTIAL_SUCCESS' ? 'FAILED' : done ? 'SUCCESS' : status, detail: { note: '부분 항목' } }
-		]
-	};
-	if (group === 'waiting') Object.assign(data, { expiresAt: '2026-09-28T09:05:00Z', approvals: [{ provider: 'kakao', approved: false }] });
-	if (group === 'collecting') data.progress = { completed: status === 'COLLECTED' ? 2 : 1, total: 2 };
-	if (done) Object.assign(data, { checkedAt: '2026-09-28T09:03:00Z', resultExpiresAt: '2026-09-29T09:03:00Z', result: { [resultKey]: { items: [{ label: '항목', value: 1 }, { label: '누락', value: null }] } } });
-	if (errorCode) data.errorCode = errorCode;
-	return { data, cost: done ? (status === 'PARTIAL_SUCCESS' ? 150 : 300) : 0 };
+// 공개 REST 타입과 SDK 예제 기준(네트워크 없이 검증):
+// https://github.com/lead788/apick-api/blob/8b2cde8d27e3035557f7e342e3c8390e67657182/src/index.d.ts#L69-L103
+// https://github.com/lead788/apick-api/blob/8b2cde8d27e3035557f7e342e3c8390e67657182/test/client.test.cjs#L308-L320
+// fixture 전용 검사다. 브릿지의 응답 검증·변환 규칙으로 사용하지 않는다.
+function assertDataContract(data) {
+	assert.equal(data.schemaVersion, '1.0');
+	assert.equal(typeof data.success, 'number');
+	assert.ok(data.success === 0 || data.success === 1);
+	assert.equal(typeof data.resultAvailable, 'boolean');
+	assert.equal(typeof data.charged, 'boolean');
+	if (Object.hasOwn(data, 'approvals')) assert.equal(typeof data.approvals, 'number');
+	assert.ok(Array.isArray(data.sources));
+	for (const source of data.sources) {
+		assert.deepEqual(Object.keys(source).sort(), ['source', 'status', 'type']);
+		for (const field of ['source', 'type', 'status']) assert.equal(typeof source[field], 'string');
+	}
 }
 
-// FAILED는 수집 실패와 결과 만료(RESULT_EXPIRED)를 모두 전달해야 한다.
-const errorCodesByStatus = { AUTH_REJECTED: ['AUTH_REJECTED'], AUTH_EXPIRED: ['AUTH_EXPIRED'], FAILED: ['COLLECT_FAILED', 'RESULT_EXPIRED'] };
+// get_* 응답의 공통 필드는 REST 계약을 따른다. 기관명과 result 내부 값은 전달 검사용 합성 데이터이며
+// 상품별 결과 스키마를 정의하지 않는다. 중첩 객체·배열·null·한글의 원형 보존도 함께 검사한다.
+function statusData({ product, status, errorCode, resultKey, transactionId, repeated = false }) {
+	const group = Object.keys(statusGroups).find(key => statusGroups[key].includes(status));
+	const done = group === 'done';
+	const charged = done && !repeated;
+	const data = {
+		schemaVersion: '1.0', transactionId, product, status, resultAvailable: done, charged, success: charged ? 1 : 0,
+		message: status + ' 상태입니다.',
+		sources: done || status === 'COLLECTING' ? [
+			{ source: '테스트 기관 1', type: product, status: 'SUCCESS' },
+			{ source: '테스트 기관 2', type: product, status: status === 'SUCCESS' ? 'SUCCESS' : 'FAILED' }
+		] : []
+	};
+	if (group === 'waiting') data.expiresAt = '2026-09-28T18:05:00+09:00';
+	if (status === 'COLLECTING') data.progress = { completed: 1, total: 2 };
+	if (done) Object.assign(data, { checkedAt: '2026-09-28T18:03:00+09:00', resultExpiresAt: '2026-09-29T18:03:00+09:00', result: { [resultKey]: { items: [{ label: '항목', value: 1 }, { label: '누락', value: null }] } } });
+	if (errorCode) data.errorCode = errorCode;
+	return { data, cost: charged ? (status === 'PARTIAL_SUCCESS' ? 150 : 300) : 0 };
+}
+
+// 결과 유효기간 만료도 AUTH_EXPIRED이며 errorCode로 인증 만료와 구분한다.
+const errorCodesByStatus = { AUTH_REJECTED: ['AUTH_REJECTED'], AUTH_EXPIRED: ['AUTH_EXPIRED', 'RESULT_EXPIRED'], FAILED: ['COLLECT_FAILED'] };
+
+test('응답 fixture가 공개 REST 필드 타입을 지키며 과거의 잘못된 형태를 거부한다', () => {
+	for (const status of statuses) {
+		const { data } = statusData({ product: 'employment', status, resultKey: 'employment', transactionId: 'a'.repeat(32) });
+		assertDataContract(data);
+		assert.equal(data.success, statusGroups.done.includes(status) ? 1 : 0);
+		assert.equal(Object.hasOwn(data, 'approvals'), false);
+		if (statusGroups.done.includes(status)) {
+			const replay = statusData({ product: 'employment', status, resultKey: 'employment', transactionId: 'a'.repeat(32), repeated: true });
+			assertDataContract(replay.data);
+			assert.equal(replay.data.success, 0);
+			assert.equal(replay.data.charged, false);
+			assert.equal(replay.cost, 0);
+			assert.equal(replay.data.resultAvailable, true);
+			assert.deepEqual(replay.data.result, data.result);
+		}
+	}
+	const valid = {
+		schemaVersion: '1.0', success: 1, resultAvailable: false, charged: true, approvals: 2,
+		sources: [{ source: '테스트 기관', type: 'employment', status: 'SUCCESS' }]
+	};
+	assertDataContract(valid);
+	const { approvals, ...withoutApprovals } = valid;
+	assertDataContract(withoutApprovals);
+	for (const invalid of [
+		{ schemaVersion: 1 }, { success: true }, { success: false },
+		{ approvals: [{ provider: 'kakao', approved: false }] },
+		{ sources: [{ id: 'source-1', status: 'SUCCESS', detail: null }] }
+	]) assert.throws(() => assertDataContract({ ...valid, ...invalid }), assert.AssertionError);
+});
 
 test('배포 대상 106개 목록과 Business 25개·상태 변경 24개 메타데이터가 일치한다', () => {
 	const tools = read('TOOLS.md');
@@ -120,13 +169,14 @@ test('TOOLS.md 상태 계약이 10개 상태·4개 처리 묶음·오류코드·
 	}
 });
 
-test('신규 Tool 검색과 5개 접수 Tool을 브릿지가 필드 변환 없이 전달한다', async () => {
+test('신규 Tool 검색과 5개 접수 Tool을 JSON·SSE에서 필드 변환 없이 전달한다', async () => {
 	const sent = [], output = [];
-	let response;
+	let response, transport = 'json';
 	const bridge = createBridge({ server: 'business', write: line => output.push(JSON.parse(line)), fetch: async (url, options) => {
 		assert.equal(url, 'https://apick.app/mcp/business');
 		sent.push(JSON.parse(options.body));
-		return new Response(JSON.stringify(response), { status: 200, headers: { 'content-type': 'application/json' } });
+		const body = transport === 'sse' ? 'event: message\ndata: ' + JSON.stringify(response) + '\n\n' : JSON.stringify(response);
+		return new Response(body, { status: 200, headers: { 'content-type': transport === 'sse' ? 'text/event-stream' : 'application/json' } });
 	} });
 	const discovery = { jsonrpc: '2.0', id: 1, method: 'tools/list', params: {} };
 	response = { jsonrpc: '2.0', id: 1, result: { tools: names.map(name => ({ name, inputSchema: { type: 'object' } })) } };
@@ -139,10 +189,25 @@ test('신규 Tool 검색과 5개 접수 Tool을 브릿지가 필드 변환 없�
 			name: '홍길동', birthDate: '19900101', phone: '01012345678', authProvider: 'kakao',
 			...(product === 'employment' ? { insuranceYears: 3 } : product === 'personal_income' ? { incomeYears: 5 } : product === 'nps_join_history' ? { from: '2025-01', to: '2026-09' } : {})
 		} } };
-		response = { jsonrpc: '2.0', id: 2, result: { structuredContent: { transactionId, status: 'AUTH_REQUESTED', charged: true } } };
-		await bridge.handleLine(JSON.stringify(request));
-		assert.deepEqual(sent.at(-1), request);
-		assert.deepEqual(output.at(-1), response);
+		const data = {
+			schemaVersion: '1.0', transactionId, product, status: 'AUTH_REQUESTED',
+			resultAvailable: false, charged: true, sources: [], message: '인증 대기중입니다.',
+			expiresAt: '2026-09-28T18:05:00+09:00', success: 1, approvals: 2
+		};
+		for (const approvals of [2, undefined]) {
+			if (approvals === undefined) delete data.approvals;
+			else data.approvals = approvals;
+			assertDataContract(data);
+			response = { jsonrpc: '2.0', id: 2, result: { content: [{ type: 'text', text: JSON.stringify(data) }], structuredContent: data, isError: false, _meta: { 'app.apick/cost': 20 } } };
+			for (transport of ['json', 'sse']) {
+				const before = output.length;
+				await bridge.handleLine(JSON.stringify(request));
+				assert.deepEqual(sent.at(-1), request);
+				assert.equal(output.length, before + 1);
+				assert.deepEqual(output.at(-1), response);
+				assertDataContract(output.at(-1).result.structuredContent);
+			}
+		}
 	}
 });
 
@@ -158,13 +223,16 @@ test('5개 결과 Tool이 10개 상태 전부와 상태별 핵심 필드를 JSON
 	} });
 	const seen = new Map(products.map(product => [product, new Set()]));
 	const seenErrorCodes = new Set();
+	const scenarios = documented.flatMap(status => (errorCodesByStatus[status] || [undefined]).flatMap(errorCode =>
+		(statusGroups.done.includes(status) ? [false, true] : [false]).map(repeated => ({ status, errorCode, repeated }))));
 	let id = 10;
 	for (const product of products) {
 		const resultKey = documentedResultKey(tools, product);
 		const transactionId = '0123456789abcdef'.repeat(2);
 		for (const status of documented) {
-			for (const errorCode of errorCodesByStatus[status] || [undefined]) {
-				const { data, cost } = statusData({ product, status, errorCode, resultKey, transactionId });
+			for (const { errorCode, repeated } of scenarios.filter(scenario => scenario.status === status)) {
+				const { data, cost } = statusData({ product, status, errorCode, resultKey, transactionId, repeated });
+				assertDataContract(data);
 				for (const transport of ['json', 'sse']) {
 					const get = { jsonrpc: '2.0', id: ++id, method: 'tools/call', params: { name: 'get_' + product, arguments: { transactionId } } };
 					const response = { jsonrpc: '2.0', id, result: { content: [{ type: 'text', text: JSON.stringify(data) }], structuredContent: data, isError: false, _meta: { 'app.apick/cost': cost } } };
@@ -172,12 +240,14 @@ test('5개 결과 Tool이 10개 상태 전부와 상태별 핵심 필드를 JSON
 					contentType = transport === 'sse' ? 'text/event-stream' : 'application/json';
 					const before = output.length;
 					await bridge.handleLine(JSON.stringify(get));
-					const label = `get_${product} ${status}${errorCode ? ' ' + errorCode : ''} ${transport}`;
+					const label = `get_${product} ${status}${errorCode ? ' ' + errorCode : ''} ${transport} repeated=${repeated}`;
 					assert.deepEqual(sent.at(-1), get, label);
 					assert.equal(output.length, before + 1, label);
 					const got = output.at(-1);
 					assert.deepEqual(got, response, label);
 					const out = got.result.structuredContent;
+					assertDataContract(out);
+					assert.equal(out.success, statusGroups.done.includes(status) && !repeated ? 1 : 0, label);
 					assert.equal(out.status, status, label);
 					assert.equal(out.resultAvailable, statusGroups.done.includes(status), label);
 					assert.equal(out.errorCode, errorCode, label);

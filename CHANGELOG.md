@@ -1,5 +1,12 @@
 # 변경 기록
 
+## 3.5.0 — 2026-09-28
+
+- 간편인증 데이터 조회 5종의 접수·결과 Tool 10개 계약을 추가했습니다. 전체 106개, Business 25개, 상태 변경 Tool 24개입니다. 원격 서버의 대응 패치 배포가 필요합니다.
+- Document ten request/result tools for five simple-auth data products (106 total, 25 Business, 24 non-read-only). Requires the corresponding remote-server deployment.
+- SDK와 동일한 입력·응답 이름, 승인 대기 흐름, 최초 결과 과금·무료 재조회와 PCCC 계약 차이를 명시했습니다.
+- Preserve the bridge protocol; verify metadata, tool discovery, and request/result forwarding without live data calls.
+
 ## 3.4.1 — 2026-09-27
 
 - 이미지 생성·편집 요금을 장당 25포인트에서 40포인트로 인상했습니다.

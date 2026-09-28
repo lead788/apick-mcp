@@ -1,7 +1,11 @@
 # APICK MCP — Full Tool Catalog / 전체 Tool 목록
 
-**96 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 96개**, 분야별 서버 8개와 통합 서버 `all`.
+**106 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 106개**, 분야별 서버 8개와 통합 서버 `all`.
+
+> 3.5.0 카탈로그: 106개 Tool(Business 25개). 신규 10개 Tool을 사용하려면 대응하는 원격 서버 버전이 필요합니다. 브릿지 설치만으로 활성화되지 않으며 실제 사용 가능 목록은 연결한 서버의 `tools/list`로 확인하세요.
+> Catalog for 3.5.0: 106 tools (25 Business). The 10 new tools require the matching remote-server deployment; installing this bridge alone does not enable them. Check the connected server’s `tools/list` for availability.
+
 
 Official site 공식 사이트: **<https://apick.app>** · Docs 연동 가이드: **<https://apick.app/dev_guide/mcp>**
 
@@ -12,7 +16,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 | Server 서버 | Endpoint | Tools | Coverage 범위 |
 | --- | --- | --- | --- |
-| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 15 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 유효성 검사. |
+| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 25 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 유효성 검사. |
 | [Identity Verification · 신분증 진위확인 · 마스킹](#identity) | `/mcp/identity` | 16 | 주민등록증·운전면허증·여권·외국인등록증 진위확인, 실명확인, 개인정보 마스킹. |
 | [OCR · OCR 문자인식](#ocr) | `/mcp/ocr` | 6 | 이미지 텍스트 추출과 신분증 항목 추출. |
 | [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 3 | 계좌 예금주 실명조회와 1원 인증. |
@@ -20,11 +24,11 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 22 | PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
-| **All 통합** | `/mcp/all` | **96** | 아래 전부 |
+| **All 통합** | `/mcp/all` | **106** | 아래 전부 |
 
-<details><summary><b>All 96 tool names / 전체 Tool 이름</b></summary>
+<details><summary><b>All 106 tool names / 전체 Tool 이름</b></summary>
 
-`biz_detail` · `venture_biz_info` · `land_rt_price` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info`
+`biz_detail` · `venture_biz_info` · `land_rt_price` · `req_pccc` · `get_pccc` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `get_car_flooding` · `get_car_scrap` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info`
 
 `identi_card1` · `identi_card2` · `identi_card3` · `identi_card4` · `identi_card5` · `identi_card_image1` · `identi_card_image2` · `identi_card_image3` · `identi_card_image4` · `identi_card_image5` · `name_rrn_auth` · `hide_rrn` · `identity_document_residence_card` · `identity_document_passport` · `identity_document_id_card` · `identity_document_driver_license`
 
@@ -48,7 +52,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 ## Business & Commerce · 사업자 · 커머스
 
-`https://apick.app/mcp/business` — 15 tools
+`https://apick.app/mcp/business` — 25 tools
 
 Korean business registry, corporate credit, parcel tracking, real-estate prices, vehicle history, and input validation.
 
@@ -61,6 +65,16 @@ Korean business registry, corporate credit, parcel tracking, real-estate prices,
 | [`land_rt_price`](#land-rt-price) | 부동산 실거래가 조회 | `addr1`, `addr2`, `type`, `year` |
 | [`req_pccc`](#req-pccc) | 개인통관고유부호 인증 요청 | `name`, `birthday`, `phone`, `provider` |
 | [`get_pccc`](#get-pccc) | 개인통관고유부호 조회 | `tx_id` |
+| [`req_employment`](#req-employment) | 재직·보험료 확인 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
+| [`get_employment`](#get-employment) | 재직·보험료 확인 상태·결과 | `transactionId` |
+| [`req_personal_income`](#req-personal-income) | 금융소득(이자·배당) 조회 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
+| [`get_personal_income`](#get-personal-income) | 금융소득(이자·배당) 조회 상태·결과 | `transactionId` |
+| [`req_nps_join_history`](#req-nps-join-history) | 국민연금 가입내역 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
+| [`get_nps_join_history`](#get-nps-join-history) | 국민연금 가입내역 상태·결과 | `transactionId` |
+| [`req_driving_license`](#req-driving-license) | 운전면허 조회 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
+| [`get_driving_license`](#get-driving-license) | 운전면허 조회 상태·결과 | `transactionId` |
+| [`req_health_checkup`](#req-health-checkup) | 국가 건강검진 결과 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
+| [`get_health_checkup`](#get-health-checkup) | 국가 건강검진 결과 상태·결과 | `transactionId` |
 | [`get_car_flooding`](#get-car-flooding) | 차량 침수차 여부 조회 | `type`, `value` |
 | [`get_car_scrap`](#get-car-scrap) | 차량 폐차사고처리 여부 조회 | `type`, `value` |
 | [`parcel_tracking`](#parcel-tracking) | 택배 배송조회 | `carrier`, `trackingNumber` |
@@ -169,6 +183,204 @@ req_pccc Tool 호출로 받은 tx_id 를 입력해 처리 상태를 확인합니
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"get_pccc","arguments":{"tx_id":"<tx_id>"}}}
 ```
+
+<a id="simple-auth-data"></a>
+
+### 간편인증 데이터 조회 공통 계약 / Shared data-lookup contract
+
+아래 5개 상품은 **접수 → 휴대폰 승인 → 결과 조회** 순서로 호출합니다. 접수 전에 알림 발송·과금과 조회 항목을 사용자에게 확인하고, 승인은 사용자가 휴대폰에서 직접 수행합니다. 승인 대기 중 접수를 반복하지 않습니다.
+
+Use request → user approval on the phone → result lookup. Confirm the requested data and acceptance charge before submitting. Never approve on the user’s behalf or automatically repeat the authentication request.
+
+| 접수 입력 | 형식 | 필수 |
+| --- | --- | --- |
+| `name` | 본인 이름, 2~40자 | 필수 |
+| `birthDate` | 생년월일 숫자 8자리, YYYYMMDD | 필수 |
+| `phone` | 본인 명의 휴대전화 번호, 숫자 10~11자리, 01로 시작 | 필수 |
+| `authProvider` | `kakao`, `naver`, `toss`, `pass`, `samsung`, `kb`, `shinhan`, `hana`, `woori`, `ibk`, `nh`, `kakaobank`, `banksalad` | 필수 |
+
+결과 Tool은 **같은 상품**의 접수 응답에서 받은 `transactionId`(소문자 16진수 32자리)만 받습니다. 접수·결과 Tool 모두 `readOnlyHint: false`입니다. 접수는 `idempotentHint: false`, 결과 조회는 동일 거래 재조회 시 중복 과금하지 않아 `idempotentHint: true`입니다.
+
+Result tools require the `transactionId` from the same product. Both stages are non-read-only because they may trigger notifications, collection or billing. Repeated result reads do not charge again.
+
+| 상품 | 선택 입력 | 성공 결과 위치 |
+| --- | --- | --- |
+| 재직·보험료 확인 | insuranceYears: 정수 1~3 (선택, 기본 1) | `result.employment` |
+| 금융소득(이자·배당) 조회 | incomeYears: 정수 1~5 (선택, 기본 1) | `result.personalIncome` |
+| 국민연금 가입내역 | from, to: YYYY-MM (각각 선택) | `result.npsJoinHistory` |
+| 운전면허 조회 | 없음 | `result.drivingLicense` |
+| 국가 건강검진 결과 | 없음 | `result.healthCheckup` |
+
+**응답:** MCP의 `structuredContent`와 JSON 텍스트에는 REST 응답의 `data`가 그대로 담깁니다. `schemaVersion`, `transactionId`, `product`, `status`, `resultAvailable`, `charged`, `sources`, `message`, `success`를 확인합니다. 접수에는 `expiresAt`와 선택적 `approvals`, 수집 중에는 `progress`, 결과에는 `checkedAt`, `resultExpiresAt`, `result`가 포함될 수 있습니다. 실제 차감 포인트는 `_meta["app.apick/cost"]`입니다.
+
+**Response:** `structuredContent` and JSON text preserve the REST `data` envelope. Check `status`, `resultAvailable`, `charged`, and `errorCode`; transport success alone does not mean collection succeeded. Billing metadata is available under `_meta["app.apick/cost"]`.
+
+| 상태 | 클라이언트 처리 |
+| --- | --- |
+| `AUTH_REQUESTED`, `AUTH_WAITING` | 사용자에게 휴대폰 승인을 안내하고 같은 ID 유지 |
+| `AUTH_COMPLETED`, `COLLECTING`, `COLLECTED` | 완료 여부를 확인하며 간격을 두고 같은 결과 Tool 조회 |
+| `SUCCESS`, `PARTIAL_SUCCESS` | `resultAvailable`과 `result` 확인; 부분 성공이면 누락 항목 확인 |
+| `AUTH_REJECTED`, `AUTH_EXPIRED`, `FAILED` | `errorCode`와 `message` 확인; 자동 재접수 중단 |
+
+`errorCode`는 `RESULT_EXPIRED`, `AUTH_EXPIRED`, `AUTH_REJECTED`, `COLLECT_FAILED`를 포함합니다. 만료된 결과는 다시 조회할 수 없으며 새로운 인증 접수가 필요합니다. 업무 상태 오류는 `isError: false`인 정상 MCP 응답에도 담길 수 있으므로 `status`와 `errorCode`를 함께 검사하세요.
+
+접수 시 정액 과금, 결과 최초 반환 시 조회 범위별 과금입니다. 승인 대기·수집 중 조회 및 `resultExpiresAt` 전 재조회는 무료입니다. **PCCC는 별도 계약**으로 `birthday`·`provider`·`tx_id`를 사용하고 결과 재조회도 과금됩니다.
+
+Acceptance is billed separately; first result delivery is billed by scope. Waiting/collecting polls and repeat reads before `resultExpiresAt` are free. PCCC keeps its existing `birthday`/`provider`/`tx_id` contract and charges repeated result reads.
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "tools/call",
+  "params": {
+    "name": "req_employment",
+    "arguments": {
+      "name": "홍길동",
+      "birthDate": "19900101",
+      "phone": "01012345678",
+      "authProvider": "kakao",
+      "insuranceYears": 1
+    }
+  }
+}
+```
+
+사용자가 휴대폰에서 승인한 뒤 접수 응답의 실제 `transactionId`로 조회합니다:
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 2,
+  "method": "tools/call",
+  "params": {
+    "name": "get_employment",
+    "arguments": {
+      "transactionId": "0123456789abcdef0123456789abcdef"
+    }
+  }
+}
+```
+
+<a id="req-employment"></a>
+
+### `req_employment` — 재직·보험료 확인 인증 요청
+
+REST: `POST /rest/req_employment` · SDK: `requestEmployment()`
+
+필수: `name`, `birthDate`, `phone`, `authProvider`. 선택: insuranceYears: 정수 1~3 (선택, 기본 1).
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="get-employment"></a>
+
+### `get_employment` — 재직·보험료 확인 결과 조회
+
+REST: `POST /rest/get_employment` · SDK: `getEmployment()`
+
+필수: `transactionId`. 성공 결과: `result.employment`.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="req-personal-income"></a>
+
+### `req_personal_income` — 금융소득(이자·배당) 조회 인증 요청
+
+REST: `POST /rest/req_personal_income` · SDK: `requestPersonalIncome()`
+
+필수: `name`, `birthDate`, `phone`, `authProvider`. 선택: incomeYears: 정수 1~5 (선택, 기본 1).
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="get-personal-income"></a>
+
+### `get_personal_income` — 금융소득(이자·배당) 조회 결과 조회
+
+REST: `POST /rest/get_personal_income` · SDK: `getPersonalIncome()`
+
+필수: `transactionId`. 성공 결과: `result.personalIncome`.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="req-nps-join-history"></a>
+
+### `req_nps_join_history` — 국민연금 가입내역 인증 요청
+
+REST: `POST /rest/req_nps_join_history` · SDK: `requestNpsJoinHistory()`
+
+필수: `name`, `birthDate`, `phone`, `authProvider`. 선택: from, to: YYYY-MM (각각 선택).
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="get-nps-join-history"></a>
+
+### `get_nps_join_history` — 국민연금 가입내역 결과 조회
+
+REST: `POST /rest/get_nps_join_history` · SDK: `getNpsJoinHistory()`
+
+필수: `transactionId`. 성공 결과: `result.npsJoinHistory`.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="req-driving-license"></a>
+
+### `req_driving_license` — 운전면허 조회 인증 요청
+
+REST: `POST /rest/req_driving_license` · SDK: `requestDrivingLicense()`
+
+필수: `name`, `birthDate`, `phone`, `authProvider`. 선택: 없음.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="get-driving-license"></a>
+
+### `get_driving_license` — 운전면허 조회 결과 조회
+
+REST: `POST /rest/get_driving_license` · SDK: `getDrivingLicense()`
+
+필수: `transactionId`. 성공 결과: `result.drivingLicense`.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="req-health-checkup"></a>
+
+### `req_health_checkup` — 국가 건강검진 결과 인증 요청
+
+REST: `POST /rest/req_health_checkup` · SDK: `requestHealthCheckup()`
+
+필수: `name`, `birthDate`, `phone`, `authProvider`. 선택: 없음.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="get-health-checkup"></a>
+
+### `get_health_checkup` — 국가 건강검진 결과 결과 조회
+
+REST: `POST /rest/get_health_checkup` · SDK: `getHealthCheckup()`
+
+필수: `transactionId`. 성공 결과: `result.healthCheckup`.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
 
 <a id="get-car-flooding"></a>
 

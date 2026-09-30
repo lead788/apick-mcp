@@ -1,10 +1,10 @@
 # APICK MCP — Full Tool Catalog / 전체 Tool 목록
 
-**114 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 114개**, 분야별 서버 8개와 통합 서버 `all`.
+**115 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 115개**, 분야별 서버 8개와 통합 서버 `all`.
 
-> 3.6.0 카탈로그: 114개 Tool(Business 29개, Web 17개). 새 Tool은 원격 서버에 이미 배포돼 있으며, 실제 사용 가능 목록은 연결한 서버의 `tools/list`로 확인하세요.
-> Catalog for 3.6.0: 114 tools (29 Business, 17 Web). The new tools are already live on the remote server; check the connected server’s `tools/list` for availability.
+> 3.7.0 카탈로그: 115개 Tool. `all` 서버 전용 [`find_tools`](#find-tools)가 추가됐고 분야별 서버의 Tool 수는 그대로입니다(Business 29개, Web 17개). `stt`에 `artifact_filter`, `llm_chat`의 `compact.strategy`에 `relevance`가 추가됐습니다. 새 기능은 원격 서버에 이미 배포돼 있으며, 실제 사용 가능 목록은 연결한 서버의 `tools/list`로 확인하세요.
+> Catalog for 3.7.0: 115 tools. Adds [`find_tools`](#find-tools) on the `all` server only; domain server counts are unchanged (29 Business, 17 Web). `stt` gains `artifact_filter` and `llm_chat` `compact.strategy` accepts `relevance`. The new features are already live on the remote server; check the connected server’s `tools/list` for availability.
 
 
 Official site 공식 사이트: **<https://apick.app>** · Docs 연동 가이드: **<https://apick.app/dev_guide/mcp>**
@@ -24,9 +24,9 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 22 | PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
-| **All 통합** | `/mcp/all` | **114** | 아래 전부 |
+| **All 통합** | `/mcp/all` | **115** | 아래 전부 + [`find_tools`](#find-tools) |
 
-<details><summary><b>All 114 tool names / 전체 Tool 이름</b></summary>
+<details><summary><b>All 115 tool names / 전체 Tool 이름</b></summary>
 
 `biz_detail` · `venture_biz_info` · `land_rt_price` · `req_pccc` · `get_pccc` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `get_car_flooding` · `get_car_scrap` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info`
 
@@ -44,7 +44,54 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 `llm_models` · `llm_chat` · `text_summary` · `text_polish` · `image_generate` · `image_edit` · `image_batch_create` · `image_batch_status` · `image_batch_result` · `seedance_jobs_create` · `seedance_jobs_status` · `veo_jobs_create` · `veo_jobs_status` · `kling_jobs_create` · `kling_jobs_status`
 
+`find_tools` (all only / 통합 서버 전용)
+
 </details>
+
+---
+
+<a id="all-only"></a>
+
+## All server only · 통합 서버 전용
+
+`https://apick.app/mcp/all` — 1 tool in addition to the 114 domain tools
+
+Tools that exist only on the combined `all` server. Domain servers keep their own tool counts.
+
+분야별 Tool 114개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
+
+<a id="find-tools"></a>
+
+### `find_tools` — APICK 도구 찾기
+
+Recommend the APICK tools that best fit a task described in natural language (Korean or English), with a relevance label for each match.
+
+자연어(한국어·영어)로 설명한 작업에 가장 알맞은 에이픽 Tool을 추천합니다. Tool이 많은 `all` 서버에서 호출할 Tool을 고르기 전에 사용하세요. 무료이며 인증키 없이 호출할 수 있습니다.
+
+> 읽기 전용 / read-only · 무료·인증키 불필요 / free, no key needed · server `all`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `task` | `string` | **필수 / required** | 하려는 작업 설명, 2~500자 (예: "사업자등록번호로 폐업 여부 확인", "Merge two PDF files") |
+| `limit` | `integer` | 선택 / optional | 돌려받을 Tool 수, 1~10 (기본 5) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"find_tools","arguments":{"task":"Merge two PDF files","limit":3}}}
+```
+
+Response / 응답 (`structuredContent`, same JSON in text content / 텍스트 콘텐츠에도 같은 JSON):
+
+| Field | Type | Description 설명 |
+| --- | --- | --- |
+| `task` | `string` | 요청한 작업 설명 (앞뒤 공백 제거) / the task you sent, trimmed |
+| `tools` | `array` | 추천 Tool 목록, 관련도 높은 순 / recommended tools, best match first |
+| `tools[].name` | `string` | 호출할 Tool 이름 / tool name to call |
+| `tools[].title` | `string` | Tool 제목 / tool title |
+| `tools[].description` | `string` | Tool 설명 요약 / short tool description |
+| `tools[].relevance` | `string` | 관련도 `high` · `medium` · `low` / relevance label |
+| `message` | `string` | 맞는 Tool이 없을 때만 포함되며 `tools`는 빈 배열 / present only when nothing matches and `tools` is empty |
+
+Call the recommended tool afterwards with your API key as usual. 추천받은 Tool은 평소처럼 인증키로 호출하세요.
 
 ---
 
@@ -1576,11 +1623,32 @@ Convert a speech audio file to text (STT).
 | Parameter | Type | Required | Description 설명 |
 | --- | --- | --- | --- |
 | `language` | `string` | 선택 / optional | 추출 언어 코드 (예: ko, en, ja). 기본값 ko |
+| `artifact_filter` | `string` | 선택 / optional | 무음·잡음 구간에서 생긴 비음성 문구 처리: `flag`=구간에 `suspect` 표시, `remove`=제거 후 `text` 재구성. 생략 시 기존과 동일. `flag`, `remove` |
 | `audio_url` | `string` (file) | **필수 / required** | https URL, audio/mpeg, audio/mp3, audio/wav, audio/x-wav, audio/mp4, audio/aac, audio/ogg, audio/flac, audio/webm, 최대 200MB |
 
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"stt","arguments":{"audio_url":"https://example.com/file"}}}
 ```
+
+```json
+{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"stt","arguments":{"audio_url":"https://example.com/file","language":"ko","artifact_filter":"flag"}}}
+```
+
+**Non-speech phrases / 비음성 문구 처리 (`artifact_filter`)**
+
+Silence, music or background noise can produce phrases nobody actually said (for example sign-off greetings, subscribe requests, caption credits, repeated lines or sound-effect labels). `artifact_filter` finds these segments and either marks or removes them. Context around each segment is considered, so a speaker who really greets or asks to subscribe is kept. `remove` drops only clear cases; `flag` marks suspected segments a little more broadly. No extra charge.
+
+무음·음악·잡음 구간에서 실제로 말하지 않은 문구(예: 시청 인사, 구독 요청, 자막 제작 안내, 같은 말의 반복, 효과음 표기)가 결과에 섞이는 경우를 찾아 표시하거나 제거합니다. 앞뒤 문맥을 함께 보므로 화자가 실제로 인사하거나 구독을 요청한 구간은 유지됩니다. `remove`는 비음성으로 판단이 확실한 구간만 제거하고, `flag`는 의심 구간을 조금 더 넓게 표시합니다. 추가 요금은 없습니다.
+
+Response additions when `artifact_filter` is sent / `artifact_filter` 요청 시 추가되는 응답 필드:
+
+| Field | Type | Description 설명 |
+| --- | --- | --- |
+| `segments[].suspect` | `boolean` | 비음성 문구로 추정되는 구간 여부. `flag` 요청 시에만 포함 / suspected non-speech segment, `flag` only |
+| `artifact_filter.mode` | `string` | `flag` 또는 `remove` / the requested mode |
+| `artifact_filter.applied` | `boolean` | 처리 적용 여부. `false`면 처리 없이 원래 결과를 그대로 반환 / `false` means the original result is returned unchanged |
+| `artifact_filter.suspect_count` | `integer` | 표시된 구간 수 (`flag`) / number of flagged segments |
+| `artifact_filter.removed` | `integer` | 제거된 구간 수 (`remove`). 남은 구간의 `id`는 그대로이며 `text`는 남은 구간으로 다시 구성 / removed segments; remaining segment ids are kept and `text` is rebuilt from them |
 
 <a id="tts-jobs-create"></a>
 
@@ -2124,7 +2192,7 @@ Send a chat request to a selected LLM model and receive the assistant reply.
 | `messages` | `array` | 선택 / optional | 채팅 메시지 [{role, content}] 배열. role 은 'system'\|'user'\|'assistant'. content 와 둘 중 하나는 필수, 동시 지정 시 messages 우선. 멀티턴 대화는 응답의 compacted_messages 를 다음 턴에 그대로 전송 |
 | `content` | `string` | 선택 / optional | 단발 입력 — 사용자 메시지 한 건만 보내는 간편 형태. messages 와 둘 중 하나는 필수 |
 | `system` | `string` | 선택 / optional | system 프롬프트 (역할·페르소나·정책·배경지식). 미지정 시 기본 한국어 어시스턴트 프롬프트가 적용됩니다 |
-| `compact` | `object` | 선택 / optional | 히스토리 압축 옵션 { strategy: 'none'(기본) \| 'sliding_window', window_pairs: 유지할 user/assistant 페어 수 (기본 10, 최소 1) }. 긴 대화의 input 토큰 누적 방지 |
+| `compact` | `object` | 선택 / optional | 히스토리 압축 옵션 { strategy: 'none'(기본) \| 'sliding_window' \| 'relevance', window_pairs: 유지할 user/assistant 페어 수 (기본 10, 최소 1) }. relevance 는 최근 대화와 함께 최신 질문에 필요한 이전 대화를 골라 남긴다. 긴 대화의 input 토큰 누적 방지 |
 | `temperature` | `number` | 선택 / optional | 출력 다양성 0.0~2.0. 낮을수록 재현성, 높을수록 창의성 (미지정 시 모델 기본값) |
 | `max_tokens` | `integer` | 선택 / optional | 응답 최대 토큰. 미지정 시 모델 컨텍스트 기반 안전 상한으로 자동 설정, 상한 초과 지정 시 자동 조정 |
 | `speed` | `string` | 선택 / optional | 응답 속도/추론 깊이 — 'fast'(얕게, 빠름) \| 'medium' \| 'slow'(깊게, 느림). 한글 '빠름'\|'중간'\|'느림' 허용. 추론 특화 모델에서 효과가 큽니다 |
@@ -2132,6 +2200,16 @@ Send a chat request to a selected LLM model and receive the assistant reply.
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"llm_chat","arguments":{"model":"<model>"}}}
 ```
+
+```json
+{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"llm_chat","arguments":{"model":"<model>","messages":[{"role":"user","content":"<question>"}],"compact":{"strategy":"relevance","window_pairs":6}}}}
+```
+
+**History compaction / 히스토리 압축 (`compact.strategy`)**
+
+- `sliding_window` keeps only the most recent `window_pairs` user/assistant pairs. `sliding_window`는 최근 N 페어만 모델에 보냅니다.
+- `relevance` sends the 2 most recent pairs plus earlier pairs needed to answer the latest question, `window_pairs` in total. Pairs that are not needed are left out, so input tokens go down. `compacted_messages` keeps up to the last 50 pairs so the next turn can select again.
+- `relevance`는 최근 2페어와, 마지막 질문에 답하는 데 필요한 이전 페어를 골라 모두 `window_pairs` 페어 이내로 모델에 보냅니다. 필요 없는 페어는 보내지 않아 input 토큰이 줄어듭니다. `compacted_messages`에는 다음 질문에서 다시 고를 수 있도록 최근 50페어까지 남습니다.
 
 <a id="text-summary"></a>
 

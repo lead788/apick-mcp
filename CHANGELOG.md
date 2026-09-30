@@ -1,5 +1,15 @@
 # 변경 기록
 
+## 3.7.0 — 2026-10-01
+
+- `all` 서버에 도구 찾기 Tool `find_tools`를 추가했습니다. 자연어(한국어·영어) 작업 설명(`task`, 2~500자)을 받아 알맞은 Tool을 최대 `limit`개(1~10, 기본 5) 추천하고 이름·제목·설명·관련도(`high`·`medium`·`low`)를 돌려줍니다. 무료이며 인증키 없이 호출할 수 있습니다. 전체 115개, 조회 Tool 87개, 상태 변경 Tool 28개이며 분야별 서버의 Tool 수는 그대로입니다. 원격 서버에는 이미 배포돼 있습니다.
+- Add `find_tools` to the `all` server. It takes a natural-language task (`task`, 2–500 chars, Korean or English) and recommends up to `limit` (1–10, default 5) matching tools with name, title, description and a `high`/`medium`/`low` relevance label. Free and callable without an API key. 115 total, 87 read-only, 28 non-read-only; domain server counts are unchanged. Already live on the remote server.
+- `stt`에 선택 인자 `artifact_filter`(`flag`·`remove`)를 추가했습니다. 무음·잡음 구간에서 생긴 비음성 문구를 `flag`는 `segments[].suspect`로 표시하고 `remove`는 제거한 뒤 `text`를 다시 구성합니다. 응답의 `artifact_filter`에 `mode`·`applied`와 `suspect_count` 또는 `removed`가 포함되며 추가 요금은 없습니다. 생략하면 기존 응답과 같습니다.
+- Add optional `artifact_filter` (`flag` | `remove`) to `stt` to mark or remove non-speech phrases produced by silence or noise. Responses include `segments[].suspect` (flag) and `artifact_filter { mode, applied, suspect_count | removed }`. No extra charge; omitting it keeps the previous response.
+- `llm_chat`의 `compact.strategy`에 `relevance`를 추가했습니다. 최근 2페어와 마지막 질문에 필요한 이전 페어를 골라 `window_pairs` 이내로 보내 input 토큰을 줄입니다.
+- `llm_chat` `compact.strategy` now accepts `relevance`, which keeps the 2 latest pairs plus earlier pairs needed for the latest question, within `window_pairs`, to reduce input tokens.
+- 브릿지 전송 방식은 바뀌지 않았습니다. / No bridge transport change.
+
 ## 3.6.0 — 2026-09-30
 
 - 간편인증 데이터 조회 2종(현금영수증 소득공제 내역, 국세 신고내역 조회)의 접수·결과 Tool 4개와 유튜브 영상 정보·썸네일·자막 목록·자막 다운로드 Tool 4개를 추가했습니다. 전체 114개, Business 29개, Web 17개, 상태 변경 Tool 28개입니다. 원격 서버에는 이미 배포돼 있습니다.

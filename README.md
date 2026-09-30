@@ -2,10 +2,10 @@
 
 <img src="https://raw.githubusercontent.com/lead788/apick-mcp/main/assets/logo-400.png" alt="APICK" width="88" height="88">
 
-# APICK MCP — 114 Korean Data, AI, Image & Video Tools
+# APICK MCP — 115 Korean Data, AI, Image & Video Tools
 
-> 3.6.0 카탈로그: 114개 Tool(Business 29개, Web 17개). 새 Tool은 원격 서버에 이미 배포돼 있으며, 실제 사용 가능 목록은 연결한 서버의 `tools/list`로 확인하세요.
-> Catalog for 3.6.0: 114 tools (29 Business, 17 Web). The new tools are already live on the remote server; check the connected server’s `tools/list` for availability.
+> 3.7.0 카탈로그: 115개 Tool. `all` 서버 전용 도구 찾기 Tool `find_tools`가 추가됐습니다(무료, 인증키 불필요). 분야별 서버의 Tool 수는 그대로입니다. 새 Tool은 원격 서버에 이미 배포돼 있으며, 실제 사용 가능 목록은 연결한 서버의 `tools/list`로 확인하세요.
+> Catalog for 3.7.0: 115 tools. Adds `find_tools`, a free tool-finder on the `all` server that works without a key. Domain server counts are unchanged. The new tool is already live on the remote server; check the connected server’s `tools/list` for availability.
 
 **Korean business registry, ID verification, OCR, parcel tracking, file conversion, web intelligence and LLM — as MCP tools for any AI agent.**
 
@@ -25,9 +25,9 @@
 
 ## What is this? / 이게 뭔가요?
 
-**EN** — APICK is a Korean data and AI API platform. This MCP server exposes **114 tools** for Korean business data, identity verification, OCR, parcel tracking, image and video generation, file conversion, web intelligence, and LLM calls.
+**EN** — APICK is a Korean data and AI API platform. This MCP server exposes **115 tools** for Korean business data, identity verification, OCR, parcel tracking, image and video generation, file conversion, web intelligence, and LLM calls.
 
-**KO** — 에이픽(APICK)은 대한민국 데이터·AI API 플랫폼입니다. 이 MCP 서버는 **Tool 114개**로 사업자 조회, 신분증 진위확인, 택배 배송조회, OCR, 이미지·영상 생성, 파일 변환, 웹 검색과 LLM 호출을 **인증키 하나로** 제공합니다.
+**KO** — 에이픽(APICK)은 대한민국 데이터·AI API 플랫폼입니다. 이 MCP 서버는 **Tool 115개**로 사업자 조회, 신분증 진위확인, 택배 배송조회, OCR, 이미지·영상 생성, 파일 변환, 웹 검색과 LLM 호출을 **인증키 하나로** 제공합니다.
 
 **The server is hosted by APICK. Nothing to install, build, or keep running.**
 **서버는 에이픽이 운영합니다. 설치할 것도, 띄워둘 것도 없습니다.**
@@ -45,8 +45,8 @@ https://apick.app/mcp/all
 Sign up at **[apick.app](https://apick.app)** and copy your license key from the dashboard. New accounts get **1,000 free points**.
 **[apick.app](https://apick.app)** 에서 가입하고 대시보드에서 인증키를 복사하세요. 신규 가입 시 **1,000포인트 무료**.
 
-> `tools/list` works **without** a key — a client can connect and discover all 114 tools before you sign up. Only `tools/call` validates the key and allowed IP.
-> `tools/list`는 **인증 없이** 동작합니다. 가입 전에도 클라이언트가 연결해 114개 Tool을 확인할 수 있고, 키와 허용 IP는 `tools/call`부터 검증합니다.
+> `tools/list` works **without** a key — a client can connect and discover all 115 tools before you sign up. Only `tools/call` validates the key and allowed IP.
+> `tools/list`는 **인증 없이** 동작합니다. 가입 전에도 클라이언트가 연결해 115개 Tool을 확인할 수 있고, 키와 허용 IP는 `tools/call`부터 검증합니다.
 
 Leave the allowed-IP list blank for unrestricted access. To restrict access, register the public IPv4 address seen by APICK as an exact address or CIDR such as `/32`. Changes apply immediately with no separate synchronization.
 마이페이지의 허용 IP가 공란이면 제한 없이 사용할 수 있습니다. 제한하려면 APICK에 도착하는 공인 IPv4를 단일 주소 또는 CIDR(`/32` 등)로 등록하세요. 저장 즉시 반영되며 별도 동기화는 필요하지 않습니다.
@@ -152,7 +152,7 @@ Connect to `all` for everything, or to one server to keep the tool list short an
 
 | Server 서버 | Endpoint | Tools | Coverage 범위 |
 | --- | --- | --- | --- |
-| **All 통합** | `https://apick.app/mcp/all` | **114** | 아래 전부 |
+| **All 통합** | `https://apick.app/mcp/all` | **115** | 아래 전부 + `find_tools` |
 | [Business 사업자·커머스](TOOLS.md#business) | `https://apick.app/mcp/business` | 29 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 유효성 검사 |
 | [Identity 신분증](TOOLS.md#identity) | `https://apick.app/mcp/identity` | 16 | 주민등록증·운전면허증·여권·외국인등록증 진위확인, 실명확인, 개인정보 마스킹 |
 | [Convert 파일변환](TOOLS.md#convert) | `https://apick.app/mcp/convert` | 22 | PDF·DOCX·엑셀 변환, STT, 비동기 TTS, 워터마크 |
@@ -164,8 +164,8 @@ Connect to `all` for everything, or to one server to keep the tool list short an
 
 ### Every tool / 전체 Tool
 
-**[→ TOOLS.md](TOOLS.md)** — all 114 tools with parameters, types, and copy-paste JSON-RPC examples.
-**[→ TOOLS.md](TOOLS.md)** — 114개 전체를 파라미터·타입·호출 예시까지 정리했습니다.
+**[→ TOOLS.md](TOOLS.md)** — all 115 tools with parameters, types, and copy-paste JSON-RPC examples.
+**[→ TOOLS.md](TOOLS.md)** — 115개 전체를 파라미터·타입·호출 예시까지 정리했습니다.
 
 <details>
 <summary><b>Tool names at a glance / Tool 이름 한눈에 보기</b></summary>
@@ -186,7 +186,36 @@ Connect to `all` for everything, or to one server to keep the tool list short an
 
 **AI** `llm_models` `llm_chat` `text_summary` `text_polish` `image_generate` `image_edit` `image_batch_create` `image_batch_status` `image_batch_result` `seedance_jobs_create` `seedance_jobs_status` `veo_jobs_create` `veo_jobs_status` `kling_jobs_create` `kling_jobs_status`
 
+**All only 통합 서버 전용** `find_tools`
+
 </details>
+
+### Find the right tool / 알맞은 Tool 찾기 — `find_tools`
+
+**EN** — The `all` server has 115 tools. `find_tools` recommends the best-matching APICK tools for a task described in natural language (Korean or English). It returns each tool's name, title, description and a relevance label (`high`, `medium`, `low`). It is free, works without an API key, and is available on the `all` server only; domain servers are small enough to choose from `tools/list` directly.
+
+**KO** — `all` 서버에는 Tool이 115개 있습니다. `find_tools`는 자연어(한국어·영어)로 설명한 작업에 가장 알맞은 에이픽 Tool을 추천하고, Tool 이름·제목·설명과 관련도(`high`·`medium`·`low`)를 돌려줍니다. 무료이며 인증키 없이 호출할 수 있고, `all` 서버에서만 제공합니다. 분야별 서버는 Tool 수가 적어 `tools/list`만으로 고를 수 있습니다.
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `task` | `string` | **required 필수** | Task to perform, 2–500 characters · 하려는 작업 설명 (2~500자) |
+| `limit` | `integer` | optional 선택 | Number of tools to return, 1–10 (default 5) · 돌려받을 Tool 수 (1~10, 기본 5) |
+
+```bash
+curl -X POST "https://apick.app/mcp/all" \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json, text/event-stream" \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"find_tools","arguments":{"task":"사업자등록번호로 폐업 여부 확인","limit":3}}}'
+```
+
+Response `structuredContent` / 응답 `structuredContent`:
+
+```json
+{"task":"사업자등록번호로 폐업 여부 확인","tools":[{"name":"biz_detail","title":"사업자 정보 조회","description":"Look up general status information of a Korean business ...","relevance":"high"}]}
+```
+
+If nothing fits, `tools` is empty and a `message` asks you to describe the task more specifically. Call the recommended tool with your API key as usual.
+맞는 Tool이 없으면 `tools`가 빈 배열이고 작업을 더 구체적으로 적어 달라는 `message`가 포함됩니다. 추천받은 Tool은 평소처럼 인증키로 호출하세요.
 
 ---
 
@@ -283,7 +312,7 @@ Seedance 참조 소재 모드는 지원 버전에서 참조 이미지·영상·�
 | **Transport** | Streamable HTTP — one endpoint per server, JSON-RPC 2.0 over HTTPS POST, stateless | 서버당 단일 엔드포인트, HTTPS POST로 JSON-RPC 2.0, 세션 없이 요청 단위 |
 | **Protocol** | MCP `2026-07-28`, auto-compatible with earlier client versions | MCP `2026-07-28` 기본, 이전 규격 클라이언트 자동 호환 |
 | **Discovery** | `tools/list` returns every tool with JSON Schema, description and live price — no key needed | `tools/list`가 스키마·설명·실시간 단가를 반환, 인증 불필요 |
-| **Annotations** | Every tool declares `title`, `readOnlyHint`, `openWorldHint`. 28 of 114 are not read-only | 전 Tool이 `title`·`readOnlyHint`·`openWorldHint` 선언. 114개 중 상태 변경 Tool은 28개 |
+| **Annotations** | Every tool declares `title`, `readOnlyHint`, `openWorldHint`. 28 of 115 are not read-only | 전 Tool이 `title`·`readOnlyHint`·`openWorldHint` 선언. 115개 중 상태 변경 Tool은 28개 |
 | **Results** | Text (JSON) + `structuredContent`. Images as image content; files up to 8MB as base64 | 텍스트(JSON)와 `structuredContent` 동시 반환. 이미지는 이미지 콘텐츠, 8MB 이하 파일은 base64 |
 | **File input** | File-taking tools accept a public `https` URL (`image_url`, `pdf_url`, …) — APICK downloads and processes it | 파일 Tool은 공개 `https` URL을 받습니다. 에이픽 서버가 내려받아 처리합니다 |
 | **Errors** | Delivered via `isError`; identity masking also preserves `structuredContent.error_code` | `isError`로 전달되며 신분증 마스킹은 `structuredContent.error_code`도 보존합니다 |
@@ -317,8 +346,8 @@ Common inputs match the SDK: `name`, `birthDate`, `phone`, and `authProvider`. T
 
 ### Tools with side effects / 부작용이 있는 Tool
 
-86 of 114 tools are read-only. The other 28 change state, charge points, cancel work, or consume a result and carry `readOnlyHint: false` so your client can require approval:
-114개 중 86개는 조회입니다. 나머지 28개는 과금·취소·결과 생성 등 상태를 바꾸므로 `readOnlyHint: false`가 붙습니다.
+87 of 115 tools are read-only. The other 28 change state, charge points, cancel work, or consume a result and carry `readOnlyHint: false` so your client can require approval:
+115개 중 87개는 조회입니다. 나머지 28개는 과금·취소·결과 생성 등 상태를 바꾸므로 `readOnlyHint: false`가 붙습니다.
 
 | Tool | What it does / 하는 일 |
 | --- | --- |
@@ -389,9 +418,9 @@ npx -y apick-mcp --help
 
 ## Pricing / 요금
 
-Prepaid points, charged per call, at the same rate as the APICK REST API. No subscription, no per-seat fee. **Failed calls are not charged.** Each tool's live price is appended to its description in `tools/list`, so the agent sees the cost before it decides to call. Free tools include `bank_code`, `info` and `llm_models`.
+Prepaid points, charged per call, at the same rate as the APICK REST API. No subscription, no per-seat fee. **Failed calls are not charged.** Each tool's live price is appended to its description in `tools/list`, so the agent sees the cost before it decides to call. Free tools include `bank_code`, `info`, `llm_models` and `find_tools`.
 
-포인트 선불, 호출당 차감이며 단가는 에이픽 REST API와 동일합니다. 구독료도 좌석당 요금도 없습니다. **실패한 호출은 과금되지 않습니다.** 각 Tool의 현재 단가는 `tools/list` 설명에 자동으로 붙어 AI가 호출 전에 비용을 보고 판단합니다. `bank_code`·`info`·`llm_models`는 무료입니다.
+포인트 선불, 호출당 차감이며 단가는 에이픽 REST API와 동일합니다. 구독료도 좌석당 요금도 없습니다. **실패한 호출은 과금되지 않습니다.** 각 Tool의 현재 단가는 `tools/list` 설명에 자동으로 붙어 AI가 호출 전에 비용을 보고 판단합니다. `bank_code`·`info`·`llm_models`·`find_tools`는 무료입니다.
 
 **Current rates 단가표 → <https://apick.app/dev_guide/mcp>**
 

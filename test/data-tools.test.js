@@ -3,7 +3,7 @@ import test from 'node:test';
 import { readFileSync } from 'node:fs';
 import { createBridge } from '../src/bridge.js';
 
-const products = ['employment', 'personal_income', 'nps_join_history', 'driving_license', 'health_checkup'];
+const products = ['employment', 'personal_income', 'nps_join_history', 'driving_license', 'health_checkup', 'cash_receipt_deduction', 'tax_return_history'];
 const names = products.flatMap(p => ['req_' + p, 'get_' + p]);
 const read = file => readFileSync(new URL('../' + file, import.meta.url), 'utf8');
 
@@ -119,31 +119,38 @@ test('응답 fixture가 공개 REST 필드 타입을 지키며 과거의 잘못�
 	]) assert.throws(() => assertDataContract({ ...valid, ...invalid }), assert.AssertionError);
 });
 
-test('배포 대상 106개 목록과 Business 25개·상태 변경 24개 메타데이터가 일치한다', () => {
+test('배포 대상 114개 목록과 Business 29개·Web 17개·상태 변경 28개 메타데이터가 일치한다', () => {
 	const tools = read('TOOLS.md');
 	const readme = read('README.md');
 	const inventory = tools.match(/<details>[\s\S]*?<\/details>/)[0];
 	const listed = [...inventory.matchAll(/`([a-z0-9_]+)`/g)].map(m => m[1]);
-	assert.equal(listed.length, 106);
-	assert.equal(new Set(listed).size, 106);
+	assert.equal(listed.length, 114);
+	assert.equal(new Set(listed).size, 114);
 	const business = tools.split('## Business & Commerce')[1].split('<a id="identity">')[0];
-	assert.equal([...business.matchAll(/^### `([a-z0-9_]+)`/gm)].length, 25);
-	assert.match(readme, /`https:\/\/apick\.app\/mcp\/business` \| 25 \|/);
-	assert.match(readme, /24 of 106 are not read-only/);
-	assert.match(readme, /82 of 106 tools are read-only/);
+	assert.equal([...business.matchAll(/^### `([a-z0-9_]+)`/gm)].length, 29);
+	assert.match(readme, /`https:\/\/apick\.app\/mcp\/business` \| 29 \|/);
+	const web = tools.split('## Web & Search')[1].split('<a id="convert">')[0];
+	assert.equal([...web.matchAll(/^### `([a-z0-9_]+)`/gm)].length, 17);
+	assert.match(readme, /`https:\/\/apick\.app\/mcp\/web` \| 17 \|/);
+	for (const name of ['youtube_metadata', 'youtube_thumbnail', 'youtube_subtitle_list', 'youtube_subtitle']) {
+		assert.ok(listed.includes(name), name);
+		assert.ok(web.includes('### `' + name + '`'), name);
+	}
+	assert.match(readme, /28 of 114 are not read-only/);
+	assert.match(readme, /86 of 114 tools are read-only/);
 	for (const name of names) {
 		assert.ok(listed.includes(name), name);
 		assert.ok(readme.includes('`' + name + '`'), name);
 		assert.ok(tools.includes('### `' + name + '`'), name);
 		assert.ok(tools.includes('POST /rest/' + name), name);
 	}
-	for (const field of ['birthDate', 'authProvider', 'insuranceYears', 'incomeYears', 'transactionId', 'resultAvailable', 'resultExpiresAt', 'RESULT_EXPIRED']) assert.ok(tools.includes(field), field);
-	assert.match(tools, /대응하는 원격 서버 버전이 필요/);
+	for (const field of ['birthDate', 'authProvider', 'insuranceYears', 'incomeYears', 'years', 'transactionId', 'resultAvailable', 'resultExpiresAt', 'RESULT_EXPIRED']) assert.ok(tools.includes(field), field);
+	assert.match(tools, /원격 서버에 이미 배포/);
 	assert.match(tools, /PCCC.*별도 계약/);
 	assert.match(tools, /업무 상태 오류는 `isError: false`/);
 	const pkg = JSON.parse(read('package.json'));
 	const lock = JSON.parse(read('package-lock.json'));
-	assert.equal(pkg.version, '3.5.0');
+	assert.equal(pkg.version, '3.6.0');
 	assert.equal(lock.version, pkg.version);
 	assert.equal(lock.packages[''].version, pkg.version);
 	// 공개 JSON-RPC 예시도 실제 목록의 Tool을 참조해야 한다.
@@ -162,14 +169,14 @@ test('TOOLS.md 상태 계약이 10개 상태·4개 처리 묶음·오류코드·
 	assert.deepEqual(Object.values(errorCodesByStatus).flat().sort(), [...errorCodes].sort());
 	assert.match(section, /`RESULT_EXPIRED`[^\n]*만료된 결과는 다시 조회할 수 없으며 새로운 인증 접수가 필요/);
 	for (const field of ['resultAvailable', 'sources', 'errorCode', 'progress', 'resultExpiresAt', '_meta["app.apick/cost"]']) assert.ok(section.includes('`' + field + '`'), field);
-	const resultKeys = { employment: 'employment', personal_income: 'personalIncome', nps_join_history: 'npsJoinHistory', driving_license: 'drivingLicense', health_checkup: 'healthCheckup' };
+	const resultKeys = { employment: 'employment', personal_income: 'personalIncome', nps_join_history: 'npsJoinHistory', driving_license: 'drivingLicense', health_checkup: 'healthCheckup', cash_receipt_deduction: 'cashReceiptDeduction', tax_return_history: 'taxReturnHistory' };
 	for (const product of products) {
 		assert.equal(documentedResultKey(tools, product), resultKeys[product], product);
 		assert.ok(section.includes('`result.' + resultKeys[product] + '`'), product);
 	}
 });
 
-test('신규 Tool 검색과 5개 접수 Tool을 JSON·SSE에서 필드 변환 없이 전달한다', async () => {
+test('신규 Tool 검색과 7개 접수 Tool을 JSON·SSE에서 필드 변환 없이 전달한다', async () => {
 	const sent = [], output = [];
 	let response, transport = 'json';
 	const bridge = createBridge({ server: 'business', write: line => output.push(JSON.parse(line)), fetch: async (url, options) => {
@@ -187,7 +194,7 @@ test('신규 Tool 검색과 5개 접수 Tool을 JSON·SSE에서 필드 변환 �
 		const transactionId = 'a'.repeat(32);
 		const request = { jsonrpc: '2.0', id: 2, method: 'tools/call', params: { name: 'req_' + product, arguments: {
 			name: '홍길동', birthDate: '19900101', phone: '01012345678', authProvider: 'kakao',
-			...(product === 'employment' ? { insuranceYears: 3 } : product === 'personal_income' ? { incomeYears: 5 } : product === 'nps_join_history' ? { from: '2025-01', to: '2026-09' } : {})
+			...(product === 'employment' ? { insuranceYears: 3 } : product === 'personal_income' ? { incomeYears: 5 } : product === 'nps_join_history' ? { from: '2025-01', to: '2026-09' } : product === 'cash_receipt_deduction' ? { incomeYears: 3 } : product === 'tax_return_history' ? { years: 10 } : {})
 		} } };
 		const data = {
 			schemaVersion: '1.0', transactionId, product, status: 'AUTH_REQUESTED',
@@ -211,7 +218,7 @@ test('신규 Tool 검색과 5개 접수 Tool을 JSON·SSE에서 필드 변환 �
 	}
 });
 
-test('5개 결과 Tool이 10개 상태 전부와 상태별 핵심 필드를 JSON·SSE 모두에서 그대로 전달한다', async () => {
+test('7개 결과 Tool이 10개 상태 전부와 상태별 핵심 필드를 JSON·SSE 모두에서 그대로 전달한다', async () => {
 	const tools = read('TOOLS.md');
 	const documented = documentedStatusRows(contractSection(tools)).flat();
 	const sent = [], output = [];

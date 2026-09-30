@@ -1,5 +1,12 @@
 # 변경 기록
 
+## 3.6.0 — 2026-09-30
+
+- 간편인증 데이터 조회 2종(현금영수증 소득공제 내역, 국세 신고내역 조회)의 접수·결과 Tool 4개와 유튜브 영상 정보·썸네일·자막 목록·자막 다운로드 Tool 4개를 추가했습니다. 전체 114개, Business 29개, Web 17개, 상태 변경 Tool 28개입니다. 원격 서버에는 이미 배포돼 있습니다.
+- Add four request/result tools for two simple-auth data products (cash receipt deductions, tax return history) and four YouTube tools (metadata, thumbnail, subtitle list, subtitle download). 114 total, 29 Business, 17 Web, 28 non-read-only. Already live on the remote server.
+- 새 간편인증 상품은 인증 발송 성공 시 20P, 최초 결과 60P × (1 + 0.5 × (연수 - 1))로 과금되며 대기·유효기간 내 재조회는 무료입니다.
+- The new simple-auth products charge 20P on successful authentication dispatch and 60P × (1 + 0.5 × (years - 1)) for the first result; waiting polls and repeat reads are free.
+
 ## 3.5.0 — 2026-09-28
 
 - 간편인증 데이터 조회 5종의 접수·결과 Tool 10개 계약을 추가했습니다. 전체 106개, Business 25개, 상태 변경 Tool 24개입니다. 원격 서버의 대응 패치 배포가 필요합니다.

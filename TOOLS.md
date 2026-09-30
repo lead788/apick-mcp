@@ -1,10 +1,10 @@
 # APICK MCP — Full Tool Catalog / 전체 Tool 목록
 
-**106 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 106개**, 분야별 서버 8개와 통합 서버 `all`.
+**114 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 114개**, 분야별 서버 8개와 통합 서버 `all`.
 
-> 3.5.0 카탈로그: 106개 Tool(Business 25개). 신규 10개 Tool을 사용하려면 대응하는 원격 서버 버전이 필요합니다. 브릿지 설치만으로 활성화되지 않으며 실제 사용 가능 목록은 연결한 서버의 `tools/list`로 확인하세요.
-> Catalog for 3.5.0: 106 tools (25 Business). The 10 new tools require the matching remote-server deployment; installing this bridge alone does not enable them. Check the connected server’s `tools/list` for availability.
+> 3.6.0 카탈로그: 114개 Tool(Business 29개, Web 17개). 새 Tool은 원격 서버에 이미 배포돼 있으며, 실제 사용 가능 목록은 연결한 서버의 `tools/list`로 확인하세요.
+> Catalog for 3.6.0: 114 tools (29 Business, 17 Web). The new tools are already live on the remote server; check the connected server’s `tools/list` for availability.
 
 
 Official site 공식 사이트: **<https://apick.app>** · Docs 연동 가이드: **<https://apick.app/dev_guide/mcp>**
@@ -16,19 +16,19 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 | Server 서버 | Endpoint | Tools | Coverage 범위 |
 | --- | --- | --- | --- |
-| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 25 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 유효성 검사. |
+| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 29 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 유효성 검사. |
 | [Identity Verification · 신분증 진위확인 · 마스킹](#identity) | `/mcp/identity` | 16 | 주민등록증·운전면허증·여권·외국인등록증 진위확인, 실명확인, 개인정보 마스킹. |
 | [OCR · OCR 문자인식](#ocr) | `/mcp/ocr` | 6 | 이미지 텍스트 추출과 신분증 항목 추출. |
 | [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 3 | 계좌 예금주 실명조회와 1원 인증. |
-| [Web & Search · 웹 · 검색](#web) | `/mcp/web` | 13 | 도메인·IP 조회, WHOIS, 웹페이지 수집, 구글 검색, 유튜브. |
+| [Web & Search · 웹 · 검색](#web) | `/mcp/web` | 17 | 도메인·IP 조회, WHOIS, 웹페이지 수집, 구글 검색, 유튜브. |
 | [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 22 | PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
-| **All 통합** | `/mcp/all` | **106** | 아래 전부 |
+| **All 통합** | `/mcp/all` | **114** | 아래 전부 |
 
-<details><summary><b>All 106 tool names / 전체 Tool 이름</b></summary>
+<details><summary><b>All 114 tool names / 전체 Tool 이름</b></summary>
 
-`biz_detail` · `venture_biz_info` · `land_rt_price` · `req_pccc` · `get_pccc` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `get_car_flooding` · `get_car_scrap` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info`
+`biz_detail` · `venture_biz_info` · `land_rt_price` · `req_pccc` · `get_pccc` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `get_car_flooding` · `get_car_scrap` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info`
 
 `identi_card1` · `identi_card2` · `identi_card3` · `identi_card4` · `identi_card5` · `identi_card_image1` · `identi_card_image2` · `identi_card_image3` · `identi_card_image4` · `identi_card_image5` · `name_rrn_auth` · `hide_rrn` · `identity_document_residence_card` · `identity_document_passport` · `identity_document_id_card` · `identity_document_driver_license`
 
@@ -36,7 +36,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 `transfer_1won` · `account_realname` · `bank_code`
 
-`nslookup` · `reverse_ip` · `location` · `ip_history` · `whois` · `url_html` · `url_screenshot` · `url_similarity` · `google_search` · `google_image_search` · `google_lens_search` · `crawl_youtube` · `download_youtube_video`
+`nslookup` · `reverse_ip` · `location` · `ip_history` · `whois` · `url_html` · `url_screenshot` · `url_similarity` · `google_search` · `google_image_search` · `google_lens_search` · `crawl_youtube` · `download_youtube_video` · `youtube_metadata` · `youtube_thumbnail` · `youtube_subtitle_list` · `youtube_subtitle`
 
 `stt` · `tts_jobs_create` · `tts_jobs_status` · `tts_jobs_cancel` · `tts_jobs_result` · `tts_jobs_subtitles` · `tts_jobs_quality` · `tts_jobs_retry` · `tts_jobs_candidate_audio` · `voice_change` · `face_blur` · `pdf_to_docx` · `pdf_to_image` · `pdf_merge` · `html_to_pdf` · `docx_to_pdf` · `json_to_excel` · `base64_to_image` · `set_watermark` · `get_watermark` · `draw_watermark_pdf` · `draw_watermark_image`
 
@@ -52,7 +52,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 ## Business & Commerce · 사업자 · 커머스
 
-`https://apick.app/mcp/business` — 25 tools
+`https://apick.app/mcp/business` — 29 tools
 
 Korean business registry, corporate credit, parcel tracking, real-estate prices, vehicle history, and input validation.
 
@@ -75,6 +75,10 @@ Korean business registry, corporate credit, parcel tracking, real-estate prices,
 | [`get_driving_license`](#get-driving-license) | 운전면허 조회 상태·결과 | `transactionId` |
 | [`req_health_checkup`](#req-health-checkup) | 국가 건강검진 결과 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
 | [`get_health_checkup`](#get-health-checkup) | 국가 건강검진 결과 상태·결과 | `transactionId` |
+| [`req_cash_receipt_deduction`](#req-cash-receipt-deduction) | 현금영수증 소득공제 내역 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
+| [`get_cash_receipt_deduction`](#get-cash-receipt-deduction) | 현금영수증 소득공제 내역 상태·결과 | `transactionId` |
+| [`req_tax_return_history`](#req-tax-return-history) | 국세 신고내역 조회 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
+| [`get_tax_return_history`](#get-tax-return-history) | 국세 신고내역 조회 상태·결과 | `transactionId` |
 | [`get_car_flooding`](#get-car-flooding) | 차량 침수차 여부 조회 | `type`, `value` |
 | [`get_car_scrap`](#get-car-scrap) | 차량 폐차사고처리 여부 조회 | `type`, `value` |
 | [`parcel_tracking`](#parcel-tracking) | 택배 배송조회 | `carrier`, `trackingNumber` |
@@ -188,7 +192,7 @@ req_pccc Tool 호출로 받은 tx_id 를 입력해 처리 상태를 확인합니
 
 ### 간편인증 데이터 조회 공통 계약 / Shared data-lookup contract
 
-아래 5개 상품은 **접수 → 휴대폰 승인 → 결과 조회** 순서로 호출합니다. 접수 전에 알림 발송·과금과 조회 항목을 사용자에게 확인하고, 승인은 사용자가 휴대폰에서 직접 수행합니다. 승인 대기 중 접수를 반복하지 않습니다.
+아래 7개 상품은 **접수 → 휴대폰 승인 → 결과 조회** 순서로 호출합니다. 접수 전에 알림 발송·과금과 조회 항목을 사용자에게 확인하고, 승인은 사용자가 휴대폰에서 직접 수행합니다. 승인 대기 중 접수를 반복하지 않습니다.
 
 Use request → user approval on the phone → result lookup. Confirm the requested data and acceptance charge before submitting. Never approve on the user’s behalf or automatically repeat the authentication request.
 
@@ -210,6 +214,8 @@ Result tools require the `transactionId` from the same product. Both stages are 
 | 국민연금 가입내역 | from, to: YYYY-MM (각각 선택) | `result.npsJoinHistory` |
 | 운전면허 조회 | 없음 | `result.drivingLicense` |
 | 국가 건강검진 결과 | 없음 | `result.healthCheckup` |
+| 현금영수증 소득공제 내역 | incomeYears: 정수 1~3 (선택, 기본 1) | `result.cashReceiptDeduction` |
+| 국세 신고내역 조회 | years: 정수 1~10 (선택, 기본 1) | `result.taxReturnHistory` |
 
 **응답:** MCP의 `structuredContent`와 JSON 텍스트에는 REST 응답의 `data`가 그대로 담깁니다. `schemaVersion`, `transactionId`, `product`, `status`, `resultAvailable`, `charged`, `sources`, `message`, `success`를 확인합니다. 접수에는 `expiresAt`와 선택적 `approvals`, 수집 중에는 `progress`, 결과에는 `checkedAt`, `resultExpiresAt`, `result`가 포함될 수 있습니다. 실제 차감 포인트는 `_meta["app.apick/cost"]`입니다.
 
@@ -224,7 +230,7 @@ Result tools require the `transactionId` from the same product. Both stages are 
 
 `errorCode`는 `RESULT_EXPIRED`, `AUTH_EXPIRED`, `AUTH_REJECTED`, `COLLECT_FAILED`를 포함합니다. 만료된 결과는 다시 조회할 수 없으며 새로운 인증 접수가 필요합니다. 업무 상태 오류는 `isError: false`인 정상 MCP 응답에도 담길 수 있으므로 `status`와 `errorCode`를 함께 검사하세요.
 
-접수 시 정액 과금, 결과 최초 반환 시 조회 범위별 과금입니다. 승인 대기·수집 중 조회 및 `resultExpiresAt` 전 재조회는 무료입니다. **PCCC는 별도 계약**으로 `birthday`·`provider`·`tx_id`를 사용하고 결과 재조회도 과금됩니다.
+접수 시 정액 과금, 결과 최초 반환 시 조회 범위별 과금입니다. 현금영수증 소득공제 내역과 국세 신고내역은 인증 발송 성공 시 20P, 최초 결과 60P × (1 + 0.5 × (연수 - 1))입니다. 승인 대기·수집 중 조회 및 `resultExpiresAt` 전 재조회는 무료입니다. **PCCC는 별도 계약**으로 `birthday`·`provider`·`tx_id`를 사용하고 결과 재조회도 과금됩니다.
 
 Acceptance is billed separately; first result delivery is billed by scope. Waiting/collecting polls and repeat reads before `resultExpiresAt` are free. PCCC keeps its existing `birthday`/`provider`/`tx_id` contract and charges repeated result reads.
 
@@ -377,6 +383,54 @@ REST: `POST /rest/req_health_checkup` · SDK: `requestHealthCheckup()`
 REST: `POST /rest/get_health_checkup` · SDK: `getHealthCheckup()`
 
 필수: `transactionId`. 성공 결과: `result.healthCheckup`.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="req-cash-receipt-deduction"></a>
+
+### `req_cash_receipt_deduction` — 현금영수증 소득공제 내역 인증 요청
+
+REST: `POST /rest/req_cash_receipt_deduction` · SDK: `requestCashReceiptDeduction()`
+
+필수: `name`, `birthDate`, `phone`, `authProvider`. 선택: incomeYears: 정수 1~3 (선택, 기본 1). 인증 발송 성공 시 20P이며 조회 범위와 무관합니다.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="get-cash-receipt-deduction"></a>
+
+### `get_cash_receipt_deduction` — 현금영수증 소득공제 내역 결과 조회
+
+REST: `POST /rest/get_cash_receipt_deduction` · SDK: `getCashReceiptDeduction()`
+
+필수: `transactionId`. 성공 결과: `result.cashReceiptDeduction` (`조회연도`, `전체합계`, `연도별[].사용내역`). 최초 결과 60P × (1 + 0.5 × (incomeYears - 1)), 기본 60P.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="req-tax-return-history"></a>
+
+### `req_tax_return_history` — 국세 신고내역 조회 인증 요청
+
+REST: `POST /rest/req_tax_return_history` · SDK: `requestTaxReturnHistory()`
+
+필수: `name`, `birthDate`, `phone`, `authProvider`. 선택: years: 정수 1~10 (선택, 기본 1). 인증 발송 성공 시 20P이며 조회 범위와 무관합니다.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="get-tax-return-history"></a>
+
+### `get_tax_return_history` — 국세 신고내역 조회 결과 조회
+
+REST: `POST /rest/get_tax_return_history` · SDK: `getTaxReturnHistory()`
+
+필수: `transactionId`. 성공 결과: `result.taxReturnHistory` (`조회기간`, `합계`, `신고내역`). 최초 결과 60P × (1 + 0.5 × (years - 1)), 기본 60P.
 
 [공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
 
@@ -1129,7 +1183,7 @@ _No parameters. 파라미터 없음._
 
 ## Web & Search · 웹 · 검색
 
-`https://apick.app/mcp/web` — 13 tools
+`https://apick.app/mcp/web` — 17 tools
 
 Domain and IP intelligence, WHOIS, page capture, Google search, and YouTube.
 
@@ -1150,6 +1204,10 @@ Domain and IP intelligence, WHOIS, page capture, Google search, and YouTube.
 | [`google_lens_search`](#google-lens-search) | 구글 렌즈 검색(이미지로 검색) | `image_url` |
 | [`crawl_youtube`](#crawl-youtube) | 유튜브 계정 정보 수집 | `user_id` |
 | [`download_youtube_video`](#download-youtube-video) | 유튜브 동영상 다운로드 | `url` |
+| [`youtube_metadata`](#youtube-metadata) | 유튜브 영상 정보 조회 | `url` |
+| [`youtube_thumbnail`](#youtube-thumbnail) | 유튜브 썸네일 다운로드 | `url` |
+| [`youtube_subtitle_list`](#youtube-subtitle-list) | 유튜브 자막 목록 조회 | `url` |
+| [`youtube_subtitle`](#youtube-subtitle) | 유튜브 자막 다운로드 | `url`, `lang` |
 
 <a id="nslookup"></a>
 
@@ -1386,6 +1444,89 @@ Download a publicly available YouTube video and return it as an MP4 file.
 
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"download_youtube_video","arguments":{"url":"<url>"}}}
+```
+
+---
+
+<a id="youtube-metadata"></a>
+
+### `youtube_metadata` — 유튜브 영상 정보 조회
+
+Look up metadata of a public YouTube video: title, channel, duration, views, likes, upload date, description, tags, chapters and thumbnails. 20 points per call.
+
+유튜브 공개 영상의 제목·채널·길이·조회수·좋아요·업로드일·설명·태그·챕터·썸네일 목록을 조회합니다. 호출당 20포인트.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `web`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `url` | `string` | **필수 / required** | 유튜브 영상 URL 또는 11자리 영상 ID (watch·youtu.be·shorts 주소 지원) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"youtube_metadata","arguments":{"url":"<url>"}}}
+```
+
+---
+
+<a id="youtube-thumbnail"></a>
+
+### `youtube_thumbnail` — 유튜브 썸네일 다운로드
+
+Download the largest thumbnail of a public YouTube video as a JPG image. 20 points per call.
+
+유튜브 공개 영상의 가장 큰 썸네일을 JPG 이미지로 내려받습니다. 호출당 20포인트.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `web`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `url` | `string` | **필수 / required** | 유튜브 영상 URL 또는 11자리 영상 ID (watch·youtu.be·shorts 주소 지원) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"youtube_thumbnail","arguments":{"url":"<url>"}}}
+```
+
+---
+
+<a id="youtube-subtitle-list"></a>
+
+### `youtube_subtitle_list` — 유튜브 자막 목록 조회
+
+List the manual and auto-generated subtitle languages available for a public YouTube video. 20 points per call.
+
+유튜브 공개 영상의 수동 자막과 자동 생성 자막 언어 목록을 조회합니다. 자동 번역 자막은 `translated: true`로 표시됩니다. 호출당 20포인트.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `web`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `url` | `string` | **필수 / required** | 유튜브 영상 URL 또는 11자리 영상 ID (watch·youtu.be·shorts 주소 지원) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"youtube_subtitle_list","arguments":{"url":"<url>"}}}
+```
+
+---
+
+<a id="youtube-subtitle"></a>
+
+### `youtube_subtitle` — 유튜브 자막 다운로드
+
+Download the subtitles of a public YouTube video in one language as VTT, SRT or plain text. Check available languages with `youtube_subtitle_list` first. 30 points per call.
+
+유튜브 공개 영상의 자막을 언어별로 VTT·SRT·텍스트 파일로 내려받습니다. 제공 언어는 `youtube_subtitle_list`로 먼저 확인하고, 영상 원어 자막 사용을 권장합니다. 호출당 30포인트.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `web`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `url` | `string` | **필수 / required** | 유튜브 영상 URL 또는 11자리 영상 ID (watch·youtu.be·shorts 주소 지원) |
+| `lang` | `string` | **필수 / required** | 자막 언어 코드 (예: ko, en, en-US, en-orig). 자막 목록 조회 결과의 lang 값 |
+| `format` | `string` | 선택 / optional | `vtt`(기본)·`srt`·`txt`. `txt`는 시간 정보를 뺀 본문만 반환 |
+| `type` | `string` | 선택 / optional | `any`(기본: 수동 자막 우선)·`manual`·`auto` |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"youtube_subtitle","arguments":{"url":"<url>","lang":"en","format":"srt"}}}
 ```
 
 ---

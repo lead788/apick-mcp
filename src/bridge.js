@@ -20,7 +20,8 @@ export const SERVERS = [
 	'web',
 	'convert',
 	'vision',
-	'ai'
+	'ai',
+	'skills'
 ];
 
 // A key must never reach stdout, stderr or an error message.

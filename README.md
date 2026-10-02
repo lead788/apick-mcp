@@ -4,8 +4,8 @@
 
 # APICK MCP — 115 Korean Data, AI, Image & Video Tools
 
-> 3.7.0 카탈로그: 115개 Tool. `all` 서버 전용 도구 찾기 Tool `find_tools`가 추가됐습니다(무료, 인증키 불필요). 분야별 서버의 Tool 수는 그대로입니다. 새 Tool은 원격 서버에 이미 배포돼 있으며, 실제 사용 가능 목록은 연결한 서버의 `tools/list`로 확인하세요.
-> Catalog for 3.7.0: 115 tools. Adds `find_tools`, a free tool-finder on the `all` server that works without a key. Domain server counts are unchanged. The new tool is already live on the remote server; check the connected server’s `tools/list` for availability.
+> 3.8.0: 검수된 Skill 을 검색·견적·실행하는 `skills` 서버(Tool 6개)를 추가했습니다: `npx -y apick-mcp --server skills`. `all` 서버의 115개 Tool 과 분야별 서버의 Tool 수는 그대로입니다. 새 서버는 원격 서버에 이미 배포돼 있으며, 실제 사용 가능 목록은 연결한 서버의 `tools/list`로 확인하세요.
+> 3.8.0: adds the `skills` server (6 tools) to search, quote and run reviewed Skills: `npx -y apick-mcp --server skills`. The 115 tools on `all` and the domain server counts are unchanged. The new server is already live on the remote server; check the connected server’s `tools/list` for availability.
 
 **Korean business registry, ID verification, OCR, parcel tracking, file conversion, web intelligence and LLM — as MCP tools for any AI agent.**
 
@@ -161,6 +161,7 @@ Connect to `all` for everything, or to one server to keep the tool list short an
 | [OCR 문자인식](TOOLS.md#ocr) | `https://apick.app/mcp/ocr` | 6 | 이미지 텍스트 추출, 신분증 항목 추출 |
 | [AI · LLM](TOOLS.md#ai) | `https://apick.app/mcp/ai` | 15 | LLM 챗, 텍스트 요약·교정, 이미지 생성·편집·대량 작업, 비동기 영상 생성 |
 | [Finance 금융](TOOLS.md#finance) | `https://apick.app/mcp/finance` | 3 | 계좌 예금주 조회, 1원 인증 |
+| [Skills](TOOLS.md#skills) | `https://apick.app/mcp/skills` | 6 | 검수된 Skill 검색·견적·실행. `all`과 별도 서버 / reviewed Skills, separate from `all` |
 
 ### Every tool / 전체 Tool
 

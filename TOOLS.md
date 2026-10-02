@@ -3,8 +3,8 @@
 **115 tools** across **8 domain servers**, plus the combined `all` server.
 **Tool 115개**, 분야별 서버 8개와 통합 서버 `all`.
 
-> 3.7.0 카탈로그: 115개 Tool. `all` 서버 전용 [`find_tools`](#find-tools)가 추가됐고 분야별 서버의 Tool 수는 그대로입니다(Business 29개, Web 17개). `stt`에 `artifact_filter`, `llm_chat`의 `compact.strategy`에 `relevance`가 추가됐습니다. 새 기능은 원격 서버에 이미 배포돼 있으며, 실제 사용 가능 목록은 연결한 서버의 `tools/list`로 확인하세요.
-> Catalog for 3.7.0: 115 tools. Adds [`find_tools`](#find-tools) on the `all` server only; domain server counts are unchanged (29 Business, 17 Web). `stt` gains `artifact_filter` and `llm_chat` `compact.strategy` accepts `relevance`. The new features are already live on the remote server; check the connected server’s `tools/list` for availability.
+> 3.8.0 카탈로그: `all` 서버 115개 Tool 은 그대로이고, 검수된 Skill 을 검색·견적·실행하는 별도 서버 [`skills`](#skills)(Tool 6개)가 추가됐습니다. 새 서버는 원격 서버에 이미 배포돼 있으며, 실제 사용 가능 목록은 연결한 서버의 `tools/list`로 확인하세요.
+> Catalog for 3.8.0: the 115 tools on `all` are unchanged, and a separate [`skills`](#skills) server (6 tools) is added to search, quote and run reviewed Skills. The new server is already live on the remote server; check the connected server’s `tools/list` for availability.
 
 
 Official site 공식 사이트: **<https://apick.app>** · Docs 연동 가이드: **<https://apick.app/dev_guide/mcp>**
@@ -25,6 +25,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
 | **All 통합** | `/mcp/all` | **115** | 아래 전부 + [`find_tools`](#find-tools) |
+| [Skills · 검수된 Skill 실행](#skills) | `/mcp/skills` | 6 | Skill 검색·상세·견적·실행·조회·취소. `all`에는 포함되지 않는 별도 서버 / separate server, not part of `all`. |
 
 <details><summary><b>All 115 tool names / 전체 Tool 이름</b></summary>
 
@@ -2500,3 +2501,156 @@ Available generations: Seedance 1.0/1.5/2.0/2.5, including Seedance 2.0 Standard
 | Kling | 3.0, O3, O1, 2.6, 2.5, 2.1, 2.0, 1.6 | [버전별 지원표](https://apick.app/dev_guide/klingjobs) |
 
 등급·해상도·길이·오디오·파일 개수와 초당 포인트는 선택 조합별로 다릅니다. Seedance 2.0은 Standard·Fast·Mini를 제공하며 Mini는 480p·720p와 4~15초를 지원합니다. 무음 전용 모델은 `audio=false`, 오디오 필수 모델은 `audio=true`만 허용합니다. Veo 3.0은 현재 제공하지 않습니다. 지원하지 않는 조합은 접수 전에 거절됩니다.
+
+---
+
+<a id="skills"></a>
+
+## Skills · 검수된 Skill 실행
+
+`https://apick.app/mcp/skills` — 6 tools. A separate server; these tools are not part of `all`.
+
+A Skill is an execution product registered by a seller and published after APICK review. Each Skill fixes its input format, output format, base amount and limits. For Skills that use generative AI the actual usage of each run is added, so the charge varies per run. Running it from the web, REST or MCP uses the same run ID and the same charging rule.
+
+Skill 은 판매자가 등록하고 에이픽이 심사해 게시한 실행 상품입니다. 입력 형식·결과 형식·기본 금액·처리 상한이 Skill 마다 정해져 있고, 생성형 AI 를 쓰는 Skill 은 실행마다 실제 사용량이 더해져 금액이 달라집니다. 또 웹·REST·MCP 어디에서 실행해도 같은 실행 번호와 같은 과금 규칙을 씁니다. `all` 서버와 별도이며 115개에는 포함되지 않습니다.
+
+| Rule 규칙 | Detail 내용 |
+| --- | --- |
+| Charging 과금 | 결과가 약속한 형식으로 반환된 실행만 차감합니다. 실패·시간초과·취소는 차감하지 않습니다. 차감 금액은 기본 금액에 그 실행의 실제 AI 사용량을 더한 값이며 `billing.charged_points` 로 알려 줍니다. / Charged only when a result in the promised format is returned. The charge is the base amount plus the actual AI usage of that run, reported in `billing.charged_points`. |
+| Estimate 예상 금액 | `quote_skill` 이 예상 금액(`estimated_points`)과 최대 금액(`max_points`)을 알려 줍니다. 실제 차감액은 최대 금액을 넘지 않습니다. / `quote_skill` returns the estimated and maximum amount; the charge never exceeds the maximum. |
+| Reservation 예약 | 접수할 때 최대 금액을 예약하고, 끝나면 실제 금액만 차감한 뒤 나머지를 돌려줍니다. 실패하면 전부 돌려줍니다. 잔액이 부족하면 접수되지 않습니다. / Points are reserved on acceptance, then captured or released. |
+| Eligibility 이용 조건 | 1회 이상 결제한 계정에서 실행할 수 있습니다. 한 계정의 동시 실행은 5건입니다. / Requires an account with at least one payment; 5 concurrent runs per account. |
+| Retention 결과 보관 | 결과는 실행 뒤 7일 동안 조회할 수 있습니다. / Results stay readable for 7 days. |
+| Generative AI 생성형 AI | `uses_generative_ai` 가 true 인 Skill 은 생성형 AI 로 결과를 만듭니다. 중요한 판단에 쓰기 전에 확인하세요. / Verify results before relying on them. |
+
+Typical flow / 사용 순서: `search_skills` → `get_skill` → (`quote_skill`) → `run_skill` → `get_skill_run`.
+
+```bash
+npx -y apick-mcp --server skills
+```
+
+### `search_skills` — Skill 검색
+
+Search Skills that fit a task. Returns name, summary, category, base amount and estimated amount in points.
+
+하려는 작업에 맞는 Skill 을 검색합니다. 이름·요약·분류와 기본 금액·예상 금액(포인트)을 돌려줍니다.
+
+> 읽기 전용 / read-only · 무료 / free · server `skills`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `query` | `string` | 선택 / optional | 찾으려는 작업을 나타내는 검색어, 60자 이내 |
+| `category` | `string` | 선택 / optional | `data` · `ai` · `dev` · `document` · `marketing` · `finance` · `productivity` · `video` · `etc` |
+| `cursor` | `string` | 선택 / optional | 다음 페이지 커서 |
+| `limit` | `integer` | 선택 / optional | 한 번에 받을 개수, 1~20 |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"search_skills","arguments":{"query":"상품명","limit":5}}}
+```
+
+### `get_skill` — Skill 상세
+
+Read a Skill's input and output formats, base and estimated amount, limits and examples before running it.
+
+Skill 의 입력·출력 형식, 기본 금액과 예상 금액, 처리 상한, 예제를 확인합니다. 실행 전에 입력 형식을 맞추는 데 씁니다.
+
+> 읽기 전용 / read-only · 무료 / free · server `skills`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `skill_id` | `string` | **필수 / required** | `search_skills` 결과의 `skill_id` |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"get_skill","arguments":{"skill_id":"sk_example"}}}
+```
+
+### `quote_skill` — 실행 전 예상 금액 조회
+
+Validate the input and report the estimated amount (`estimated_points`) and the maximum amount (`max_points`) for this input. Nothing is executed or charged. A quote is valid for 5 minutes.
+
+입력을 검사하고 이 입력으로 실행했을 때의 예상 금액(`estimated_points`)과 최대 금액(`max_points`)을 알려 줍니다. 실행하지 않으며 과금되지 않습니다. 견적은 5분 동안, 같은 계정·같은 입력에만 쓸 수 있습니다.
+
+> 읽기 전용 / read-only · 무료 / free · server `skills`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `skill_id` | `string` | **필수 / required** | `search_skills` 결과의 `skill_id` |
+| `input` | `object` | **필수 / required** | Skill 의 `input_schema` 에 맞는 입력 객체 |
+| `version` | `string` | 선택 / optional | 버전. 생략하면 현재 게시 버전 |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"quote_skill","arguments":{"skill_id":"sk_example","input":{"product_name":"튼튼한 접이식 우산"}}}}
+```
+
+### `run_skill` — Skill 실행
+
+Run a Skill. Points are charged only when a validated result is returned; the charge is the base amount plus the actual AI usage of the run, reported in `billing.charged_points`. Sending the same `idempotency_key` again returns the same run instead of starting a new one. If the run does not finish within 20 seconds, only `run_id` is returned; read it with `get_skill_run`.
+
+Skill 을 실행합니다. 결과가 검증되어 반환될 때만 차감되고, 실패·시간초과·취소는 차감되지 않습니다. 차감 금액은 기본 금액에 실제 AI 사용량을 더한 값이며 `billing.charged_points` 로 알려 줍니다. 같은 `idempotency_key` 로 다시 보내면 새로 실행하지 않고 같은 실행을 돌려줍니다. 20초 안에 끝나지 않으면 `run_id` 만 돌려주므로 `get_skill_run` 으로 확인합니다.
+
+> 상태 변경 / non-read-only (`readOnlyHint: false`, `idempotentHint: true`) · 실제 사용한 만큼 포인트 차감 / charges actual usage · server `skills`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `skill_id` | `string` | **필수 / required** | `search_skills` 결과의 `skill_id` |
+| `input` | `object` | **필수 / required** | Skill 의 `input_schema` 에 맞는 입력 객체. 정의되지 않은 항목은 거부됩니다 |
+| `idempotency_key` | `string` | **필수 / required** | 이 실행을 구분하는 고유 값. 영문·숫자와 `. _ : -` 로 1~128자. 재시도할 때 같은 값을 씁니다 |
+| `max_cost_points` | `integer` | 선택 / optional | 최대 금액이 이 값보다 높으면 실행하지 않습니다. 실제 차감액은 이 값을 넘지 않습니다. 자동 호출에는 `quote_skill` 의 `max_points` 를 넣는 것을 권합니다 |
+| `version` | `string` | 선택 / optional | 버전. 생략하면 현재 게시 버전 |
+| `quote_id` | `string` | 선택 / optional | `quote_skill` 이 돌려준 견적 번호 |
+| `wait_seconds` | `integer` | 선택 / optional | 결과를 기다릴 시간, 0~20초 (기본 20) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"run_skill","arguments":{"skill_id":"sk_example","input":{"product_name":"튼튼한 접이식 우산"},"idempotency_key":"order-20261002-0001","max_cost_points":64}}}
+```
+
+Response / 응답 (`structuredContent`):
+
+| Field | Type | Description 설명 |
+| --- | --- | --- |
+| `run_id` | `string` | 실행 번호 / run ID |
+| `status` | `string` | `queued` · `running` · `completing` · `succeeded` · `failed` · `timed_out` · `cancelled` |
+| `skill` | `object` | 실행한 Skill 의 `id`, `version`, `title` |
+| `result` | `object` | `status` 가 `succeeded` 일 때만. Skill 의 `output_schema` 형식 / only when succeeded |
+| `billing.status` | `string` | `reserved` · `captured` · `released` · `partially_refunded` · `refunded` |
+| `billing.reserved_points` | `integer` | 예약 중인 포인트 / reserved points |
+| `billing.charged_points` | `integer` | 차감된 포인트 / charged points |
+| `billing.refunded_points` | `integer` | 환불된 포인트 / refunded points |
+| `failure_code` | `string` | 실패한 실행의 사유: `EXECUTION_FAILED` · `OUTPUT_INVALID` · `TIMED_OUT` · `CANCELLED` · `UPSTREAM_UNAVAILABLE` |
+| `result_expires_at` | `string` | 결과 보관 기한 (ISO 8601) |
+
+Requests rejected before acceptance return an error text that starts with the code in brackets, for example `[INSUFFICIENT_POINTS]`, `[INVALID_INPUT]`, `[IDEMPOTENCY_CONFLICT]`, `[PRICE_EXCEEDS_LIMIT]`, `[RATE_LIMITED]`. No points are reserved for them.
+
+접수 전에 거절된 요청은 대괄호 안의 코드로 시작하는 오류 문구를 돌려주며 포인트를 예약하지 않습니다. 같은 키에 다른 입력을 보내면 `[IDEMPOTENCY_CONFLICT]` 로 거부되므로 새 실행에는 새 키를 쓰세요.
+
+### `get_skill_run` — Skill 실행 조회
+
+Read the run status and billing status. A succeeded run includes its result.
+
+실행 상태와 과금 상태를 확인합니다. 성공한 실행은 결과를 함께 돌려줍니다.
+
+> 읽기 전용 / read-only · 무료 / free · server `skills`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `run_id` | `string` | **필수 / required** | `run_skill` 이 돌려준 `run_id` |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"get_skill_run","arguments":{"run_id":"run_3f2a9c0d8e7b4a61b5c4d3e2f1a09b8c"}}}
+```
+
+### `cancel_skill_run` — Skill 실행 취소
+
+Cancel a run that has not finished. A cancelled run is not charged. A finished run cannot be cancelled.
+
+아직 끝나지 않은 실행을 취소합니다. 취소된 실행은 과금되지 않습니다. 이미 끝난 실행은 취소할 수 없습니다.
+
+> 상태 변경 / non-read-only (`readOnlyHint: false`, `idempotentHint: true`) · 무료 / free · server `skills`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `run_id` | `string` | **필수 / required** | `run_skill` 이 돌려준 `run_id` |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"cancel_skill_run","arguments":{"run_id":"run_3f2a9c0d8e7b4a61b5c4d3e2f1a09b8c"}}}
+```

@@ -1,5 +1,13 @@
 # 변경 기록
 
+## 3.8.0 — 2026-10-02
+
+- 브릿지가 `skills` 서버(`https://apick.app/mcp/skills`)를 받습니다: `npx -y apick-mcp --server skills`. 검수된 Skill 을 검색·상세·견적·실행·조회·취소하는 Tool 6개(`search_skills`·`get_skill`·`quote_skill`·`run_skill`·`get_skill_run`·`cancel_skill_run`)이며 `all` 서버의 115개에는 포함되지 않습니다.
+- The bridge accepts the `skills` server (`https://apick.app/mcp/skills`): `npx -y apick-mcp --server skills`. Six tools to search, inspect, quote, run, read and cancel reviewed Skills. They are not part of the 115 tools on `all`.
+- `run_skill`은 `idempotency_key`가 필수이며 결과가 약속한 형식으로 반환된 실행만 차감합니다. 실패·시간초과·취소는 차감하지 않습니다. 차감 금액은 기본 금액에 실제 AI 사용량을 더한 값이고, `quote_skill`이 예상 금액(`estimated_points`)과 최대 금액(`max_points`)을 알려 줍니다.
+- `run_skill` requires `idempotency_key` and charges only when a result in the promised format is returned; failures, timeouts and cancellations are not charged. The charge is the base amount plus actual AI usage; `quote_skill` returns `estimated_points` and `max_points`.
+- 브릿지 전송 방식은 바뀌지 않았습니다. / No bridge transport change.
+
 ## 3.7.0 — 2026-10-01
 
 - `all` 서버에 도구 찾기 Tool `find_tools`를 추가했습니다. 자연어(한국어·영어) 작업 설명(`task`, 2~500자)을 받아 알맞은 Tool을 최대 `limit`개(1~10, 기본 5) 추천하고 이름·제목·설명·관련도(`high`·`medium`·`low`)를 돌려줍니다. 무료이며 인증키 없이 호출할 수 있습니다. 전체 115개, 조회 Tool 87개, 상태 변경 Tool 28개이며 분야별 서버의 Tool 수는 그대로입니다. 원격 서버에는 이미 배포돼 있습니다.

@@ -2,6 +2,10 @@
 
 ## 3.8.2 — 2026-10-02
 
+- TTS 목소리 문서를 현재 지원하는 14개 `voice_id`와 표시 이름으로 갱신했습니다. 더 이상 제공하지 않는 예전 목록과 예시를 정리했습니다.
+- Update the TTS voice documentation to the 14 currently supported `voice_id` values and display names, removing the outdated list and example.
+- TTS 요금이 100자당 10포인트에서 "100자까지 30포인트, 이후 100자당 10포인트"로 바뀌었습니다(100자 30P, 101자 40P, 800자 100P). 한국어 읽기 자동 변환이 이 요금에 포함되며, 과금 기준은 계속 보낸 원문의 글자 수입니다.
+- TTS pricing changed from 10 points per 100 characters to 30 points for up to 100 characters plus 10 points for each additional 100 characters (100 chars 30P, 101 chars 40P, 800 chars 100P). Automatic Korean reading conversion is included, and billing is still based on the character count of the text you send.
 - 모든 TTS 요청에 한국어 읽기 전처리가 자동 적용되어 추가 옵션이나 별도 Skill 호출이 필요하지 않음을 한영 문서에 명시했습니다. 원문 기준 요금과 ASS 자막 표기는 유지되며, 정규화에 실패하면 원문으로 합성합니다. 요청·응답과 브릿지 동작은 변경하지 않았습니다.
 - Clarify in Korean and English that every TTS request automatically applies Korean reading normalization, with no extra option or separate Skill call. Billing and ASS subtitle spelling remain based on the original text; failed normalization falls back to synthesis from that text. No request, response or bridge behavior changes.
 

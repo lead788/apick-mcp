@@ -383,9 +383,9 @@ TTS 보이스 표시 이름: `narrator_m_01` 태준, `narrator_m_02` 민석, `na
 
 TTS 작업 입력은 최대 800자입니다. 완성된 MP3와 ASS 자막은 서로 독립된 1회용 원본이므로, 결과를 저장할 준비가 된 뒤 `tts_jobs_result`와 `tts_jobs_subtitles`를 각각 한 번만 호출하세요.
 
-`tts_jobs_create`는 접수한 문장의 숫자·단위·기호·영문 약어를 문맥에 맞는 한글 읽기로 자동 변환해 합성합니다(예: `5번 버스` → 오 번 버스, `버튼을 5번` → 다섯 번, `-5℃` → 영하 오 도, `인증번호 105028` → 한 자리씩). 과금 글자 수와 요금은 보낸 원문 기준이며 요청·응답 형식은 그대로입니다. 읽는 법을 직접 정하려면 한글로 풀어 써서 보내세요. ASS 자막은 보낸 원문 표기로 제공됩니다.
+`tts_jobs_create`는 접수한 문장의 숫자·단위·기호·영문을 문맥에 맞는 한글 읽기로 자동 변환한 뒤 음성을 생성합니다(예: `5번 버스` → 오 번 버스, `버튼을 5번` → 다섯 번, `-5℃` → 영하 오 도, `인증번호 105028` → 한 자리씩). 모든 TTS 요청에 자동 적용되므로 추가 옵션이나 별도 Skill 호출이 필요하지 않습니다. 과금 글자 수와 요금은 보낸 원문 기준이며 요청·응답 형식은 그대로입니다. 읽는 법을 직접 정하려면 한글로 풀어 써서 보내세요. ASS 자막은 보낸 원문 표기로 제공됩니다. 정규화에 실패하면 원문으로 음성을 생성합니다.
 
-`tts_jobs_create` automatically converts numbers, units, symbols and English abbreviations in the submitted text into context-appropriate Korean readings before synthesis (for example, `5번 버스` is read as "오 번 버스", `버튼을 5번` as "다섯 번", `-5℃` as "영하 오 도", and `인증번호 105028` digit by digit). The billed character count and price are based on the text you send, and the request and response formats are unchanged. To choose a reading yourself, spell it out in Hangul. ASS subtitles keep the text as you sent it.
+`tts_jobs_create` automatically converts numbers, units, symbols and English text in the submitted text into context-appropriate Korean readings before synthesis (for example, `5번 버스` is read as "오 번 버스", `버튼을 5번` as "다섯 번", `-5℃` as "영하 오 도", and `인증번호 105028` digit by digit). This applies automatically to every TTS request; no extra option or separate Skill call is needed. The billed character count and price are based on the text you send, and the request and response formats are unchanged. To choose a reading yourself, spell it out in Hangul. ASS subtitles keep the text as you sent it. If normalization fails, speech is generated from the original text.
 
 ### Try it with curl / curl로 바로 확인
 

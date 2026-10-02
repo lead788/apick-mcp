@@ -1,5 +1,10 @@
 # 변경 기록
 
+## 3.8.1 — 2026-10-02
+
+- `tts_jobs_create`가 문장의 숫자·단위·기호·영문 약어를 문맥에 맞는 한글 읽기로 자동 변환해 합성한다는 안내를 문서에 추가했습니다. 과금 글자 수와 요금은 보낸 원문 기준이고 요청·응답 형식은 그대로이며, ASS 자막은 보낸 원문 표기로 제공됩니다. 문서만 바뀌었고 브릿지와 Tool 수는 그대로입니다.
+- Document that `tts_jobs_create` automatically converts numbers, units, symbols and English abbreviations into context-appropriate Korean readings before synthesis. Billing is based on the text you send, request and response formats are unchanged, and ASS subtitles keep the text as you sent it. Documentation only; no bridge or tool-count change.
+
 ## 3.8.0 — 2026-10-02
 
 - 브릿지가 `skills` 서버(`https://apick.app/mcp/skills`)를 받습니다: `npx -y apick-mcp --server skills`. 검수된 Skill 을 검색·상세·견적·실행·조회·취소하는 Tool 6개(`search_skills`·`get_skill`·`quote_skill`·`run_skill`·`get_skill_run`·`cancel_skill_run`)이며 `all` 서버의 115개에는 포함되지 않습니다.

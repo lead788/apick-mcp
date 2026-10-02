@@ -1,5 +1,13 @@
 # 변경 기록
 
+## 3.9.0 — 2026-10-02
+
+- `skills` 서버의 `search_skills` 에 `sort` 를 추가했습니다: `recommended`(추천)·`popular`(인기)·`used`(많이 사용)·`likes`(좋아요순)·`rating`(평점순)·`new`(최신)·`mine`(내가 자주 쓴)·`liked`(내가 좋아요한). 생략하면 예전처럼 등록 순서입니다. 검색어는 Skill 의 이름·요약·설명과 판매자 이름에서 찾습니다.
+- Add `sort` to `search_skills` on the `skills` server: `recommended`, `popular`, `used`, `likes`, `rating`, `new`, `mine` and `liked` (the last two are scoped to the API key's account). Omitting it keeps registration order. The query now matches a Skill's name, summary, description and seller name.
+- `search_skills`·`get_skill` 결과에 고를 때 참고하는 `usage_label`(사용 건수 구간: `1,000회 미만`, `1,000+`, `1만+` …)·`like_count`·`review_count`·`rating_average` 가 추가됐습니다. 좋아요와 리뷰는 에이픽 웹의 Skill 화면에서 남깁니다.
+- `search_skills` and `get_skill` results now include `usage_label` (a usage tier, not an exact count), `like_count`, `review_count` and `rating_average`. Likes and reviews are left on the Skill page of the APICK website.
+- Tool 수와 브릿지 전송 방식은 바뀌지 않았습니다. 원격 서버에는 이미 배포돼 있습니다. / No tool-count or bridge transport change. Already live on the remote server.
+
 ## 3.8.2 — 2026-10-02
 
 - TTS 목소리 문서를 현재 지원하는 14개 `voice_id`와 표시 이름으로 갱신했습니다. 더 이상 제공하지 않는 예전 목록과 예시를 정리했습니다.

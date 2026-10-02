@@ -4,6 +4,9 @@
 
 # APICK MCP — 115 Korean Data, AI, Image & Video Tools
 
+> 3.9.0: `skills` 서버의 `search_skills` 가 `sort`(추천·인기·많이 사용·좋아요순·평점순·최신)를 받고, Skill 검색·상세 결과에 사용 건수 구간(`usage_label`)·좋아요 수·평점이 함께 옵니다. Tool 수는 그대로이며 원격 서버에 이미 배포돼 있습니다.
+> 3.9.0: `search_skills` on the `skills` server accepts `sort` (recommended, popular, most used, likes, rating, newest), and Skill search/detail results include a usage tier (`usage_label`), like count and rating. Tool counts are unchanged; already live on the remote server.
+>
 > 3.8.0: 검수된 Skill 을 검색·견적·실행하는 `skills` 서버(Tool 6개)를 추가했습니다: `npx -y apick-mcp --server skills`. `all` 서버의 115개 Tool 과 분야별 서버의 Tool 수는 그대로입니다. 새 서버는 원격 서버에 이미 배포돼 있으며, 실제 사용 가능 목록은 연결한 서버의 `tools/list`로 확인하세요.
 > 3.8.0: adds the `skills` server (6 tools) to search, quote and run reviewed Skills: `npx -y apick-mcp --server skills`. The 115 tools on `all` and the domain server counts are unchanged. The new server is already live on the remote server; check the connected server’s `tools/list` for availability.
 

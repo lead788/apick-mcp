@@ -3,6 +3,8 @@
 **115 tools** across **8 domain servers**, plus the combined `all` server.
 **Tool 115개**, 분야별 서버 8개와 통합 서버 `all`.
 
+> 3.9.0 카탈로그: `skills` 서버의 `search_skills` 가 `sort`(추천·인기·많이 사용·좋아요순·평점순·최신)를 받고, 검색·상세 결과에 사용 건수 구간·좋아요 수·평점이 함께 옵니다. Tool 수는 그대로입니다.
+> Catalog for 3.9.0: `search_skills` on the `skills` server accepts `sort`, and search/detail results include a usage tier, like count and rating. Tool counts are unchanged.
 > 3.8.0 카탈로그: `all` 서버 115개 Tool 은 그대로이고, 검수된 Skill 을 검색·견적·실행하는 별도 서버 [`skills`](#skills)(Tool 6개)가 추가됐습니다. 새 서버는 원격 서버에 이미 배포돼 있으며, 실제 사용 가능 목록은 연결한 서버의 `tools/list`로 확인하세요.
 > Catalog for 3.8.0: the 115 tools on `all` are unchanged, and a separate [`skills`](#skills) server (6 tools) is added to search, quote and run reviewed Skills. The new server is already live on the remote server; check the connected server’s `tools/list` for availability.
 
@@ -2537,9 +2539,9 @@ npx -y apick-mcp --server skills
 
 ### `search_skills` — Skill 검색
 
-Search Skills that fit a task. Returns name, summary, category, base amount and estimated amount in points.
+Search Skills that fit a task. Returns name, summary, category, base amount and estimated amount in points, plus a usage tier (`usage_label`), `like_count`, `review_count` and `rating_average`. Use `sort` to order by recommendation, popularity or usage.
 
-하려는 작업에 맞는 Skill 을 검색합니다. 이름·요약·분류와 기본 금액·예상 금액(포인트)을 돌려줍니다.
+하려는 작업에 맞는 Skill 을 검색합니다. 이름·요약·분류와 기본 금액·예상 금액(포인트), 사용 건수 구간(`usage_label`: `1,000회 미만`, `1,000+`, `1만+` …)·좋아요 수(`like_count`)·리뷰 수(`review_count`)·평점(`rating_average`)을 돌려줍니다. `sort` 로 추천·인기·많이 쓴 순서를 고를 수 있습니다.
 
 > 읽기 전용 / read-only · 무료 / free · server `skills`
 
@@ -2547,18 +2549,19 @@ Search Skills that fit a task. Returns name, summary, category, base amount and 
 | --- | --- | --- | --- |
 | `query` | `string` | 선택 / optional | 찾으려는 작업을 나타내는 검색어, 60자 이내 |
 | `category` | `string` | 선택 / optional | `data` · `ai` · `dev` · `document` · `marketing` · `finance` · `productivity` · `video` · `etc` |
+| `sort` | `string` | 선택 / optional | `recommended` 추천 · `popular` 인기 · `used` 많이 사용 · `likes` 좋아요순 · `rating` 평점순 · `new` 최신 · `mine` 내가 자주 쓴 · `liked` 내가 좋아요한. 생략하면 등록 순 / registration order when omitted |
 | `cursor` | `string` | 선택 / optional | 다음 페이지 커서 |
 | `limit` | `integer` | 선택 / optional | 한 번에 받을 개수, 1~20 |
 
 ```json
-{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"search_skills","arguments":{"query":"상품명","limit":5}}}
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"search_skills","arguments":{"query":"상품명","sort":"popular","limit":5}}}
 ```
 
 ### `get_skill` — Skill 상세
 
-Read a Skill's input and output formats, base and estimated amount, limits and examples before running it.
+Read a Skill's input and output formats, base and estimated amount, limits and examples before running it. The response also carries `usage_label`, `like_count`, `review_count` and `rating_average`.
 
-Skill 의 입력·출력 형식, 기본 금액과 예상 금액, 처리 상한, 예제를 확인합니다. 실행 전에 입력 형식을 맞추는 데 씁니다.
+Skill 의 입력·출력 형식, 기본 금액과 예상 금액, 처리 상한, 예제를 확인합니다. 실행 전에 입력 형식을 맞추는 데 씁니다. 사용 건수 구간(`usage_label`)·좋아요 수·리뷰 수·평점도 함께 옵니다.
 
 > 읽기 전용 / read-only · 무료 / free · server `skills`
 

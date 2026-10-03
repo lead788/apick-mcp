@@ -1,5 +1,10 @@
 # 변경 기록
 
+## 3.9.2 — 2026-10-03
+
+- 상품별 조회 안내와 공통 인증 가이드 링크를 보강했습니다. API 계약 변경은 없습니다.
+- Document product-specific data guides and shared authentication; API contracts are unchanged.
+
 ## 3.9.1 — 2026-10-03
 
 - 스킬 가변 견적·시간·도구 호출 수와 결과 파일 안내 추가. 브릿지 동작 변경 없음.

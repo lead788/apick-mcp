@@ -2669,3 +2669,9 @@ Cancel a run that has not finished. A cancelled run is not charged. A finished r
 `get_skill`과 `quote_skill`의 `execution_info`에서 가격·시간 범위, 도구별 예상 호출 수를 확인합니다. `get_skill_run`의 성공 결과에는 `artifacts`가 포함될 수 있으며 인증 다운로드 방법은 README의 스킬 파일 안내를 참고하세요.
 
 Read price/duration ranges and expected tool calls from `execution_info` in `get_skill` and `quote_skill`. A successful `get_skill_run` may contain `artifacts`; see the README for authenticated downloads.
+
+## 상품별 조회 가이드
+
+상품별 간편인증 조회 가이드에는 조회 데이터, 출처 기관, 활용 사례와 자주 묻는 질문이 있습니다. 인증 요청은 해당 상품의 자료를 조회하기 위한 단계이며 결과 조회용 transactionId를 반환합니다. 요청·응답 계약과 인증 방식은 동일합니다. [공통 인증 흐름](https://apick.app/dev_guide/data)에서 절차와 오류 처리를 확인하세요.
+
+Product-specific authenticated-data guides describe returned fields, source institutions, use cases, and FAQs. An authentication request starts access to the selected product and returns a transactionId for result polling. Request and response contracts and authentication are unchanged. See the [shared authentication guide](https://apick.app/dev_guide/data) for the flow and error handling.

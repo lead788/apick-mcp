@@ -155,7 +155,7 @@ test('배포 대상 115개 목록과 Business 29개·Web 17개·상태 변경 28
 	assert.match(tools, /업무 상태 오류는 `isError: false`/);
 	const pkg = JSON.parse(read('package.json'));
 	const lock = JSON.parse(read('package-lock.json'));
-	assert.equal(pkg.version, '3.9.1');
+	assert.equal(pkg.version, '3.9.2');
 	assert.equal(lock.version, pkg.version);
 	assert.equal(lock.packages[''].version, pkg.version);
 	// 공개 JSON-RPC 예시도 실제 목록의 Tool을 참조해야 한다. skills 서버는 all 과 별도 목록이다.

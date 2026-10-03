@@ -1,6 +1,6 @@
-배포 준비 중인 안내입니다. 서버 게시 후 스킬 구매 전 [성능표와 시험 방식](https://apick.app/skills/performance)을 확인하세요. 표본 수·평가일·기계 검사와 모델 점수를 구분하며, 미검증 항목은 수치를 표시하지 않습니다. [공개 JSON](https://apick.app/skills/performance/data.json)도 제공하며 별도의 유료 도구 호출이 필요하지 않습니다.
+스킬 구매 전 [성능표와 시험 방식](https://apick.app/skills/performance)을 확인하세요. 표본 수·평가일·기계 검사와 모델 점수를 구분하며, 미검증 항목은 수치를 표시하지 않습니다. [공개 JSON](https://apick.app/skills/performance/data.json)도 제공하며 별도의 유료 도구 호출이 필요하지 않습니다.
 
-Pending deployment: once the server report is published, review its [measured performance and test methods](https://apick.app/skills/performance). Sample sizes, dates, machine checks and model scores are reported separately; untested values are not scored. A [public JSON report](https://apick.app/skills/performance/data.json) is available without a paid tool call.
+Before choosing a Skill, review its [measured performance and test methods](https://apick.app/skills/performance). Sample sizes, dates, machine checks and model scores are reported separately; untested values are not scored. A [public JSON report](https://apick.app/skills/performance/data.json) is available without a paid tool call.
 
 <div align="center">
 

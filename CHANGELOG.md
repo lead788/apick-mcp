@@ -1,6 +1,6 @@
 # 변경 기록
 
-## 3.9.3 — Unreleased
+## 3.9.3 — 2026-10-04
 
 - 기존·신규 스킬의 성능표와 공개 측정 JSON 안내를 추가했습니다. 도구 수·브릿지 동작은 그대로입니다.
 - Document measured Skill performance and its public JSON report. Tool counts and bridge behavior are unchanged.

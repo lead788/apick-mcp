@@ -504,3 +504,9 @@ Available generations: Seedance 1.0/1.5/2.0/2.5, including Seedance 2.0 Standard
 | Kling | 3.0, O3, O1, 2.6, 2.5, 2.1, 2.0, 1.6 | [버전별 지원표](https://apick.app/dev_guide/klingjobs) |
 
 등급·해상도·길이·오디오·파일 개수와 초당 포인트는 선택 조합별로 다릅니다. Seedance 2.0은 Standard·Fast·Mini를 제공하며 Mini는 480p·720p와 4~15초를 지원합니다. 무음 전용 모델은 `audio=false`, 오디오 필수 모델은 `audio=true`만 허용합니다. Veo 3.0은 현재 제공하지 않습니다. 지원하지 않는 조합은 접수 전에 거절됩니다.
+
+## 스킬 실행 견적과 파일 / Skill estimates and files
+
+스킬 상세·견적의 `execution_info`에는 가격·소요시간 범위와 도구 호출 횟수 예상이 있습니다. 입력에 따라 달라지며 보장값이 아닙니다. `quote_skill`의 최대 예약액을 확인한 후 실행하세요. 성공 결과의 `artifacts`에는 파일 ID·형식·크기·SHA-256이 있습니다. 인증이 필요한 다운로드는 `apick-api`의 `getSkillArtifact(runId, fileId)`로 처리할 수 있습니다. 결과 만료 시 파일도 만료됩니다.
+
+`execution_info` provides estimated price/duration ranges and tool call counts, not guarantees. Check the maximum reservation in `quote_skill` before execution. Successful results may include `artifacts` with file IDs, MIME types, byte sizes, and SHA-256 digests. Use `getSkillArtifact(runId, fileId)` in `apick-api` for authenticated downloads. Files expire with the run result. Tool counts and bridge behavior are unchanged.

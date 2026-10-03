@@ -1,5 +1,10 @@
 # 변경 기록
 
+## 3.9.1 — 2026-10-03
+
+- 스킬 가변 견적·시간·도구 호출 수와 결과 파일 안내 추가. 브릿지 동작 변경 없음.
+- Document Skill execution estimates and authenticated artifact downloads; bridge behavior unchanged.
+
 ## 3.9.0 — 2026-10-02
 
 - `skills` 서버의 `search_skills` 에 `sort` 를 추가했습니다: `recommended`(추천)·`popular`(인기)·`used`(많이 사용)·`likes`(좋아요순)·`rating`(평점순)·`new`(최신)·`mine`(내가 자주 쓴)·`liked`(내가 좋아요한). 생략하면 예전처럼 등록 순서입니다. 검색어는 Skill 의 이름·요약·설명과 판매자 이름에서 찾습니다.

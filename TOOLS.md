@@ -2663,3 +2663,9 @@ Cancel a run that has not finished. A cancelled run is not charged. A finished r
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"cancel_skill_run","arguments":{"run_id":"run_3f2a9c0d8e7b4a61b5c4d3e2f1a09b8c"}}}
 ```
+
+### 실행 정보와 결과 파일 / Execution information and artifacts
+
+`get_skill`과 `quote_skill`의 `execution_info`에서 가격·시간 범위, 도구별 예상 호출 수를 확인합니다. `get_skill_run`의 성공 결과에는 `artifacts`가 포함될 수 있으며 인증 다운로드 방법은 README의 스킬 파일 안내를 참고하세요.
+
+Read price/duration ranges and expected tool calls from `execution_info` in `get_skill` and `quote_skill`. A successful `get_skill_run` may contain `artifacts`; see the README for authenticated downloads.

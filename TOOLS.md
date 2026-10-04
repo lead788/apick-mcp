@@ -1,12 +1,12 @@
 # APICK MCP — Full Tool Catalog / 전체 Tool 목록
 
-**115 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 115개**, 분야별 서버 8개와 통합 서버 `all`.
+**118 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 118개**, 분야별 서버 8개와 통합 서버 `all`.
 
 > 3.9.0 카탈로그: `skills` 서버의 `search_skills` 가 `sort`(추천·인기·많이 사용·좋아요순·평점순·최신)를 받고, 검색·상세 결과에 사용 건수 구간·좋아요 수·평점이 함께 옵니다. Tool 수는 그대로입니다.
 > Catalog for 3.9.0: `search_skills` on the `skills` server accepts `sort`, and search/detail results include a usage tier, like count and rating. Tool counts are unchanged.
-> 3.8.0 카탈로그: `all` 서버 115개 Tool 은 그대로이고, 검수된 Skill 을 검색·견적·실행하는 별도 서버 [`skills`](#skills)(Tool 6개)가 추가됐습니다. 새 서버는 원격 서버에 이미 배포돼 있으며, 실제 사용 가능 목록은 연결한 서버의 `tools/list`로 확인하세요.
-> Catalog for 3.8.0: the 115 tools on `all` are unchanged, and a separate [`skills`](#skills) server (6 tools) is added to search, quote and run reviewed Skills. The new server is already live on the remote server; check the connected server’s `tools/list` for availability.
+> 3.8.0 카탈로그: `all` 서버 118개 Tool 은 그대로이고, 검수된 Skill 을 검색·견적·실행하는 별도 서버 [`skills`](#skills)(Tool 6개)가 추가됐습니다. 새 서버는 원격 서버에 이미 배포돼 있으며, 실제 사용 가능 목록은 연결한 서버의 `tools/list`로 확인하세요.
+> Catalog for 3.8.0: the 118 tools on `all` are unchanged, and a separate [`skills`](#skills) server (6 tools) is added to search, quote and run reviewed Skills. The new server is already live on the remote server; check the connected server’s `tools/list` for availability.
 
 
 Official site 공식 사이트: **<https://apick.app>** · Docs 연동 가이드: **<https://apick.app/dev_guide/mcp>**
@@ -23,13 +23,13 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | [OCR · OCR 문자인식](#ocr) | `/mcp/ocr` | 6 | 이미지 텍스트 추출과 신분증 항목 추출. |
 | [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 3 | 계좌 예금주 실명조회와 1원 인증. |
 | [Web & Search · 웹 · 검색](#web) | `/mcp/web` | 17 | 도메인·IP 조회, WHOIS, 웹페이지 수집, 구글 검색, 유튜브. |
-| [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 22 | PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크. |
+| [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 25 | PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
-| **All 통합** | `/mcp/all` | **115** | 아래 전부 + [`find_tools`](#find-tools) |
+| **All 통합** | `/mcp/all` | **118** | 아래 전부 + [`find_tools`](#find-tools) |
 | [Skills · 검수된 Skill 실행](#skills) | `/mcp/skills` | 6 | Skill 검색·상세·견적·실행·조회·취소. `all`에는 포함되지 않는 별도 서버 / separate server, not part of `all`. |
 
-<details><summary><b>All 115 tool names / 전체 Tool 이름</b></summary>
+<details><summary><b>All 118 tool names / 전체 Tool 이름</b></summary>
 
 `biz_detail` · `venture_biz_info` · `land_rt_price` · `req_pccc` · `get_pccc` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `get_car_flooding` · `get_car_scrap` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info`
 
@@ -41,7 +41,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 `nslookup` · `reverse_ip` · `location` · `ip_history` · `whois` · `url_html` · `url_screenshot` · `url_similarity` · `google_search` · `google_image_search` · `google_lens_search` · `crawl_youtube` · `download_youtube_video` · `youtube_metadata` · `youtube_thumbnail` · `youtube_subtitle_list` · `youtube_subtitle`
 
-`stt` · `tts_jobs_create` · `tts_jobs_status` · `tts_jobs_cancel` · `tts_jobs_result` · `tts_jobs_subtitles` · `tts_jobs_quality` · `tts_jobs_retry` · `tts_jobs_candidate_audio` · `voice_change` · `face_blur` · `pdf_to_docx` · `pdf_to_image` · `pdf_merge` · `html_to_pdf` · `docx_to_pdf` · `json_to_excel` · `base64_to_image` · `set_watermark` · `get_watermark` · `draw_watermark_pdf` · `draw_watermark_image`
+`stt` · `tts_gemini_create` · `tts_gemini_voices` · `tts_quote` · `tts_jobs_create` · `tts_jobs_status` · `tts_jobs_cancel` · `tts_jobs_result` · `tts_jobs_subtitles` · `tts_jobs_quality` · `tts_jobs_retry` · `tts_jobs_candidate_audio` · `voice_change` · `face_blur` · `pdf_to_docx` · `pdf_to_image` · `pdf_merge` · `html_to_pdf` · `docx_to_pdf` · `json_to_excel` · `base64_to_image` · `set_watermark` · `get_watermark` · `draw_watermark_pdf` · `draw_watermark_image`
 
 `nsfw_detection` · `image_similarity` · `video_to_mp3` · `extract_video_thumbnail` · `word_cloud` · `face_detection`
 
@@ -57,11 +57,11 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 ## All server only · 통합 서버 전용
 
-`https://apick.app/mcp/all` — 1 tool in addition to the 114 domain tools
+`https://apick.app/mcp/all` — 1 tool in addition to the 117 domain tools
 
 Tools that exist only on the combined `all` server. Domain servers keep their own tool counts.
 
-분야별 Tool 114개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
+분야별 Tool 117개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
 
 <a id="find-tools"></a>
 
@@ -1585,7 +1585,7 @@ Download the subtitles of a public YouTube video in one language as VTT, SRT or 
 
 ## File Conversion · 파일 변환 · 워터마크
 
-`https://apick.app/mcp/convert` — 22 tools
+`https://apick.app/mcp/convert` — 25 tools
 
 PDF, DOCX, Excel, speech-to-text, asynchronous TTS jobs, and watermarking.
 
@@ -1657,15 +1657,15 @@ Response additions when `artifact_filter` is sent / `artifact_filter` 요청 시
 
 ### `tts_jobs_create` — TTS 작업 접수
 
-14개 한국어 내레이션 목소리 중 하나로 유료 비동기 TTS 작업을 접수합니다. 접수 성공 시 즉시 과금되며 취소해도 환불되지 않습니다. `text`는 최대 800자입니다.
+14개 한국어 내레이션 목소리 중 하나로 유료 비동기 TTS 작업을 접수합니다. 접수 시 예약하고 완료 후 실제 금액을 정산합니다. `text`는 최대 800자입니다.
 
-접수한 문장의 숫자·단위·기호·영문은 문맥에 맞는 한글 읽기로 자동 변환한 뒤 음성을 생성합니다(예: `5번 버스` → 오 번 버스, `버튼을 5번` → 다섯 번, `-5℃` → 영하 오 도, `인증번호 105028` → 한 자리씩). 모든 TTS 요청에 자동 적용되므로 추가 옵션이나 별도 Skill 호출이 필요하지 않습니다. 과금 글자 수와 요금은 보낸 원문 기준이며 요청·응답 형식은 그대로입니다. 요금은 100자까지 30포인트이고 이후 100자마다 10포인트가 추가되며, 자동 변환에 따른 추가 요금은 없습니다. 읽는 법을 직접 정하려면 한글로 풀어 써서 보내세요. ASS 자막은 보낸 원문 표기로 제공됩니다. 정규화에 실패하면 원문으로 음성을 생성합니다.
+정규화는 기본 켜짐이며 발음을 다듬는 스킬 요금이 추가됩니다. `normalize_text: false`(SDK `normalizeText: false`)로 실행과 요금을 끕니다. 스킬 최종가는 기본요금(판매자 금액·기본 수수료) + AI 원가 × 환율 × 1.4입니다. 정규화 실패는 제작을 중단하며, 서버·공급자의 최종 제작 실패는 정규화까지 전액 환불합니다. ASS에는 원문을 표시합니다.
 
-Numbers, units, symbols and English text in the submitted text are automatically converted into context-appropriate Korean readings before synthesis (for example, `5번 버스` is read as "오 번 버스", `버튼을 5번` as "다섯 번", `-5℃` as "영하 오 도", and `인증번호 105028` digit by digit). This applies automatically to every TTS request; no extra option or separate Skill call is needed. The billed character count and price are based on the text you send, and the request and response formats are unchanged. The price is 30 points for up to 100 characters plus 10 points for each additional 100 characters, with no extra charge for the automatic conversion. To choose a reading yourself, spell it out in Hangul. ASS subtitles keep the text as you sent it. If normalization fails, speech is generated from the original text.
+Normalization is on by default and adds a skill charge. Set `normalize_text: false` (SDK `normalizeText: false`) to skip execution and billing. The skill price is its base fee (seller amount and base commission) plus actual AI cost × the pinned exchange rate × 1.4. Normalization failure stops synthesis; final server/provider failures refund normalization as well. ASS preserves the original spelling.
 
 표시 이름: `v2_ann_m_30s_01` 준호, `v2_ann_m_30s_02` 태산, `v2_ann_m_30s_04` 강우, `v2_ann_m_30s_05` 상현, `v2_ann_f_30s_02` 수빈, `v2_ann_f_30s_03` 은채, `v2_ann_f_30s_04` 다인, `v2_ann_f_30s_05` 예린, `v2_m_teen_01` 하늘, `v2_m_young_01` 도윤, `v2_m_mid_01` 정한, `v2_m_senior_01` 만복, `v2_f_young_01` 서아, `v2_f_senior_01` 정순.
 
-> **부작용 있음 / has side effects** · 접수 시 과금 / charged on acceptance · server `convert`
+> **부작용 있음 / has side effects** · 최대 요금 예약 / reserves the maximum · server `convert`
 
 | Parameter | Type | Required | Description 설명 |
 | --- | --- | --- | --- |
@@ -1696,9 +1696,9 @@ Numbers, units, symbols and English text in the submitted text are automatically
 
 ### `tts_jobs_cancel` — TTS 대기·생성 중 작업 취소
 
-`waiting` 또는 `processing` 상태에서 취소할 수 있으며 접수 시 과금된 금액은 환불되지 않습니다.
+`waiting` 또는 `processing` 상태에서 취소를 요청할 수 있습니다. 이미 수행한 유료 처리분만 정산하고 미사용 예약금은 해제합니다. / Already performed paid work is settled; unused reservations are released.
 
-> **부작용 있음 / has side effects** · 환불 없음 / no refund · server `convert`
+> **부작용 있음 / has side effects** · 수행분 정산 / settles performed work · server `convert`
 
 | Parameter | Type | Required | Description 설명 |
 | --- | --- | --- | --- |
@@ -1712,7 +1712,7 @@ Numbers, units, symbols and English text in the submitted text are automatically
 
 ### `tts_jobs_result` — TTS 결과 1회 다운로드
 
-완료된 MP3(`audio/mpeg`) 결과를 base64로 반환합니다. Tool 호출로 다운로드가 시작되는 즉시 서버 원본이 폐기되므로, 호출 실패나 전송 중단을 포함해 재다운로드할 수 없습니다. 결과를 받을 준비가 된 클라이언트에서 한 번만 호출하세요.
+완료된 MP3(`audio/mpeg`) 결과를 base64로 반환합니다. 완료된 다운로드는 파일별 1회이며 완료 후 재다운로드할 수 없습니다. 전송 중단은 24시간 안에 복구할 수 있습니다. 결과를 받을 준비가 된 클라이언트에서 한 번만 호출하세요.
 
 > **파괴적 부작용 / destructive side effect** · 재실행 불가 / not idempotent · server `convert`
 
@@ -1728,7 +1728,7 @@ Numbers, units, symbols and English text in the submitted text are automatically
 
 ### `tts_jobs_subtitles` — TTS ASS 자막 1회 다운로드
 
-완료된 ASS 타이밍 자막(`text/x-ass`)을 base64로 반환합니다. MP3와 별도의 1회용 원본이므로 MP3를 먼저 다운로드해도 자막을 한 번 받을 수 있습니다. Tool 호출로 자막 다운로드가 시작되는 즉시 자막 원본이 폐기되므로, 호출 실패나 전송 중단을 포함해 재다운로드할 수 없습니다.
+완료된 ASS 타이밍 자막(`text/x-ass`)을 base64로 반환합니다. MP3와 별도의 1회용 원본이므로 MP3를 먼저 다운로드해도 자막을 한 번 받을 수 있습니다. 완료된 자막 다운로드는 1회이며 완료 후 재다운로드할 수 없습니다. 전송 중단은 24시간 안에 복구할 수 있습니다.
 
 자막은 보낸 원문 표기로 제공됩니다. / Subtitles keep the text as you sent it.
 
@@ -1741,6 +1741,40 @@ Numbers, units, symbols and English text in the submitted text are automatically
 ```json
 {"jsonrpc":"2.0","id":5,"method":"tools/call","params":{"name":"tts_jobs_subtitles","arguments":{"job_id":"<job_id>"}}}
 ```
+
+### `tts_gemini_create` — Gemini 음성 제작 / Gemini speech
+
+`voice_id`, `style`, `text` 또는 `utterances`, `normalize_text`(기본 true), `idempotency_key`를 받습니다. 정규화 사용 시 합계 2,000자, 끄면 8,000자입니다. / Accepts a voice, style, text or utterances; normalization defaults on. Limits are 2,000 characters with normalization and 8,000 without it.
+
+> 부작용 있음 / has side effects · 최대 요금 예약 후 실제 정산 / reserves then settles usage · server `convert`
+
+### `tts_gemini_voices` — 모든 공개 목소리 / All public voices
+
+기본·확장 라이브러리 목소리와 공식 성별·음색, 연령 검증 여부를 반환합니다. / Lists all basic and extended voices with official gender/tone and age verification status.
+
+> 읽기 전용 / read-only · server `convert`
+
+### `tts_quote` — 예상 요금 / Price estimate
+
+제작 입력과 `engine: apick | gemini`를 받아 합성·정규화 예상 금액과 최대 예약금을 반환합니다. 실제 호출은 하지 않습니다. / Accepts synthesis input plus the engine and returns estimates and the maximum reservation without generating audio.
+
+> 읽기 전용 / read-only · server `convert`
+
+## TTS 자동 전환·Gemini·정규화 / Gemini and normalization
+
+`tts_jobs_create` adds `fallback_policy` (`never` default, `queue_full`, `busy`), `fallback_options` (`voice_id`, `style`), `normalize_text` (true by default), and `idempotency_key`.
+
+`tts_gemini_create` takes `voice_id`, `style`, either `text` or `utterances` (text, voice_id, style, speaker), `normalize_text`, and `idempotency_key`. `tts_gemini_voices` lists all public basic and extended voices. `tts_quote` accepts the same input with `engine: apick | gemini` and returns estimated synthesis, normalization, total and maximum reservation.
+
+`never`는 apick 대기열을 사용하고 포화 시 429, `queue_full`은 대기열 포화 시 Gemini, `busy`는 즉시 실행 불가 시 Gemini로 전환합니다. 전환 전용 목소리·스타일은 fallback_options에 넣으세요. 자동 선택은 성별·공식 음색을 사용하며 연령 미검증을 표시합니다. Gemini 사용 시 목소리와 요금이 달라집니다.
+
+정규화는 기본 켜짐이며 발음을 다듬는 스킬 요금이 추가됩니다. `normalize_text: false`(SDK `normalizeText: false`)로 실행과 요금을 끕니다. 스킬 최종가는 기본요금(판매자 금액·기본 수수료) + AI 원가 × 환율 × 1.4입니다. 정규화 실패는 제작을 중단하며, 서버·공급자의 최종 제작 실패는 정규화까지 전액 환불합니다. ASS에는 원문을 표시합니다.
+
+Normalization is on by default and adds a skill charge. Set `normalize_text: false` (SDK `normalizeText: false`) to skip execution and billing. The skill price is its base fee (seller amount and base commission) plus actual AI cost × the pinned exchange rate × 1.4. Normalization failure stops synthesis; final server/provider failures refund normalization as well. ASS preserves the original spelling.
+
+The three paths share `tts_jobs_status`, `tts_jobs_result`, and `tts_jobs_subtitles`. Top-level voice_id preserves the request; synthesis reports the actual model/voice. billing separates synthesis, skill, total, reserved, released and refunded. MP3 is 24 kHz mono 48 kbps, with original-text ASS, retained for 24 hours.
+
+세 경로는 같은 응답과 다운로드 API를 사용합니다. 예약금은 api.cost에 확정 요금으로 표시하지 않으며 billing으로 확인합니다. 파일별 1회 완료 다운로드, 전송 중단 시 재시도 가능합니다. [개발가이드](https://apick.app/dev_guide/tts)
 
 <a id="voice-change"></a>
 
@@ -2160,7 +2194,9 @@ LLM 챗(다중 모델), 텍스트 요약·교정, 비동기 AI 영상 생성.
 | [`kling_jobs_create`](#kling-jobs-create) | Kling 영상 작업 접수 | `prompt` |
 | [`kling_jobs_status`](#kling-jobs-status) | Kling 영상 작업 상태 | `job_id` |
 
-이미지 생성·편집은 한 장당 40포인트입니다. 작업 접수 시 요청 장수 전체 금액을 먼저 차감하고, 생성에 실패한 이미지가 있으면 해당 장수의 포인트를 즉시 환급합니다. 접수된 작업은 취소할 수 없습니다. `image_generate`에 `reference_image_url`을 더하면 참고 이미지의 구도·색감·제품 형태와 프롬프트를 함께 반영할 수 있습니다. 편집은 원본 이미지 한 장과 프롬프트만 받으며 마스크 파일은 지원하지 않습니다. 동기 Tool은 응답 크기를 위해 한 장만 반환하며, 대량 작업은 `image_count`에 1~50을 지정한 뒤 `image_batch_result`로 한 장씩 가져옵니다. 크기는 `1024x1024`, `1536x1024`, `1024x1536`, `1152x864`, `864x1152` 중에서 고릅니다. PNG·JPEG·WebP와 PNG/WebP 투명 배경 미리보기를 지원합니다. 프롬프트는 최대 28,000자이고 완료 결과는 24시간 동안 반복 조회할 수 있습니다. `idempotency_key`는 같은 요청의 중복 생성·과금을 막는 8~128자 안전번호이며, 동일 요청을 재전송할 때만 같은 값을 사용합니다.
+이미지 생성·편집의 새 요금 정책은 공급자 원가 × 동기화 환율 × 1.4입니다. 작업 접수 시 상한을 예약하고 성공한 결과의 실제 사용료를 정산한 뒤 남은 예약금을 반환합니다. 정책 전환 전 작업은 접수 당시 요금 계약을 유지합니다. 사용량이 미확정이면 결과를 보관하고 정산을 보류하므로, 동기 호출도 `status: processing`, `billing_status: pending`, `job_id`를 반환할 수 있습니다. 같은 작업을 조회하고 새 요청으로 다시 생성하지 마세요. 접수된 작업은 취소할 수 없습니다. `image_generate`에 `reference_image_url`을 더하면 참고 이미지의 구도·색감·제품 형태와 프롬프트를 함께 반영할 수 있습니다. 편집은 원본 이미지 한 장과 프롬프트만 받으며 마스크 파일은 지원하지 않습니다. 동기 Tool은 응답 크기를 위해 한 장만 반환하며, 대량 작업은 `image_count`에 1~50을 지정한 뒤 `image_batch_result`로 한 장씩 가져옵니다. 크기는 `1024x1024`, `1536x1024`, `1024x1536`, `1152x864`, `864x1152` 중에서 고릅니다. PNG·JPEG·WebP와 PNG/WebP 투명 배경 미리보기를 지원합니다. 프롬프트는 최대 28,000자이고 완료 결과는 24시간 동안 반복 조회할 수 있습니다. `idempotency_key`는 같은 요청의 중복 생성·과금을 막는 8~128자 안전번호이며, 동일 요청을 재전송할 때만 같은 값을 사용합니다.
+
+Under the new pricing policy, image charges use verified provider cost × synchronized exchange rate × 1.4. Reservations are settled against actual usage; existing jobs retain their original price contract. Missing usage keeps the output and reservation pending. Even synchronous tools may return a processing job with `billing_status: pending`; poll that job instead of creating another request.
 
 예: `흰색 대리석 테이블 위의 무광 검정 텀블러, 부드러운 아침 자연광, 제품 전체가 프레임 안에 보이게, 이미지 안 글자 없음`처럼 피사체·배경·조명·구도·금지 요소를 구체적으로 적습니다. 글자를 넣을 때는 `상단 중앙에 '가을 산책'을 또렷한 짙은 남색 한글로, 다른 글자 없음`처럼 실제 문구와 위치를 함께 지정합니다.
 
@@ -2520,7 +2556,7 @@ Available generations: Seedance 1.0/1.5/2.0/2.5, including Seedance 2.0 Standard
 
 A Skill is an execution product registered by a seller and published after APICK review. Each Skill fixes its input format, output format, base amount and limits. For Skills that use generative AI the actual usage of each run is added, so the charge varies per run. Running it from the web, REST or MCP uses the same run ID and the same charging rule.
 
-Skill 은 판매자가 등록하고 에이픽이 심사해 게시한 실행 상품입니다. 입력 형식·결과 형식·기본 금액·처리 상한이 Skill 마다 정해져 있고, 생성형 AI 를 쓰는 Skill 은 실행마다 실제 사용량이 더해져 금액이 달라집니다. 또 웹·REST·MCP 어디에서 실행해도 같은 실행 번호와 같은 과금 규칙을 씁니다. `all` 서버와 별도이며 115개에는 포함되지 않습니다.
+Skill 은 판매자가 등록하고 에이픽이 심사해 게시한 실행 상품입니다. 입력 형식·결과 형식·기본 금액·처리 상한이 Skill 마다 정해져 있고, 생성형 AI 를 쓰는 Skill 은 실행마다 실제 사용량이 더해져 금액이 달라집니다. 또 웹·REST·MCP 어디에서 실행해도 같은 실행 번호와 같은 과금 규칙을 씁니다. `all` 서버와 별도이며 118개에는 포함되지 않습니다.
 
 | Rule 규칙 | Detail 내용 |
 | --- | --- |

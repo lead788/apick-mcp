@@ -1,3 +1,10 @@
+# 3.11.0
+
+- TTS: Gemini direct synthesis, queue fallback, default-on paid normalization, unified MP3/ASS and billing.
+- TTS: Gemini 직접 합성, 대기 상태별 전환, 기본 on 유료 정규화, 공통 MP3·ASS와 정산 내역.
+- 사용량 미확정 작업은 재호출하지 않고 작업 ID로 정산 상태를 조회합니다.
+- Poll the returned job ID for unconfirmed usage instead of resubmitting generation.
+
 # 3.10.0 — 2026-10-04
 
 subagent 서버(7개 도구)를 추가했습니다. 로컬 파일 수집과 스킬 설치는 apick-subagent 패키지를 사용합니다.

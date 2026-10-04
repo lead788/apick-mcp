@@ -21,7 +21,8 @@ export const SERVERS = [
 	'convert',
 	'vision',
 	'ai',
-	'skills'
+	'skills',
+	'subagent'
 ];
 
 // A key must never reach stdout, stderr or an error message.

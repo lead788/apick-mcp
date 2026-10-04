@@ -1,3 +1,9 @@
+# 3.10.0 — 2026-10-04
+
+subagent 서버(7개 도구)를 추가했습니다. 로컬 파일 수집과 스킬 설치는 apick-subagent 패키지를 사용합니다.
+
+Adds the Subagent integration and usage-based installed-agent contract. Existing API contracts remain supported.
+
 # 변경 기록
 
 ## 3.9.3 — 2026-10-04

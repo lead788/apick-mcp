@@ -514,3 +514,18 @@ Available generations: Seedance 1.0/1.5/2.0/2.5, including Seedance 2.0 Standard
 스킬 상세·견적의 `execution_info`에는 가격·소요시간 범위와 도구 호출 횟수 예상이 있습니다. 입력에 따라 달라지며 보장값이 아닙니다. `quote_skill`의 최대 예약액을 확인한 후 실행하세요. 성공 결과의 `artifacts`에는 파일 ID·형식·크기·SHA-256이 있습니다. 인증이 필요한 다운로드는 `apick-api`의 `getSkillArtifact(runId, fileId)`로 처리할 수 있습니다. 결과 만료 시 파일도 만료됩니다.
 
 `execution_info` provides estimated price/duration ranges and tool call counts, not guarantees. Check the maximum reservation in `quote_skill` before execution. Successful results may include `artifacts` with file IDs, MIME types, byte sizes, and SHA-256 digests. Use `getSkillArtifact(runId, fileId)` in `apick-api` for authenticated downloads. Files expire with the run result. Tool counts and bridge behavior are unchanged.
+
+## 서브에이전트 / Subagent
+
+설치형 `apick-agent` 상품은 `apick-subagent` 스킬 패키지와 전용 REST·MCP를 사용합니다. 원가 +40%, 승인된 동일 결과 캐시 무료, 충전 잔액 외 상품 한도 없음. [연동 가이드](https://apick.app/dev_guide/subagent).
+
+The installed `apick-agent` product uses the `apick-subagent` skill package and dedicated REST/MCP interfaces. Confirmed cost plus 40%; approved identical cache reuse is free, with no product quota beyond prepaid balance. [Integration guide](https://apick.app/dev_guide/subagent).
+
+```sh
+npx -y apick-mcp --server subagent
+# Local workspace collection / 로컬 파일 수집
+npm install -g apick-subagent
+apick-subagent install
+```
+
+Set `APICK_API_KEY` in the environment. 원격 MCP는 업로드된 자료를 처리합니다. The remote MCP processes uploaded content; the installed bridge collects local files.

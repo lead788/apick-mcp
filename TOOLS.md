@@ -2675,3 +2675,17 @@ Read price/duration ranges and expected tool calls from `execution_info` in `get
 상품별 간편인증 조회 가이드에는 조회 데이터, 출처 기관, 활용 사례와 자주 묻는 질문이 있습니다. 인증 요청은 해당 상품의 자료를 조회하기 위한 단계이며 결과 조회용 transactionId를 반환합니다. 요청·응답 계약과 인증 방식은 동일합니다. [공통 인증 흐름](https://apick.app/dev_guide/data)에서 절차와 오류 처리를 확인하세요.
 
 Product-specific authenticated-data guides describe returned fields, source institutions, use cases, and FAQs. An authentication request starts access to the selected product and returns a transactionId for result polling. Request and response contracts and authentication are unchanged. See the [shared authentication guide](https://apick.app/dev_guide/data) for the flow and error handling.
+
+## 서브에이전트 / Subagent (`subagent`)
+
+| 도구 / Tool | 기능 / Purpose |
+|---|---|
+| apick_status | 상태와 잔액 / Status and balance |
+| apick_dispatch | 멱등 접수 / Idempotent submission |
+| apick_collect | 결과 페이지 / Result pages |
+| apick_evidence | 인용·해시 / Quotes and hashes |
+| apick_review | 검수 기록 / Record review |
+| apick_cancel | 취소 / Cancel |
+| apick_usage | 사용량·비용 / Usage and cost |
+
+Bearer 인증이 필요합니다. Requires Bearer authentication. 업로드·REST 계약은 [가이드](https://apick.app/dev_guide/subagent)를 확인하세요. See the guide for upload and REST contracts.

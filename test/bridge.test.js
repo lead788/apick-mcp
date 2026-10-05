@@ -22,15 +22,15 @@ test('신분증 structuredContent 오류 코드를 변경 없이 전달한다', 
 	assert.deepEqual(output, [serverMessage]);
 });
 
-test('3.11.0 공개 메타데이터는 대상 118개·Convert 25개·AI 15개와 이미지 작업 계약에 일치한다', () => {
+test('4.0.0 공개 메타데이터는 대상 131개·Convert 25개·AI 15개와 이미지 작업 계약에 일치한다', () => {
 	const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
 	const readme = readFileSync(new URL('../README.md', import.meta.url), 'utf8');
 	const tools = readFileSync(new URL('../TOOLS.md', import.meta.url), 'utf8');
-	assert.equal(pkg.version, '3.11.0');
-	assert.match(pkg.description, /118 Korean data, AI, image & video tools/);
+	assert.equal(pkg.version, '4.0.0');
+	assert.match(pkg.description, /131 Korean data, AI, image & video tools/);
 	assert.match(readme, /\| \[AI · LLM\]\(TOOLS\.md#ai\) \| `https:\/\/apick\.app\/mcp\/ai` \| 15 \|/);
-	assert.match(tools, /\| \*\*All 통합\*\* \| `\/mcp\/all` \| \*\*118\*\* \|/);
-	assert.match(tools, /`https:\/\/apick\.app\/mcp\/business` — 29 tools/);
+	assert.match(tools, /\| \*\*All 통합\*\* \| `\/mcp\/all` \| \*\*131\*\* \|/);
+	assert.match(tools, /`https:\/\/apick\.app\/mcp\/business` — 42 tools/);
 	assert.match(tools, /`https:\/\/apick\.app\/mcp\/web` — 17 tools/);
 	assert.doesNotMatch(tools, /`check_pccc`/);
 	assert.doesNotMatch(readme, /`check_pccc`/);
@@ -55,7 +55,7 @@ test('3.11.0 공개 메타데이터는 대상 118개·Convert 25개·AI 15개와
 	}
 	assert.doesNotMatch(readme, /`tts`(?!_jobs)|text-to-speech|음성합성\(TTS\)/i);
 	assert.doesNotMatch(tools, /`tts`(?!_jobs)|text-to-speech|음성합성\(TTS\)/i);
-	for (const name of ['tts_jobs_create', 'tts_jobs_status', 'tts_jobs_cancel', 'tts_jobs_result', 'tts_jobs_subtitles', 'tts_jobs_quality', 'tts_jobs_retry', 'tts_jobs_candidate_audio']) {
+	for (const name of ['tts_jobs_create', 'tts_jobs_status', 'tts_jobs_cancel', 'tts_jobs_result', 'tts_jobs_subtitles', 'tts_gemini_create', 'tts_openai_create', 'tts_options']) {
 		assert.match(readme, new RegExp('`' + name + '`'));
 		assert.match(tools, new RegExp('`' + name + '`'));
 	}
@@ -65,7 +65,7 @@ test('3.11.0 공개 메타데이터는 대상 118개·Convert 25개·AI 15개와
 	assert.match(readme, /already performed paid work is settled/);
 	assert.doesNotMatch(tools, /완료된 ZIP 결과/);
 	assert.match(readme, /MP3와 ASS 자막은 서로 독립된 1회용 원본/);
-	assert.match(tools, /최대 800자/);
+	assert.match(tools, /최대 2,000자/);
 	assert.doesNotMatch(tools, /20,000자/);
 	assert.match(tools, /ASS 타이밍 자막/);
 	assert.match(readme, /8MB/);

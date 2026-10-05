@@ -1,3 +1,9 @@
+# 4.0.0
+
+- Align TTS documentation with Gemini/ChatGPT, shared expression options, multi-speaker input and default-on paid normalization. Legacy APICK voices, automatic fallback and quality/retry/candidate tools have retired.
+- TTS 현재 계약과 한영 문서·중계 시험을 동기화했습니다. 기본 접수는 Gemini이며 두 엔진 모두 MP3·원문 ASS 결과를 사용합니다. 현재 통합 도구는 131개, Convert는 25개입니다.
+- The bridge remains a transparent JSON-RPC transport; no server implementation or credentials are included.
+
 # 3.11.0
 
 - TTS: Gemini direct synthesis, queue fallback, default-on paid normalization, unified MP3/ASS and billing.
@@ -77,7 +83,7 @@ Adds the Subagent integration and usage-based installed-agent contract. Existing
 
 ## 3.5.0 — 2026-09-28
 
-- 간편인증 데이터 조회 5종의 접수·결과 Tool 10개 계약을 추가했습니다. 전체 106개, Business 25개, 상태 변경 Tool 24개입니다. 원격 서버의 대응 패치 배포가 필요합니다.
+- 간편인증 데이터 조회 5종의 접수·결과 Tool 10개 계약을 추가했습니다. 전체 106개, Business 25개, 상태 변경 Tool 25개입니다. 원격 서버의 대응 패치 배포가 필요합니다.
 - Document ten request/result tools for five simple-auth data products (106 total, 25 Business, 24 non-read-only). Requires the corresponding remote-server deployment.
 - SDK와 동일한 입력·응답 이름, 승인 대기 흐름, 최초 결과 과금·무료 재조회와 PCCC 계약 차이를 명시했습니다.
 - Preserve the bridge protocol; verify metadata, tool discovery, and request/result forwarding without live data calls.

@@ -1,12 +1,10 @@
 # APICK MCP — Full Tool Catalog / 전체 Tool 목록
 
-**118 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 118개**, 분야별 서버 8개와 통합 서버 `all`.
+**131 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 131개**, 분야별 서버 8개와 통합 서버 `all`.
 
-> 3.9.0 카탈로그: `skills` 서버의 `search_skills` 가 `sort`(추천·인기·많이 사용·좋아요순·평점순·최신)를 받고, 검색·상세 결과에 사용 건수 구간·좋아요 수·평점이 함께 옵니다. Tool 수는 그대로입니다.
-> Catalog for 3.9.0: `search_skills` on the `skills` server accepts `sort`, and search/detail results include a usage tier, like count and rating. Tool counts are unchanged.
-> 3.8.0 카탈로그: `all` 서버 118개 Tool 은 그대로이고, 검수된 Skill 을 검색·견적·실행하는 별도 서버 [`skills`](#skills)(Tool 6개)가 추가됐습니다. 새 서버는 원격 서버에 이미 배포돼 있으며, 실제 사용 가능 목록은 연결한 서버의 `tools/list`로 확인하세요.
-> Catalog for 3.8.0: the 118 tools on `all` are unchanged, and a separate [`skills`](#skills) server (6 tools) is added to search, quote and run reviewed Skills. The new server is already live on the remote server; check the connected server’s `tools/list` for availability.
+4.0.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
+
 
 
 Official site 공식 사이트: **<https://apick.app>** · Docs 연동 가이드: **<https://apick.app/dev_guide/mcp>**
@@ -18,7 +16,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 | Server 서버 | Endpoint | Tools | Coverage 범위 |
 | --- | --- | --- | --- |
-| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 29 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 유효성 검사. |
+| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 42 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 유효성 검사. |
 | [Identity Verification · 신분증 진위확인 · 마스킹](#identity) | `/mcp/identity` | 16 | 주민등록증·운전면허증·여권·외국인등록증 진위확인, 실명확인, 개인정보 마스킹. |
 | [OCR · OCR 문자인식](#ocr) | `/mcp/ocr` | 6 | 이미지 텍스트 추출과 신분증 항목 추출. |
 | [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 3 | 계좌 예금주 실명조회와 1원 인증. |
@@ -26,12 +24,12 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 25 | PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
-| **All 통합** | `/mcp/all` | **118** | 아래 전부 + [`find_tools`](#find-tools) |
+| **All 통합** | `/mcp/all` | **131** | 아래 전부 + [`find_tools`](#find-tools) |
 | [Skills · 검수된 Skill 실행](#skills) | `/mcp/skills` | 6 | Skill 검색·상세·견적·실행·조회·취소. `all`에는 포함되지 않는 별도 서버 / separate server, not part of `all`. |
 
-<details><summary><b>All 118 tool names / 전체 Tool 이름</b></summary>
+<details><summary><b>All 131 tool names / 전체 Tool 이름</b></summary>
 
-`biz_detail` · `venture_biz_info` · `land_rt_price` · `req_pccc` · `get_pccc` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `get_car_flooding` · `get_car_scrap` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info`
+`biz_detail` · `venture_biz_info` · `land_rt_price` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `bid_notice` · `bid_award` · `dart_disclosure` · `dart_company` · `dart_financials` · `kipris_patent` · `kipris_trademark` · `rtms_trade` · `rtms_rent` · `public_price` · `geocode` · `shop_price` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup`
 
 `identi_card1` · `identi_card2` · `identi_card3` · `identi_card4` · `identi_card5` · `identi_card_image1` · `identi_card_image2` · `identi_card_image3` · `identi_card_image4` · `identi_card_image5` · `name_rrn_auth` · `hide_rrn` · `identity_document_residence_card` · `identity_document_passport` · `identity_document_id_card` · `identity_document_driver_license`
 
@@ -41,7 +39,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 `nslookup` · `reverse_ip` · `location` · `ip_history` · `whois` · `url_html` · `url_screenshot` · `url_similarity` · `google_search` · `google_image_search` · `google_lens_search` · `crawl_youtube` · `download_youtube_video` · `youtube_metadata` · `youtube_thumbnail` · `youtube_subtitle_list` · `youtube_subtitle`
 
-`stt` · `tts_gemini_create` · `tts_gemini_voices` · `tts_quote` · `tts_jobs_create` · `tts_jobs_status` · `tts_jobs_cancel` · `tts_jobs_result` · `tts_jobs_subtitles` · `tts_jobs_quality` · `tts_jobs_retry` · `tts_jobs_candidate_audio` · `voice_change` · `face_blur` · `pdf_to_docx` · `pdf_to_image` · `pdf_merge` · `html_to_pdf` · `docx_to_pdf` · `json_to_excel` · `base64_to_image` · `set_watermark` · `get_watermark` · `draw_watermark_pdf` · `draw_watermark_image`
+`stt` · `tts_jobs_create` · `tts_gemini_create` · `tts_gemini_voices` · `tts_openai_create` · `tts_openai_voices` · `tts_options` · `tts_quote` · `tts_jobs_status` · `tts_jobs_cancel` · `tts_jobs_result` · `tts_jobs_subtitles` · `voice_change` · `face_blur` · `pdf_to_docx` · `pdf_to_image` · `pdf_merge` · `html_to_pdf` · `docx_to_pdf` · `json_to_excel` · `base64_to_image` · `set_watermark` · `get_watermark` · `draw_watermark_pdf` · `draw_watermark_image`
 
 `nsfw_detection` · `image_similarity` · `video_to_mp3` · `extract_video_thumbnail` · `word_cloud` · `face_detection`
 
@@ -102,7 +100,7 @@ Call the recommended tool afterwards with your API key as usual. 추천받은 To
 
 ## Business & Commerce · 사업자 · 커머스
 
-`https://apick.app/mcp/business` — 29 tools
+`https://apick.app/mcp/business` — 42 tools
 
 Korean business registry, corporate credit, parcel tracking, real-estate prices, vehicle history, and input validation.
 
@@ -1655,28 +1653,11 @@ Response additions when `artifact_filter` is sent / `artifact_filter` 요청 시
 
 <a id="tts-jobs-create"></a>
 
-### `tts_jobs_create` — TTS 작업 접수
+### `tts_jobs_create` — Gemini 기본 접수
 
-14개 한국어 내레이션 목소리 중 하나로 유료 비동기 TTS 작업을 접수합니다. 접수 시 예약하고 완료 후 실제 금액을 정산합니다. `text`는 최대 800자입니다.
+`text` 또는 `utterances`를 전달합니다. `voice_id`는 선택이며 기본 Kore입니다. 정규화 기본 사용·추가 과금, 최대 2,000자(정규화 없이 8,000자)입니다. 같은 입력과 `idempotency_key`로 중복 접수를 방지합니다. `style` 및 공통 표현·화자 옵션을 받습니다.
 
-정규화는 기본 켜짐이며 발음을 다듬는 스킬 요금이 추가됩니다. `normalize_text: false`(SDK `normalizeText: false`)로 실행과 요금을 끕니다. 스킬 최종가는 기본요금(판매자 금액·기본 수수료) + AI 원가 × 환율 × 1.4입니다. 정규화 실패는 제작을 중단하며, 서버·공급자의 최종 제작 실패는 정규화까지 전액 환불합니다. ASS에는 원문을 표시합니다.
-
-Normalization is on by default and adds a skill charge. Set `normalize_text: false` (SDK `normalizeText: false`) to skip execution and billing. The skill price is its base fee (seller amount and base commission) plus actual AI cost × the pinned exchange rate × 1.4. Normalization failure stops synthesis; final server/provider failures refund normalization as well. ASS preserves the original spelling.
-
-표시 이름: `v2_ann_m_30s_01` 준호, `v2_ann_m_30s_02` 태산, `v2_ann_m_30s_04` 강우, `v2_ann_m_30s_05` 상현, `v2_ann_f_30s_02` 수빈, `v2_ann_f_30s_03` 은채, `v2_ann_f_30s_04` 다인, `v2_ann_f_30s_05` 예린, `v2_m_teen_01` 하늘, `v2_m_young_01` 도윤, `v2_m_mid_01` 정한, `v2_m_senior_01` 만복, `v2_f_young_01` 서아, `v2_f_senior_01` 정순.
-
-> **부작용 있음 / has side effects** · 최대 요금 예약 / reserves the maximum · server `convert`
-
-| Parameter | Type | Required | Description 설명 |
-| --- | --- | --- | --- |
-| `voice_id` | `string` | **필수 / required** | 지원 `voice_id`. `v2_ann_m_30s_01`, `v2_ann_m_30s_02`, `v2_ann_m_30s_04`, `v2_ann_m_30s_05`, `v2_ann_f_30s_02`, `v2_ann_f_30s_03`, `v2_ann_f_30s_04`, `v2_ann_f_30s_05`, `v2_m_teen_01`, `v2_m_young_01`, `v2_m_mid_01`, `v2_m_senior_01`, `v2_f_young_01`, `v2_f_senior_01` |
-| `text` | `string` | **필수 / required** | 합성할 한국어 텍스트, 최대 800자 |
-
-```json
-{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"tts_jobs_create","arguments":{"voice_id":"v2_ann_m_30s_01","text":"오늘의 이야기를 시작합니다."}}}
-```
-
-<a id="tts-jobs-status"></a>
+Default Gemini submission accepts text or utterances and an optional voice ID. See the Gemini·ChatGPT TTS section for shared options, pricing and downloads.
 
 ### `tts_jobs_status` — TTS 작업 상태 조회
 
@@ -1760,23 +1741,27 @@ Normalization is on by default and adds a skill charge. Set `normalize_text: fal
 
 > 읽기 전용 / read-only · server `convert`
 
-## TTS 자동 전환·Gemini·정규화 / Gemini and normalization
+## Gemini·ChatGPT TTS
 
-`tts_jobs_create` adds `fallback_policy` (`never` default, `queue_full`, `busy`), `fallback_options` (`voice_id`, `style`), `normalize_text` (true by default), and `idempotency_key`.
+`tts_jobs_create`와 `tts_gemini_create`는 Gemini(기본 Kore), `tts_openai_create`는 ChatGPT(기본 alloy)를 사용합니다. `tts_gemini_voices`, `tts_openai_voices`, `tts_options`, `tts_quote`로 목소리·옵션·요금을 조회합니다.
 
-`tts_gemini_create` takes `voice_id`, `style`, either `text` or `utterances` (text, voice_id, style, speaker), `normalize_text`, and `idempotency_key`. `tts_gemini_voices` lists all public basic and extended voices. `tts_quote` accepts the same input with `engine: apick | gemini` and returns estimated synthesis, normalization, total and maximum reservation.
+Use `tts_jobs_create` or `tts_gemini_create` for Gemini (default Kore), and `tts_openai_create` for ChatGPT (default alloy). Query voices, options and estimates with the corresponding tools. Legacy APICK voices and automatic fallback have retired.
 
-`never`는 apick 대기열을 사용하고 포화 시 429, `queue_full`은 대기열 포화 시 Gemini, `busy`는 즉시 실행 불가 시 Gemini로 전환합니다. 전환 전용 목소리·스타일은 fallback_options에 넣으세요. 자동 선택은 성별·공식 음색을 사용하며 연령 미검증을 표시합니다. Gemini 사용 시 목소리와 요금이 달라집니다.
+`style`, `emotion`, `tone`, `accent`, `pace`(0.5–2), `pitch`(-12–12), `volume_gain_db`(-12–12)는 최상위·화자·발화에 지정할 수 있습니다. `speakers`는 화자 이름별 설정이고 `multi_speaker: true`는 Gemini 최대 2명, ChatGPT 최대 8명입니다. 엔진에 따라 표현 효과가 달라지며 정확한 속도 배율·반음·dB 적용을 보장하지 않습니다. 특히 ChatGPT는 수치의 방향을 낭독 지시로 전달합니다.
 
-정규화는 기본 켜짐이며 발음을 다듬는 스킬 요금이 추가됩니다. `normalize_text: false`(SDK `normalizeText: false`)로 실행과 요금을 끕니다. 스킬 최종가는 기본요금(판매자 금액·기본 수수료) + AI 원가 × 환율 × 1.4입니다. 정규화 실패는 제작을 중단하며, 서버·공급자의 최종 제작 실패는 정규화까지 전액 환불합니다. ASS에는 원문을 표시합니다.
+Style, emotion, tone, accent, pace, pitch and volume options can be set per request, speaker or utterance. Gemini supports up to two native speakers; ChatGPT supports up to eight speakers across utterances. Numeric acoustic adjustments are not guaranteed: ChatGPT receives directional instructions rather than precise rate, semitone or decibel controls.
 
-Normalization is on by default and adds a skill charge. Set `normalize_text: false` (SDK `normalizeText: false`) to skip execution and billing. The skill price is its base fee (seller amount and base commission) plus actual AI cost × the pinned exchange rate × 1.4. Normalization failure stops synthesis; final server/provider failures refund normalization as well. ASS preserves the original spelling.
+정규화는 기본 켜짐이며 추가 스킬 요금이 합산됩니다. `normalize_text: false`(SDK 문자열 호출은 `normalizeText: false`)로 끌 수 있습니다. 정규화 입력은 발화 사이 줄바꿈을 포함해 최대 2,000자, 정규화 없이 최대 8,000자입니다. 견적은 `tts_quote`, 현재 목소리는 엔진별 목록, 옵션은 `tts_options`로 조회합니다.
 
-The three paths share `tts_jobs_status`, `tts_jobs_result`, and `tts_jobs_subtitles`. Top-level voice_id preserves the request; synthesis reports the actual model/voice. billing separates synthesis, skill, total, reserved, released and refunded. MP3 is 24 kHz mono 48 kbps, with original-text ASS, retained for 24 hours.
+Normalization is enabled by default and costs extra. Disable it with `normalize_text: false` (`normalizeText: false` for the string SDK helper). Input limits are 2,000 characters including utterance separators with normalization, or 8,000 without it. Query a quote, engine-specific voices and supported options before submitting.
 
-세 경로는 같은 응답과 다운로드 API를 사용합니다. 예약금은 api.cost에 확정 요금으로 표시하지 않으며 billing으로 확인합니다. 파일별 1회 완료 다운로드, 전송 중단 시 재시도 가능합니다. [개발가이드](https://apick.app/dev_guide/tts)
+실제 AI 원가 × 고정된 환율 × 1.4에 정규화 요금을 더해 정산합니다. Gemini 프로모션 입력/출력 단가는 2026-12-31까지 백만 토큰당 $0.50/$6.00이며 2027-01-01 00:00 UTC부터 $1.00/$12.00입니다. 약 $0.54/시간은 참고값이며 시간 단위 청구가 아닙니다. 엔진별 요금이 다릅니다.
 
-<a id="voice-change"></a>
+AI usage is charged at verified cost × the pinned exchange rate × 1.4, plus normalization. Gemini promotional input/output rates are $0.50/$6.00 per million tokens through 2026-12-31, then $1.00/$12.00 from 2027-01-01 00:00 UTC. The approximate hourly figure is informational; billing uses actual usage and differs by engine.
+
+두 엔진은 같은 작업 조회·취소·MP3·원문 ASS 계약을 사용합니다. `billing`의 예약·해제·확정·환불을 확인하세요. MP3는 24kHz 모노 48kbps, 결과는 완료 후 24시간 보관합니다. MP3와 ASS는 각각 완료된 다운로드 1회만 허용하며 전송 중단은 재시도할 수 있습니다. 접수 응답 유실 시 같은 입력과 멱등 키를 재사용하세요. 서버·공급자 최종 실패는 정규화까지 환불하며, 연결 종료는 작업 취소가 아닙니다. 취소 시 이미 수행된 작업분을 정산합니다.
+
+Both engines share job status, cancellation, MP3 and original-text ASS downloads. Check reserved, released, captured and refunded amounts in `billing`. MP3 is 24 kHz mono at 48 kbps. Files are kept for 24 hours; each permits one completed download, and interrupted transfers can be retried. Reuse the same input and idempotency key after a lost response. Final server/provider failures refund synthesis and normalization; disconnecting does not cancel work. Explicit cancellation settles work already performed.
 
 ### `voice_change` — 음성 변조
 
@@ -2520,13 +2505,9 @@ Video generation is billed per second of output (`duration × per-second points`
 | Kling | std | 410P |
 | Kling | pro | 550P |
 
-## TTS quality and recovery / TTS 검수와 재개
+## TTS 폐기 기능 / Retired TTS features
 
-`tts_jobs_quality` takes `job_id` and returns utterance quality and candidate history. `tts_jobs_candidate_audio` takes `job_id` and `candidate_id` and returns candidate WAV audio without consuming the final downloads. Candidates remain available for 72 hours after termination.
-
-`tts_jobs_retry` takes `job_id`, `utterance_ids` (such as `["u002"]`), and `idempotency_key`. Reuse the same key and IDs after a lost response. Technical recovery does not add a charge. This tool changes job state (`readOnlyHint: false`).
-
-`tts_jobs_quality`는 작업 ID로 발화 검수와 후보 이력을 조회합니다. `tts_jobs_candidate_audio`는 작업 ID·후보 ID로 WAV를 조회하며 최종 다운로드를 소비하지 않습니다. 후보는 종료 후 72시간 보존됩니다. `tts_jobs_retry`는 발화 ID 목록과 멱등 키로 같은 작업을 추가 과금 없이 재개합니다. 응답 단절 시 동일한 키와 목록을 재사용하세요.
+Legacy quality, retry and candidate-audio tools are no longer supported. 기존 품질 검수·발화 재개·후보 음원 도구는 지원하지 않습니다.
 
 ## Video model versions
 
@@ -2556,7 +2537,7 @@ Available generations: Seedance 1.0/1.5/2.0/2.5, including Seedance 2.0 Standard
 
 A Skill is an execution product registered by a seller and published after APICK review. Each Skill fixes its input format, output format, base amount and limits. For Skills that use generative AI the actual usage of each run is added, so the charge varies per run. Running it from the web, REST or MCP uses the same run ID and the same charging rule.
 
-Skill 은 판매자가 등록하고 에이픽이 심사해 게시한 실행 상품입니다. 입력 형식·결과 형식·기본 금액·처리 상한이 Skill 마다 정해져 있고, 생성형 AI 를 쓰는 Skill 은 실행마다 실제 사용량이 더해져 금액이 달라집니다. 또 웹·REST·MCP 어디에서 실행해도 같은 실행 번호와 같은 과금 규칙을 씁니다. `all` 서버와 별도이며 118개에는 포함되지 않습니다.
+Skill 은 판매자가 등록하고 에이픽이 심사해 게시한 실행 상품입니다. 입력 형식·결과 형식·기본 금액·처리 상한이 Skill 마다 정해져 있고, 생성형 AI 를 쓰는 Skill 은 실행마다 실제 사용량이 더해져 금액이 달라집니다. 또 웹·REST·MCP 어디에서 실행해도 같은 실행 번호와 같은 과금 규칙을 씁니다. `all` 서버와 별도이며 131개에는 포함되지 않습니다.
 
 | Rule 규칙 | Detail 내용 |
 | --- | --- |

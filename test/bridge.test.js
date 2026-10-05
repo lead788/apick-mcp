@@ -22,15 +22,15 @@ test('신분증 structuredContent 오류 코드를 변경 없이 전달한다', 
 	assert.deepEqual(output, [serverMessage]);
 });
 
-test('3.11.0 공개 메타데이터는 대상 118개·Convert 25개·AI 15개와 이미지 작업 계약에 일치한다', () => {
+test('3.12.0 공개 메타데이터는 대상 133개·Convert 27개·AI 15개와 이미지 작업 계약에 일치한다', () => {
 	const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
 	const readme = readFileSync(new URL('../README.md', import.meta.url), 'utf8');
 	const tools = readFileSync(new URL('../TOOLS.md', import.meta.url), 'utf8');
-	assert.equal(pkg.version, '3.11.0');
-	assert.match(pkg.description, /118 Korean data, AI, image & video tools/);
+	assert.equal(pkg.version, '3.12.0');
+	assert.match(pkg.description, /133 Korean data, AI, image & video tools/);
 	assert.match(readme, /\| \[AI · LLM\]\(TOOLS\.md#ai\) \| `https:\/\/apick\.app\/mcp\/ai` \| 15 \|/);
-	assert.match(tools, /\| \*\*All 통합\*\* \| `\/mcp\/all` \| \*\*118\*\* \|/);
-	assert.match(tools, /`https:\/\/apick\.app\/mcp\/business` — 29 tools/);
+	assert.match(tools, /\| \*\*All 통합\*\* \| `\/mcp\/all` \| \*\*133\*\* \|/);
+	assert.match(tools, /`https:\/\/apick\.app\/mcp\/business` — 42 tools/);
 	assert.match(tools, /`https:\/\/apick\.app\/mcp\/web` — 17 tools/);
 	assert.doesNotMatch(tools, /`check_pccc`/);
 	assert.doesNotMatch(readme, /`check_pccc`/);
@@ -39,7 +39,7 @@ test('3.11.0 공개 메타데이터는 대상 118개·Convert 25개·AI 15개와
 	assert.match(tools, /조회된 개인통관고유부호가 없습니다/);
 	assert.doesNotMatch(tools, /`auth_key`/);
 	assert.doesNotMatch(tools, /인증번호 6자리/);
-	assert.match(tools, /`https:\/\/apick\.app\/mcp\/convert` — 25 tools/);
+	assert.match(tools, /`https:\/\/apick\.app\/mcp\/convert` — 27 tools/);
 	assert.match(tools, /`https:\/\/apick\.app\/mcp\/ai` — 15 tools/);
 	for (const name of ['image_generate','image_edit','image_batch_create','image_batch_status','image_batch_result']) assert.match(tools, new RegExp('`'+name+'`'));
 	assert.doesNotMatch(tools, /image_batch_cancel/);
@@ -97,7 +97,7 @@ test('3.7.0 find_tools·stt artifact_filter·llm_chat relevance 계약이 문서
 	assert.match(readme, /`bank_code`·`info`·`llm_models`·`find_tools`는 무료입니다/);
 	assert.match(readme, /"name":"find_tools"/);
 	// find_tools 는 all 전용이라 분야별 서버 수는 그대로다.
-	assert.match(readme, /`https:\/\/apick\.app\/mcp\/convert` \| 25 \|/);
+	assert.match(readme, /`https:\/\/apick\.app\/mcp\/convert` \| 27 \|/);
 	assert.match(readme, /`https:\/\/apick\.app\/mcp\/ai` \| 15 \|/);
 	// stt artifact_filter
 	assert.match(tools, /\| `artifact_filter` \| `string` \| 선택 \/ optional \| [^\n]*`flag`, `remove` \|/);

@@ -1,7 +1,7 @@
 # APICK MCP — Full Tool Catalog / 전체 Tool 목록
 
-**118 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 118개**, 분야별 서버 8개와 통합 서버 `all`.
+**133 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 133개**, 분야별 서버 8개와 통합 서버 `all`.
 
 > 3.9.0 카탈로그: `skills` 서버의 `search_skills` 가 `sort`(추천·인기·많이 사용·좋아요순·평점순·최신)를 받고, 검색·상세 결과에 사용 건수 구간·좋아요 수·평점이 함께 옵니다. Tool 수는 그대로입니다.
 > Catalog for 3.9.0: `search_skills` on the `skills` server accepts `sort`, and search/detail results include a usage tier, like count and rating. Tool counts are unchanged.
@@ -18,20 +18,20 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 | Server 서버 | Endpoint | Tools | Coverage 범위 |
 | --- | --- | --- | --- |
-| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 29 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 유효성 검사. |
+| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 42 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 유효성 검사. |
 | [Identity Verification · 신분증 진위확인 · 마스킹](#identity) | `/mcp/identity` | 16 | 주민등록증·운전면허증·여권·외국인등록증 진위확인, 실명확인, 개인정보 마스킹. |
 | [OCR · OCR 문자인식](#ocr) | `/mcp/ocr` | 6 | 이미지 텍스트 추출과 신분증 항목 추출. |
 | [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 3 | 계좌 예금주 실명조회와 1원 인증. |
 | [Web & Search · 웹 · 검색](#web) | `/mcp/web` | 17 | 도메인·IP 조회, WHOIS, 웹페이지 수집, 구글 검색, 유튜브. |
-| [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 25 | PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크. |
+| [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 27 | PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
-| **All 통합** | `/mcp/all` | **118** | 아래 전부 + [`find_tools`](#find-tools) |
+| **All 통합** | `/mcp/all` | **133** | 아래 전부 + [`find_tools`](#find-tools) |
 | [Skills · 검수된 Skill 실행](#skills) | `/mcp/skills` | 6 | Skill 검색·상세·견적·실행·조회·취소. `all`에는 포함되지 않는 별도 서버 / separate server, not part of `all`. |
 
-<details><summary><b>All 118 tool names / 전체 Tool 이름</b></summary>
+<details><summary><b>All 133 tool names / 전체 Tool 이름</b></summary>
 
-`biz_detail` · `venture_biz_info` · `land_rt_price` · `req_pccc` · `get_pccc` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `get_car_flooding` · `get_car_scrap` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info`
+`biz_detail` · `venture_biz_info` · `land_rt_price` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `bid_notice` · `bid_award` · `dart_disclosure` · `dart_company` · `dart_financials` · `kipris_patent` · `kipris_trademark` · `rtms_trade` · `rtms_rent` · `public_price` · `geocode` · `shop_price` · `app_reviews` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history`
 
 `identi_card1` · `identi_card2` · `identi_card3` · `identi_card4` · `identi_card5` · `identi_card_image1` · `identi_card_image2` · `identi_card_image3` · `identi_card_image4` · `identi_card_image5` · `name_rrn_auth` · `hide_rrn` · `identity_document_residence_card` · `identity_document_passport` · `identity_document_id_card` · `identity_document_driver_license`
 
@@ -41,7 +41,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 `nslookup` · `reverse_ip` · `location` · `ip_history` · `whois` · `url_html` · `url_screenshot` · `url_similarity` · `google_search` · `google_image_search` · `google_lens_search` · `crawl_youtube` · `download_youtube_video` · `youtube_metadata` · `youtube_thumbnail` · `youtube_subtitle_list` · `youtube_subtitle`
 
-`stt` · `tts_gemini_create` · `tts_gemini_voices` · `tts_quote` · `tts_jobs_create` · `tts_jobs_status` · `tts_jobs_cancel` · `tts_jobs_result` · `tts_jobs_subtitles` · `tts_jobs_quality` · `tts_jobs_retry` · `tts_jobs_candidate_audio` · `voice_change` · `face_blur` · `pdf_to_docx` · `pdf_to_image` · `pdf_merge` · `html_to_pdf` · `docx_to_pdf` · `json_to_excel` · `base64_to_image` · `set_watermark` · `get_watermark` · `draw_watermark_pdf` · `draw_watermark_image`
+`stt` · `tts_gemini_create` · `tts_gemini_voices` · `tts_openai_create` · `tts_openai_voices` · `tts_quote` · `tts_jobs_create` · `tts_jobs_status` · `tts_jobs_cancel` · `tts_jobs_result` · `tts_jobs_subtitles` · `tts_jobs_quality` · `tts_jobs_retry` · `tts_jobs_candidate_audio` · `voice_change` · `face_blur` · `pdf_to_docx` · `pdf_to_image` · `pdf_merge` · `html_to_pdf` · `docx_to_pdf` · `json_to_excel` · `base64_to_image` · `set_watermark` · `get_watermark` · `draw_watermark_pdf` · `draw_watermark_image`
 
 `nsfw_detection` · `image_similarity` · `video_to_mp3` · `extract_video_thumbnail` · `word_cloud` · `face_detection`
 
@@ -102,7 +102,7 @@ Call the recommended tool afterwards with your API key as usual. 추천받은 To
 
 ## Business & Commerce · 사업자 · 커머스
 
-`https://apick.app/mcp/business` — 29 tools
+`https://apick.app/mcp/business` — 42 tools
 
 Korean business registry, corporate credit, parcel tracking, real-estate prices, vehicle history, and input validation.
 
@@ -139,6 +139,19 @@ Korean business registry, corporate credit, parcel tracking, real-estate prices,
 | [`holiday_info`](#holiday-info) | 공휴일 조회 | `year`, `month` |
 | [`search_juso`](#search-juso) | 도로명주소 조회 | `juso` |
 | [`info`](#info) | 계정 정보 조회 | — |
+| [`bid_notice`](#bid-notice) | 나라장터 입찰공고 조회 | — |
+| [`bid_award`](#bid-award) | 나라장터 낙찰정보 조회 | — |
+| [`dart_disclosure`](#dart-disclosure) | 기업 공시 검색 | — |
+| [`dart_company`](#dart-company) | 기업 개황 조회 | `corpCode` |
+| [`dart_financials`](#dart-financials) | 기업 재무제표 조회 | `corpCode`, `bsnsYear` |
+| [`kipris_patent`](#kipris-patent) | 특허·실용신안 검색 | `word` |
+| [`kipris_trademark`](#kipris-trademark) | 상표 검색 | `word` |
+| [`rtms_trade`](#rtms-trade) | 부동산 매매 실거래가 조회 | `lawdCd`, `dealYmd` |
+| [`rtms_rent`](#rtms-rent) | 부동산 전월세 실거래가 조회 | `lawdCd`, `dealYmd` |
+| [`public_price`](#public-price) | 공시가격 조회 | `pnu`, `stdrYear` |
+| [`geocode`](#geocode) | 주소·필지(PNU) 조회 | — |
+| [`shop_price`](#shop-price) | 상품 최저가 조회 | `query` |
+| [`app_reviews`](#app-reviews) | 앱 리뷰 조회 | `appId` |
 
 <a id="biz-detail"></a>
 
@@ -670,6 +683,286 @@ _No parameters. 파라미터 없음._
 ```
 
 ---
+
+<a id="bid-notice"></a>
+
+### `bid_notice` — 나라장터 입찰공고 조회
+
+Search Korean public procurement (Nara Market) bid notices by business type, period, or notice number.
+
+조달청 나라장터 입찰공고를 업무구분(물품·공사·용역·외자)·기간(최대 31일)·공고번호로 조회합니다. bizType 미지정 시 용역(Servc)이며, bidNtceNo만 주면 공고번호로 조회합니다. startDate·endDate는 YYYYMMDD 또는 YYYYMMDDHHMM 입니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `bizType` | `string` (물품 / 공사 / 용역 / 외자) | 선택 / optional | 업무구분 (물품·공사·용역·외자, 기본 용역) |
+| `startDate` | `string` | 선택 / optional | 조회 시작일 (YYYYMMDD 또는 YYYYMMDDHHMM) |
+| `endDate` | `string` | 선택 / optional | 조회 종료일 (YYYYMMDD 또는 YYYYMMDDHHMM) |
+| `bidNtceNo` | `string` | 선택 / optional | 입찰공고번호 (지정 시 공고번호로 조회) |
+| `indstrytyCd` | `string` | 선택 / optional | 업종코드 (선택) |
+| `pageNo` | `integer` | 선택 / optional | 페이지 번호 (기본 1) |
+| `numOfRows` | `integer` | 선택 / optional | 페이지당 결과 수 (기본 10, 최대 999) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"bid_notice","arguments":{"bizType":"<bizType>","startDate":"<startDate>","endDate":"<endDate>","bidNtceNo":"<bidNtceNo>","indstrytyCd":"<indstrytyCd>","pageNo":1,"numOfRows":1}}}
+```
+
+<a id="bid-award"></a>
+
+### `bid_award` — 나라장터 낙찰정보 조회
+
+Search Korean public procurement (Nara Market) bid-opening and award results by business type, period, or notice number.
+
+조달청 나라장터 개찰·낙찰 결과를 업무구분(물품·공사·용역·외자)·기간(최대 31일)·공고번호로 조회합니다. bizType 미지정 시 용역(Servc)입니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `bizType` | `string` (물품 / 공사 / 용역 / 외자) | 선택 / optional | 업무구분 (물품·공사·용역·외자, 기본 용역) |
+| `startDate` | `string` | 선택 / optional | 조회 시작일 (YYYYMMDD 또는 YYYYMMDDHHMM) |
+| `endDate` | `string` | 선택 / optional | 조회 종료일 (YYYYMMDD 또는 YYYYMMDDHHMM) |
+| `bidNtceNo` | `string` | 선택 / optional | 입찰공고번호 (지정 시 공고번호로 조회) |
+| `indstrytyCd` | `string` | 선택 / optional | 업종코드 (선택) |
+| `pageNo` | `integer` | 선택 / optional | 페이지 번호 (기본 1) |
+| `numOfRows` | `integer` | 선택 / optional | 페이지당 결과 수 (기본 10, 최대 999) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"bid_award","arguments":{"bizType":"<bizType>","startDate":"<startDate>","endDate":"<endDate>","bidNtceNo":"<bidNtceNo>","indstrytyCd":"<indstrytyCd>","pageNo":1,"numOfRows":1}}}
+```
+
+<a id="dart-disclosure"></a>
+
+### `dart_disclosure` — 기업 공시 검색
+
+Search Korean corporate disclosures (DART) by company code, period, or disclosure type.
+
+금융감독원 DART 전자공시를 회사 고유번호(corpCode)·기간(YYYYMMDD)·공시유형(pblntfTy, A~J)으로 조회합니다. corpCode 없이 기간만 조회하면 기간은 최대 3개월입니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `corpCode` | `string` | 선택 / optional | DART 고유번호 (8자리) |
+| `startDate` | `string` | 선택 / optional | 조회 시작일 (YYYYMMDD) |
+| `endDate` | `string` | 선택 / optional | 조회 종료일 (YYYYMMDD) |
+| `pblntfTy` | `string` (A / B / C / D / E / F / G / H / I / J) | 선택 / optional | 공시유형 (A 정기, B 주요사항, C 발행, D 지분, E 기타, F 외부감사, G 펀드, H 자산유동화, I 거래소, J 공정위) |
+| `pageNo` | `integer` | 선택 / optional | 페이지 번호 (기본 1) |
+| `numOfRows` | `integer` | 선택 / optional | 페이지당 결과 수 (기본 10, 최대 100) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"dart_disclosure","arguments":{"corpCode":"<corpCode>","startDate":"<startDate>","endDate":"<endDate>","pblntfTy":"<pblntfTy>","pageNo":1,"numOfRows":1}}}
+```
+
+<a id="dart-company"></a>
+
+### `dart_company` — 기업 개황 조회
+
+Get a Korean company overview from DART by its company code.
+
+금융감독원 DART에 등록된 기업의 개황(정식명칭·대표자·주소·업종·설립일 등)을 고유번호로 조회합니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `corpCode` | `string` | **필수 / required** | DART 고유번호 (8자리) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"dart_company","arguments":{"corpCode":"<corpCode>"}}}
+```
+
+<a id="dart-financials"></a>
+
+### `dart_financials` — 기업 재무제표 조회
+
+Get Korean company financial statements from DART by year and report code.
+
+금융감독원 DART 단일회사 주요 재무제표를 고유번호·사업연도·보고서(1분기/반기/3분기/사업)·개별/연결 구분으로 조회합니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `corpCode` | `string` | **필수 / required** | DART 고유번호 (8자리) |
+| `bsnsYear` | `string` | **필수 / required** | 사업연도 (YYYY, 2015년 이후) |
+| `reprtCode` | `string` (11011 / 11012 / 11013 / 11014) | 선택 / optional | 보고서 코드 (11011 사업, 11012 반기, 11013 1분기, 11014 3분기 / 기본 사업) |
+| `fsDiv` | `string` (CFS / OFS) | 선택 / optional | 연결(CFS)/개별(OFS) 구분 (기본 CFS) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"dart_financials","arguments":{"corpCode":"<corpCode>","bsnsYear":"<bsnsYear>","reprtCode":"<reprtCode>","fsDiv":"<fsDiv>"}}}
+```
+
+<a id="kipris-patent"></a>
+
+### `kipris_patent` — 특허·실용신안 검색
+
+Search Korean patents and utility models by keyword via KIPRIS. KIPRIS Plus
+
+에서 특허·실용신안 공개·등록공보를 키워드로 검색합니다. patent·utility 로 특허/실용신안 포함 여부를 정합니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `word` | `string` | **필수 / required** | 검색어 (최대 100자) |
+| `patent` | `boolean` | 선택 / optional | 특허 포함 여부 (기본 true) |
+| `utility` | `boolean` | 선택 / optional | 실용신안 포함 여부 (기본 true) |
+| `year` | `string` | 선택 / optional | 연도 필터 (YYYY) |
+| `pageNo` | `integer` | 선택 / optional | 페이지 번호 (기본 1) |
+| `numOfRows` | `integer` | 선택 / optional | 페이지당 결과 수 (기본 10, 최대 500) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"kipris_patent","arguments":{"word":"<word>","patent":true,"utility":true,"year":"<year>","pageNo":1,"numOfRows":1}}}
+```
+
+<a id="kipris-trademark"></a>
+
+### `kipris_trademark` — 상표 검색
+
+Search Korean trademarks by keyword via KIPRIS. KIPRIS Plus
+
+에서 상표 출원 속보를 키워드로 검색합니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `word` | `string` | **필수 / required** | 검색어 (최대 100자) |
+| `pageNo` | `integer` | 선택 / optional | 페이지 번호 (기본 1) |
+| `numOfRows` | `integer` | 선택 / optional | 페이지당 결과 수 (기본 10, 최대 500) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"kipris_trademark","arguments":{"word":"<word>","pageNo":1,"numOfRows":1}}}
+```
+
+<a id="rtms-trade"></a>
+
+### `rtms_trade` — 부동산 매매 실거래가 조회
+
+Search Korean real estate sale transactions (MOLIT RTMS) by district code and contract month.
+
+국토교통부 실거래가 자료를 지역코드(법정동코드 앞 5자리)·계약년월(YYYYMM)·부동산 유형으로 조회합니다(매매). propertyType: apt 아파트, rh 연립다세대, sh 단독다가구, offi 오피스텔.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `lawdCd` | `string` | **필수 / required** | 지역코드 (법정동코드 앞 5자리, 예: 11110) |
+| `dealYmd` | `string` | **필수 / required** | 계약년월 (YYYYMM, 예: 202601) |
+| `propertyType` | `string` (apt / rh / sh / offi) | 선택 / optional | 부동산 유형 (기본 apt) |
+| `pageNo` | `integer` | 선택 / optional | 페이지 번호 (기본 1) |
+| `numOfRows` | `integer` | 선택 / optional | 페이지당 결과 수 (기본 10, 최대 1000) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"rtms_trade","arguments":{"lawdCd":"<lawdCd>","dealYmd":"<dealYmd>","propertyType":"<propertyType>","pageNo":1,"numOfRows":1}}}
+```
+
+<a id="rtms-rent"></a>
+
+### `rtms_rent` — 부동산 전월세 실거래가 조회
+
+Search Korean real estate rent transactions (MOLIT RTMS) by district code and contract month.
+
+국토교통부 실거래가 자료를 지역코드(법정동코드 앞 5자리)·계약년월(YYYYMM)·부동산 유형으로 조회합니다(전월세). propertyType: apt 아파트, rh 연립다세대, sh 단독다가구, offi 오피스텔.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `lawdCd` | `string` | **필수 / required** | 지역코드 (법정동코드 앞 5자리, 예: 11110) |
+| `dealYmd` | `string` | **필수 / required** | 계약년월 (YYYYMM, 예: 202601) |
+| `propertyType` | `string` (apt / rh / sh / offi) | 선택 / optional | 부동산 유형 (기본 apt) |
+| `pageNo` | `integer` | 선택 / optional | 페이지 번호 (기본 1) |
+| `numOfRows` | `integer` | 선택 / optional | 페이지당 결과 수 (기본 10, 최대 1000) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"rtms_rent","arguments":{"lawdCd":"<lawdCd>","dealYmd":"<dealYmd>","propertyType":"<propertyType>","pageNo":1,"numOfRows":1}}}
+```
+
+<a id="public-price"></a>
+
+### `public_price` — 공시가격 조회
+
+Get Korean official real estate prices (MOLIT NSDI) by parcel number and reference year.
+
+국토교통부 공시가격(공동주택·개별주택·개별공시지가)을 PNU(19자리)·기준연도로 조회합니다. priceType: apart 공동주택, indvdHouse 개별주택, indvdLand 개별공시지가.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `pnu` | `string` | **필수 / required** | 필지고유번호 (19자리) |
+| `stdrYear` | `string` | **필수 / required** | 공시 기준연도 (YYYY) |
+| `priceType` | `string` (apart / indvdHouse / indvdLand) | 선택 / optional | 공시가격 유형 (기본 apart) |
+| `pageNo` | `integer` | 선택 / optional | 페이지 번호 (기본 1) |
+| `numOfRows` | `integer` | 선택 / optional | 페이지당 결과 수 (기본 10, 최대 1000) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"public_price","arguments":{"pnu":"<pnu>","stdrYear":"<stdrYear>","priceType":"<priceType>","pageNo":1,"numOfRows":1}}}
+```
+
+<a id="geocode"></a>
+
+### `geocode` — 주소·필지(PNU) 조회
+
+Resolve a Korean address to coordinates and parcel identifiers (V-World).
+
+주소를 좌표와 필지로 변환해 PNU(19자리)·법정동코드·지번·좌표를 돌려줍니다. 공시가격·실거래가 조회에 필요한 식별자를 얻을 때 씁니다. addrType: parcel 지번, road 도로명, auto 자동(기본).
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `address` | `string` | 선택 / optional | 지번 또는 도로명 주소 (예: 서울특별시 강남구 역삼동 808) |
+| `pnu` | `string` | 선택 / optional | PNU(19자리). 주면 좌표 조회 없이 바로 조회합니다. |
+| `addrType` | `string` (auto / parcel / road) | 선택 / optional | 주소 유형 (기본 auto) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"geocode","arguments":{"address":"<address>","pnu":"<pnu>","addrType":"<addrType>"}}}
+```
+
+<a id="shop-price"></a>
+
+### `shop_price` — 상품 최저가 조회
+
+Search Korean shopping listings (Naver Shopping) by keyword and return sellers, prices and the lowest-price item.
+
+키워드로 상품을 검색해 판매처·가격과 최저가 상품을 돌려줍니다. sort: sim 정확도, date 최신, asc 낮은가격, dsc 높은가격.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `query` | `string` | **필수 / required** | 검색어 (최대 100자) |
+| `display` | `integer` | 선택 / optional | 결과 수 (기본 10, 최대 100) |
+| `start` | `integer` | 선택 / optional | 시작 위치 (기본 1, 최대 1000) |
+| `sort` | `string` (sim / date / asc / dsc) | 선택 / optional | 정렬 (기본 sim) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"shop_price","arguments":{"query":"<query>","display":1,"start":1,"sort":"<sort>"}}}
+```
+
+<a id="app-reviews"></a>
+
+### `app_reviews` — 앱 리뷰 조회
+
+Get App Store app metadata and customer reviews (Apple iTunes) by numeric app id.
+
+앱스토어 앱 정보(평점·가격·장르)와 고객 리뷰를 함께 돌려줍니다. country 기본 kr, page 로 리뷰 페이지를 넘깁니다(최대 10).
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `appId` | `string` | **필수 / required** | 앱스토어 앱 ID (숫자) |
+| `country` | `string` | 선택 / optional | 국가 코드 (기본 kr) |
+| `page` | `integer` | 선택 / optional | 리뷰 페이지 (기본 1, 최대 10) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"app_reviews","arguments":{"appId":"<appId>","country":"<country>","page":1}}}
+```
 
 <a id="identity"></a>
 
@@ -1585,7 +1878,7 @@ Download the subtitles of a public YouTube video in one language as VTT, SRT or 
 
 ## File Conversion · 파일 변환 · 워터마크
 
-`https://apick.app/mcp/convert` — 25 tools
+`https://apick.app/mcp/convert` — 27 tools
 
 PDF, DOCX, Excel, speech-to-text, asynchronous TTS jobs, and watermarking.
 
@@ -1599,6 +1892,11 @@ PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크.
 | [`tts_jobs_cancel`](#tts-jobs-cancel) | TTS 대기·생성 중 작업 취소 | `job_id` |
 | [`tts_jobs_result`](#tts-jobs-result) | TTS 결과 1회 다운로드 | `job_id` |
 | [`tts_jobs_subtitles`](#tts-jobs-subtitles) | TTS ASS 자막 1회 다운로드 | `job_id` |
+| [`tts_gemini_create`](#tts-gemini-create) | Gemini 음성 제작 | `voice_id`, `text` |
+| [`tts_gemini_voices`](#tts-gemini-voices) | Gemini 목소리 목록 | — |
+| [`tts_openai_create`](#tts-openai-create) | ChatGPT 음성 제작 | `voice_id`, `text` |
+| [`tts_openai_voices`](#tts-openai-voices) | ChatGPT 목소리 목록 | — |
+| [`tts_quote`](#tts-quote) | 예상 요금 조회 | `text` |
 | [`voice_change`](#voice-change) | 음성 변조 | `type`, `media_url` |
 | [`face_blur`](#face-blur) | 얼굴 모자이크 처리 | `image_url` |
 | [`pdf_to_docx`](#pdf-to-docx) | PDF 파일 DOCX 변환 | `pdf_url` |
@@ -1724,6 +2022,63 @@ Normalization is on by default and adds a skill charge. Set `normalize_text: fal
 {"jsonrpc":"2.0","id":4,"method":"tools/call","params":{"name":"tts_jobs_result","arguments":{"job_id":"<job_id>"}}}
 ```
 
+<a id="tts-jobs-quality"></a>
+
+### `tts_jobs_quality` — TTS 품질 이력
+
+TTS
+
+발화별 검수 결과와 후보 이력을 조회합니다. 종료 후 72시간 보존되며 최종 결과 다운로드를 소비하지 않습니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `convert`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `job_id` | `string` | **필수 / required** | 소유한 작업 ID |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"tts_jobs_quality","arguments":{"job_id":"<job_id>"}}}
+```
+
+<a id="tts-jobs-retry"></a>
+
+### `tts_jobs_retry` — TTS 발화 재개
+
+
+
+실패 발화만 같은 작업에서 재개합니다. 동일 멱등 키는 중복 실행·과금되지 않습니다.
+
+> 부작용 있음 / has side effects · server `convert`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `job_id` | `string` | **필수 / required** | 소유한 작업 ID |
+| `utterance_ids` | `array` | **필수 / required** | u001부터 시작하는 실패 발화 ID 목록 |
+| `idempotency_key` | `string` | **필수 / required** | 동일 재개 요청에 재사용하는 키 |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"tts_jobs_retry","arguments":{"job_id":"<job_id>","utterance_ids":[],"idempotency_key":"<idempotency_key>"}}}
+```
+
+<a id="tts-jobs-candidate-audio"></a>
+
+### `tts_jobs_candidate_audio` — TTS 후보 음원
+
+
+
+품질 이력의 후보 WAV를 조회합니다. 최종 결과의 일회 다운로드를 소비하지 않습니다. REST에서는 Range 재생을 지원합니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `convert`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `job_id` | `string` | **필수 / required** | 소유한 작업 ID |
+| `candidate_id` | `string` | **필수 / required** | 품질 이력의 후보 ID |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"tts_jobs_candidate_audio","arguments":{"job_id":"<job_id>","candidate_id":"<candidate_id>"}}}
+```
+
 <a id="tts-jobs-subtitles"></a>
 
 ### `tts_jobs_subtitles` — TTS ASS 자막 1회 다운로드
@@ -1754,19 +2109,33 @@ Normalization is on by default and adds a skill charge. Set `normalize_text: fal
 
 > 읽기 전용 / read-only · server `convert`
 
-### `tts_quote` — 예상 요금 / Price estimate
+### `tts_openai_create` — ChatGPT 음성 제작 / ChatGPT speech
 
-제작 입력과 `engine: apick | gemini`를 받아 합성·정규화 예상 금액과 최대 예약금을 반환합니다. 실제 호출은 하지 않습니다. / Accepts synthesis input plus the engine and returns estimates and the maximum reservation without generating audio.
+`voice_id`, `style`, `text` 또는 `utterances`, `normalize_text`(기본 true), `idempotency_key`를 받습니다. 목소리는 `alloy`, `ash`, `ballad`, `coral`, `echo`, `fable`, `onyx`, `nova`, `sage`, `shimmer`, `verse` 중 하나이며 기본값은 `alloy`입니다. / Accepts a voice, style, text or utterances; normalization defaults on. Voices are alloy, ash, ballad, coral, echo, fable, onyx, nova, sage, shimmer and verse, with alloy as the default.
+
+> 부작용 있음 / has side effects · 최대 요금 예약 후 실제 정산 / reserves then settles usage · server `convert`
+
+### `tts_openai_voices` — ChatGPT 목소리 목록 / ChatGPT voices
+
+ChatGPT TTS 목소리와 음색 특성을 반환합니다. / Lists the ChatGPT TTS voices and their tone.
 
 > 읽기 전용 / read-only · server `convert`
 
-## TTS 자동 전환·Gemini·정규화 / Gemini and normalization
+### `tts_quote` — 예상 요금 / Price estimate
 
-`tts_jobs_create` adds `fallback_policy` (`never` default, `queue_full`, `busy`), `fallback_options` (`voice_id`, `style`), `normalize_text` (true by default), and `idempotency_key`.
+제작 입력과 `engine: gemini | openai`를 받아 합성·정규화 예상 금액과 최대 예약금을 반환합니다. 실제 호출은 하지 않습니다. / Accepts synthesis input plus the engine and returns estimates and the maximum reservation without generating audio.
 
-`tts_gemini_create` takes `voice_id`, `style`, either `text` or `utterances` (text, voice_id, style, speaker), `normalize_text`, and `idempotency_key`. `tts_gemini_voices` lists all public basic and extended voices. `tts_quote` accepts the same input with `engine: apick | gemini` and returns estimated synthesis, normalization, total and maximum reservation.
+> 읽기 전용 / read-only · server `convert`
 
-`never`는 apick 대기열을 사용하고 포화 시 429, `queue_full`은 대기열 포화 시 Gemini, `busy`는 즉시 실행 불가 시 Gemini로 전환합니다. 전환 전용 목소리·스타일은 fallback_options에 넣으세요. 자동 선택은 성별·공식 음색을 사용하며 연령 미검증을 표시합니다. Gemini 사용 시 목소리와 요금이 달라집니다.
+## TTS 엔진·확장 옵션·정규화 / Engines, style options and normalization
+
+`tts_jobs_create`(기본 Gemini), `tts_gemini_create`, `tts_openai_create`는 `normalize_text`(기본 true), `idempotency_key`와 함께 같은 확장 옵션을 받습니다. `tts_quote`는 같은 입력에 `engine: gemini | openai`를 받아 합성·정규화 예상액과 최대 예약금을 반환합니다.
+
+`tts_jobs_create` (Gemini by default), `tts_gemini_create` and `tts_openai_create` take `normalize_text` (true by default), `idempotency_key` and the same style options. `tts_quote` accepts the same input plus `engine` and returns the estimates and maximum reservation.
+
+확장 옵션은 감정 `emotion`(neutral, calm, cheerful, excited, sad, serious, friendly, empathetic, confident, gentle, whisper, narration), 용도·톤 `tone`(narration, news, audiobook, documentary, ad, conversation, announcement, tutorial, storytelling), 억양 `accent`(standard, seoul, gyeongsang, jeolla, chungcheong), 말 속도 `pace`(0.5~2.0), 음높이 `pitch`(-12~12 반음), 음량 `volume_gain_db`(-12~12), 낭독 스타일 `style`입니다. 최상위에 지정하면 모든 발화에 적용되고 발화마다 덮어쓸 수 있습니다. `speakers`에 화자별 `voice_id`·옵션을 이름으로 묶고 `multi_speaker: true`를 주면 멀티화자로 합성합니다. Gemini는 화자 2명까지 한 번에 합성하고, ChatGPT는 발화마다 목소리를 바꿔 읽습니다. 옵션을 생략하면 엔진 기본 낭독으로 합성하며 기존 `voice_id`·`text` 호출도 그대로 동작합니다.
+
+Style options are `emotion`, `tone`, `accent`, `pace` (0.5–2.0), `pitch` (−12 to 12 semitones), `volume_gain_db` (−12 to 12) and free-text `style`. A top-level value applies to every utterance and can be overridden per utterance. Set `speakers` with per-speaker `voice_id`/options and `multi_speaker: true` for multi-speaker synthesis; Gemini renders up to two speakers in one call while ChatGPT switches voice per utterance. Omitting the options keeps the engine default, so existing `voice_id`/`text` calls keep working.
 
 정규화는 기본 켜짐이며 발음을 다듬는 스킬 요금이 추가됩니다. `normalize_text: false`(SDK `normalizeText: false`)로 실행과 요금을 끕니다. 스킬 최종가는 기본요금(판매자 금액·기본 수수료) + AI 원가 × 환율 × 1.4입니다. 정규화 실패는 제작을 중단하며, 서버·공급자의 최종 제작 실패는 정규화까지 전액 환불합니다. ASS에는 원문을 표시합니다.
 
@@ -2294,6 +2663,111 @@ Polish a text (up to 100,000 characters) by fixing grammar, spelling, and awkwar
 
 영상 생성 3종(`seedance_jobs_create`, `veo_jobs_create`, `kling_jobs_create`)은 모두 **비동기**입니다 — 접수하면 `job_id`와 함께 `waiting` 상태를 받고, 각 `*_jobs_status` Tool로 폴링하다가 `completed`가 되면 응답의 `result_url`(REST 다운로드 주소, 완료 후 7일 이내 유효)로 내려받습니다. 영상 파일 자체는 Tool 응답 크기 제한 때문에 MCP로 직접 전달하지 않습니다. 과금은 `duration × 초당 포인트`가 접수 시 예약 차감되고 완료 시 그대로 확정되며, 실패하거나 처리 시간이 초과되면 전액 환불됩니다. Seedance는 기본적으로 오디오를 함께 생성하는데(`audio: true`), 생성된 오디오가 저작권 등 정책 검수에서 거부되면 작업이 실패로 끝나고 예약 포인트가 전액 환불됩니다 — 이 거부를 피하려면 `audio: false`로 접수하세요.
 
+<a id="image-generate"></a>
+
+### `image_generate` — 이미지 한 장 생성
+
+
+
+텍스트만 사용하거나 참고 이미지와 텍스트를 함께 사용해 이미지 한 장을 생성합니다. 새 요금은 공급자 원가 × 동기화 환율 × 1.4입니다. 사용량 미확정 시 반환한 job_id를 image_batch_status로 조회하며 다시 생성하지 않습니다.
+
+> 부작용 있음 / has side effects · server `ai`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `prompt` | `string` | **필수 / required** | 생성 프롬프트, 최대 28,000자 |
+| `size` | `string` (1024x1024 / 1536x1024 / 1024x1536 / 1152x864 / 864x1152) | 선택 / optional | 표준 이미지 크기, 기본 1024x1024 |
+| `output_format` | `string` (png / jpeg / webp) | 선택 / optional | 출력 포맷 |
+| `background` | `string` (auto / opaque / transparent) | 선택 / optional | 배경 방식 |
+| `idempotency_key` | `string` | 선택 / optional | 같은 요청의 재전송으로 인한 중복 생성·과금을 막는 고유 키 |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"image_generate","arguments":{"prompt":"<prompt>","size":"<size>","output_format":"<output_format>","background":"<background>","idempotency_key":"<idempotency_key>"}}}
+```
+
+<a id="image-edit"></a>
+
+### `image_edit` — 이미지 한 장 편집
+
+
+
+원본 이미지와 편집 지시로 이미지 한 장을 편집합니다. 새 요금은 공급자 원가 × 동기화 환율 × 1.4입니다. 사용량 미확정 시 반환한 job_id를 image_batch_status로 조회하며 다시 생성하지 않습니다.
+
+> 부작용 있음 / has side effects · server `ai`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `prompt` | `string` | **필수 / required** | 편집 지시, 최대 28,000자 |
+| `size` | `string` (1024x1024 / 1536x1024 / 1024x1536 / 1152x864 / 864x1152) | 선택 / optional | 표준 출력 크기, 기본 1024x1024 |
+| `output_format` | `string` (png / jpeg / webp) | 선택 / optional | 출력 포맷 |
+| `background` | `string` (auto / opaque / transparent) | 선택 / optional | 배경 방식 |
+| `idempotency_key` | `string` | 선택 / optional | 같은 요청의 재전송으로 인한 중복 생성·과금을 막는 고유 키 |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"image_edit","arguments":{"prompt":"<prompt>","size":"<size>","output_format":"<output_format>","background":"<background>","idempotency_key":"<idempotency_key>"}}}
+```
+
+<a id="image-batch-create"></a>
+
+### `image_batch_create` — 이미지 대량 작업 생성
+
+
+
+이미지 1~50장의 비동기 생성 또는 편집 작업을 접수합니다. 새 요금은 공급자 원가 × 동기화 환율 × 1.4입니다. 상한을 예약하고 성공분의 실제 요금을 정산하며, 접수 후에는 취소할 수 없습니다.
+
+> 부작용 있음 / has side effects · server `ai`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `mode` | `string` (generate / edit) | **필수 / required** | 작업 방식 |
+| `prompt` | `string` | **필수 / required** | 생성 또는 편집 지시, 최대 28,000자 |
+| `image_count` | `integer` | **필수 / required** | 만들 이미지 장수, 1~50 |
+| `size` | `string` (1024x1024 / 1536x1024 / 1024x1536 / 1152x864 / 864x1152) | 선택 / optional | 표준 출력 크기, 기본 1024x1024 |
+| `output_format` | `string` (png / jpeg / webp) | 선택 / optional | 출력 포맷 |
+| `background` | `string` (auto / opaque / transparent) | 선택 / optional | 배경 방식 |
+| `idempotency_key` | `string` | 선택 / optional | 같은 요청의 재전송으로 인한 중복 생성·과금을 막는 고유 키 |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"image_batch_create","arguments":{"mode":"<mode>","prompt":"<prompt>","image_count":1,"size":"<size>","output_format":"<output_format>","background":"<background>","idempotency_key":"<idempotency_key>"}}}
+```
+
+<a id="image-batch-status"></a>
+
+### `image_batch_status` — 이미지 대량 작업 상태
+
+
+
+대량 이미지 작업의 진행 상태, 선차감·환급·현재 차감 포인트를 조회합니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `ai`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `job_id` | `string` | **필수 / required** | 작업 ID |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"image_batch_status","arguments":{"job_id":"<job_id>"}}}
+```
+
+<a id="image-batch-result"></a>
+
+### `image_batch_result` — 이미지 대량 작업 결과
+
+
+
+완료된 대량 작업 결과 중 지정한 한 장을 이미지 콘텐츠로 반환합니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `ai`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `job_id` | `string` | **필수 / required** | 작업 ID |
+| `index` | `integer` | **필수 / required** | 0부터 시작하는 이미지 번호 |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"image_batch_result","arguments":{"job_id":"<job_id>","index":1}}}
+```
+
 <a id="seedance-jobs-create"></a>
 
 ### `seedance_jobs_create` — Seedance 영상 작업 접수
@@ -2556,7 +3030,7 @@ Available generations: Seedance 1.0/1.5/2.0/2.5, including Seedance 2.0 Standard
 
 A Skill is an execution product registered by a seller and published after APICK review. Each Skill fixes its input format, output format, base amount and limits. For Skills that use generative AI the actual usage of each run is added, so the charge varies per run. Running it from the web, REST or MCP uses the same run ID and the same charging rule.
 
-Skill 은 판매자가 등록하고 에이픽이 심사해 게시한 실행 상품입니다. 입력 형식·결과 형식·기본 금액·처리 상한이 Skill 마다 정해져 있고, 생성형 AI 를 쓰는 Skill 은 실행마다 실제 사용량이 더해져 금액이 달라집니다. 또 웹·REST·MCP 어디에서 실행해도 같은 실행 번호와 같은 과금 규칙을 씁니다. `all` 서버와 별도이며 118개에는 포함되지 않습니다.
+Skill 은 판매자가 등록하고 에이픽이 심사해 게시한 실행 상품입니다. 입력 형식·결과 형식·기본 금액·처리 상한이 Skill 마다 정해져 있고, 생성형 AI 를 쓰는 Skill 은 실행마다 실제 사용량이 더해져 금액이 달라집니다. 또 웹·REST·MCP 어디에서 실행해도 같은 실행 번호와 같은 과금 규칙을 씁니다. `all` 서버와 별도이며 133개에는 포함되지 않습니다.
 
 | Rule 규칙 | Detail 내용 |
 | --- | --- |

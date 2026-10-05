@@ -6,8 +6,11 @@ Before choosing a Skill, review its [measured performance and test methods](http
 
 <img src="https://raw.githubusercontent.com/lead788/apick-mcp/main/assets/logo-400.png" alt="APICK" width="88" height="88">
 
-# APICK MCP — 118 Korean Data, AI, Image & Video Tools
+# APICK MCP — 133 Korean Data, AI, Image & Video Tools
 
+> 3.12.0: TTS 를 ChatGPT(gpt-audio-mini) 합성까지 넓히고(`tts_openai_create`·`tts_openai_voices`), 감정·톤·억양·속도·음높이·음량·멀티화자 옵션을 Gemini·ChatGPT 공통으로 지원합니다. Tool 수는 133개(Convert 27개)입니다. `tts_quote` 의 엔진은 `gemini | openai` 이며 자체 합성과 대기열 전환은 종료되었습니다.
+> 3.12.0: adds ChatGPT (gpt-audio-mini) synthesis (`tts_openai_create`, `tts_openai_voices`) and shared emotion/tone/accent/pace/pitch/volume/multi-speaker options for both engines, for 133 tools overall (Convert 27). `tts_quote` now takes `engine: gemini | openai`; self-synthesis and queue fallback are retired.
+>
 > 3.9.0: `skills` 서버의 `search_skills` 가 `sort`(추천·인기·많이 사용·좋아요순·평점순·최신)를 받고, Skill 검색·상세 결과에 사용 건수 구간(`usage_label`)·좋아요 수·평점이 함께 옵니다. Tool 수는 그대로이며 원격 서버에 이미 배포돼 있습니다.
 > 3.9.0: `search_skills` on the `skills` server accepts `sort` (recommended, popular, most used, likes, rating, newest), and Skill search/detail results include a usage tier (`usage_label`), like count and rating. Tool counts are unchanged; already live on the remote server.
 >
@@ -32,9 +35,9 @@ Before choosing a Skill, review its [measured performance and test methods](http
 
 ## What is this? / 이게 뭔가요?
 
-**EN** — APICK is a Korean data and AI API platform. This MCP server exposes **118 tools** for Korean business data, identity verification, OCR, parcel tracking, image and video generation, file conversion, web intelligence, and LLM calls.
+**EN** — APICK is a Korean data and AI API platform. This MCP server exposes **133 tools** for Korean business data, identity verification, OCR, parcel tracking, image and video generation, file conversion, web intelligence, and LLM calls.
 
-**KO** — 에이픽(APICK)은 대한민국 데이터·AI API 플랫폼입니다. 이 MCP 서버는 **Tool 118개**로 사업자 조회, 신분증 진위확인, 택배 배송조회, OCR, 이미지·영상 생성, 파일 변환, 웹 검색과 LLM 호출을 **인증키 하나로** 제공합니다.
+**KO** — 에이픽(APICK)은 대한민국 데이터·AI API 플랫폼입니다. 이 MCP 서버는 **Tool 133개**로 사업자 조회, 신분증 진위확인, 택배 배송조회, OCR, 이미지·영상 생성, 파일 변환, 웹 검색과 LLM 호출을 **인증키 하나로** 제공합니다.
 
 **The server is hosted by APICK. Nothing to install, build, or keep running.**
 **서버는 에이픽이 운영합니다. 설치할 것도, 띄워둘 것도 없습니다.**
@@ -52,8 +55,8 @@ https://apick.app/mcp/all
 Sign up at **[apick.app](https://apick.app)** and copy your license key from the dashboard. New accounts get **1,000 free points**.
 **[apick.app](https://apick.app)** 에서 가입하고 대시보드에서 인증키를 복사하세요. 신규 가입 시 **1,000포인트 무료**.
 
-> `tools/list` works **without** a key — a client can connect and discover all 118 tools before you sign up. Only `tools/call` validates the key and allowed IP.
-> `tools/list`는 **인증 없이** 동작합니다. 가입 전에도 클라이언트가 연결해 118개 Tool을 확인할 수 있고, 키와 허용 IP는 `tools/call`부터 검증합니다.
+> `tools/list` works **without** a key — a client can connect and discover all 133 tools before you sign up. Only `tools/call` validates the key and allowed IP.
+> `tools/list`는 **인증 없이** 동작합니다. 가입 전에도 클라이언트가 연결해 133개 Tool을 확인할 수 있고, 키와 허용 IP는 `tools/call`부터 검증합니다.
 
 Leave the allowed-IP list blank for unrestricted access. To restrict access, register the public IPv4 address seen by APICK as an exact address or CIDR such as `/32`. Changes apply immediately with no separate synchronization.
 마이페이지의 허용 IP가 공란이면 제한 없이 사용할 수 있습니다. 제한하려면 APICK에 도착하는 공인 IPv4를 단일 주소 또는 CIDR(`/32` 등)로 등록하세요. 저장 즉시 반영되며 별도 동기화는 필요하지 않습니다.
@@ -159,10 +162,10 @@ Connect to `all` for everything, or to one server to keep the tool list short an
 
 | Server 서버 | Endpoint | Tools | Coverage 범위 |
 | --- | --- | --- | --- |
-| **All 통합** | `https://apick.app/mcp/all` | **118** | 아래 전부 + `find_tools` |
-| [Business 사업자·커머스](TOOLS.md#business) | `https://apick.app/mcp/business` | 29 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 유효성 검사 |
+| **All 통합** | `https://apick.app/mcp/all` | **133** | 아래 전부 + `find_tools` |
+| [Business 사업자·커머스](TOOLS.md#business) | `https://apick.app/mcp/business` | 42 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 유효성 검사 |
 | [Identity 신분증](TOOLS.md#identity) | `https://apick.app/mcp/identity` | 16 | 주민등록증·운전면허증·여권·외국인등록증 진위확인, 실명확인, 개인정보 마스킹 |
-| [Convert 파일변환](TOOLS.md#convert) | `https://apick.app/mcp/convert` | 25 | PDF·DOCX·엑셀 변환, STT, 비동기 TTS, 워터마크 |
+| [Convert 파일변환](TOOLS.md#convert) | `https://apick.app/mcp/convert` | 27 | PDF·DOCX·엑셀 변환, STT, 비동기 TTS, 워터마크 |
 | [Web 웹·검색](TOOLS.md#web) | `https://apick.app/mcp/web` | 17 | 도메인·IP·WHOIS, 웹페이지 수집, 구글 검색, 유튜브 |
 | [Vision 이미지·영상](TOOLS.md#vision) | `https://apick.app/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출 |
 | [OCR 문자인식](TOOLS.md#ocr) | `https://apick.app/mcp/ocr` | 6 | 이미지 텍스트 추출, 신분증 항목 추출 |
@@ -172,13 +175,13 @@ Connect to `all` for everything, or to one server to keep the tool list short an
 
 ### Every tool / 전체 Tool
 
-**[→ TOOLS.md](TOOLS.md)** — all 118 tools with parameters, types, and copy-paste JSON-RPC examples.
-**[→ TOOLS.md](TOOLS.md)** — 118개 전체를 파라미터·타입·호출 예시까지 정리했습니다.
+**[→ TOOLS.md](TOOLS.md)** — all 133 tools with parameters, types, and copy-paste JSON-RPC examples.
+**[→ TOOLS.md](TOOLS.md)** — 133개 전체를 파라미터·타입·호출 예시까지 정리했습니다.
 
 <details>
 <summary><b>Tool names at a glance / Tool 이름 한눈에 보기</b></summary>
 
-**Business** `biz_detail` `venture_biz_info` `land_rt_price` `req_pccc` `get_pccc` `req_employment` `get_employment` `req_personal_income` `get_personal_income` `req_nps_join_history` `get_nps_join_history` `req_driving_license` `get_driving_license` `req_health_checkup` `get_health_checkup` `req_cash_receipt_deduction` `get_cash_receipt_deduction` `req_tax_return_history` `get_tax_return_history` `get_car_flooding` `get_car_scrap` `parcel_tracking` `parcel_tracking_auto` `check_email_valid` `check_phone_valid` `check_spam_number` `holiday_info` `search_juso` `info`
+**Business** `biz_detail` `venture_biz_info` `land_rt_price` `req_pccc` `get_pccc` `get_car_flooding` `get_car_scrap` `parcel_tracking` `parcel_tracking_auto` `check_email_valid` `check_phone_valid` `check_spam_number` `holiday_info` `search_juso` `info` `bid_notice` `bid_award` `dart_disclosure` `dart_company` `dart_financials` `kipris_patent` `kipris_trademark` `rtms_trade` `rtms_rent` `public_price` `geocode` `shop_price` `app_reviews` `req_cash_receipt_deduction` `get_cash_receipt_deduction` `req_tax_return_history` `get_tax_return_history` `req_employment` `get_employment` `req_personal_income` `get_personal_income` `req_nps_join_history` `get_nps_join_history` `req_driving_license` `get_driving_license` `req_health_checkup` `get_health_checkup`
 
 **Identity** `identi_card1`–`identi_card5` `identi_card_image1`–`identi_card_image5` `name_rrn_auth` `hide_rrn` `identity_document_id_card` `identity_document_driver_license` `identity_document_passport` `identity_document_residence_card`
 
@@ -188,7 +191,7 @@ Connect to `all` for everything, or to one server to keep the tool list short an
 
 **Web** `nslookup` `reverse_ip` `location` `ip_history` `whois` `url_html` `url_screenshot` `url_similarity` `google_search` `google_image_search` `google_lens_search` `crawl_youtube` `download_youtube_video` `youtube_metadata` `youtube_thumbnail` `youtube_subtitle_list` `youtube_subtitle`
 
-**Convert** `stt` `tts_jobs_create` `tts_jobs_status` `tts_jobs_cancel` `tts_jobs_result` `tts_jobs_subtitles` `tts_jobs_quality` `tts_jobs_retry` `tts_jobs_candidate_audio` `voice_change` `face_blur` `pdf_to_docx` `pdf_to_image` `pdf_merge` `html_to_pdf` `docx_to_pdf` `json_to_excel` `base64_to_image` `set_watermark` `get_watermark` `draw_watermark_pdf` `draw_watermark_image`
+**Convert** `stt` `tts_jobs_create` `tts_gemini_create` `tts_gemini_voices` `tts_openai_create` `tts_openai_voices` `tts_quote` `tts_jobs_status` `tts_jobs_cancel` `tts_jobs_result` `tts_jobs_subtitles` `tts_jobs_quality` `tts_jobs_retry` `tts_jobs_candidate_audio` `voice_change` `face_blur` `pdf_to_docx` `pdf_to_image` `pdf_merge` `html_to_pdf` `docx_to_pdf` `json_to_excel` `base64_to_image` `set_watermark` `get_watermark` `draw_watermark_pdf` `draw_watermark_image`
 
 **Vision** `nsfw_detection` `image_similarity` `video_to_mp3` `extract_video_thumbnail` `word_cloud` `face_detection`
 
@@ -200,9 +203,9 @@ Connect to `all` for everything, or to one server to keep the tool list short an
 
 ### Find the right tool / 알맞은 Tool 찾기 — `find_tools`
 
-**EN** — The `all` server has 118 tools. `find_tools` recommends the best-matching APICK tools for a task described in natural language (Korean or English). It returns each tool's name, title, description and a relevance label (`high`, `medium`, `low`). It is free, works without an API key, and is available on the `all` server only; domain servers are small enough to choose from `tools/list` directly.
+**EN** — The `all` server has 133 tools. `find_tools` recommends the best-matching APICK tools for a task described in natural language (Korean or English). It returns each tool's name, title, description and a relevance label (`high`, `medium`, `low`). It is free, works without an API key, and is available on the `all` server only; domain servers are small enough to choose from `tools/list` directly.
 
-**KO** — `all` 서버에는 Tool이 118개 있습니다. `find_tools`는 자연어(한국어·영어)로 설명한 작업에 가장 알맞은 에이픽 Tool을 추천하고, Tool 이름·제목·설명과 관련도(`high`·`medium`·`low`)를 돌려줍니다. 무료이며 인증키 없이 호출할 수 있고, `all` 서버에서만 제공합니다. 분야별 서버는 Tool 수가 적어 `tools/list`만으로 고를 수 있습니다.
+**KO** — `all` 서버에는 Tool이 133개 있습니다. `find_tools`는 자연어(한국어·영어)로 설명한 작업에 가장 알맞은 에이픽 Tool을 추천하고, Tool 이름·제목·설명과 관련도(`high`·`medium`·`low`)를 돌려줍니다. 무료이며 인증키 없이 호출할 수 있고, `all` 서버에서만 제공합니다. 분야별 서버는 Tool 수가 적어 `tools/list`만으로 고를 수 있습니다.
 
 | Parameter | Type | Required | Description 설명 |
 | --- | --- | --- | --- |
@@ -320,7 +323,7 @@ Seedance 참조 소재 모드는 지원 버전에서 참조 이미지·영상·�
 | **Transport** | Streamable HTTP — one endpoint per server, JSON-RPC 2.0 over HTTPS POST, stateless | 서버당 단일 엔드포인트, HTTPS POST로 JSON-RPC 2.0, 세션 없이 요청 단위 |
 | **Protocol** | MCP `2026-07-28`, auto-compatible with earlier client versions | MCP `2026-07-28` 기본, 이전 규격 클라이언트 자동 호환 |
 | **Discovery** | `tools/list` returns every tool with JSON Schema, description and live price — no key needed | `tools/list`가 스키마·설명·실시간 단가를 반환, 인증 불필요 |
-| **Annotations** | Every tool declares `title`, `readOnlyHint`, `openWorldHint`. 29 of 118 are not read-only | 전 Tool이 `title`·`readOnlyHint`·`openWorldHint` 선언. 118개 중 상태 변경 Tool은 29개 |
+| **Annotations** | Every tool declares `title`, `readOnlyHint`, `openWorldHint`. 30 of 133 are not read-only | 전 Tool이 `title`·`readOnlyHint`·`openWorldHint` 선언. 133개 중 상태 변경 Tool은 30개 |
 | **Results** | Text (JSON) + `structuredContent`. Images as image content; files up to 8MB as base64 | 텍스트(JSON)와 `structuredContent` 동시 반환. 이미지는 이미지 콘텐츠, 8MB 이하 파일은 base64 |
 | **File input** | File-taking tools accept a public `https` URL (`image_url`, `pdf_url`, …) — APICK downloads and processes it | 파일 Tool은 공개 `https` URL을 받습니다. 에이픽 서버가 내려받아 처리합니다 |
 | **Errors** | Delivered via `isError`; identity masking also preserves `structuredContent.error_code` | `isError`로 전달되며 신분증 마스킹은 `structuredContent.error_code`도 보존합니다 |
@@ -354,8 +357,8 @@ Common inputs match the SDK: `name`, `birthDate`, `phone`, and `authProvider`. T
 
 ### Tools with side effects / 부작용이 있는 Tool
 
-89 of 118 tools are read-only. The other 29 change state, charge points, cancel work, or consume a result and carry `readOnlyHint: false` so your client can require approval:
-118개 중 87개는 조회입니다. 나머지 28개는 과금·취소·결과 생성 등 상태를 바꾸므로 `readOnlyHint: false`가 붙습니다.
+103 of 133 tools are read-only. The other 30 change state, charge points, cancel work, or consume a result and carry `readOnlyHint: false` so your client can require approval:
+133개 중 103개는 조회입니다. 나머지 30개는 과금·취소·결과 생성 등 상태를 바꾸므로 `readOnlyHint: false`가 붙습니다.
 
 | Tool | What it does / 하는 일 |
 | --- | --- |
@@ -378,7 +381,7 @@ Common inputs match the SDK: `name`, `birthDate`, `phone`, and `authProvider`. T
 | `transfer_1won` | Deposits 1 KRW into a bank account · 실제로 1원을 입금합니다 |
 | `req_pccc` | Sends a simple-authentication request to the person's phone · 본인 휴대폰으로 간편인증 요청을 발송합니다 |
 | `get_pccc` | Reads the approval result by tx_id and charges once per result · tx_id 로 승인 결과를 조회하고 결과 1건마다 과금합니다 |
-| `tts_jobs_create` / `tts_gemini_create` | Reserves the maximum, then settles actual usage · 상한 예약 후 실제 요금 확정 |
+| `tts_jobs_create` / `tts_gemini_create` / `tts_openai_create` | Reserves the maximum, then settles actual usage · 상한 예약 후 실제 요금 확정 |
 | `tts_jobs_cancel` | Requests cancellation of a waiting or processing job; already performed paid work is settled · 대기·생성 중 취소를 요청하며 이미 수행한 유료 처리분만 정산합니다 |
 | `tts_jobs_result` | Permanently consumes the one-time result · 1회용 결과 원본을 영구 소모합니다 |
 | `tts_jobs_subtitles` | Permanently consumes the one-time ASS subtitles · 1회용 ASS 자막 원본을 영구 소모합니다 |
@@ -386,9 +389,9 @@ Common inputs match the SDK: `name`, `birthDate`, `phone`, and `authProvider`. T
 | `veo_jobs_create` | Submits and charges an async Veo video job · Veo 영상 작업을 접수하고 과금합니다 |
 | `kling_jobs_create` | Submits and charges an async Kling video job · Kling 영상 작업을 접수하고 과금합니다 |
 
-TTS 보이스 표시 이름: `v2_ann_m_30s_01` 준호, `v2_ann_m_30s_02` 태산, `v2_ann_m_30s_04` 강우, `v2_ann_m_30s_05` 상현, `v2_ann_f_30s_02` 수빈, `v2_ann_f_30s_03` 은채, `v2_ann_f_30s_04` 다인, `v2_ann_f_30s_05` 예린, `v2_m_teen_01` 하늘, `v2_m_young_01` 도윤, `v2_m_mid_01` 정한, `v2_m_senior_01` 만복, `v2_f_young_01` 서아, `v2_f_senior_01` 정순.
+TTS 목소리: Gemini는 기본 `Kore`를 포함한 공개 기본·확장 목소리(`tts_gemini_voices`), ChatGPT는 `alloy` `ash` `ballad` `coral` `echo` `fable` `onyx` `nova` `sage` `shimmer` `verse`(`tts_openai_voices`)를 사용합니다.
 
-TTS 작업 입력은 최대 800자입니다. 완성된 MP3와 ASS 자막은 서로 독립된 1회용 원본이므로, 결과를 저장할 준비가 된 뒤 `tts_jobs_result`와 `tts_jobs_subtitles`를 각각 한 번만 호출하세요.
+TTS 입력은 정규화를 켜면 합계 2,000자, 끄면 8,000자까지 가능합니다. 완성된 MP3와 ASS 자막은 서로 독립된 1회용 원본이므로, 결과를 저장할 준비가 된 뒤 `tts_jobs_result`와 `tts_jobs_subtitles`를 각각 한 번만 호출하세요.
 
 정규화는 기본 켜짐이며 발음을 다듬는 스킬 요금이 추가됩니다. `normalize_text: false`(SDK `normalizeText: false`)로 실행과 요금을 끕니다. 스킬 최종가는 기본요금(판매자 금액·기본 수수료) + AI 원가 × 환율 × 1.4입니다. 정규화 실패는 제작을 중단하며, 서버·공급자의 최종 제작 실패는 정규화까지 전액 환불합니다. ASS에는 원문을 표시합니다.
 
@@ -531,6 +534,6 @@ apick-subagent install
 Set `APICK_API_KEY` in the environment. 원격 MCP는 업로드된 자료를 처리합니다. The remote MCP processes uploaded content; the installed bridge collects local files.
 
 
-### Gemini TTS · 자동 전환
+### Gemini · ChatGPT TTS
 
-`tts_gemini_create` · `tts_gemini_voices` · `tts_quote`를 추가합니다. `tts_jobs_create`의 세 전환 정책과 기본 on 유료 정규화는 [TTS 계약](TOOLS.md#tts-자동-전환gemini정규화--gemini-and-normalization)을 참고하세요. Gemini direct, fallback and APICK jobs share MP3/ASS output and a billing breakdown. Normalization is on by default and costs extra; set `normalize_text: false` to disable it.
+`tts_gemini_create` · `tts_gemini_voices` · `tts_openai_create` · `tts_openai_voices` · `tts_quote`를 추가합니다. 두 엔진 모두 감정·톤·억양·속도·음높이·음량·멀티화자와 기본 on 유료 정규화를 지원하며, 자세한 계약은 [TTS 계약](TOOLS.md#tts-엔진확장-옵션정규화--engines-style-options-and-normalization)을 참고하세요. Both engines support emotion, tone, accent, pace, pitch, volume, multi-speaker and the default-on paid normalization. Gemini renders up to two speakers in one call while ChatGPT switches voice per utterance; the two paths share MP3/ASS output and a billing breakdown. Normalization is on by default and costs extra; set `normalize_text: false` to disable it.

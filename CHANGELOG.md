@@ -4,6 +4,15 @@
 - TTS 현재 계약과 한영 문서·중계 시험을 동기화했습니다. 기본 접수는 Gemini이며 두 엔진 모두 MP3·원문 ASS 결과를 사용합니다. 현재 통합 도구는 131개, Convert는 25개입니다.
 - The bridge remains a transparent JSON-RPC transport; no server implementation or credentials are included.
 
+# 3.12.0
+
+- TTS: ChatGPT(gpt-audio-mini) 직접 합성 도구 `tts_openai_create`·`tts_openai_voices`를 추가했습니다. 도구 수는 133개(Convert 27개)입니다.
+- TTS: 감정·톤·억양·속도·음높이·음량·멀티화자 옵션과 `speakers`·`multi_speaker`를 Gemini·ChatGPT 공통으로 지원합니다. 옵션을 생략한 기존 호출은 그대로 동작합니다.
+- TTS: `tts_quote` 엔진이 `gemini | openai`로 바뀌었습니다. `apick` 자체 합성과 대기열 전환(`fallback_policy`·`fallback_options`)은 종료되었습니다.
+- TTS: add ChatGPT (gpt-audio-mini) synthesis tools `tts_openai_create` and `tts_openai_voices`, for 133 tools overall (Convert 27).
+- TTS: emotion, tone, accent, pace, pitch, volume and multi-speaker options now work on both engines through the same fields; omitting them keeps the previous behavior.
+- TTS: `tts_quote` now takes `engine: gemini | openai`. The apick engine and its queue fallback options are retired.
+
 # 3.11.0
 
 - TTS: Gemini direct synthesis, queue fallback, default-on paid normalization, unified MP3/ASS and billing.

@@ -127,7 +127,7 @@ test('배포 대상 131개 목록과 Business 42개·Web 17개·상태 변경 29
 	assert.equal(listed.length, 131);
 	assert.equal(new Set(listed).size, 131);
 	const business = tools.split('## Business & Commerce')[1].split('<a id="identity">')[0];
-	assert.equal([...business.matchAll(/^### `([a-z0-9_]+)`/gm)].length, 29);
+	assert.equal([...business.matchAll(/^### `([a-z0-9_]+)`/gm)].length, 42);
 	assert.match(readme, /`https:\/\/apick\.app\/mcp\/business` \| 42 \|/);
 	const web = tools.split('## Web & Search')[1].split('<a id="convert">')[0];
 	assert.equal([...web.matchAll(/^### `([a-z0-9_]+)`/gm)].length, 17);

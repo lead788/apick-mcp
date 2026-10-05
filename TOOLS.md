@@ -137,6 +137,19 @@ Korean business registry, corporate credit, parcel tracking, real-estate prices,
 | [`holiday_info`](#holiday-info) | 공휴일 조회 | `year`, `month` |
 | [`search_juso`](#search-juso) | 도로명주소 조회 | `juso` |
 | [`info`](#info) | 계정 정보 조회 | — |
+| [`bid_notice`](#bid-notice) | 나라장터 입찰공고 조회 | — |
+| [`bid_award`](#bid-award) | 나라장터 낙찰정보 조회 | — |
+| [`dart_disclosure`](#dart-disclosure) | 기업 공시 검색 | — |
+| [`dart_company`](#dart-company) | 기업 개황 조회 | `corpCode` |
+| [`dart_financials`](#dart-financials) | 기업 재무제표 조회 | `corpCode`, `bsnsYear` |
+| [`kipris_patent`](#kipris-patent) | 특허·실용신안 검색 | `word` |
+| [`kipris_trademark`](#kipris-trademark) | 상표 검색 | `word` |
+| [`rtms_trade`](#rtms-trade) | 부동산 매매 실거래가 조회 | `lawdCd`, `dealYmd` |
+| [`rtms_rent`](#rtms-rent) | 부동산 전월세 실거래가 조회 | `lawdCd`, `dealYmd` |
+| [`public_price`](#public-price) | 공시가격 조회 | `pnu`, `stdrYear` |
+| [`geocode`](#geocode) | 주소·필지(PNU) 조회 | — |
+| [`shop_price`](#shop-price) | 상품 최저가 조회 | `query` |
+| [`app_reviews`](#app-reviews) | 앱 리뷰 조회 | `appId` |
 
 <a id="biz-detail"></a>
 
@@ -668,6 +681,286 @@ _No parameters. 파라미터 없음._
 ```
 
 ---
+
+<a id="bid-notice"></a>
+
+### `bid_notice` — 나라장터 입찰공고 조회
+
+Search Korean public procurement (Nara Market) bid notices by business type, period, or notice number.
+
+조달청 나라장터 입찰공고를 업무구분(물품·공사·용역·외자)·기간(최대 31일)·공고번호로 조회합니다. bizType 미지정 시 용역(Servc)이며, bidNtceNo만 주면 공고번호로 조회합니다. startDate·endDate는 YYYYMMDD 또는 YYYYMMDDHHMM 입니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `bizType` | `string` (물품 / 공사 / 용역 / 외자) | 선택 / optional | 업무구분 (물품·공사·용역·외자, 기본 용역) |
+| `startDate` | `string` | 선택 / optional | 조회 시작일 (YYYYMMDD 또는 YYYYMMDDHHMM) |
+| `endDate` | `string` | 선택 / optional | 조회 종료일 (YYYYMMDD 또는 YYYYMMDDHHMM) |
+| `bidNtceNo` | `string` | 선택 / optional | 입찰공고번호 (지정 시 공고번호로 조회) |
+| `indstrytyCd` | `string` | 선택 / optional | 업종코드 (선택) |
+| `pageNo` | `integer` | 선택 / optional | 페이지 번호 (기본 1) |
+| `numOfRows` | `integer` | 선택 / optional | 페이지당 결과 수 (기본 10, 최대 999) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"bid_notice","arguments":{"bizType":"<bizType>","startDate":"<startDate>","endDate":"<endDate>","bidNtceNo":"<bidNtceNo>","indstrytyCd":"<indstrytyCd>","pageNo":1,"numOfRows":1}}}
+```
+
+<a id="bid-award"></a>
+
+### `bid_award` — 나라장터 낙찰정보 조회
+
+Search Korean public procurement (Nara Market) bid-opening and award results by business type, period, or notice number.
+
+조달청 나라장터 개찰·낙찰 결과를 업무구분(물품·공사·용역·외자)·기간(최대 31일)·공고번호로 조회합니다. bizType 미지정 시 용역(Servc)입니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `bizType` | `string` (물품 / 공사 / 용역 / 외자) | 선택 / optional | 업무구분 (물품·공사·용역·외자, 기본 용역) |
+| `startDate` | `string` | 선택 / optional | 조회 시작일 (YYYYMMDD 또는 YYYYMMDDHHMM) |
+| `endDate` | `string` | 선택 / optional | 조회 종료일 (YYYYMMDD 또는 YYYYMMDDHHMM) |
+| `bidNtceNo` | `string` | 선택 / optional | 입찰공고번호 (지정 시 공고번호로 조회) |
+| `indstrytyCd` | `string` | 선택 / optional | 업종코드 (선택) |
+| `pageNo` | `integer` | 선택 / optional | 페이지 번호 (기본 1) |
+| `numOfRows` | `integer` | 선택 / optional | 페이지당 결과 수 (기본 10, 최대 999) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"bid_award","arguments":{"bizType":"<bizType>","startDate":"<startDate>","endDate":"<endDate>","bidNtceNo":"<bidNtceNo>","indstrytyCd":"<indstrytyCd>","pageNo":1,"numOfRows":1}}}
+```
+
+<a id="dart-disclosure"></a>
+
+### `dart_disclosure` — 기업 공시 검색
+
+Search Korean corporate disclosures (DART) by company code, period, or disclosure type.
+
+금융감독원 DART 전자공시를 회사 고유번호(corpCode)·기간(YYYYMMDD)·공시유형(pblntfTy, A~J)으로 조회합니다. corpCode 없이 기간만 조회하면 기간은 최대 3개월입니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `corpCode` | `string` | 선택 / optional | DART 고유번호 (8자리) |
+| `startDate` | `string` | 선택 / optional | 조회 시작일 (YYYYMMDD) |
+| `endDate` | `string` | 선택 / optional | 조회 종료일 (YYYYMMDD) |
+| `pblntfTy` | `string` (A / B / C / D / E / F / G / H / I / J) | 선택 / optional | 공시유형 (A 정기, B 주요사항, C 발행, D 지분, E 기타, F 외부감사, G 펀드, H 자산유동화, I 거래소, J 공정위) |
+| `pageNo` | `integer` | 선택 / optional | 페이지 번호 (기본 1) |
+| `numOfRows` | `integer` | 선택 / optional | 페이지당 결과 수 (기본 10, 최대 100) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"dart_disclosure","arguments":{"corpCode":"<corpCode>","startDate":"<startDate>","endDate":"<endDate>","pblntfTy":"<pblntfTy>","pageNo":1,"numOfRows":1}}}
+```
+
+<a id="dart-company"></a>
+
+### `dart_company` — 기업 개황 조회
+
+Get a Korean company overview from DART by its company code.
+
+금융감독원 DART에 등록된 기업의 개황(정식명칭·대표자·주소·업종·설립일 등)을 고유번호로 조회합니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `corpCode` | `string` | **필수 / required** | DART 고유번호 (8자리) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"dart_company","arguments":{"corpCode":"<corpCode>"}}}
+```
+
+<a id="dart-financials"></a>
+
+### `dart_financials` — 기업 재무제표 조회
+
+Get Korean company financial statements from DART by year and report code.
+
+금융감독원 DART 단일회사 주요 재무제표를 고유번호·사업연도·보고서(1분기/반기/3분기/사업)·개별/연결 구분으로 조회합니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `corpCode` | `string` | **필수 / required** | DART 고유번호 (8자리) |
+| `bsnsYear` | `string` | **필수 / required** | 사업연도 (YYYY, 2015년 이후) |
+| `reprtCode` | `string` (11011 / 11012 / 11013 / 11014) | 선택 / optional | 보고서 코드 (11011 사업, 11012 반기, 11013 1분기, 11014 3분기 / 기본 사업) |
+| `fsDiv` | `string` (CFS / OFS) | 선택 / optional | 연결(CFS)/개별(OFS) 구분 (기본 CFS) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"dart_financials","arguments":{"corpCode":"<corpCode>","bsnsYear":"<bsnsYear>","reprtCode":"<reprtCode>","fsDiv":"<fsDiv>"}}}
+```
+
+<a id="kipris-patent"></a>
+
+### `kipris_patent` — 특허·실용신안 검색
+
+Search Korean patents and utility models by keyword via KIPRIS. KIPRIS Plus
+
+에서 특허·실용신안 공개·등록공보를 키워드로 검색합니다. patent·utility 로 특허/실용신안 포함 여부를 정합니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `word` | `string` | **필수 / required** | 검색어 (최대 100자) |
+| `patent` | `boolean` | 선택 / optional | 특허 포함 여부 (기본 true) |
+| `utility` | `boolean` | 선택 / optional | 실용신안 포함 여부 (기본 true) |
+| `year` | `string` | 선택 / optional | 연도 필터 (YYYY) |
+| `pageNo` | `integer` | 선택 / optional | 페이지 번호 (기본 1) |
+| `numOfRows` | `integer` | 선택 / optional | 페이지당 결과 수 (기본 10, 최대 500) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"kipris_patent","arguments":{"word":"<word>","patent":true,"utility":true,"year":"<year>","pageNo":1,"numOfRows":1}}}
+```
+
+<a id="kipris-trademark"></a>
+
+### `kipris_trademark` — 상표 검색
+
+Search Korean trademarks by keyword via KIPRIS. KIPRIS Plus
+
+에서 상표 출원 속보를 키워드로 검색합니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `word` | `string` | **필수 / required** | 검색어 (최대 100자) |
+| `pageNo` | `integer` | 선택 / optional | 페이지 번호 (기본 1) |
+| `numOfRows` | `integer` | 선택 / optional | 페이지당 결과 수 (기본 10, 최대 500) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"kipris_trademark","arguments":{"word":"<word>","pageNo":1,"numOfRows":1}}}
+```
+
+<a id="rtms-trade"></a>
+
+### `rtms_trade` — 부동산 매매 실거래가 조회
+
+Search Korean real estate sale transactions (MOLIT RTMS) by district code and contract month.
+
+국토교통부 실거래가 자료를 지역코드(법정동코드 앞 5자리)·계약년월(YYYYMM)·부동산 유형으로 조회합니다(매매). propertyType: apt 아파트, rh 연립다세대, sh 단독다가구, offi 오피스텔.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `lawdCd` | `string` | **필수 / required** | 지역코드 (법정동코드 앞 5자리, 예: 11110) |
+| `dealYmd` | `string` | **필수 / required** | 계약년월 (YYYYMM, 예: 202601) |
+| `propertyType` | `string` (apt / rh / sh / offi) | 선택 / optional | 부동산 유형 (기본 apt) |
+| `pageNo` | `integer` | 선택 / optional | 페이지 번호 (기본 1) |
+| `numOfRows` | `integer` | 선택 / optional | 페이지당 결과 수 (기본 10, 최대 1000) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"rtms_trade","arguments":{"lawdCd":"<lawdCd>","dealYmd":"<dealYmd>","propertyType":"<propertyType>","pageNo":1,"numOfRows":1}}}
+```
+
+<a id="rtms-rent"></a>
+
+### `rtms_rent` — 부동산 전월세 실거래가 조회
+
+Search Korean real estate rent transactions (MOLIT RTMS) by district code and contract month.
+
+국토교통부 실거래가 자료를 지역코드(법정동코드 앞 5자리)·계약년월(YYYYMM)·부동산 유형으로 조회합니다(전월세). propertyType: apt 아파트, rh 연립다세대, sh 단독다가구, offi 오피스텔.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `lawdCd` | `string` | **필수 / required** | 지역코드 (법정동코드 앞 5자리, 예: 11110) |
+| `dealYmd` | `string` | **필수 / required** | 계약년월 (YYYYMM, 예: 202601) |
+| `propertyType` | `string` (apt / rh / sh / offi) | 선택 / optional | 부동산 유형 (기본 apt) |
+| `pageNo` | `integer` | 선택 / optional | 페이지 번호 (기본 1) |
+| `numOfRows` | `integer` | 선택 / optional | 페이지당 결과 수 (기본 10, 최대 1000) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"rtms_rent","arguments":{"lawdCd":"<lawdCd>","dealYmd":"<dealYmd>","propertyType":"<propertyType>","pageNo":1,"numOfRows":1}}}
+```
+
+<a id="public-price"></a>
+
+### `public_price` — 공시가격 조회
+
+Get Korean official real estate prices (MOLIT NSDI) by parcel number and reference year.
+
+국토교통부 공시가격(공동주택·개별주택·개별공시지가)을 PNU(19자리)·기준연도로 조회합니다. priceType: apart 공동주택, indvdHouse 개별주택, indvdLand 개별공시지가.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `pnu` | `string` | **필수 / required** | 필지고유번호 (19자리) |
+| `stdrYear` | `string` | **필수 / required** | 공시 기준연도 (YYYY) |
+| `priceType` | `string` (apart / indvdHouse / indvdLand) | 선택 / optional | 공시가격 유형 (기본 apart) |
+| `pageNo` | `integer` | 선택 / optional | 페이지 번호 (기본 1) |
+| `numOfRows` | `integer` | 선택 / optional | 페이지당 결과 수 (기본 10, 최대 1000) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"public_price","arguments":{"pnu":"<pnu>","stdrYear":"<stdrYear>","priceType":"<priceType>","pageNo":1,"numOfRows":1}}}
+```
+
+<a id="geocode"></a>
+
+### `geocode` — 주소·필지(PNU) 조회
+
+Resolve a Korean address to coordinates and parcel identifiers (V-World).
+
+주소를 좌표와 필지로 변환해 PNU(19자리)·법정동코드·지번·좌표를 돌려줍니다. 공시가격·실거래가 조회에 필요한 식별자를 얻을 때 씁니다. addrType: parcel 지번, road 도로명, auto 자동(기본).
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `address` | `string` | 선택 / optional | 지번 또는 도로명 주소 (예: 서울특별시 강남구 역삼동 808) |
+| `pnu` | `string` | 선택 / optional | PNU(19자리). 주면 좌표 조회 없이 바로 조회합니다. |
+| `addrType` | `string` (auto / parcel / road) | 선택 / optional | 주소 유형 (기본 auto) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"geocode","arguments":{"address":"<address>","pnu":"<pnu>","addrType":"<addrType>"}}}
+```
+
+<a id="shop-price"></a>
+
+### `shop_price` — 상품 최저가 조회
+
+Search Korean shopping listings (Naver Shopping) by keyword and return sellers, prices and the lowest-price item.
+
+키워드로 상품을 검색해 판매처·가격과 최저가 상품을 돌려줍니다. sort: sim 정확도, date 최신, asc 낮은가격, dsc 높은가격.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `query` | `string` | **필수 / required** | 검색어 (최대 100자) |
+| `display` | `integer` | 선택 / optional | 결과 수 (기본 10, 최대 100) |
+| `start` | `integer` | 선택 / optional | 시작 위치 (기본 1, 최대 1000) |
+| `sort` | `string` (sim / date / asc / dsc) | 선택 / optional | 정렬 (기본 sim) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"shop_price","arguments":{"query":"<query>","display":1,"start":1,"sort":"<sort>"}}}
+```
+
+<a id="app-reviews"></a>
+
+### `app_reviews` — 앱 리뷰 조회
+
+Get App Store app metadata and customer reviews (Apple iTunes) by numeric app id.
+
+앱스토어 앱 정보(평점·가격·장르)와 고객 리뷰를 함께 돌려줍니다. country 기본 kr, page 로 리뷰 페이지를 넘깁니다(최대 10).
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `appId` | `string` | **필수 / required** | 앱스토어 앱 ID (숫자) |
+| `country` | `string` | 선택 / optional | 국가 코드 (기본 kr) |
+| `page` | `integer` | 선택 / optional | 리뷰 페이지 (기본 1, 최대 10) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"app_reviews","arguments":{"appId":"<appId>","country":"<country>","page":1}}}
+```
 
 <a id="identity"></a>
 
@@ -1734,6 +2027,22 @@ Default Gemini submission accepts text or utterances and an optional voice ID. S
 기본·확장 라이브러리 목소리와 공식 성별·음색, 연령 검증 여부를 반환합니다. / Lists all basic and extended voices with official gender/tone and age verification status.
 
 > 읽기 전용 / read-only · server `convert`
+
+### `tts_openai_create` — ChatGPT 음성 제작 / ChatGPT speech
+
+`voice_id`, `style`, `text` 또는 `utterances`, `normalize_text`(기본 true), `idempotency_key`를 받습니다. 목소리는 `alloy`, `ash`, `ballad`, `coral`, `echo`, `fable`, `onyx`, `nova`, `sage`, `shimmer`, `verse` 중 하나이며 기본값은 `alloy`입니다. / Accepts a voice, style, text or utterances; normalization defaults on. Voices are alloy, ash, ballad, coral, echo, fable, onyx, nova, sage, shimmer and verse, with alloy as the default.
+
+> 부작용 있음 / has side effects · 최대 요금 예약 후 실제 정산 / reserves then settles usage · server `convert`
+
+### `tts_openai_voices` — ChatGPT 목소리 목록 / ChatGPT voices
+
+ChatGPT TTS 목소리와 음색 특성을 반환합니다. / Lists the ChatGPT TTS voices and their tone.
+
+> 읽기 전용 / read-only · server `convert`
+
+### `tts_options` — 표현 옵션 조회 / Expression options
+
+무료 GET 조회이며 입력은 없습니다. Gemini·ChatGPT의 표현 옵션과 화자 수 제한을 반환합니다. No input; returns supported expression options and speaker limits.
 
 ### `tts_quote` — 예상 요금 / Price estimate
 

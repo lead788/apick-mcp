@@ -1,7 +1,9 @@
 # 4.0.0
 
+- 공개 전 점검 중인 Business 12개를 활성 목록에서 제외했습니다. 상세 계약은 비활성 표시와 함께 보존합니다. / Exclude 12 unavailable Business tools from the active inventory and retain their contracts with an availability notice.
+
 - Align TTS documentation with Gemini/ChatGPT, shared expression options, multi-speaker input and default-on paid normalization. Legacy APICK voices, automatic fallback and quality/retry/candidate tools have retired.
-- TTS 현재 계약과 한영 문서·중계 시험을 동기화했습니다. 기본 접수는 Gemini이며 두 엔진 모두 MP3·원문 ASS 결과를 사용합니다. 현재 통합 도구는 131개, Convert는 25개입니다.
+- TTS 현재 계약과 한영 문서·중계 시험을 동기화했습니다. 기본 접수는 Gemini이며 두 엔진 모두 MP3·원문 ASS 결과를 사용합니다. 현재 통합 도구는 119개, Convert는 25개입니다.
 - The bridge remains a transparent JSON-RPC transport; no server implementation or credentials are included.
 
 # 3.12.0

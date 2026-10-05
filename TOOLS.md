@@ -1,7 +1,7 @@
 # APICK MCP — Full Tool Catalog / 전체 Tool 목록
 
-**131 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 131개**, 분야별 서버 8개와 통합 서버 `all`.
+**119 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 119개**, 분야별 서버 8개와 통합 서버 `all`.
 
 4.0.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
 
@@ -16,7 +16,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 | Server 서버 | Endpoint | Tools | Coverage 범위 |
 | --- | --- | --- | --- |
-| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 42 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 유효성 검사. |
+| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 30 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 유효성 검사. |
 | [Identity Verification · 신분증 진위확인 · 마스킹](#identity) | `/mcp/identity` | 16 | 주민등록증·운전면허증·여권·외국인등록증 진위확인, 실명확인, 개인정보 마스킹. |
 | [OCR · OCR 문자인식](#ocr) | `/mcp/ocr` | 6 | 이미지 텍스트 추출과 신분증 항목 추출. |
 | [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 3 | 계좌 예금주 실명조회와 1원 인증. |
@@ -24,12 +24,12 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 25 | PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
-| **All 통합** | `/mcp/all` | **131** | 아래 전부 + [`find_tools`](#find-tools) |
+| **All 통합** | `/mcp/all` | **119** | 아래 전부 + [`find_tools`](#find-tools) |
 | [Skills · 검수된 Skill 실행](#skills) | `/mcp/skills` | 6 | Skill 검색·상세·견적·실행·조회·취소. `all`에는 포함되지 않는 별도 서버 / separate server, not part of `all`. |
 
-<details><summary><b>All 131 tool names / 전체 Tool 이름</b></summary>
+<details><summary><b>All 119 tool names / 전체 Tool 이름</b></summary>
 
-`biz_detail` · `venture_biz_info` · `land_rt_price` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `bid_notice` · `bid_award` · `dart_disclosure` · `dart_company` · `dart_financials` · `kipris_patent` · `kipris_trademark` · `rtms_trade` · `rtms_rent` · `public_price` · `geocode` · `shop_price` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup`
+`biz_detail` · `venture_biz_info` · `land_rt_price` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup`
 
 `identi_card1` · `identi_card2` · `identi_card3` · `identi_card4` · `identi_card5` · `identi_card_image1` · `identi_card_image2` · `identi_card_image3` · `identi_card_image4` · `identi_card_image5` · `name_rrn_auth` · `hide_rrn` · `identity_document_residence_card` · `identity_document_passport` · `identity_document_id_card` · `identity_document_driver_license`
 
@@ -100,7 +100,7 @@ Call the recommended tool afterwards with your API key as usual. 추천받은 To
 
 ## Business & Commerce · 사업자 · 커머스
 
-`https://apick.app/mcp/business` — 42 tools
+`https://apick.app/mcp/business` — 30 tools
 
 Korean business registry, corporate credit, parcel tracking, real-estate prices, vehicle history, and input validation.
 
@@ -686,6 +686,8 @@ _No parameters. 파라미터 없음._
 
 ### `bid_notice` — 나라장터 입찰공고 조회
 
+> 현재 공개 전 점검으로 비활성 상태이며 `tools/list`와 호출에서 제외됩니다. 아래 계약은 참고용으로 보존합니다. / Currently unavailable and excluded from `tools/list` and calls. The contract below is retained for reference.
+
 Search Korean public procurement (Nara Market) bid notices by business type, period, or notice number.
 
 조달청 나라장터 입찰공고를 업무구분(물품·공사·용역·외자)·기간(최대 31일)·공고번호로 조회합니다. bizType 미지정 시 용역(Servc)이며, bidNtceNo만 주면 공고번호로 조회합니다. startDate·endDate는 YYYYMMDD 또는 YYYYMMDDHHMM 입니다.
@@ -709,6 +711,8 @@ Search Korean public procurement (Nara Market) bid notices by business type, per
 <a id="bid-award"></a>
 
 ### `bid_award` — 나라장터 낙찰정보 조회
+
+> 현재 공개 전 점검으로 비활성 상태이며 `tools/list`와 호출에서 제외됩니다. 아래 계약은 참고용으로 보존합니다. / Currently unavailable and excluded from `tools/list` and calls. The contract below is retained for reference.
 
 Search Korean public procurement (Nara Market) bid-opening and award results by business type, period, or notice number.
 
@@ -734,6 +738,8 @@ Search Korean public procurement (Nara Market) bid-opening and award results by 
 
 ### `dart_disclosure` — 기업 공시 검색
 
+> 현재 공개 전 점검으로 비활성 상태이며 `tools/list`와 호출에서 제외됩니다. 아래 계약은 참고용으로 보존합니다. / Currently unavailable and excluded from `tools/list` and calls. The contract below is retained for reference.
+
 Search Korean corporate disclosures (DART) by company code, period, or disclosure type.
 
 금융감독원 DART 전자공시를 회사 고유번호(corpCode)·기간(YYYYMMDD)·공시유형(pblntfTy, A~J)으로 조회합니다. corpCode 없이 기간만 조회하면 기간은 최대 3개월입니다.
@@ -757,6 +763,8 @@ Search Korean corporate disclosures (DART) by company code, period, or disclosur
 
 ### `dart_company` — 기업 개황 조회
 
+> 현재 공개 전 점검으로 비활성 상태이며 `tools/list`와 호출에서 제외됩니다. 아래 계약은 참고용으로 보존합니다. / Currently unavailable and excluded from `tools/list` and calls. The contract below is retained for reference.
+
 Get a Korean company overview from DART by its company code.
 
 금융감독원 DART에 등록된 기업의 개황(정식명칭·대표자·주소·업종·설립일 등)을 고유번호로 조회합니다.
@@ -774,6 +782,8 @@ Get a Korean company overview from DART by its company code.
 <a id="dart-financials"></a>
 
 ### `dart_financials` — 기업 재무제표 조회
+
+> 현재 공개 전 점검으로 비활성 상태이며 `tools/list`와 호출에서 제외됩니다. 아래 계약은 참고용으로 보존합니다. / Currently unavailable and excluded from `tools/list` and calls. The contract below is retained for reference.
 
 Get Korean company financial statements from DART by year and report code.
 
@@ -795,6 +805,8 @@ Get Korean company financial statements from DART by year and report code.
 <a id="kipris-patent"></a>
 
 ### `kipris_patent` — 특허·실용신안 검색
+
+> 현재 공개 전 점검으로 비활성 상태이며 `tools/list`와 호출에서 제외됩니다. 아래 계약은 참고용으로 보존합니다. / Currently unavailable and excluded from `tools/list` and calls. The contract below is retained for reference.
 
 Search Korean patents and utility models by keyword via KIPRIS. KIPRIS Plus
 
@@ -819,6 +831,8 @@ Search Korean patents and utility models by keyword via KIPRIS. KIPRIS Plus
 
 ### `kipris_trademark` — 상표 검색
 
+> 현재 공개 전 점검으로 비활성 상태이며 `tools/list`와 호출에서 제외됩니다. 아래 계약은 참고용으로 보존합니다. / Currently unavailable and excluded from `tools/list` and calls. The contract below is retained for reference.
+
 Search Korean trademarks by keyword via KIPRIS. KIPRIS Plus
 
 에서 상표 출원 속보를 키워드로 검색합니다.
@@ -838,6 +852,8 @@ Search Korean trademarks by keyword via KIPRIS. KIPRIS Plus
 <a id="rtms-trade"></a>
 
 ### `rtms_trade` — 부동산 매매 실거래가 조회
+
+> 현재 공개 전 점검으로 비활성 상태이며 `tools/list`와 호출에서 제외됩니다. 아래 계약은 참고용으로 보존합니다. / Currently unavailable and excluded from `tools/list` and calls. The contract below is retained for reference.
 
 Search Korean real estate sale transactions (MOLIT RTMS) by district code and contract month.
 
@@ -861,6 +877,8 @@ Search Korean real estate sale transactions (MOLIT RTMS) by district code and co
 
 ### `rtms_rent` — 부동산 전월세 실거래가 조회
 
+> 현재 공개 전 점검으로 비활성 상태이며 `tools/list`와 호출에서 제외됩니다. 아래 계약은 참고용으로 보존합니다. / Currently unavailable and excluded from `tools/list` and calls. The contract below is retained for reference.
+
 Search Korean real estate rent transactions (MOLIT RTMS) by district code and contract month.
 
 국토교통부 실거래가 자료를 지역코드(법정동코드 앞 5자리)·계약년월(YYYYMM)·부동산 유형으로 조회합니다(전월세). propertyType: apt 아파트, rh 연립다세대, sh 단독다가구, offi 오피스텔.
@@ -882,6 +900,8 @@ Search Korean real estate rent transactions (MOLIT RTMS) by district code and co
 <a id="public-price"></a>
 
 ### `public_price` — 공시가격 조회
+
+> 현재 공개 전 점검으로 비활성 상태이며 `tools/list`와 호출에서 제외됩니다. 아래 계약은 참고용으로 보존합니다. / Currently unavailable and excluded from `tools/list` and calls. The contract below is retained for reference.
 
 Get Korean official real estate prices (MOLIT NSDI) by parcel number and reference year.
 
@@ -905,6 +925,8 @@ Get Korean official real estate prices (MOLIT NSDI) by parcel number and referen
 
 ### `geocode` — 주소·필지(PNU) 조회
 
+> 현재 공개 전 점검으로 비활성 상태이며 `tools/list`와 호출에서 제외됩니다. 아래 계약은 참고용으로 보존합니다. / Currently unavailable and excluded from `tools/list` and calls. The contract below is retained for reference.
+
 Resolve a Korean address to coordinates and parcel identifiers (V-World).
 
 주소를 좌표와 필지로 변환해 PNU(19자리)·법정동코드·지번·좌표를 돌려줍니다. 공시가격·실거래가 조회에 필요한 식별자를 얻을 때 씁니다. addrType: parcel 지번, road 도로명, auto 자동(기본).
@@ -924,6 +946,8 @@ Resolve a Korean address to coordinates and parcel identifiers (V-World).
 <a id="shop-price"></a>
 
 ### `shop_price` — 상품 최저가 조회
+
+> 현재 공개 전 점검으로 비활성 상태이며 `tools/list`와 호출에서 제외됩니다. 아래 계약은 참고용으로 보존합니다. / Currently unavailable and excluded from `tools/list` and calls. The contract below is retained for reference.
 
 Search Korean shopping listings (Naver Shopping) by keyword and return sellers, prices and the lowest-price item.
 
@@ -2846,7 +2870,7 @@ Available generations: Seedance 1.0/1.5/2.0/2.5, including Seedance 2.0 Standard
 
 A Skill is an execution product registered by a seller and published after APICK review. Each Skill fixes its input format, output format, base amount and limits. For Skills that use generative AI the actual usage of each run is added, so the charge varies per run. Running it from the web, REST or MCP uses the same run ID and the same charging rule.
 
-Skill 은 판매자가 등록하고 에이픽이 심사해 게시한 실행 상품입니다. 입력 형식·결과 형식·기본 금액·처리 상한이 Skill 마다 정해져 있고, 생성형 AI 를 쓰는 Skill 은 실행마다 실제 사용량이 더해져 금액이 달라집니다. 또 웹·REST·MCP 어디에서 실행해도 같은 실행 번호와 같은 과금 규칙을 씁니다. `all` 서버와 별도이며 131개에는 포함되지 않습니다.
+Skill 은 판매자가 등록하고 에이픽이 심사해 게시한 실행 상품입니다. 입력 형식·결과 형식·기본 금액·처리 상한이 Skill 마다 정해져 있고, 생성형 AI 를 쓰는 Skill 은 실행마다 실제 사용량이 더해져 금액이 달라집니다. 또 웹·REST·MCP 어디에서 실행해도 같은 실행 번호와 같은 과금 규칙을 씁니다. `all` 서버와 별도이며 119개에는 포함되지 않습니다.
 
 | Rule 규칙 | Detail 내용 |
 | --- | --- |

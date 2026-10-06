@@ -1,3 +1,8 @@
+# 4.2.1
+
+- `youtube_subtitle` 이 자동 번역 자막(`translated: true`) 때문에 받지 못하면 원어 자막을 쓰라는 안내와 함께 실패로 응답합니다(과금 없음). 서버 재시작 등으로 처리가 끊긴 유튜브 요청은 서버가 자동으로 다시 시도합니다.
+- `youtube_subtitle` now fails with guidance to use an original-language track when an auto-translated caption is refused (not charged). YouTube requests interrupted by a server restart are retried automatically.
+
 # 4.2.0
 
 - Web 서버에 아마존 상품 조회, X 프로필·게시물 조회와 수집 작업 7개(인스타그램 게시물 목록·댓글, 틱톡 키워드 검색·영상·댓글, 아마존 리뷰 접수, 작업 상태·결과 조회)를 추가했습니다. 통합 도구는 143개, Web은 41개입니다.

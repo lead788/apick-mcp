@@ -1984,6 +1984,8 @@ Download the subtitles of a public YouTube video in one language as VTT, SRT or 
 
 유튜브 공개 영상의 자막을 언어별로 VTT·SRT·텍스트 파일로 내려받습니다. 제공 언어는 `youtube_subtitle_list`로 먼저 확인하고, 영상 원어 자막 사용을 권장합니다. 호출당 30포인트.
 
+> 자동 번역 자막(목록의 `translated: true`)은 유튜브 제한으로 받지 못할 수 있습니다. 이때는 원어 자막을 쓰라는 안내와 함께 실패로 응답하며 과금되지 않습니다. / Auto-translated captions (`translated: true`) may be refused by YouTube; the call then fails with guidance to use an original-language track and is not charged.
+
 > 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `web`
 
 | Parameter | Type | Required | Description 설명 |

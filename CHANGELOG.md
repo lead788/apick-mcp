@@ -1,5 +1,9 @@
 # 4.1.0
 
+- Web 서버에 유튜브 검색·채널·재생목록·해시태그·댓글·다운로드 화질 조회와 오디오 다운로드 7개 도구를 추가했습니다. 통합 도구는 133개, Web은 31개입니다.
+- `download_youtube_video` 는 화질(quality)·코덱(codec)·구간(start·end)을 고를 수 있고, 1시간 유효한 다운로드 링크를 돌려줍니다. 요금은 30포인트 + 파일 10MB당 2포인트입니다(오디오는 20포인트 기본).
+- Add 7 Web tools for YouTube: search, channel, playlist, hashtag, comments, downloadable formats and audio download — 133 tools overall, 31 on Web.
+- `download_youtube_video` now accepts quality, codec and a time range, and returns a download link valid for 1 hour. Billed as 30 points plus 2 points per 10MB (audio: 20 points base).
 - Web 서버에 구글 뉴스·쇼핑·지도 장소 검색, 구글 검색 순위 확인(1~100위), 인스타그램 프로필·게시물/릴스 조회, 틱톡 프로필 조회 7개 도구를 추가했습니다. 통합 도구는 126개, Web은 24개입니다.
 - `google_rank_check` 는 일부 순위 구간을 확인하지 못하면 `complete:false`·`unchecked_ranks` 와 함께 확인한 구간 비율만큼만 과금됩니다.
 - `google_search` 는 페이지당 최대 10건을 돌려줍니다. `google_image_search` 의 page 는 1~5(페이지당 20건, 최대 100건)입니다. 실패한 호출은 과금되지 않습니다.

@@ -1,7 +1,7 @@
 # APICK MCP — Full Tool Catalog / 전체 Tool 목록
 
-**126 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 126개**, 분야별 서버 8개와 통합 서버 `all`.
+**133 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 133개**, 분야별 서버 8개와 통합 서버 `all`.
 
 4.1.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
 
@@ -20,14 +20,14 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | [Identity Verification · 신분증 진위확인 · 마스킹](#identity) | `/mcp/identity` | 16 | 주민등록증·운전면허증·여권·외국인등록증 진위확인, 실명확인, 개인정보 마스킹. |
 | [OCR · OCR 문자인식](#ocr) | `/mcp/ocr` | 6 | 이미지 텍스트 추출과 신분증 항목 추출. |
 | [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 3 | 계좌 예금주 실명조회와 1원 인증. |
-| [Web & Search · 웹 · 검색](#web) | `/mcp/web` | 24 | 도메인·IP 조회, WHOIS, 웹페이지 수집, 구글 검색(웹·이미지·뉴스·쇼핑·지도·순위), 유튜브·인스타그램·틱톡. |
+| [Web & Search · 웹 · 검색](#web) | `/mcp/web` | 31 | 도메인·IP 조회, WHOIS, 웹페이지 수집, 구글 검색(웹·이미지·뉴스·쇼핑·지도·순위), 유튜브(검색·채널·재생목록·댓글·자막·영상·오디오 다운로드)·인스타그램·틱톡. |
 | [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 25 | PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
-| **All 통합** | `/mcp/all` | **126** | 아래 전부 + [`find_tools`](#find-tools) |
+| **All 통합** | `/mcp/all` | **133** | 아래 전부 + [`find_tools`](#find-tools) |
 | [Skills · 검수된 Skill 실행](#skills) | `/mcp/skills` | 6 | Skill 검색·상세·견적·실행·조회·취소. `all`에는 포함되지 않는 별도 서버 / separate server, not part of `all`. |
 
-<details><summary><b>All 126 tool names / 전체 Tool 이름</b></summary>
+<details><summary><b>All 133 tool names / 전체 Tool 이름</b></summary>
 
 `biz_detail` · `venture_biz_info` · `land_rt_price` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup`
 
@@ -37,7 +37,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 `transfer_1won` · `account_realname` · `bank_code`
 
-`nslookup` · `reverse_ip` · `location` · `ip_history` · `whois` · `url_html` · `url_screenshot` · `url_similarity` · `google_search` · `google_image_search` · `google_news_search` · `google_shopping_search` · `google_maps_search` · `google_rank_check` · `google_lens_search` · `crawl_youtube` · `download_youtube_video` · `youtube_metadata` · `youtube_thumbnail` · `youtube_subtitle_list` · `youtube_subtitle` · `instagram_profile` · `instagram_post` · `tiktok_profile`
+`nslookup` · `reverse_ip` · `location` · `ip_history` · `whois` · `url_html` · `url_screenshot` · `url_similarity` · `google_search` · `google_image_search` · `google_news_search` · `google_shopping_search` · `google_maps_search` · `google_rank_check` · `google_lens_search` · `crawl_youtube` · `download_youtube_video` · `youtube_metadata` · `youtube_thumbnail` · `youtube_subtitle_list` · `youtube_subtitle` · `youtube_search` · `youtube_channel` · `youtube_playlist` · `youtube_hashtag` · `youtube_formats` · `youtube_comments` · `youtube_audio_download` · `instagram_profile` · `instagram_post` · `tiktok_profile`
 
 `stt` · `tts_jobs_create` · `tts_gemini_create` · `tts_gemini_voices` · `tts_openai_create` · `tts_openai_voices` · `tts_options` · `tts_quote` · `tts_jobs_status` · `tts_jobs_cancel` · `tts_jobs_result` · `tts_jobs_subtitles` · `voice_change` · `face_blur` · `pdf_to_docx` · `pdf_to_image` · `pdf_merge` · `html_to_pdf` · `docx_to_pdf` · `json_to_excel` · `base64_to_image` · `set_watermark` · `get_watermark` · `draw_watermark_pdf` · `draw_watermark_image`
 
@@ -1548,11 +1548,11 @@ _No parameters. 파라미터 없음._
 
 ## Web & Search · 웹 · 검색
 
-`https://apick.app/mcp/web` — 24 tools
+`https://apick.app/mcp/web` — 31 tools
 
-Domain and IP intelligence, WHOIS, page capture, Google search (web, images, news, shopping, maps, rank check), YouTube, Instagram and TikTok.
+Domain and IP intelligence, WHOIS, page capture, Google search (web, images, news, shopping, maps, rank check), YouTube (search, channels, playlists, comments, subtitles, video and audio download), Instagram and TikTok.
 
-도메인·IP 조회, WHOIS, 웹페이지 수집, 구글 검색(웹·이미지·뉴스·쇼핑·지도·순위), 유튜브·인스타그램·틱톡.
+도메인·IP 조회, WHOIS, 웹페이지 수집, 구글 검색(웹·이미지·뉴스·쇼핑·지도·순위), 유튜브(검색·채널·재생목록·댓글·자막·영상·오디오 다운로드)·인스타그램·틱톡.
 
 | Tool | 기능 | Required 필수 |
 | --- | --- | --- |
@@ -1577,6 +1577,13 @@ Domain and IP intelligence, WHOIS, page capture, Google search (web, images, new
 | [`youtube_thumbnail`](#youtube-thumbnail) | 유튜브 썸네일 다운로드 | `url` |
 | [`youtube_subtitle_list`](#youtube-subtitle-list) | 유튜브 자막 목록 조회 | `url` |
 | [`youtube_subtitle`](#youtube-subtitle) | 유튜브 자막 다운로드 | `url`, `lang` |
+| [`youtube_search`](#youtube-search) | 유튜브 검색 | undefined |
+| [`youtube_channel`](#youtube-channel) | 유튜브 채널 조회 | undefined |
+| [`youtube_playlist`](#youtube-playlist) | 유튜브 재생목록 조회 | undefined |
+| [`youtube_hashtag`](#youtube-hashtag) | 유튜브 해시태그 영상 조회 | undefined |
+| [`youtube_formats`](#youtube-formats) | 유튜브 다운로드 화질 조회 | undefined |
+| [`youtube_comments`](#youtube-comments) | 유튜브 댓글 조회 | undefined |
+| [`youtube_audio_download`](#youtube-audio-download) | 유튜브 오디오 다운로드 | undefined |
 | [`instagram_profile`](#instagram-profile) | 인스타그램 프로필 조회 | `username` 또는 `url` |
 | [`instagram_post`](#instagram-post) | 인스타그램 게시물·릴스 조회 | `url` |
 | [`tiktok_profile`](#tiktok-profile) | 틱톡 프로필 조회 | `username` 또는 `url` |
@@ -1879,18 +1886,22 @@ Collect a YouTube channel profile and its latest uploaded videos.
 
 ### `download_youtube_video` — 유튜브 동영상 다운로드
 
-Download a publicly available YouTube video and return it as an MP4 file.
+Download a public YouTube video as an MP4 file in the chosen quality (up to 4K), optionally only a time range. Returns a download link valid for 1 hour (resumable, no key needed). Billed as 30 points plus 2 points per 10MB of the delivered file; check sizes and estimated costs with `youtube_formats` first.
 
-유튜브에 공개된 동영상을 MP4 파일로 다운로드해 반환합니다. 비공개·차단된 게시글은 실패로 응답합니다.
+유튜브 공개 영상을 원하는 화질(최대 4K)의 MP4로 받습니다. 구간만 잘라 받을 수 있습니다. 1시간 유효한 다운로드 링크(이어받기 지원, 인증키 불필요)를 돌려줍니다. 요금은 30포인트 + 파일 10MB당 2포인트이며, `youtube_formats`로 화질별 예상 용량·요금을 먼저 볼 수 있습니다.
 
 > 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `web`
 
 | Parameter | Type | Required | Description 설명 |
 | --- | --- | --- | --- |
-| `url` | `string` | **필수 / required** | 유튜브 게시글 URL (예: https://www.youtube.com/watch?v=...) |
+| `url` | `string` | **필수 / required** | 유튜브 영상 URL 또는 11자리 영상 ID (watch·youtu.be·shorts 주소 지원) |
+| `quality` | `string` | 선택 / optional | 최대 화질 `best`·`2160`·`1440`·`1080`(기본)·`720`·`480`·`360`·`240`·`144` |
+| `codec` | `string` | 선택 / optional | `any`(기본)·`h264`(구형 기기 호환) |
+| `start` | `string` | 선택 / optional | 구간 시작(초 또는 시:분:초) |
+| `end` | `string` | 선택 / optional | 구간 끝(초 또는 시:분:초) |
 
 ```json
-{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"download_youtube_video","arguments":{"url":"<url>"}}}
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"download_youtube_video","arguments":{"url":"<url>","quality":"1080"}}}
 ```
 
 ---
@@ -1974,6 +1985,162 @@ Download the subtitles of a public YouTube video in one language as VTT, SRT or 
 
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"youtube_subtitle","arguments":{"url":"<url>","lang":"en","format":"srt"}}}
+```
+
+---
+
+<a id="youtube-search"></a>
+
+### `youtube_search` — 유튜브 검색
+
+Search YouTube by keyword and list videos, shorts, channels or playlists with title, channel, duration, views and thumbnail. Supports sort (relevance, date, views, rating) and filters (upload date, type, duration). 20 points per call.
+
+키워드로 유튜브 영상·쇼츠·채널·재생목록을 검색합니다. 정렬(관련도·업로드일·조회수·평점)과 업로드 시기·종류·길이 조건을 지정할 수 있습니다. 호출당 20포인트.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `web`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `query` | `string` | **필수 / required** | 검색어 (1~200자) |
+| `count` | `integer` | 선택 / optional | 결과 수 1~50 (기본 10) |
+| `sort` | `string` | 선택 / optional | `relevance`(기본)·`date`·`views`·`rating` |
+| `type` | `string` | 선택 / optional | `any`(기본)·`video`·`channel`·`playlist`·`movie` |
+| `upload_date` | `string` | 선택 / optional | `any`(기본)·`hour`·`today`·`week`·`month`·`year` |
+| `duration` | `string` | 선택 / optional | `any`(기본)·`short`(4분 미만)·`medium`(4~20분)·`long`(20분 초과) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"youtube_search","arguments":{"query":"파이썬 기초 강좌","count":5,"type":"video"}}}
+```
+
+---
+
+<a id="youtube-channel"></a>
+
+### `youtube_channel` — 유튜브 채널 조회
+
+Look up a YouTube channel (name, handle, subscribers, description) and list items of its videos, shorts, live or playlists tab. 20 points per call.
+
+유튜브 채널의 이름·핸들·구독자 수·소개와 영상·쇼츠·라이브·재생목록 탭의 목록을 조회합니다. 호출당 20포인트.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `web`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `channel` | `string` | **필수 / required** | 채널 URL, 핸들(@이름) 또는 채널 ID(UC…) |
+| `tab` | `string` | 선택 / optional | `videos`(기본)·`shorts`·`streams`·`playlists` |
+| `count` | `integer` | 선택 / optional | 가져올 항목 수 1~100 (기본 30) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"youtube_channel","arguments":{"channel":"@jocoding","tab":"videos","count":10}}}
+```
+
+---
+
+<a id="youtube-playlist"></a>
+
+### `youtube_playlist` — 유튜브 재생목록 조회
+
+Look up a public YouTube playlist: title, channel, video count and the list of videos in it. 20 points per call.
+
+유튜브 공개 재생목록의 제목·채널·영상 수와 수록 영상 목록을 조회합니다. 호출당 20포인트.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `web`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `url` | `string` | **필수 / required** | 재생목록 URL(list= 포함) 또는 재생목록 ID(PL…) |
+| `count` | `integer` | 선택 / optional | 가져올 영상 수 1~200 (기본 50) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"youtube_playlist","arguments":{"url":"https://www.youtube.com/playlist?list=<playlist_id>","count":50}}}
+```
+
+---
+
+<a id="youtube-hashtag"></a>
+
+### `youtube_hashtag` — 유튜브 해시태그 영상 조회
+
+List videos on a YouTube hashtag page. 20 points per call.
+
+유튜브 해시태그 페이지에 올라온 영상 목록을 조회합니다. 호출당 20포인트.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `web`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `hashtag` | `string` | **필수 / required** | 해시태그 (# 생략 가능, 예: kpop) |
+| `count` | `integer` | 선택 / optional | 가져올 영상 수 1~100 (기본 30) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"youtube_hashtag","arguments":{"hashtag":"kpop","count":20}}}
+```
+
+---
+
+<a id="youtube-formats"></a>
+
+### `youtube_formats` — 유튜브 다운로드 화질 조회
+
+List the downloadable video qualities (resolution, fps, codec, size) and audio formats of a public YouTube video, with the estimated download size and cost per quality. 10 points per call.
+
+유튜브 공개 영상에서 받을 수 있는 화질·코덱·용량, 오디오 형식과 화질별 예상 다운로드 요금을 조회합니다. 호출당 10포인트.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `web`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `url` | `string` | **필수 / required** | 유튜브 영상 URL 또는 11자리 영상 ID (watch·youtu.be·shorts 주소 지원) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"youtube_formats","arguments":{"url":"<url>"}}}
+```
+
+---
+
+<a id="youtube-comments"></a>
+
+### `youtube_comments` — 유튜브 댓글 조회
+
+List comments of a public YouTube video sorted by top or newest, with author, text, likes, pinned/hearted flags and optional replies. 30 points per call.
+
+유튜브 공개 영상의 댓글을 인기순 또는 최신순으로 조회합니다. 작성자·내용·좋아요·고정·하트 여부와 답글을 함께 받을 수 있습니다. 호출당 30포인트.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `web`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `url` | `string` | **필수 / required** | 유튜브 영상 URL 또는 11자리 영상 ID (watch·youtu.be·shorts 주소 지원) |
+| `count` | `integer` | 선택 / optional | 가져올 댓글 수 1~200 (기본 20, 답글 포함) |
+| `sort` | `string` | 선택 / optional | `top`(기본, 인기순)·`new`(최신순) |
+| `replies` | `boolean` | 선택 / optional | `true`면 댓글마다 답글을 최대 5개까지 함께 가져옵니다 (기본 `false`) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"youtube_comments","arguments":{"url":"<url>","count":20,"sort":"top"}}}
+```
+
+---
+
+<a id="youtube-audio-download"></a>
+
+### `youtube_audio_download` — 유튜브 오디오 다운로드
+
+Download only the audio of a public YouTube video as MP3, M4A or Opus, optionally only a time range. Returns a download link valid for 1 hour (resumable, no key needed). Billed as 20 points plus 2 points per 10MB of the delivered file.
+
+유튜브 공개 영상의 소리만 MP3·M4A·Opus로 받습니다. 구간만 잘라 받을 수 있습니다. 1시간 유효한 다운로드 링크(이어받기 지원, 인증키 불필요)를 돌려줍니다. 요금은 20포인트 + 파일 10MB당 2포인트입니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `web`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `url` | `string` | **필수 / required** | 유튜브 영상 URL 또는 11자리 영상 ID (watch·youtu.be·shorts 주소 지원) |
+| `format` | `string` | 선택 / optional | `mp3`(기본)·`m4a`·`opus` |
+| `bitrate` | `string` | 선택 / optional | MP3 비트레이트 `128`·`192`(기본)·`320` |
+| `start` | `string` | 선택 / optional | 구간 시작(초 또는 시:분:초, 예: `90`, `1:30`) |
+| `end` | `string` | 선택 / optional | 구간 끝(초 또는 시:분:초) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"youtube_audio_download","arguments":{"url":"<url>","format":"mp3","bitrate":"192"}}}
 ```
 
 ---
@@ -2962,6 +3129,9 @@ Prepaid points, charged per call, identical to the APICK REST API rate. No subsc
 Current rates 단가표: <https://apick.app/dev_guide/mcp> · Sign up for 1,000 free points 가입 시 1,000포인트 무료: <https://apick.app>
 
 `tools/list`는 API Key와 허용 IP를 검사하지 않으며 실제 검증은 `tools/call`에서 수행됩니다. 마이페이지의 허용 IP 목록이 공란이면 IP 제한이 없고, 제한하려면 APICK에 도착하는 공인 IPv4를 단일 주소 또는 CIDR(`/32` 등)로 등록하세요. 저장 즉시 반영되며 별도 동기화나 대기시간은 없습니다.
+
+YouTube video and audio downloads are billed as a base fee plus 2 points per 10MB of the delivered file (`download_youtube_video` 30P, `youtube_audio_download` 20P base).
+유튜브 영상·오디오 다운로드는 기본요금에 받은 파일 10MB마다 2포인트가 더해집니다(`download_youtube_video` 기본 30P, `youtube_audio_download` 기본 20P).
 
 Video generation is billed per second of output (`duration × per-second points`), not per call — the rate above is per second, not per video.
 영상 생성은 호출당이 아니라 초당 과금입니다(`duration × 초당 포인트`) — 아래 단가는 1초당 포인트입니다.

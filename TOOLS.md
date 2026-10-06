@@ -1,7 +1,7 @@
 # APICK MCP — Full Tool Catalog / 전체 Tool 목록
 
-**143 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 143개**, 분야별 서버 8개와 통합 서버 `all`.
+**144 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 144개**, 분야별 서버 8개와 통합 서버 `all`.
 
 4.1.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
 
@@ -20,14 +20,14 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | [Identity Verification · 신분증 진위확인 · 마스킹](#identity) | `/mcp/identity` | 16 | 주민등록증·운전면허증·여권·외국인등록증 진위확인, 실명확인, 개인정보 마스킹. |
 | [OCR · OCR 문자인식](#ocr) | `/mcp/ocr` | 6 | 이미지 텍스트 추출과 신분증 항목 추출. |
 | [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 3 | 계좌 예금주 실명조회와 1원 인증. |
-| [Web & Search · 웹 · 검색](#web) | `/mcp/web` | 41 | 도메인·IP 조회, WHOIS, 웹페이지 수집, 구글 검색(웹·이미지·뉴스·쇼핑·지도·순위), 유튜브(검색·채널·재생목록·댓글·자막·영상·오디오 다운로드), 인스타그램·틱톡·X(프로필·게시물·댓글·검색), 아마존(상품·리뷰). |
+| [Web & Search · 웹 · 검색](#web) | `/mcp/web` | 42 | 도메인·IP 조회, WHOIS, 웹페이지 수집, 구글 검색(웹·이미지·뉴스·쇼핑·지도·장소 상세·순위), 유튜브(검색·채널·재생목록·댓글·자막·영상·오디오 다운로드), 인스타그램·틱톡·X(프로필·게시물·댓글·검색), 아마존(상품·리뷰). |
 | [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 25 | PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
-| **All 통합** | `/mcp/all` | **143** | 아래 전부 + [`find_tools`](#find-tools) |
+| **All 통합** | `/mcp/all` | **144** | 아래 전부 + [`find_tools`](#find-tools) |
 | [Skills · 검수된 Skill 실행](#skills) | `/mcp/skills` | 6 | Skill 검색·상세·견적·실행·조회·취소. `all`에는 포함되지 않는 별도 서버 / separate server, not part of `all`. |
 
-<details><summary><b>All 143 tool names / 전체 Tool 이름</b></summary>
+<details><summary><b>All 144 tool names / 전체 Tool 이름</b></summary>
 
 `biz_detail` · `venture_biz_info` · `land_rt_price` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup`
 
@@ -37,7 +37,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 `transfer_1won` · `account_realname` · `bank_code`
 
-`nslookup` · `reverse_ip` · `location` · `ip_history` · `whois` · `url_html` · `url_screenshot` · `url_similarity` · `google_search` · `google_image_search` · `google_news_search` · `google_shopping_search` · `google_maps_search` · `google_rank_check` · `google_lens_search` · `crawl_youtube` · `download_youtube_video` · `youtube_metadata` · `youtube_thumbnail` · `youtube_subtitle_list` · `youtube_subtitle` · `youtube_search` · `youtube_channel` · `youtube_playlist` · `youtube_hashtag` · `youtube_formats` · `youtube_comments` · `youtube_audio_download` · `instagram_profile` · `instagram_post` · `tiktok_profile` · `amazon_product` · `x_profile` · `x_post` · `instagram_posts_create` · `instagram_comments_create` · `tiktok_search_create` · `tiktok_video_create` · `tiktok_comments_create` · `amazon_reviews_create` · `scrape_jobs_status`
+`nslookup` · `reverse_ip` · `location` · `ip_history` · `whois` · `url_html` · `url_screenshot` · `url_similarity` · `google_search` · `google_image_search` · `google_news_search` · `google_shopping_search` · `google_maps_search` · `google_rank_check` · `google_lens_search` · `crawl_youtube` · `download_youtube_video` · `youtube_metadata` · `youtube_thumbnail` · `youtube_subtitle_list` · `youtube_subtitle` · `youtube_search` · `youtube_channel` · `youtube_playlist` · `youtube_hashtag` · `youtube_formats` · `youtube_comments` · `youtube_audio_download` · `instagram_profile` · `instagram_post` · `tiktok_profile` · `amazon_product` · `x_profile` · `x_post` · `instagram_posts_create` · `instagram_comments_create` · `tiktok_search_create` · `tiktok_video_create` · `tiktok_comments_create` · `amazon_reviews_create` · `google_maps_place_create` · `scrape_jobs_status`
 
 `stt` · `tts_jobs_create` · `tts_gemini_create` · `tts_gemini_voices` · `tts_openai_create` · `tts_openai_voices` · `tts_options` · `tts_quote` · `tts_jobs_status` · `tts_jobs_cancel` · `tts_jobs_result` · `tts_jobs_subtitles` · `voice_change` · `face_blur` · `pdf_to_docx` · `pdf_to_image` · `pdf_merge` · `html_to_pdf` · `docx_to_pdf` · `json_to_excel` · `base64_to_image` · `set_watermark` · `get_watermark` · `draw_watermark_pdf` · `draw_watermark_image`
 
@@ -1548,11 +1548,11 @@ _No parameters. 파라미터 없음._
 
 ## Web & Search · 웹 · 검색
 
-`https://apick.app/mcp/web` — 41 tools
+`https://apick.app/mcp/web` — 42 tools
 
 Domain and IP intelligence, WHOIS, page capture, Google search (web, images, news, shopping, maps, rank check), YouTube (search, channels, playlists, comments, subtitles, video and audio download), Instagram, TikTok and X (profiles, posts, comments, search), and Amazon (products, reviews). Collection jobs (`*_create`) return a `job_id` at once; read results with `scrape_jobs_status`.
 
-도메인·IP 조회, WHOIS, 웹페이지 수집, 구글 검색(웹·이미지·뉴스·쇼핑·지도·순위), 유튜브(검색·채널·재생목록·댓글·자막·영상·오디오 다운로드), 인스타그램·틱톡·X(프로필·게시물·댓글·검색), 아마존(상품·리뷰). 수집 작업(`*_create`)은 바로 `job_id` 를 돌려주고 결과는 `scrape_jobs_status` 로 조회합니다.
+도메인·IP 조회, WHOIS, 웹페이지 수집, 구글 검색(웹·이미지·뉴스·쇼핑·지도·장소 상세·순위), 유튜브(검색·채널·재생목록·댓글·자막·영상·오디오 다운로드), 인스타그램·틱톡·X(프로필·게시물·댓글·검색), 아마존(상품·리뷰). 수집 작업(`*_create`)은 바로 `job_id` 를 돌려주고 결과는 `scrape_jobs_status` 로 조회합니다.
 
 | Tool | 기능 | Required 필수 |
 | --- | --- | --- |
@@ -1596,6 +1596,7 @@ Domain and IP intelligence, WHOIS, page capture, Google search (web, images, new
 | [`tiktok_video_create`](#tiktok-video-create) | 틱톡 영상 정보 조회 접수 | `url` |
 | [`tiktok_comments_create`](#tiktok-comments-create) | 틱톡 댓글 수집 접수 | `url` |
 | [`amazon_reviews_create`](#amazon-reviews-create) | 아마존 리뷰 수집 접수 | `url` 또는 `asin` |
+| [`google_maps_place_create`](#google-maps-place-create) | 구글 지도 장소 상세·리뷰 조회 접수 | `place_id` 또는 `url` |
 | [`scrape_jobs_status`](#scrape-jobs-status) | 수집 작업 상태·결과 조회 | `job_id` |
 
 <a id="nslookup"></a>
@@ -2390,11 +2391,33 @@ Submit a job that collects Amazon product reviews (up to 100): rating, title, te
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"amazon_reviews_create","arguments":{"asin":"B0BDHWDR12","max_results":"10"}}}
 ```
 
+<a id="google-maps-place-create"></a>
+
+### `google_maps_place_create` — 구글 지도 장소 상세·리뷰 조회 접수
+
+Submit a job that reads a Google Maps place: rating, reviews count, 1-5 star distribution, top reviews (up to 10), opening hours, busy hours by time, similar places and photos. Use the `place_id` from `google_maps_search`. Text is returned in English. 20 points per place, refunded if the place is not found.
+
+구글 지도 장소의 평점·리뷰 수·별점 분포(1~5점)·대표 리뷰(최대 10건)·영업시간·시간대별 혼잡도·비슷한 장소·사진을 조회하는 작업을 접수합니다. `google_maps_search` 결과의 `place_id` 를 그대로 넣으면 됩니다. 텍스트는 영어로 제공합니다. 건당 20P, 장소를 찾지 못하면 환불됩니다.
+
+> **부작용 있음 / has side effects** · 포인트 예약 후 결과 건수로 정산 / reserves points, settles to results · 외부 데이터 조회 / external lookup · server `web`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `place_id` | `string` | 선택 / optional | 구글 장소 ID (google_maps_search 결과의 place_id, ChIJ 로 시작. place_id 또는 url 중 하나 필수) |
+| `url` | `string` | 선택 / optional | 구글 지도 장소 주소 (google_maps_search 결과의 map_link, 또는 cid= 가 들어 있는 지도 주소) |
+| `idempotency_key` | `string` | 선택 / optional | 응답을 못 받아 다시 보낼 때 같은 접수로 처리할 키(8~128자, 영문·숫자·_.:-) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"google_maps_place_create","arguments":{"place_id":"ChIJobb671mhfDURrcE4SebLfyw"}}}
+```
+
+Result item / 결과 항목: `name`, `category`, `address`, `phone`, `website`, `rating`, `reviews_count`, `rating_distribution` (`{"1"..."5"}`), `top_reviews` (`reviewer_name`, `rating`, `posted_at`, `text`), `open_hours`, `popular_times`, `similar_places`, `photo_urls`, `latitude`, `longitude`, `place_id`, `map_url`.
+
 <a id="scrape-jobs-status"></a>
 
 ### `scrape_jobs_status` — 수집 작업 상태·결과 조회
 
-Status and results of a collection job. Free. When the job finishes, the charge is settled to the actual result count and the rest of the reservation is refunded. Results are kept for 72 hours.
+Status and results of a collection job (Instagram, TikTok, Amazon, Google Maps). Free. When the job finishes, the charge is settled to the actual result count and the rest of the reservation is refunded. Results are kept for 72 hours.
 
 수집 작업의 진행 상태와 결과를 조회합니다(무료). 작업이 끝나면 실제 결과 건수로 정산하고 남은 예약은 돌려드립니다. 결과는 72시간 보관합니다.
 

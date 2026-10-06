@@ -48,8 +48,8 @@ test('Skills 문서가 6개 Tool 과 과금·멱등 계약을 담고 내부 정�
 	// 검색 순서와 고를 때 참고하는 항목.
 	assert.match(section, /\| `sort` \| `string` \| 선택 \/ optional \| `recommended` 추천 · `popular` 인기 · `used` 많이 사용 · `likes` 좋아요순 · `rating` 평점순 · `new` 최신 · `mine` 내가 자주 쓴 · `liked` 내가 좋아요한/);
 	for (const field of ['usage_label', 'like_count', 'review_count', 'rating_average']) assert.ok(section.includes('`' + field + '`'), field);
-	// Skills 는 all 과 별도라 143개 집계가 그대로다.
-	assert.match(tools, /\| \*\*All 통합\*\* \| `\/mcp\/all` \| \*\*143\*\* \|/);
+	// Skills 는 all 과 별도라 144개 집계가 그대로다.
+	assert.match(tools, /\| \*\*All 통합\*\* \| `\/mcp\/all` \| \*\*144\*\* \|/);
 	// 판매자 원본·적립 비율·실행 방식 같은 내부 정보는 공개 문서에 두지 않는다.
 	assert.doesNotMatch(section, /수수료|원가|정산|프롬프트|컨테이너|sandbox|docker|fee_bps|vault/i);
 });

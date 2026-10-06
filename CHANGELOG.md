@@ -1,3 +1,8 @@
+# 4.3.0
+
+- Web 서버에 `google_maps_place_create`(구글 지도 장소 상세·리뷰 조회 접수)를 추가했습니다. 평점·리뷰 수·별점 분포(1~5점)·대표 리뷰(최대 10건)·영업시간·시간대별 혼잡도·비슷한 장소·사진을 돌려주며, 결과는 `scrape_jobs_status` 로 받습니다. 건당 20포인트, 장소를 찾지 못하면 환불됩니다. 통합 도구는 144개, Web은 42개입니다.
+- Add `google_maps_place_create` to the Web server: Google Maps place rating, reviews count, 1-5 star distribution, top reviews, opening hours, busy hours, similar places and photos, read through `scrape_jobs_status`. 20 points per place, refunded if not found — 144 tools overall, 42 on Web.
+
 # 4.2.1
 
 - `youtube_subtitle` 이 자동 번역 자막(`translated: true`) 때문에 받지 못하면 원어 자막을 쓰라는 안내와 함께 실패로 응답합니다(과금 없음). 서버 재시작 등으로 처리가 끊긴 유튜브 요청은 서버가 자동으로 다시 시도합니다.

@@ -2500,9 +2500,9 @@ LLM 챗(다중 모델), 텍스트 요약·교정, 비동기 AI 영상 생성.
 | [`llm_chat`](#llm-chat) | LLM 채팅 | `model` |
 | [`text_summary`](#text-summary) | 텍스트 요약 AI | `text` |
 | [`text_polish`](#text-polish) | 텍스트 다듬기 AI | `text` |
-| `image_generate` | 텍스트 또는 참고 이미지와 텍스트로 이미지 한 장 생성 | `prompt`, `reference_image_url?`, `size?`, `output_format?`, `background?`, `idempotency_key?` |
-| `image_edit` | 이미지 한 장 편집 | `image_url`, `prompt` 및 출력 옵션 |
-| `image_batch_create` | 이미지 대량 작업 생성 | `mode`, `prompt`, `image_count`, 참고·편집 파일 및 출력 옵션 |
+| `image_generate` | 텍스트 또는 참고 이미지와 텍스트로 이미지 한 장 생성 | `prompt`, `reference_image_url?`, `quality?`, `size?`, `output_format?`, `background?` |
+| `image_edit` | 이미지 한 장 편집 | `image_url`, `prompt`, `quality?` 및 출력 옵션 |
+| `image_batch_create` | 이미지 대량 작업 생성 | `mode`, `prompt`, `image_count`, `quality?`, 참고·편집 파일 및 출력 옵션 |
 | `image_batch_status` | 대량 작업 상태 조회 | `job_id` |
 | `image_batch_result` | 대량 작업 개별 결과 | `job_id`, `index` |
 | [`seedance_jobs_create`](#seedance-jobs-create) | Seedance 영상 작업 접수 | `prompt` |
@@ -2512,9 +2512,9 @@ LLM 챗(다중 모델), 텍스트 요약·교정, 비동기 AI 영상 생성.
 | [`kling_jobs_create`](#kling-jobs-create) | Kling 영상 작업 접수 | `prompt` |
 | [`kling_jobs_status`](#kling-jobs-status) | Kling 영상 작업 상태 | `job_id` |
 
-이미지 생성·편집의 새 요금 정책은 공급자 원가 × 동기화 환율 × 1.4입니다. 작업 접수 시 상한을 예약하고 성공한 결과의 실제 사용료를 정산한 뒤 남은 예약금을 반환합니다. 정책 전환 전 작업은 접수 당시 요금 계약을 유지합니다. 사용량이 미확정이면 결과를 보관하고 정산을 보류하므로, 동기 호출도 `status: processing`, `billing_status: pending`, `job_id`를 반환할 수 있습니다. 같은 작업을 조회하고 새 요청으로 다시 생성하지 마세요. 접수된 작업은 취소할 수 없습니다. `image_generate`에 `reference_image_url`을 더하면 참고 이미지의 구도·색감·제품 형태와 프롬프트를 함께 반영할 수 있습니다. 편집은 원본 이미지 한 장과 프롬프트만 받으며 마스크 파일은 지원하지 않습니다. 동기 Tool은 응답 크기를 위해 한 장만 반환하며, 대량 작업은 `image_count`에 1~50을 지정한 뒤 `image_batch_result`로 한 장씩 가져옵니다. 크기는 `1024x1024`, `1536x1024`, `1024x1536`, `1152x864`, `864x1152` 중에서 고릅니다. PNG·JPEG·WebP와 PNG/WebP 투명 배경 미리보기를 지원합니다. 프롬프트는 최대 28,000자이고 완료 결과는 24시간 동안 반복 조회할 수 있습니다. `idempotency_key`는 같은 요청의 중복 생성·과금을 막는 8~128자 안전번호이며, 동일 요청을 재전송할 때만 같은 값을 사용합니다.
+이미지 생성·편집 요금은 `quality`별 장당 고정가입니다. `basic`(기본) 40P, `advanced`(고급) 350P, `premium`(최고급) 1,400P이며 크기와 관계없이 같습니다. 접수 시 장수만큼 먼저 차감하고 실패한 장은 환급합니다. 같은 요청을 다시 보내도 결과를 재사용하지 않고 매번 새로 생성·과금합니다. 접수된 작업은 취소할 수 없습니다. `image_generate`에 `reference_image_url`을 더하면 참고 이미지의 구도·색감·제품 형태와 프롬프트를 함께 반영할 수 있습니다. 편집은 원본 이미지 한 장과 프롬프트만 받으며 마스크 파일은 지원하지 않습니다. 동기 Tool은 응답 크기를 위해 한 장만 반환하며, 대량 작업은 `image_count`에 1~50을 지정한 뒤 `image_batch_result`로 한 장씩 가져옵니다. 크기는 `1024x1024`, `1536x1024`, `1024x1536`, `1152x864`, `864x1152` 중에서 고릅니다. PNG·JPEG·WebP와 PNG/WebP 투명 배경 미리보기를 지원합니다. 프롬프트는 최대 28,000자이고 완료 결과는 24시간 동안 반복 조회할 수 있습니다.
 
-Under the new pricing policy, image charges use verified provider cost × synchronized exchange rate × 1.4. Reservations are settled against actual usage; existing jobs retain their original price contract. Missing usage keeps the output and reservation pending. Even synchronous tools may return a processing job with `billing_status: pending`; poll that job instead of creating another request.
+Image generation and editing use a fixed per-image price by `quality`: `basic` (default) 40 points, `advanced` 350 points and `premium` 1,400 points, regardless of size. The total is deducted on acceptance and failed images are refunded. Repeated requests are never reused; each request is generated and charged again.
 
 예: `흰색 대리석 테이블 위의 무광 검정 텀블러, 부드러운 아침 자연광, 제품 전체가 프레임 안에 보이게, 이미지 안 글자 없음`처럼 피사체·배경·조명·구도·금지 요소를 구체적으로 적습니다. 글자를 넣을 때는 `상단 중앙에 '가을 산책'을 또렷한 짙은 남색 한글로, 다른 글자 없음`처럼 실제 문구와 위치를 함께 지정합니다.
 

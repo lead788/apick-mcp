@@ -1,3 +1,8 @@
+# 4.0.1 — 2026-10-06
+
+- 이미지 도구(`image_generate`·`image_edit`·`image_batch_create`) 문서에 `quality` 옵션과 품질별 장당 고정가(기본 40P · 고급 350P · 최고급 1,400P)를 반영했습니다. 같은 요청도 매번 새로 생성·과금하므로 이미지 도구의 `idempotency_key` 안내를 삭제했습니다.
+- Document the image `quality` option and fixed per-image prices (basic 40, advanced 350, premium 1,400 points). Image tools no longer accept `idempotency_key`; every request is generated and charged again.
+
 # 4.0.0
 
 - 공개 전 점검 중인 Business 12개를 활성 목록에서 제외했습니다. 상세 계약은 비활성 표시와 함께 보존합니다. / Exclude 12 unavailable Business tools from the active inventory and retain their contracts with an availability notice.

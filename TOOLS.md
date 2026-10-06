@@ -1,9 +1,9 @@
 # APICK MCP — Full Tool Catalog / 전체 Tool 목록
 
-**119 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 119개**, 분야별 서버 8개와 통합 서버 `all`.
+**126 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 126개**, 분야별 서버 8개와 통합 서버 `all`.
 
-4.0.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
+4.1.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
 
 
 
@@ -20,14 +20,14 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | [Identity Verification · 신분증 진위확인 · 마스킹](#identity) | `/mcp/identity` | 16 | 주민등록증·운전면허증·여권·외국인등록증 진위확인, 실명확인, 개인정보 마스킹. |
 | [OCR · OCR 문자인식](#ocr) | `/mcp/ocr` | 6 | 이미지 텍스트 추출과 신분증 항목 추출. |
 | [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 3 | 계좌 예금주 실명조회와 1원 인증. |
-| [Web & Search · 웹 · 검색](#web) | `/mcp/web` | 17 | 도메인·IP 조회, WHOIS, 웹페이지 수집, 구글 검색, 유튜브. |
+| [Web & Search · 웹 · 검색](#web) | `/mcp/web` | 24 | 도메인·IP 조회, WHOIS, 웹페이지 수집, 구글 검색(웹·이미지·뉴스·쇼핑·지도·순위), 유튜브·인스타그램·틱톡. |
 | [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 25 | PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
-| **All 통합** | `/mcp/all` | **119** | 아래 전부 + [`find_tools`](#find-tools) |
+| **All 통합** | `/mcp/all` | **126** | 아래 전부 + [`find_tools`](#find-tools) |
 | [Skills · 검수된 Skill 실행](#skills) | `/mcp/skills` | 6 | Skill 검색·상세·견적·실행·조회·취소. `all`에는 포함되지 않는 별도 서버 / separate server, not part of `all`. |
 
-<details><summary><b>All 119 tool names / 전체 Tool 이름</b></summary>
+<details><summary><b>All 126 tool names / 전체 Tool 이름</b></summary>
 
 `biz_detail` · `venture_biz_info` · `land_rt_price` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup`
 
@@ -37,7 +37,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 `transfer_1won` · `account_realname` · `bank_code`
 
-`nslookup` · `reverse_ip` · `location` · `ip_history` · `whois` · `url_html` · `url_screenshot` · `url_similarity` · `google_search` · `google_image_search` · `google_lens_search` · `crawl_youtube` · `download_youtube_video` · `youtube_metadata` · `youtube_thumbnail` · `youtube_subtitle_list` · `youtube_subtitle`
+`nslookup` · `reverse_ip` · `location` · `ip_history` · `whois` · `url_html` · `url_screenshot` · `url_similarity` · `google_search` · `google_image_search` · `google_news_search` · `google_shopping_search` · `google_maps_search` · `google_rank_check` · `google_lens_search` · `crawl_youtube` · `download_youtube_video` · `youtube_metadata` · `youtube_thumbnail` · `youtube_subtitle_list` · `youtube_subtitle` · `instagram_profile` · `instagram_post` · `tiktok_profile`
 
 `stt` · `tts_jobs_create` · `tts_gemini_create` · `tts_gemini_voices` · `tts_openai_create` · `tts_openai_voices` · `tts_options` · `tts_quote` · `tts_jobs_status` · `tts_jobs_cancel` · `tts_jobs_result` · `tts_jobs_subtitles` · `voice_change` · `face_blur` · `pdf_to_docx` · `pdf_to_image` · `pdf_merge` · `html_to_pdf` · `docx_to_pdf` · `json_to_excel` · `base64_to_image` · `set_watermark` · `get_watermark` · `draw_watermark_pdf` · `draw_watermark_image`
 
@@ -1548,11 +1548,11 @@ _No parameters. 파라미터 없음._
 
 ## Web & Search · 웹 · 검색
 
-`https://apick.app/mcp/web` — 17 tools
+`https://apick.app/mcp/web` — 24 tools
 
-Domain and IP intelligence, WHOIS, page capture, Google search, and YouTube.
+Domain and IP intelligence, WHOIS, page capture, Google search (web, images, news, shopping, maps, rank check), YouTube, Instagram and TikTok.
 
-도메인·IP 조회, WHOIS, 웹페이지 수집, 구글 검색, 유튜브.
+도메인·IP 조회, WHOIS, 웹페이지 수집, 구글 검색(웹·이미지·뉴스·쇼핑·지도·순위), 유튜브·인스타그램·틱톡.
 
 | Tool | 기능 | Required 필수 |
 | --- | --- | --- |
@@ -1566,6 +1566,10 @@ Domain and IP intelligence, WHOIS, page capture, Google search, and YouTube.
 | [`url_similarity`](#url-similarity) | URL 유사도 비교 | `url1`, `url2` |
 | [`google_search`](#google-search) | 구글 키워드 검색 | `keyword` |
 | [`google_image_search`](#google-image-search) | 구글 이미지 검색(키워드로 검색) | `keyword` |
+| [`google_news_search`](#google-news-search) | 구글 뉴스 검색 | `keyword` |
+| [`google_shopping_search`](#google-shopping-search) | 구글 쇼핑 검색 | `keyword` |
+| [`google_maps_search`](#google-maps-search) | 구글 지도 장소 검색 | `keyword` |
+| [`google_rank_check`](#google-rank-check) | 구글 검색 순위 확인 | `keyword`, `domain` |
 | [`google_lens_search`](#google-lens-search) | 구글 렌즈 검색(이미지로 검색) | `image_url` |
 | [`crawl_youtube`](#crawl-youtube) | 유튜브 계정 정보 수집 | `user_id` |
 | [`download_youtube_video`](#download-youtube-video) | 유튜브 동영상 다운로드 | `url` |
@@ -1573,6 +1577,9 @@ Domain and IP intelligence, WHOIS, page capture, Google search, and YouTube.
 | [`youtube_thumbnail`](#youtube-thumbnail) | 유튜브 썸네일 다운로드 | `url` |
 | [`youtube_subtitle_list`](#youtube-subtitle-list) | 유튜브 자막 목록 조회 | `url` |
 | [`youtube_subtitle`](#youtube-subtitle) | 유튜브 자막 다운로드 | `url`, `lang` |
+| [`instagram_profile`](#instagram-profile) | 인스타그램 프로필 조회 | `username` 또는 `url` |
+| [`instagram_post`](#instagram-post) | 인스타그램 게시물·릴스 조회 | `url` |
+| [`tiktok_profile`](#tiktok-profile) | 틱톡 프로필 조회 | `username` 또는 `url` |
 
 <a id="nslookup"></a>
 
@@ -1751,10 +1758,85 @@ Google image search by keyword: return image results (image URL, source link, ti
 | Parameter | Type | Required | Description 설명 |
 | --- | --- | --- | --- |
 | `keyword` | `string` | **필수 / required** | 검색할 키워드 |
-| `page` | `string` | 선택 / optional | 검색 결과 조회 페이지 (기본값 1) |
+| `page` | `string` | 선택 / optional | 검색 결과 조회 페이지 1~5 (기본값 1, 페이지당 20건) |
 
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"google_image_search","arguments":{"keyword":"<keyword>"}}}
+```
+
+<a id="google-news-search"></a>
+
+### `google_news_search` — 구글 뉴스 검색
+
+Google News search: return news results (title, publisher, published time, link) for a keyword.
+
+키워드의 구글 뉴스 검색 결과(제목·언론사·게시 시각·링크)를 조회합니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `web`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `keyword` | `string` | **필수 / required** | 검색어 (1~200자) |
+| `page` | `string` | 선택 / optional | 결과 페이지 1~10 (기본값 1) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"google_news_search","arguments":{"keyword":"<keyword>"}}}
+```
+
+<a id="google-shopping-search"></a>
+
+### `google_shopping_search` — 구글 쇼핑 검색
+
+Google Shopping search: return product results (title, price, shop, rating, link) for a keyword.
+
+키워드의 구글 쇼핑 검색 결과(상품명·가격·판매처·평점·링크)를 조회합니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `web`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `keyword` | `string` | **필수 / required** | 검색어 (1~200자) |
+| `page` | `string` | 선택 / optional | 결과 페이지 1~10 (기본값 1) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"google_shopping_search","arguments":{"keyword":"<keyword>"}}}
+```
+
+<a id="google-maps-search"></a>
+
+### `google_maps_search` — 구글 지도 장소 검색
+
+Google Maps place search: return up to 20 places (name, address, phone, rating, reviews, hours, coordinates) for a keyword.
+
+키워드의 구글 지도 장소(상호·주소·전화·평점·리뷰 수·영업시간·좌표)를 최대 20곳 조회합니다. 처리에 보통 30~60초가 걸립니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `web`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `keyword` | `string` | **필수 / required** | 장소 검색어 (예: 강남역 카페, 1~200자) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"google_maps_search","arguments":{"keyword":"<keyword>"}}}
+```
+
+<a id="google-rank-check"></a>
+
+### `google_rank_check` — 구글 검색 순위 확인
+
+Google rank check: find where a domain ranks (1-100) in Google results for a keyword.
+
+키워드로 구글을 검색했을 때 지정한 도메인이 1~100위 중 몇 위에 노출되는지 확인합니다. 일부 구간을 확인하지 못하면 complete:false·unchecked_ranks 와 함께 확인한 구간 비율만큼만 과금됩니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `web`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `keyword` | `string` | **필수 / required** | 검색어 (1~200자) |
+| `domain` | `string` | **필수 / required** | 순위를 확인할 도메인 (예: apick.app). 하위 도메인도 함께 찾습니다 |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"google_rank_check","arguments":{"keyword":"<keyword>","domain":"<domain>"}}}
 ```
 
 <a id="google-lens-search"></a>
@@ -1895,6 +1977,62 @@ Download the subtitles of a public YouTube video in one language as VTT, SRT or 
 ```
 
 ---
+
+<a id="instagram-profile"></a>
+
+### `instagram_profile` — 인스타그램 프로필 조회
+
+Instagram public profile: followers, following, posts count, bio, verification and the 12 latest posts.
+
+인스타그램 공개 계정의 팔로워·팔로잉·게시물 수·소개·인증 여부와 최근 게시물 12개를 조회합니다. 처리에 보통 40~60초가 걸립니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `web`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `username` | `string` | 선택 / optional | 인스타그램 사용자명 (username 또는 url 중 하나 필수) |
+| `url` | `string` | 선택 / optional | 인스타그램 프로필 주소 (예: https://www.instagram.com/natgeo/) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"instagram_profile","arguments":{"username":"<username>"}}}
+```
+
+<a id="instagram-post"></a>
+
+### `instagram_post` — 인스타그램 게시물·릴스 조회
+
+Instagram post or reel by URL: likes, comments count, views, caption, hashtags and media URLs.
+
+인스타그램 게시물·릴스 주소로 좋아요·댓글 수·조회수·캡션·해시태그·미디어 주소를 조회합니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `web`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `url` | `string` | **필수 / required** | 인스타그램 게시물·릴스 주소 (예: https://www.instagram.com/p/코드/ 또는 /reel/코드/) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"instagram_post","arguments":{"url":"<url>"}}}
+```
+
+<a id="tiktok-profile"></a>
+
+### `tiktok_profile` — 틱톡 프로필 조회
+
+TikTok public profile: followers, likes, videos count, bio and recent popular videos with view and engagement counts.
+
+틱톡 공개 계정의 팔로워·좋아요·영상 수·소개와 최근 인기 영상의 조회수·반응 지표를 조회합니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `web`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `username` | `string` | 선택 / optional | 틱톡 사용자명 (@ 없이도 가능, username 또는 url 중 하나 필수) |
+| `url` | `string` | 선택 / optional | 틱톡 프로필 주소 (예: https://www.tiktok.com/@tiktok) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"tiktok_profile","arguments":{"username":"<username>"}}}
+```
 
 <a id="convert"></a>
 

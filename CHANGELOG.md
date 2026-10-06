@@ -1,3 +1,12 @@
+# 4.1.0
+
+- Web 서버에 구글 뉴스·쇼핑·지도 장소 검색, 구글 검색 순위 확인(1~100위), 인스타그램 프로필·게시물/릴스 조회, 틱톡 프로필 조회 7개 도구를 추가했습니다. 통합 도구는 126개, Web은 24개입니다.
+- `google_rank_check` 는 일부 순위 구간을 확인하지 못하면 `complete:false`·`unchecked_ranks` 와 함께 확인한 구간 비율만큼만 과금됩니다.
+- `google_search` 는 페이지당 최대 10건을 돌려줍니다. `google_image_search` 의 page 는 1~5(페이지당 20건, 최대 100건)입니다. 실패한 호출은 과금되지 않습니다.
+- Add 7 Web tools: Google News, Shopping and Maps place search, Google rank check (top 100), Instagram profile and post/reel lookup, and TikTok profile lookup — 126 tools overall, 24 on Web.
+- `google_search` returns up to 10 results per page; `google_image_search` pages are 1-5 (20 per page, 100 max). Failed calls are not charged.
+- The bridge remains a transparent JSON-RPC transport; no server implementation or credentials are included.
+
 # 4.0.1 — 2026-10-06
 
 - 이미지 도구(`image_generate`·`image_edit`·`image_batch_create`) 문서에 `quality` 옵션과 품질별 장당 고정가(기본 40P · 고급 350P · 최고급 1,400P)를 반영했습니다. 같은 요청도 매번 새로 생성·과금하므로 이미지 도구의 `idempotency_key` 안내를 삭제했습니다.

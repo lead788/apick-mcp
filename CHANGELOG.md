@@ -1,3 +1,11 @@
+# 4.2.0
+
+- Web 서버에 아마존 상품 조회, X 프로필·게시물 조회와 수집 작업 7개(인스타그램 게시물 목록·댓글, 틱톡 키워드 검색·영상·댓글, 아마존 리뷰 접수, 작업 상태·결과 조회)를 추가했습니다. 통합 도구는 143개, Web은 41개입니다.
+- 수집 작업(`*_create`)은 바로 `job_id` 를 돌려줍니다. 접수 때 `max_results` × 단가를 예약하고, `scrape_jobs_status` 로 결과를 받을 때 실제 결과 건수만 차감한 뒤 나머지는 돌려드립니다. 실패·대상 없음은 전액 환불, 결과는 72시간 보관합니다.
+- 댓글·리뷰 작성자는 공개 사용자명만 제공합니다.
+- Add Amazon product lookup, X profile and post lookup, and 7 collection-job tools (Instagram posts and comments, TikTok keyword search, video and comments, Amazon reviews, and job status) — 143 tools overall, 41 on Web.
+- Collection jobs return a `job_id` immediately, reserve `max_results` × unit price, and charge only the results actually returned when read through `scrape_jobs_status`; failures are fully refunded and results are kept for 72 hours.
+
 # 4.1.0
 
 - Web 서버에 유튜브 검색·채널·재생목록·해시태그·댓글·다운로드 화질 조회와 오디오 다운로드 7개 도구를 추가했습니다. 통합 도구는 133개, Web은 31개입니다.

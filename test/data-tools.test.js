@@ -119,13 +119,13 @@ test('응답 fixture가 공개 REST 필드 타입을 지키며 과거의 잘못�
 	]) assert.throws(() => assertDataContract({ ...valid, ...invalid }), assert.AssertionError);
 });
 
-test('배포 대상 133개 목록과 Business 활성 30개·Web 31개·상태 변경 29개 메타데이터가 일치한다', () => {
+test('배포 대상 143개 목록과 Business 활성 30개·Web 41개·상태 변경 35개 메타데이터가 일치한다', () => {
 	const tools = read('TOOLS.md');
 	const readme = read('README.md');
 	const inventory = tools.match(/<details>[\s\S]*?<\/details>/)[0];
 	const listed = [...inventory.matchAll(/`([a-z0-9_]+)`/g)].map(m => m[1]);
-	assert.equal(listed.length, 133);
-	assert.equal(new Set(listed).size, 133);
+	assert.equal(listed.length, 143);
+	assert.equal(new Set(listed).size, 143);
 	const business = tools.split('## Business & Commerce')[1].split('<a id="identity">')[0];
 	assert.equal([...business.matchAll(/^### `([a-z0-9_]+)`/gm)].length, 42);
 	const unavailable = [...business.matchAll(/^### `([a-z0-9_]+)`[^\n]*\n+> 현재 공개 전 점검으로 비활성/gm)].map(m => m[1]);
@@ -133,19 +133,19 @@ test('배포 대상 133개 목록과 Business 활성 30개·Web 31개·상태 �
 	for (const name of unavailable) assert.ok(!listed.includes(name), name + ' must not be advertised as available');
 	assert.match(readme, /`https:\/\/apick\.app\/mcp\/business` \| 30 \|/);
 	const web = tools.split('## Web & Search')[1].split('<a id="convert">')[0];
-	assert.equal([...web.matchAll(/^### `([a-z0-9_]+)`/gm)].length, 31);
-	assert.match(readme, /`https:\/\/apick\.app\/mcp\/web` \| 31 \|/);
-	for (const name of ['youtube_metadata', 'youtube_thumbnail', 'youtube_subtitle_list', 'youtube_subtitle', 'youtube_search', 'youtube_channel', 'youtube_playlist', 'youtube_hashtag', 'youtube_formats', 'youtube_comments', 'youtube_audio_download', 'download_youtube_video', 'google_news_search', 'google_shopping_search', 'google_maps_search', 'google_rank_check', 'instagram_profile', 'instagram_post', 'tiktok_profile']) {
+	assert.equal([...web.matchAll(/^### `([a-z0-9_]+)`/gm)].length, 41);
+	assert.match(readme, /`https:\/\/apick\.app\/mcp\/web` \| 41 \|/);
+	for (const name of ['youtube_metadata', 'youtube_thumbnail', 'youtube_subtitle_list', 'youtube_subtitle', 'youtube_search', 'youtube_channel', 'youtube_playlist', 'youtube_hashtag', 'youtube_formats', 'youtube_comments', 'youtube_audio_download', 'download_youtube_video', 'google_news_search', 'google_shopping_search', 'google_maps_search', 'google_rank_check', 'instagram_profile', 'instagram_post', 'tiktok_profile', 'amazon_product', 'x_profile', 'x_post', 'instagram_posts_create', 'instagram_comments_create', 'tiktok_search_create', 'tiktok_video_create', 'tiktok_comments_create', 'amazon_reviews_create', 'scrape_jobs_status']) {
 		assert.ok(listed.includes(name), name);
 		assert.ok(web.includes('### `' + name + '`'), name);
 	}
-	assert.match(readme, /29 of 133 are not read-only/);
-	assert.match(readme, /104 of 133 tools are read-only/);
+	assert.match(readme, /35 of 143 are not read-only/);
+	assert.match(readme, /108 of 143 tools are read-only/);
 	// 3.7.0: all 서버 전용 find_tools 가 전체 목록과 README 한눈에 보기에 포함된다.
 	assert.ok(listed.includes('find_tools'));
 	assert.ok(tools.includes('### `find_tools`'));
 	assert.match(readme, /\*\*All only 통합 서버 전용\*\* `find_tools`/);
-	assert.match(readme, /`https:\/\/apick\.app\/mcp\/all` \| \*\*133\*\* \|/);
+	assert.match(readme, /`https:\/\/apick\.app\/mcp\/all` \| \*\*143\*\* \|/);
 	for (const name of names) {
 		assert.ok(listed.includes(name), name);
 		assert.ok(readme.includes('`' + name + '`'), name);
@@ -158,7 +158,7 @@ test('배포 대상 133개 목록과 Business 활성 30개·Web 31개·상태 �
 	assert.match(tools, /업무 상태 오류는 `isError: false`/);
 	const pkg = JSON.parse(read('package.json'));
 	const lock = JSON.parse(read('package-lock.json'));
-	assert.equal(pkg.version, '4.1.0');
+	assert.equal(pkg.version, '4.2.0');
 	assert.equal(lock.version, pkg.version);
 	assert.equal(lock.packages[''].version, pkg.version);
 	// 공개 JSON-RPC 예시도 실제 목록의 Tool을 참조해야 한다. skills 서버는 all 과 별도 목록이다.

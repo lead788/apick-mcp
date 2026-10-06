@@ -509,9 +509,9 @@ Available generations: Seedance 1.0/1.5/2.0/2.5, including Seedance 2.0 Standard
 
 ## 서브에이전트 / Subagent
 
-설치형 `apick-agent` 상품은 `apick-subagent` 스킬 패키지와 전용 REST·MCP를 사용합니다. 원가 +40%, 승인된 동일 결과 캐시 무료, 충전 잔액 외 상품 한도 없음. [연동 가이드](https://apick.app/dev_guide/subagent).
+설치형 `apick-agent` 상품은 `apick-subagent` 스킬 패키지와 전용 REST·MCP를 사용합니다. 설치비·도입비·구독료 없이 원가 +40%(소수점 올림, 2026-11-06부터 AI 사용 작업 기본 5P), 승인된 동일 결과 캐시 1P, 충전 잔액 외 상품 한도 없음. [연동 가이드](https://apick.app/dev_guide/subagent).
 
-The installed `apick-agent` product uses the `apick-subagent` skill package and dedicated REST/MCP interfaces. Confirmed cost plus 40%; approved identical cache reuse is free, with no product quota beyond prepaid balance. [Integration guide](https://apick.app/dev_guide/subagent).
+The installed `apick-agent` product uses the `apick-subagent` skill package and dedicated REST/MCP interfaces. No installation, setup or subscription fee. Confirmed cost plus 40% (fractions rounded up, 5-point base fee for AI jobs from 2026-11-06); approved identical cache reuse costs 1 point, with no product quota beyond prepaid balance. [Integration guide](https://apick.app/dev_guide/subagent).
 
 ```sh
 npx -y apick-mcp --server subagent

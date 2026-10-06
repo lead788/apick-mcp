@@ -1,3 +1,9 @@
+# 4.3.1
+
+- 요금 안내 갱신(서버 이용약관 제9조 개정, 2026-11-06 시행): 사용량 과금 상품의 기본요금을 안내합니다. TTS 작업당 5P, LLM 채팅(`llm_chat`) 요청당 5P, 결과 건수 과금 수집 작업은 결과가 있을 때 작업당 10P(인스타그램 댓글 50P)입니다. 포인트 계산의 소수점은 올림하며(0.1P → 1P) 과금되는 이용 1건은 최소 1P입니다. 도구·파라미터 변경은 없습니다.
+- Pricing notes (Terms art. 9 amended, effective 2026-11-06): usage-billed products now have a base fee — TTS 5 points per job, `llm_chat` 5 points per request, result-billed collection jobs 10 points per job with results (Instagram comments 50). Fractional points are rounded up (0.1 → 1) and every billed use is at least 1 point. No tool or parameter changes.
+- 에이픽 에이전트(`apick-agent`) 안내: AI 사용 작업 기본 5P(2026-11-06부터), 캐시 재사용 1P로 표기를 실제 요금에 맞췄습니다. / `apick-agent` notes now match billing: 5-point base fee for AI jobs from 2026-11-06, cache reuse 1 point.
+
 # 4.3.0
 
 - Web 서버에 `google_maps_place_create`(구글 지도 장소 상세·리뷰 조회 접수)를 추가했습니다. 평점·리뷰 수·별점 분포(1~5점)·대표 리뷰(최대 10건)·영업시간·시간대별 혼잡도·비슷한 장소·사진을 돌려주며, 결과는 `scrape_jobs_status` 로 받습니다. 건당 20포인트, 장소를 찾지 못하면 환불됩니다. 통합 도구는 144개, Web은 42개입니다.

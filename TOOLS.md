@@ -2274,9 +2274,9 @@ X 게시물 주소로 본문·작성 시각·좋아요·리포스트·답글·�
 
 ### `instagram_posts_create` — 인스타그램 게시물 목록 수집 접수
 
-Submit a job that collects recent posts and reels of a public Instagram account (up to 100). Reserves max_results × 5 points, charges only the results actually returned and refunds the rest.
+Submit a job that collects recent posts and reels of a public Instagram account (up to 100). Reserves max_results × 5 points, charges only the results actually returned and refunds the rest. From 2026-11-06 a job with at least one result is charged a 10-point base fee minimum.
 
-공개 인스타그램 계정의 최근 게시물·릴스(최대 100건) 수집 작업을 접수합니다. max_results × 5P 를 예약하고 실제 결과 건수만 차감한 뒤 나머지는 돌려드립니다.
+공개 인스타그램 계정의 최근 게시물·릴스(최대 100건) 수집 작업을 접수합니다. max_results × 5P 를 예약하고 실제 결과 건수만 차감한 뒤(2026-11-06부터 결과가 있으면 작업당 기본 10P) 나머지는 돌려드립니다.
 
 > **부작용 있음 / has side effects** · 포인트 예약 후 결과 건수로 정산 / reserves points, settles to results · 외부 데이터 조회 / external lookup · server `web`
 
@@ -2295,9 +2295,9 @@ Submit a job that collects recent posts and reels of a public Instagram account 
 
 ### `instagram_comments_create` — 인스타그램 댓글 수집 접수
 
-Submit a job that collects the latest comments (up to 15) of an Instagram post or reel. Commenters are public usernames only. 5 points per result.
+Submit a job that collects the latest comments (up to 15) of an Instagram post or reel. Commenters are public usernames only. 5 points per result, with a 50-point base fee per job that returns results from 2026-11-06.
 
-인스타그램 게시물·릴스의 최신 댓글(최대 15건) 수집 작업을 접수합니다. 작성자는 공개 사용자명만 제공합니다. 결과 1건당 5P.
+인스타그램 게시물·릴스의 최신 댓글(최대 15건) 수집 작업을 접수합니다. 작성자는 공개 사용자명만 제공합니다. 결과 1건당 5P(2026-11-06부터 결과가 있으면 작업당 기본 50P).
 
 > **부작용 있음 / has side effects** · 포인트 예약 후 결과 건수로 정산 / reserves points, settles to results · 외부 데이터 조회 / external lookup · server `web`
 
@@ -2315,9 +2315,9 @@ Submit a job that collects the latest comments (up to 15) of an Instagram post o
 
 ### `tiktok_search_create` — 틱톡 키워드 영상 검색 접수
 
-Submit a job that searches TikTok videos by keyword or hashtag (up to 50) with views, likes, comments and shares. 5 points per result.
+Submit a job that searches TikTok videos by keyword or hashtag (up to 50) with views, likes, comments and shares. 5 points per result, with a 10-point base fee per job that returns results from 2026-11-06.
 
-틱톡 영상을 키워드·해시태그로 검색(최대 50건)하는 작업을 접수합니다. 조회수·좋아요·댓글·공유 수를 함께 돌려줍니다. 결과 1건당 5P.
+틱톡 영상을 키워드·해시태그로 검색(최대 50건)하는 작업을 접수합니다. 조회수·좋아요·댓글·공유 수를 함께 돌려줍니다. 결과 1건당 5P(2026-11-06부터 결과가 있으면 작업당 기본 10P).
 
 > **부작용 있음 / has side effects** · 포인트 예약 후 결과 건수로 정산 / reserves points, settles to results · 외부 데이터 조회 / external lookup · server `web`
 
@@ -2354,9 +2354,9 @@ Submit a job that reads TikTok video details: views, likes, comments, shares, sa
 
 ### `tiktok_comments_create` — 틱톡 댓글 수집 접수
 
-Submit a job that collects comments of a TikTok video (up to 100). Commenters are public usernames only. 5 points per result.
+Submit a job that collects comments of a TikTok video (up to 100). Commenters are public usernames only. 5 points per result, with a 10-point base fee per job that returns results from 2026-11-06.
 
-틱톡 영상 댓글(최대 100건) 수집 작업을 접수합니다. 작성자는 공개 사용자명만 제공합니다. 결과 1건당 5P.
+틱톡 영상 댓글(최대 100건) 수집 작업을 접수합니다. 작성자는 공개 사용자명만 제공합니다. 결과 1건당 5P(2026-11-06부터 결과가 있으면 작업당 기본 10P).
 
 > **부작용 있음 / has side effects** · 포인트 예약 후 결과 건수로 정산 / reserves points, settles to results · 외부 데이터 조회 / external lookup · server `web`
 
@@ -2374,9 +2374,9 @@ Submit a job that collects comments of a TikTok video (up to 100). Commenters ar
 
 ### `amazon_reviews_create` — 아마존 리뷰 수집 접수
 
-Submit a job that collects Amazon product reviews (up to 100): rating, title, text, date, verified purchase and helpful count. 5 points per result.
+Submit a job that collects Amazon product reviews (up to 100): rating, title, text, date, verified purchase and helpful count. 5 points per result, with a 10-point base fee per job that returns results from 2026-11-06.
 
-아마존 상품 리뷰(최대 100건)의 평점·제목·본문·작성일·구매 인증·도움 수를 수집하는 작업을 접수합니다. 결과 1건당 5P.
+아마존 상품 리뷰(최대 100건)의 평점·제목·본문·작성일·구매 인증·도움 수를 수집하는 작업을 접수합니다. 결과 1건당 5P(2026-11-06부터 결과가 있으면 작업당 기본 10P).
 
 > **부작용 있음 / has side effects** · 포인트 예약 후 결과 건수로 정산 / reserves points, settles to results · 외부 데이터 조회 / external lookup · server `web`
 
@@ -2619,9 +2619,9 @@ ChatGPT TTS 목소리와 음색 특성을 반환합니다. / Lists the ChatGPT T
 
 ## Gemini·ChatGPT TTS
 
-`tts_jobs_create`와 `tts_gemini_create`는 Gemini(기본 Kore), `tts_openai_create`는 ChatGPT(기본 alloy)를 사용합니다. `tts_gemini_voices`, `tts_openai_voices`, `tts_options`, `tts_quote`로 목소리·옵션·요금을 조회합니다.
+`tts_jobs_create`와 `tts_gemini_create`는 Gemini(기본 Kore), `tts_openai_create`는 ChatGPT(기본 alloy)를 사용합니다. `tts_gemini_voices`, `tts_openai_voices`, `tts_options`, `tts_quote`로 목소리·옵션·요금을 조회합니다. 합성 요금은 실제 원가 × 환율 × 1.4이며, 2026-11-06부터 작업당 기본요금 5P를 최소액으로 받습니다(소수점 올림).
 
-Use `tts_jobs_create` or `tts_gemini_create` for Gemini (default Kore), and `tts_openai_create` for ChatGPT (default alloy). Query voices, options and estimates with the corresponding tools. Legacy APICK voices and automatic fallback have retired.
+Use `tts_jobs_create` or `tts_gemini_create` for Gemini (default Kore), and `tts_openai_create` for ChatGPT (default alloy). Query voices, options and estimates with the corresponding tools. Synthesis is billed at actual cost × exchange rate × 1.4 with a 5-point base fee per job from 2026-11-06 (fractions rounded up). Legacy APICK voices and automatic fallback have retired.
 
 `style`, `emotion`, `tone`, `accent`, `pace`(0.5–2), `pitch`(-12–12), `volume_gain_db`(-12–12)는 최상위·화자·발화에 지정할 수 있습니다. `speakers`는 화자 이름별 설정이고 `multi_speaker: true`는 Gemini 최대 2명, ChatGPT 최대 8명입니다. 엔진에 따라 표현 효과가 달라지며 정확한 속도 배율·반음·dB 적용을 보장하지 않습니다. 특히 ChatGPT는 수치의 방향을 낭독 지시로 전달합니다.
 
@@ -3091,6 +3091,8 @@ Send a chat request to a selected LLM model and receive the assistant reply.
 선택한 LLM 모델에 대화를 보내고 assistant 응답을 받습니다. 서버는 대화 히스토리를 보관하지 않는 stateless 방식 — 매 호출마다 전체 히스토리를 messages 로 전송하고, 응답의 compacted_messages 를 다음 턴의 messages 로 그대로 재사용합니다. 사용 가능한 모델은 llm_models Tool로 조회합니다. 토큰 사용량에 비례해 포인트가 차감됩니다.
 
 > 읽기 전용 / read-only · 입력 변환 / transforms your input · server `ai`
+
+요금: 토큰 원가 × 환율 × 1.4, 소수점 올림. 2026-11-06부터 요청당 기본요금 5P를 최소액으로 받습니다. / Billing: token cost × exchange rate × 1.4, fractions rounded up, with a 5-point base fee per request from 2026-11-06.
 
 | Parameter | Type | Required | Description 설명 |
 | --- | --- | --- | --- |

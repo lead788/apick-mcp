@@ -1,3 +1,12 @@
+# 4.3.3
+
+- `google_rank_check` 가 정확한 순위만 돌려줍니다. 찾은 순위보다 앞쪽 구간을 모두 확인했을 때만 순위를, 찾지 못했을 때는 1~100위를 모두 확인했을 때만 `found: false` 를 응답합니다. 그렇지 못하면 결과 없이 실패로 끝나며 과금하지 않습니다(이전의 확인 구간 비율 과금은 없어졌습니다). `complete`·`unchecked_ranks` 필드는 그대로 있으며 성공 응답에서는 항상 `true`·빈 배열입니다.
+- `app_reviews` 의 2페이지 이후 리뷰를 더 안정적으로 가져옵니다.
+- `google_maps_search` 가 혼잡한 시간에도 더 안정적으로 응답합니다. 처리에 보통 30~60초가 걸리므로 클라이언트의 도구 대기 시간을 120초 이상으로 두기를 권장합니다. 도구·파라미터 추가나 삭제는 없습니다.
+- `google_rank_check` now returns only exact results. It reports a rank only when every range above it was checked, and `found: false` only when ranks 1-100 were all checked; otherwise the call fails without charge (proportional charging for partially checked ranges is gone). `complete` and `unchecked_ranks` remain and are always `true` and empty on success.
+- `app_reviews` reads review pages 2 and later more reliably.
+- `google_maps_search` responds more reliably at busy times. It usually takes 30-60 s, so keep your client tool timeout at 120 s or more. No tools or parameters were added or removed.
+
 # 4.3.2
 
 - 응답을 받기 전에 연결이 끊긴 호출은 과금하지 않습니다. MCP 클라이언트가 시간 초과 등으로 요청을 취소하면 서버도 처리를 멈추고 포인트를 차감하지 않으며, 같은 요청을 다시 보내면 한 번만 과금됩니다. 오래 걸리는 조회(인스타그램·틱톡 프로필, 구글 지도 검색 등)를 쓸 때 클라이언트의 도구 대기 시간을 넉넉히(120초 이상) 두기를 권장합니다.

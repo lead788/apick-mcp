@@ -1844,7 +1844,7 @@ Google Maps place search: return up to 20 places (name, address, phone, rating, 
 
 Google rank check: find where a domain ranks (1-100) in Google results for a keyword.
 
-키워드로 구글을 검색했을 때 지정한 도메인이 1~100위 중 몇 위에 노출되는지 확인합니다. 일부 구간을 확인하지 못하면 complete:false·unchecked_ranks 와 함께 확인한 구간 비율만큼만 과금됩니다.
+키워드로 구글을 검색했을 때 지정한 도메인이 1~100위 중 몇 위에 노출되는지 확인합니다. 순위를 정하는 데 필요한 구간을 모두 확인하지 못하면 결과 없이 실패로 끝나며 과금되지 않습니다.
 
 > 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `web`
 

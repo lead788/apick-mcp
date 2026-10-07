@@ -1883,11 +1883,13 @@ Collect a YouTube channel profile and its latest uploaded videos.
 
 유튜브 계정(채널) 정보와 최근 게시한 동영상 정보를 수집해 반환합니다.
 
+채널 정보(이름·핸들·구독자 수·설명·인증 여부)와 최근 업로드 영상 최대 60개(제목·주소·조회수·길이·썸네일)를 `user.posts` 로 돌려줍니다. / Returns the channel profile and up to 60 latest uploads in `user.posts`.
+
 > 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `web`
 
 | Parameter | Type | Required | Description 설명 |
 | --- | --- | --- | --- |
-| `user_id` | `string` | **필수 / required** | 수집할 유튜브 사용자(채널) 아이디 (예: CNN) |
+| `user_id` | `string` | **필수 / required** | 수집할 유튜브 채널 아이디(예: CNN)·핸들(@CNN)·채널 ID(UC…) 또는 채널 URL |
 
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"crawl_youtube","arguments":{"user_id":"<user_id>"}}}

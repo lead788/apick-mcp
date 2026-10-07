@@ -1,3 +1,18 @@
+# 4.3.2
+
+- 응답을 받기 전에 연결이 끊긴 호출은 과금하지 않습니다. MCP 클라이언트가 시간 초과 등으로 요청을 취소하면 서버도 처리를 멈추고 포인트를 차감하지 않으며, 같은 요청을 다시 보내면 한 번만 과금됩니다. 오래 걸리는 조회(인스타그램·틱톡 프로필, 구글 지도 검색 등)를 쓸 때 클라이언트의 도구 대기 시간을 넉넉히(120초 이상) 두기를 권장합니다.
+- `crawl_youtube` 가 정상 동작합니다. `user_id` 에 채널 아이디(예: `CNN`)·핸들(`@CNN`)·채널 ID(`UC…`)·채널 주소를 받고, 채널 정보(구독자 수·설명·인증 여부)와 최근 업로드 영상 최대 60개를 돌려줍니다.
+- `app_reviews` 가 리뷰를 더 안정적으로 가져옵니다. 리뷰가 있는 앱인데 리뷰를 가져오지 못하면 과금 없이 오류로 응답합니다. 잘못된 앱 ID 는 입력 오류(400), 없는 앱은 404 입니다.
+- `youtube_formats` 의 `estimated_cost` 가 호출한 계정에 실제로 적용되는 단가로 계산됩니다.
+- 파일로 돌려주는 도구의 파일 이름 확장자가 실제 형식과 맞습니다(예: `youtube_subtitle` 의 srt 는 `.srt`).
+- `google_shopping_search` 의 모든 상품에 `image_url` 이 채워집니다(상위 상품도 72시간 유효한 이미지 주소로 제공). 도구·파라미터 추가나 삭제는 없습니다.
+- Calls whose connection drops before the response arrives are no longer charged. When an MCP client cancels a request (for example on its own timeout) the server stops and charges nothing; retrying the same request is charged once. For slow lookups (Instagram/TikTok profiles, Google Maps search) give your client a generous tool timeout (120 s or more).
+- `crawl_youtube` now works. `user_id` accepts a channel name (e.g. `CNN`), a handle (`@CNN`), a channel ID (`UC…`) or a channel URL, and returns the channel profile (subscribers, description, verification) with up to 60 latest uploads.
+- `app_reviews` fetches reviews more reliably and returns an unbilled error when an app that has reviews cannot be read; an invalid app ID is a 400 input error and an unknown app is 404.
+- `youtube_formats` `estimated_cost` now uses the price that actually applies to the calling account.
+- File results carry the right extension (e.g. `.srt` for `youtube_subtitle` in srt).
+- Every `google_shopping_search` item now has an `image_url` (top items get an image URL valid for 72 hours). No tools or parameters were added or removed.
+
 # 4.3.1
 
 - 요금 안내 갱신(서버 이용약관 제9조 개정, 2026-11-06 시행): 사용량 과금 상품의 기본요금을 안내합니다. TTS 작업당 5P, LLM 채팅(`llm_chat`) 요청당 5P, 결과 건수 과금 수집 작업은 결과가 있을 때 작업당 10P(인스타그램 댓글 50P)입니다. 포인트 계산의 소수점은 올림하며(0.1P → 1P) 과금되는 이용 1건은 최소 1P입니다. 도구·파라미터 변경은 없습니다.

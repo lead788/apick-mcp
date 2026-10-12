@@ -106,6 +106,13 @@ Adds the Subagent integration and usage-based installed-agent contract. Existing
 
 # 변경 기록
 
+## 4.6.0 — 대량·예약 수집 도구 폐지 (2026-10-12)
+
+- 통합 138개 / Web 36개 / 상태 변경 29개로 정리.
+- 대량·예약(스케줄링) 수집 도구 7종을 폐지했습니다: `instagram_posts_create`, `instagram_comments_create`, `tiktok_search_create`, `tiktok_video_create`, `tiktok_comments_create`, `amazon_reviews_create`, `google_maps_place_create`.
+- 결과 조회 도구 `scrape_jobs_status` 도 폐지했습니다. 남은 도구는 요청 1건에 응답 1건인 단발 조회만 합니다.
+- 같은 대상은 단발 조회 도구(`instagram_profile`·`instagram_post`·`tiktok_profile`·`amazon_product` 등)로 이용할 수 있습니다.
+
 ## 3.9.3 — 2026-10-04
 
 - 기존·신규 스킬의 성능표와 공개 측정 JSON 안내를 추가했습니다. 도구 수·브릿지 동작은 그대로입니다.

@@ -1,7 +1,7 @@
 # APICK MCP — Full Tool Catalog / 전체 Tool 목록
 
-**144 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 144개**, 분야별 서버 8개와 통합 서버 `all`.
+**141 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 141개**, 분야별 서버 8개와 통합 서버 `all`.
 
 4.1.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
 
@@ -20,14 +20,14 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | [Identity Verification · 신분증 진위확인 · 마스킹](#identity) | `/mcp/identity` | 16 | 주민등록증·운전면허증·여권·외국인등록증 진위확인, 실명확인, 개인정보 마스킹. |
 | [OCR · OCR 문자인식](#ocr) | `/mcp/ocr` | 6 | 이미지 텍스트 추출과 신분증 항목 추출. |
 | [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 3 | 계좌 예금주 실명조회와 1원 인증. |
-| [Web & Search · 웹 · 검색](#web) | `/mcp/web` | 42 | 도메인·IP 조회, WHOIS, 웹페이지 수집, 구글 검색(웹·이미지·뉴스·쇼핑·지도·장소 상세·순위), 유튜브(검색·채널·재생목록·댓글·자막·영상·오디오 다운로드), 인스타그램·틱톡·X(프로필·게시물·댓글·검색), 아마존(상품·리뷰). |
+| [Web & Search · 웹 · 검색](#web) | `/mcp/web` | 39 | 도메인·IP 조회, WHOIS, 웹페이지 수집, 구글 검색(웹·이미지·뉴스·쇼핑·지도·장소 상세·순위), 유튜브(검색·채널·재생목록·댓글·자막), 인스타그램·틱톡·X(프로필·게시물·댓글·검색), 아마존(상품·리뷰). |
 | [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 25 | PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
-| **All 통합** | `/mcp/all` | **144** | 아래 전부 + [`find_tools`](#find-tools) |
+| **All 통합** | `/mcp/all` | **141** | 아래 전부 + [`find_tools`](#find-tools) |
 | [Skills · 검수된 Skill 실행](#skills) | `/mcp/skills` | 6 | Skill 검색·상세·견적·실행·조회·취소. `all`에는 포함되지 않는 별도 서버 / separate server, not part of `all`. |
 
-<details><summary><b>All 144 tool names / 전체 Tool 이름</b></summary>
+<details><summary><b>All 141 tool names / 전체 Tool 이름</b></summary>
 
 `biz_detail` · `venture_biz_info` · `land_rt_price` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup`
 
@@ -37,7 +37,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 `transfer_1won` · `account_realname` · `bank_code`
 
-`nslookup` · `reverse_ip` · `location` · `ip_history` · `whois` · `url_html` · `url_screenshot` · `url_similarity` · `google_search` · `google_image_search` · `google_news_search` · `google_shopping_search` · `google_maps_search` · `google_rank_check` · `google_lens_search` · `crawl_youtube` · `download_youtube_video` · `youtube_metadata` · `youtube_thumbnail` · `youtube_subtitle_list` · `youtube_subtitle` · `youtube_search` · `youtube_channel` · `youtube_playlist` · `youtube_hashtag` · `youtube_formats` · `youtube_comments` · `youtube_audio_download` · `instagram_profile` · `instagram_post` · `tiktok_profile` · `amazon_product` · `x_profile` · `x_post` · `instagram_posts_create` · `instagram_comments_create` · `tiktok_search_create` · `tiktok_video_create` · `tiktok_comments_create` · `amazon_reviews_create` · `google_maps_place_create` · `scrape_jobs_status`
+`nslookup` · `reverse_ip` · `location` · `ip_history` · `whois` · `url_html` · `url_screenshot` · `url_similarity` · `google_search` · `google_image_search` · `google_news_search` · `google_shopping_search` · `google_maps_search` · `google_rank_check` · `google_lens_search` · `crawl_youtube` · `youtube_metadata` · `youtube_thumbnail` · `youtube_subtitle_list` · `youtube_subtitle` · `youtube_search` · `youtube_channel` · `youtube_playlist` · `youtube_hashtag` · `youtube_comments` · `instagram_profile` · `instagram_post` · `tiktok_profile` · `amazon_product` · `x_profile` · `x_post` · `instagram_posts_create` · `instagram_comments_create` · `tiktok_search_create` · `tiktok_video_create` · `tiktok_comments_create` · `amazon_reviews_create` · `google_maps_place_create` · `scrape_jobs_status`
 
 `stt` · `tts_jobs_create` · `tts_gemini_create` · `tts_gemini_voices` · `tts_openai_create` · `tts_openai_voices` · `tts_options` · `tts_quote` · `tts_jobs_status` · `tts_jobs_cancel` · `tts_jobs_result` · `tts_jobs_subtitles` · `voice_change` · `face_blur` · `pdf_to_docx` · `pdf_to_image` · `pdf_merge` · `html_to_pdf` · `docx_to_pdf` · `json_to_excel` · `base64_to_image` · `set_watermark` · `get_watermark` · `draw_watermark_pdf` · `draw_watermark_image`
 
@@ -1548,11 +1548,11 @@ _No parameters. 파라미터 없음._
 
 ## Web & Search · 웹 · 검색
 
-`https://apick.app/mcp/web` — 42 tools
+`https://apick.app/mcp/web` — 39 tools
 
-Domain and IP intelligence, WHOIS, page capture, Google search (web, images, news, shopping, maps, rank check), YouTube (search, channels, playlists, comments, subtitles, video and audio download), Instagram, TikTok and X (profiles, posts, comments, search), and Amazon (products, reviews). Collection jobs (`*_create`) return a `job_id` at once; read results with `scrape_jobs_status`.
+Domain and IP intelligence, WHOIS, page capture, Google search (web, images, news, shopping, maps, rank check), YouTube (search, channels, playlists, comments, subtitles), Instagram, TikTok and X (profiles, posts, comments, search), and Amazon (products, reviews). Collection jobs (`*_create`) return a `job_id` at once; read results with `scrape_jobs_status`.
 
-도메인·IP 조회, WHOIS, 웹페이지 수집, 구글 검색(웹·이미지·뉴스·쇼핑·지도·장소 상세·순위), 유튜브(검색·채널·재생목록·댓글·자막·영상·오디오 다운로드), 인스타그램·틱톡·X(프로필·게시물·댓글·검색), 아마존(상품·리뷰). 수집 작업(`*_create`)은 바로 `job_id` 를 돌려주고 결과는 `scrape_jobs_status` 로 조회합니다.
+도메인·IP 조회, WHOIS, 웹페이지 수집, 구글 검색(웹·이미지·뉴스·쇼핑·지도·장소 상세·순위), 유튜브(검색·채널·재생목록·댓글·자막), 인스타그램·틱톡·X(프로필·게시물·댓글·검색), 아마존(상품·리뷰). 수집 작업(`*_create`)은 바로 `job_id` 를 돌려주고 결과는 `scrape_jobs_status` 로 조회합니다.
 
 | Tool | 기능 | Required 필수 |
 | --- | --- | --- |
@@ -1572,7 +1572,6 @@ Domain and IP intelligence, WHOIS, page capture, Google search (web, images, new
 | [`google_rank_check`](#google-rank-check) | 구글 검색 순위 확인 | `keyword`, `domain` |
 | [`google_lens_search`](#google-lens-search) | 구글 렌즈 검색(이미지로 검색) | `image_url` |
 | [`crawl_youtube`](#crawl-youtube) | 유튜브 계정 정보 수집 | `user_id` |
-| [`download_youtube_video`](#download-youtube-video) | 유튜브 동영상 다운로드 | `url` |
 | [`youtube_metadata`](#youtube-metadata) | 유튜브 영상 정보 조회 | `url` |
 | [`youtube_thumbnail`](#youtube-thumbnail) | 유튜브 썸네일 다운로드 | `url` |
 | [`youtube_subtitle_list`](#youtube-subtitle-list) | 유튜브 자막 목록 조회 | `url` |
@@ -1581,9 +1580,7 @@ Domain and IP intelligence, WHOIS, page capture, Google search (web, images, new
 | [`youtube_channel`](#youtube-channel) | 유튜브 채널 조회 | undefined |
 | [`youtube_playlist`](#youtube-playlist) | 유튜브 재생목록 조회 | undefined |
 | [`youtube_hashtag`](#youtube-hashtag) | 유튜브 해시태그 영상 조회 | undefined |
-| [`youtube_formats`](#youtube-formats) | 유튜브 다운로드 화질 조회 | undefined |
 | [`youtube_comments`](#youtube-comments) | 유튜브 댓글 조회 | undefined |
-| [`youtube_audio_download`](#youtube-audio-download) | 유튜브 오디오 다운로드 | undefined |
 | [`instagram_profile`](#instagram-profile) | 인스타그램 프로필 조회 | `username` 또는 `url` |
 | [`instagram_post`](#instagram-post) | 인스타그램 게시물·릴스 조회 | `url` |
 | [`tiktok_profile`](#tiktok-profile) | 틱톡 프로필 조회 | `username` 또는 `url` |
@@ -1895,30 +1892,6 @@ Collect a YouTube channel profile and its latest uploaded videos.
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"crawl_youtube","arguments":{"user_id":"<user_id>"}}}
 ```
 
-<a id="download-youtube-video"></a>
-
-### `download_youtube_video` — 유튜브 동영상 다운로드
-
-Download a public YouTube video as an MP4 file in the chosen quality (up to 4K), optionally only a time range. Returns a download link valid for 1 hour (resumable, no key needed). Billed as 30 points plus 2 points per 10MB of the delivered file; check sizes and estimated costs with `youtube_formats` first.
-
-유튜브 공개 영상을 원하는 화질(최대 4K)의 MP4로 받습니다. 구간만 잘라 받을 수 있습니다. 1시간 유효한 다운로드 링크(이어받기 지원, 인증키 불필요)를 돌려줍니다. 요금은 30포인트 + 파일 10MB당 2포인트이며, `youtube_formats`로 화질별 예상 용량·요금을 먼저 볼 수 있습니다.
-
-> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `web`
-
-| Parameter | Type | Required | Description 설명 |
-| --- | --- | --- | --- |
-| `url` | `string` | **필수 / required** | 유튜브 영상 URL 또는 11자리 영상 ID (watch·youtu.be·shorts 주소 지원) |
-| `quality` | `string` | 선택 / optional | 최대 화질 `best`·`2160`·`1440`·`1080`(기본)·`720`·`480`·`360`·`240`·`144` |
-| `codec` | `string` | 선택 / optional | `any`(기본)·`h264`(구형 기기 호환) |
-| `start` | `string` | 선택 / optional | 구간 시작(초 또는 시:분:초) |
-| `end` | `string` | 선택 / optional | 구간 끝(초 또는 시:분:초) |
-
-```json
-{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"download_youtube_video","arguments":{"url":"<url>","quality":"1080"}}}
-```
-
----
-
 <a id="youtube-metadata"></a>
 
 ### `youtube_metadata` — 유튜브 영상 정보 조회
@@ -2093,26 +2066,6 @@ List videos on a YouTube hashtag page. 20 points per call.
 
 ---
 
-<a id="youtube-formats"></a>
-
-### `youtube_formats` — 유튜브 다운로드 화질 조회
-
-List the downloadable video qualities (resolution, fps, codec, size) and audio formats of a public YouTube video, with the estimated download size and cost per quality. 10 points per call.
-
-유튜브 공개 영상에서 받을 수 있는 화질·코덱·용량, 오디오 형식과 화질별 예상 다운로드 요금을 조회합니다. 호출당 10포인트.
-
-> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `web`
-
-| Parameter | Type | Required | Description 설명 |
-| --- | --- | --- | --- |
-| `url` | `string` | **필수 / required** | 유튜브 영상 URL 또는 11자리 영상 ID (watch·youtu.be·shorts 주소 지원) |
-
-```json
-{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"youtube_formats","arguments":{"url":"<url>"}}}
-```
-
----
-
 <a id="youtube-comments"></a>
 
 ### `youtube_comments` — 유튜브 댓글 조회
@@ -2132,30 +2085,6 @@ List comments of a public YouTube video sorted by top or newest, with author, te
 
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"youtube_comments","arguments":{"url":"<url>","count":20,"sort":"top"}}}
-```
-
----
-
-<a id="youtube-audio-download"></a>
-
-### `youtube_audio_download` — 유튜브 오디오 다운로드
-
-Download only the audio of a public YouTube video as MP3, M4A or Opus, optionally only a time range. Returns a download link valid for 1 hour (resumable, no key needed). Billed as 20 points plus 2 points per 10MB of the delivered file.
-
-유튜브 공개 영상의 소리만 MP3·M4A·Opus로 받습니다. 구간만 잘라 받을 수 있습니다. 1시간 유효한 다운로드 링크(이어받기 지원, 인증키 불필요)를 돌려줍니다. 요금은 20포인트 + 파일 10MB당 2포인트입니다.
-
-> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `web`
-
-| Parameter | Type | Required | Description 설명 |
-| --- | --- | --- | --- |
-| `url` | `string` | **필수 / required** | 유튜브 영상 URL 또는 11자리 영상 ID (watch·youtu.be·shorts 주소 지원) |
-| `format` | `string` | 선택 / optional | `mp3`(기본)·`m4a`·`opus` |
-| `bitrate` | `string` | 선택 / optional | MP3 비트레이트 `128`·`192`(기본)·`320` |
-| `start` | `string` | 선택 / optional | 구간 시작(초 또는 시:분:초, 예: `90`, `1:30`) |
-| `end` | `string` | 선택 / optional | 구간 끝(초 또는 시:분:초) |
-
-```json
-{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"youtube_audio_download","arguments":{"url":"<url>","format":"mp3","bitrate":"192"}}}
 ```
 
 ---
@@ -3372,8 +3301,6 @@ Current rates 단가표: <https://apick.app/dev_guide/mcp> · Sign up for 1,000 
 
 `tools/list`는 API Key와 허용 IP를 검사하지 않으며 실제 검증은 `tools/call`에서 수행됩니다. 마이페이지의 허용 IP 목록이 공란이면 IP 제한이 없고, 제한하려면 APICK에 도착하는 공인 IPv4를 단일 주소 또는 CIDR(`/32` 등)로 등록하세요. 저장 즉시 반영되며 별도 동기화나 대기시간은 없습니다.
 
-YouTube video and audio downloads are billed as a base fee plus 2 points per 10MB of the delivered file (`download_youtube_video` 30P, `youtube_audio_download` 20P base).
-유튜브 영상·오디오 다운로드는 기본요금에 받은 파일 10MB마다 2포인트가 더해집니다(`download_youtube_video` 기본 30P, `youtube_audio_download` 기본 20P).
 
 Video generation is billed per second of output (`duration × per-second points`), not per call — the rate above is per second, not per video.
 영상 생성은 호출당이 아니라 초당 과금입니다(`duration × 초당 포인트`) — 아래 단가는 1초당 포인트입니다.

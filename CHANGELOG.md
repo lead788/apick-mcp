@@ -1,3 +1,8 @@
+# 4.4.0
+
+- 유튜브 영상 다운로드(`download_youtube_video`)·오디오 다운로드(`youtube_audio_download`)·화질 조회(`youtube_formats`) 세 Tool 과 관련 안내를 제거했습니다. 통합 서버 141개, Web 서버 39개입니다. 유튜브 메타정보·썸네일·자막·검색·채널·재생목록·해시태그·댓글 조회와 `crawl_youtube` 는 그대로 제공합니다.
+- Removed the YouTube video download (`download_youtube_video`), audio download (`youtube_audio_download`) and quality lookup (`youtube_formats`) tools and their notes — 141 tools overall, 39 on Web. YouTube metadata, thumbnails, subtitles, search, channels, playlists, hashtags, comments and `crawl_youtube` are unchanged.
+
 # 4.3.3
 
 - `google_rank_check` 가 정확한 순위만 돌려줍니다. 찾은 순위보다 앞쪽 구간을 모두 확인했을 때만 순위를, 찾지 못했을 때는 1~100위를 모두 확인했을 때만 `found: false` 를 응답합니다. 그렇지 못하면 결과 없이 실패로 끝나며 과금하지 않습니다(이전의 확인 구간 비율 과금은 없어졌습니다). `complete`·`unchecked_ranks` 필드는 그대로 있으며 성공 응답에서는 항상 `true`·빈 배열입니다.

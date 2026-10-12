@@ -1,9 +1,9 @@
 # APICK MCP — Full Tool Catalog / 전체 Tool 목록
 
-**141 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 141개**, 분야별 서버 8개와 통합 서버 `all`.
+**146 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 146개**, 분야별 서버 8개와 통합 서버 `all`.
 
-4.1.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
+4.5.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
 
 
 
@@ -20,14 +20,14 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | [Identity Verification · 신분증 진위확인 · 마스킹](#identity) | `/mcp/identity` | 16 | 주민등록증·운전면허증·여권·외국인등록증 진위확인, 실명확인, 개인정보 마스킹. |
 | [OCR · OCR 문자인식](#ocr) | `/mcp/ocr` | 6 | 이미지 텍스트 추출과 신분증 항목 추출. |
 | [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 3 | 계좌 예금주 실명조회와 1원 인증. |
-| [Web & Search · 웹 · 검색](#web) | `/mcp/web` | 39 | 도메인·IP 조회, WHOIS, 웹페이지 수집, 구글 검색(웹·이미지·뉴스·쇼핑·지도·장소 상세·순위), 유튜브(검색·채널·재생목록·댓글·자막), 인스타그램·틱톡·X(프로필·게시물·댓글·검색), 아마존(상품·리뷰). |
+| [Web & Search · 웹 · 검색](#web) | `/mcp/web` | 44 | 도메인·IP 조회, WHOIS, 웹페이지 수집, 구글 검색(웹·이미지·뉴스·쇼핑·지도·장소 상세·순위), 유튜브(검색·채널·재생목록·댓글·자막·영상 정보·썸네일), 인스타그램·틱톡·X(프로필·게시물·댓글·검색), 아마존·쿠팡·네이버 상품, 링크드인(프로필·회사·채용공고). |
 | [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 25 | PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
-| **All 통합** | `/mcp/all` | **141** | 아래 전부 + [`find_tools`](#find-tools) |
+| **All 통합** | `/mcp/all` | **146** | 아래 전부 + [`find_tools`](#find-tools) |
 | [Skills · 검수된 Skill 실행](#skills) | `/mcp/skills` | 6 | Skill 검색·상세·견적·실행·조회·취소. `all`에는 포함되지 않는 별도 서버 / separate server, not part of `all`. |
 
-<details><summary><b>All 141 tool names / 전체 Tool 이름</b></summary>
+<details><summary><b>All 146 tool names / 전체 Tool 이름</b></summary>
 
 `biz_detail` · `venture_biz_info` · `land_rt_price` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup`
 
@@ -37,7 +37,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 `transfer_1won` · `account_realname` · `bank_code`
 
-`nslookup` · `reverse_ip` · `location` · `ip_history` · `whois` · `url_html` · `url_screenshot` · `url_similarity` · `google_search` · `google_image_search` · `google_news_search` · `google_shopping_search` · `google_maps_search` · `google_rank_check` · `google_lens_search` · `crawl_youtube` · `youtube_metadata` · `youtube_thumbnail` · `youtube_subtitle_list` · `youtube_subtitle` · `youtube_search` · `youtube_channel` · `youtube_playlist` · `youtube_hashtag` · `youtube_comments` · `instagram_profile` · `instagram_post` · `tiktok_profile` · `amazon_product` · `x_profile` · `x_post` · `instagram_posts_create` · `instagram_comments_create` · `tiktok_search_create` · `tiktok_video_create` · `tiktok_comments_create` · `amazon_reviews_create` · `google_maps_place_create` · `scrape_jobs_status`
+`nslookup` · `reverse_ip` · `location` · `ip_history` · `whois` · `url_html` · `url_screenshot` · `url_similarity` · `google_search` · `google_image_search` · `google_news_search` · `google_shopping_search` · `google_maps_search` · `google_rank_check` · `google_lens_search` · `crawl_youtube` · `youtube_metadata` · `youtube_thumbnail` · `youtube_subtitle_list` · `youtube_subtitle` · `youtube_search` · `youtube_channel` · `youtube_playlist` · `youtube_hashtag` · `youtube_comments` · `instagram_profile` · `instagram_post` · `tiktok_profile` · `amazon_product` · `coupang_product` · `naver_shopping_product` · `linkedin_profile` · `linkedin_company` · `linkedin_job` · `x_profile` · `x_post` · `instagram_posts_create` · `instagram_comments_create` · `tiktok_search_create` · `tiktok_video_create` · `tiktok_comments_create` · `amazon_reviews_create` · `google_maps_place_create` · `scrape_jobs_status`
 
 `stt` · `tts_jobs_create` · `tts_gemini_create` · `tts_gemini_voices` · `tts_openai_create` · `tts_openai_voices` · `tts_options` · `tts_quote` · `tts_jobs_status` · `tts_jobs_cancel` · `tts_jobs_result` · `tts_jobs_subtitles` · `voice_change` · `face_blur` · `pdf_to_docx` · `pdf_to_image` · `pdf_merge` · `html_to_pdf` · `docx_to_pdf` · `json_to_excel` · `base64_to_image` · `set_watermark` · `get_watermark` · `draw_watermark_pdf` · `draw_watermark_image`
 
@@ -1548,7 +1548,7 @@ _No parameters. 파라미터 없음._
 
 ## Web & Search · 웹 · 검색
 
-`https://apick.app/mcp/web` — 39 tools
+`https://apick.app/mcp/web` — 44 tools
 
 Domain and IP intelligence, WHOIS, page capture, Google search (web, images, news, shopping, maps, rank check), YouTube (search, channels, playlists, comments, subtitles), Instagram, TikTok and X (profiles, posts, comments, search), and Amazon (products, reviews). Collection jobs (`*_create`) return a `job_id` at once; read results with `scrape_jobs_status`.
 
@@ -1585,8 +1585,13 @@ Domain and IP intelligence, WHOIS, page capture, Google search (web, images, new
 | [`instagram_post`](#instagram-post) | 인스타그램 게시물·릴스 조회 | `url` |
 | [`tiktok_profile`](#tiktok-profile) | 틱톡 프로필 조회 | `username` 또는 `url` |
 | [`amazon_product`](#amazon-product) | 아마존 상품 정보 조회 | `url` 또는 `asin` |
+| [`coupang_product`](#coupang-product) | 쿠팡 상품 정보 조회 | `url` 또는 `product_id` |
+| [`naver_shopping_product`](#naver-shopping-product) | 네이버 브랜드스토어 상품 조회 | `url` |
 | [`x_profile`](#x-profile) | X 프로필 조회 | `username` 또는 `url` |
 | [`x_post`](#x-post) | X 게시물 조회 | `url` |
+| [`linkedin_profile`](#linkedin-profile) | 링크드인 프로필 조회 | `url` |
+| [`linkedin_company`](#linkedin-company) | 링크드인 회사 조회 | `url` |
+| [`linkedin_job`](#linkedin-job) | 링크드인 채용공고 조회 | `url` |
 | [`instagram_posts_create`](#instagram-posts-create) | 인스타그램 게시물 목록 수집 접수 | `username` 또는 `url` |
 | [`instagram_comments_create`](#instagram-comments-create) | 인스타그램 댓글 수집 접수 | `url` |
 | [`tiktok_search_create`](#tiktok-search-create) | 틱톡 키워드 영상 검색 접수 | `keyword` |
@@ -2164,6 +2169,43 @@ Amazon product by URL or ASIN: title, price, rating, reviews count, availability
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"amazon_product","arguments":{"asin":"B0BDHWDR12"}}}
 ```
 
+<a id="coupang-product"></a>
+
+### `coupang_product` — 쿠팡 상품 정보 조회
+
+Coupang product by URL or product id: title, prices, discount, rating, reviews, stock, seller, options, categories and images. 30 points per call; failed calls are free.
+
+쿠팡 상품 주소 또는 상품번호로 상품명·정가·판매가·할인율·평점·리뷰 수·재고·판매자·옵션·카테고리·이미지를 조회합니다. 호출당 30P, 실패하면 과금되지 않습니다. 보통 25~40초 걸립니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `web`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `url` | `string` | 선택 / optional | 쿠팡 상품 주소 (/vp/products/ 형식, url 또는 product_id 중 하나 필수) |
+| `product_id` | `string` | 선택 / optional | 쿠팡 상품번호 (숫자) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"coupang_product","arguments":{"product_id":"8314992021"}}}
+```
+
+<a id="naver-shopping-product"></a>
+
+### `naver_shopping_product` — 네이버 브랜드스토어 상품 조회
+
+Naver brand store product by URL: title, prices, discount, reviews, sellers, product information, tags and images. 30 points per call; failed calls are free.
+
+네이버 브랜드스토어 상품 주소로 상품명·정가·판매가·할인율·리뷰 수·판매자·상품정보·태그·이미지를 조회합니다. 호출당 30P, 실패하면 과금되지 않습니다. 보통 1~2분30초 걸립니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `web`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `url` | `string` | **필수 / required** | 네이버 브랜드스토어 상품 주소 (예: `https://brand.naver.com/{스토어}/products/{번호}`) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"naver_shopping_product","arguments":{"url":"https://brand.naver.com/pulmuonebynature/products/4995061380"}}}
+```
+
 <a id="x-profile"></a>
 
 ### `x_profile` — X 프로필 조회
@@ -2199,6 +2241,60 @@ X 게시물 주소로 본문·작성 시각·좋아요·리포스트·답글·�
 
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"x_post","arguments":{"url":"https://x.com/NASA/status/<id>"}}}
+```
+
+<a id="linkedin-profile"></a>
+
+### `linkedin_profile` — 링크드인 프로필 조회
+
+LinkedIn public profile by URL: name, position, about, location, followers, current company, experience, education and recent posts. 30 points per call; failed calls are free.
+
+링크드인 공개 프로필 주소로 이름·직함·소개·지역·팔로워·현재 회사·경력·학력·최근 활동을 조회합니다. 호출당 30P, 실패하면 과금되지 않습니다. 보통 10~20초 걸립니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `web`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `url` | `string` | **필수 / required** | 링크드인 프로필 주소 (예: `https://www.linkedin.com/in/{아이디}`) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"linkedin_profile","arguments":{"url":"https://www.linkedin.com/in/williamhgates"}}}
+```
+
+<a id="linkedin-company"></a>
+
+### `linkedin_company` — 링크드인 회사 조회
+
+LinkedIn company page by URL: name, about, website, industries, company size, founded year, followers, headquarters and specialties. 30 points per call; failed calls are free.
+
+링크드인 회사 주소로 회사명·소개·홈페이지·업종·규모·설립 연도·팔로워·본사·특기를 조회합니다. 호출당 30P, 실패하면 과금되지 않습니다. 보통 5~15초 걸립니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `web`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `url` | `string` | **필수 / required** | 링크드인 회사 주소 (예: `https://www.linkedin.com/company/{아이디}`) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"linkedin_company","arguments":{"url":"https://www.linkedin.com/company/microsoft"}}}
+```
+
+<a id="linkedin-job"></a>
+
+### `linkedin_job` — 링크드인 채용공고 조회
+
+LinkedIn job posting by URL: title, company, location, employment type, seniority, industries, summary, description, posted date and applicants. 30 points per call; failed calls are free.
+
+링크드인 채용공고 주소로 직무·회사·근무지·고용형태·경력수준·산업·요약·공고 본문·게시일·지원자 수를 조회합니다. 호출당 30P, 실패하면 과금되지 않습니다. 보통 5~15초 걸립니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `web`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `url` | `string` | **필수 / required** | 링크드인 채용공고 주소 (예: `https://www.linkedin.com/jobs/view/{번호}`) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"linkedin_job","arguments":{"url":"https://www.linkedin.com/jobs/view/4445916652"}}}
 ```
 
 <a id="instagram-posts-create"></a>
@@ -3347,7 +3443,7 @@ Available generations: Seedance 1.0/1.5/2.0/2.5, including Seedance 2.0 Standard
 
 A Skill is an execution product registered by a seller and published after APICK review. Each Skill fixes its input format, output format, base amount and limits. For Skills that use generative AI the actual usage of each run is added, so the charge varies per run. Running it from the web, REST or MCP uses the same run ID and the same charging rule.
 
-Skill 은 판매자가 등록하고 에이픽이 심사해 게시한 실행 상품입니다. 입력 형식·결과 형식·기본 금액·처리 상한이 Skill 마다 정해져 있고, 생성형 AI 를 쓰는 Skill 은 실행마다 실제 사용량이 더해져 금액이 달라집니다. 또 웹·REST·MCP 어디에서 실행해도 같은 실행 번호와 같은 과금 규칙을 씁니다. `all` 서버와 별도이며 119개에는 포함되지 않습니다.
+Skill 은 판매자가 등록하고 에이픽이 심사해 게시한 실행 상품입니다. 입력 형식·결과 형식·기본 금액·처리 상한이 Skill 마다 정해져 있고, 생성형 AI 를 쓰는 Skill 은 실행마다 실제 사용량이 더해져 금액이 달라집니다. 또 웹·REST·MCP 어디에서 실행해도 같은 실행 번호와 같은 과금 규칙을 씁니다. `all` 서버와 별도이며 146개에는 포함되지 않습니다.
 
 | Rule 규칙 | Detail 내용 |
 | --- | --- |

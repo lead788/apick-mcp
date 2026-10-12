@@ -1,3 +1,8 @@
+# 4.5.0
+
+- 상품 조회 도구 5개를 추가했습니다(`all` 146개, Web 44개): `coupang_product`(쿠팡 상품 주소·상품번호로 상품명·가격·할인·평점·리뷰·재고·판매자·옵션·카테고리·이미지), `naver_shopping_product`(네이버 브랜드스토어 상품), `linkedin_profile`(링크드인 공개 프로필), `linkedin_company`(링크드인 회사), `linkedin_job`(링크드인 채용공고). 모두 호출당 30P이고 실패하면 과금하지 않습니다.
+- Added five product lookup tools (`all` 146, Web 44): `coupang_product` (Coupang product by URL or product id), `naver_shopping_product` (Naver brand store product), `linkedin_profile`, `linkedin_company` and `linkedin_job`. Each is 30 points per call and failed calls are free.
+
 # 4.4.0
 
 - 유튜브 영상 다운로드(`download_youtube_video`)·오디오 다운로드(`youtube_audio_download`)·화질 조회(`youtube_formats`) 세 Tool 과 관련 안내를 제거했습니다. 통합 서버 141개, Web 서버 39개입니다. 유튜브 메타정보·썸네일·자막·검색·채널·재생목록·해시태그·댓글 조회와 `crawl_youtube` 는 그대로 제공합니다.

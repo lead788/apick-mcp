@@ -2938,11 +2938,11 @@ List available text-generation LLM models with per-token pricing and max context
 
 Send a chat request to a selected LLM model and receive the assistant reply.
 
-선택한 LLM 모델에 대화를 보내고 assistant 응답을 받습니다. 서버는 대화 히스토리를 보관하지 않는 stateless 방식 — 매 호출마다 전체 히스토리를 messages 로 전송하고, 응답의 compacted_messages 를 다음 턴의 messages 로 그대로 재사용합니다. 사용 가능한 모델은 llm_models Tool로 조회합니다. 토큰 사용량에 비례해 포인트가 차감됩니다.
+선택한 LLM 모델에 대화를 보내고 assistant 응답을 받습니다. 서버는 대화 히스토리를 보관하지 않는 stateless 방식 — 매 호출마다 전체 히스토리를 messages 로 전송하고, 응답의 compacted_messages 를 다음 턴의 messages 로 그대로 재사용합니다. 사용 가능한 모델은 llm_models Tool로 조회합니다. 한 요청 안에서 쓰인 토큰 사용량(긴 대화의 이전 내용을 정리하는 처리 포함)에 비례해 포인트가 차감됩니다.
 
 > 읽기 전용 / read-only · 입력 변환 / transforms your input · server `ai`
 
-요금: 토큰 원가 × 환율 × 1.4, 소수점 올림. 2026-11-06부터 요청당 기본요금 5P를 최소액으로 받습니다. / Billing: token cost × exchange rate × 1.4, fractions rounded up, with a 5-point base fee per request from 2026-11-06.
+요금: 토큰 원가 × 환율 × 1.4, 소수점 올림. 한 요청 안에서 쓰인 사용량(긴 대화의 이전 내용을 정리하는 처리 포함)을 합산합니다. 2026-11-06부터 요청당 기본요금 5P를 최소액으로 받습니다. / Billing: token cost × exchange rate × 1.4, fractions rounded up, summed over all usage within the request (including trimming earlier turns of long conversations), with a 5-point base fee per request from 2026-11-06.
 
 | Parameter | Type | Required | Description 설명 |
 | --- | --- | --- | --- |
@@ -2975,9 +2975,11 @@ Send a chat request to a selected LLM model and receive the assistant reply.
 
 Summarize a long text (up to 100,000 characters) into a concise Korean summary.
 
-입력 텍스트(최대 10만 자)의 핵심 내용을 간결하고 정확하게 요약합니다. 모델·파라미터는 서버가 고정하며 빠른 응답에 최적화되어 있습니다. 토큰 수와 무관하게 요청당 고정 포인트가 차감됩니다.
+입력 텍스트(최대 10만 자)의 핵심 내용을 간결하고 정확하게 요약합니다. 모델·파라미터는 서버가 고정하며 빠른 응답에 최적화되어 있습니다. 요청당 기본 100포인트이며, 사용량 금액(원가 × 환율 × 1.4)이 더 크면 그 금액이 차감됩니다.
 
 > 읽기 전용 / read-only · 입력 변환 / transforms your input · server `ai`
+
+요금: 요청당 기본 100P. 사용량 금액(원가 × 환율 × 1.4, 소수점 올림)이 더 크면 그 금액을 받습니다. / Billing: 100 points per request as the base fee; if the usage amount (cost × exchange rate × 1.4, rounded up) is higher, that amount is charged.
 
 | Parameter | Type | Required | Description 설명 |
 | --- | --- | --- | --- |
@@ -2993,9 +2995,11 @@ Summarize a long text (up to 100,000 characters) into a concise Korean summary.
 
 Polish a text (up to 100,000 characters) by fixing grammar, spelling, and awkward phrasing.
 
-입력 텍스트(최대 10만 자)의 문법 오류, 맞춤법·오타, 어색한 표현, 문장 순서를 의미를 유지한 채 자연스럽게 다듬습니다. 모델·파라미터는 서버가 고정하며 빠른 응답에 최적화되어 있습니다. 토큰 수와 무관하게 요청당 고정 포인트가 차감됩니다.
+입력 텍스트(최대 10만 자)의 문법 오류, 맞춤법·오타, 어색한 표현, 문장 순서를 의미를 유지한 채 자연스럽게 다듬습니다. 모델·파라미터는 서버가 고정하며 빠른 응답에 최적화되어 있습니다. 요청당 기본 100포인트이며, 사용량 금액(원가 × 환율 × 1.4)이 더 크면 그 금액이 차감됩니다.
 
 > 읽기 전용 / read-only · 입력 변환 / transforms your input · server `ai`
+
+요금: 요청당 기본 100P. 사용량 금액(원가 × 환율 × 1.4, 소수점 올림)이 더 크면 그 금액을 받습니다. / Billing: 100 points per request as the base fee; if the usage amount (cost × exchange rate × 1.4, rounded up) is higher, that amount is charged.
 
 | Parameter | Type | Required | Description 설명 |
 | --- | --- | --- | --- |

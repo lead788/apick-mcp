@@ -1,3 +1,10 @@
+# 4.6.1
+
+- `text_summary`·`text_polish` 요금 안내를 고쳤습니다. 요청당 기본 100P이며, 사용량 금액(원가 × 환율 × 1.4, 소수점 올림)이 더 크면 그 금액을 받습니다. 긴 입력일수록 100P보다 커질 수 있습니다.
+- `llm_chat` 은 한 요청 안에서 쓰인 사용량(긴 대화의 이전 내용을 정리하는 처리 포함)을 합산해 과금합니다. 도구·파라미터 추가나 삭제는 없습니다.
+- Corrected the billing notes for `text_summary` and `text_polish`: 100 points per request as the base fee, or the usage amount (cost × exchange rate × 1.4, rounded up) when that is higher, so long inputs can cost more than 100 points.
+- `llm_chat` bills the usage summed over the whole request, including trimming earlier turns of long conversations. No tools or parameters were added or removed.
+
 # 4.5.0
 
 - 상품 조회 도구 5개를 추가했습니다(`all` 146개, Web 44개): `coupang_product`(쿠팡 상품 주소·상품번호로 상품명·가격·할인·평점·리뷰·재고·판매자·옵션·카테고리·이미지), `naver_shopping_product`(네이버 브랜드스토어 상품), `linkedin_profile`(링크드인 공개 프로필), `linkedin_company`(링크드인 회사), `linkedin_job`(링크드인 채용공고). 모두 호출당 30P이고 실패하면 과금하지 않습니다.

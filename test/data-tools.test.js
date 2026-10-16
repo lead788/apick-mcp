@@ -3,7 +3,7 @@ import test from 'node:test';
 import { readFileSync } from 'node:fs';
 import { createBridge } from '../src/bridge.js';
 
-const products = ['employment', 'personal_income', 'nps_join_history', 'driving_license', 'health_checkup', 'cash_receipt_deduction', 'tax_return_history'];
+const products = ['employment', 'personal_income', 'nps_join_history', 'nps_deduction_cert', 'nps_career_history', 'driving_license', 'health_checkup', 'cash_receipt_deduction', 'tax_return_history'];
 const names = products.flatMap(p => ['req_' + p, 'get_' + p]);
 const read = file => readFileSync(new URL('../' + file, import.meta.url), 'utf8');
 
@@ -119,19 +119,19 @@ test('응답 fixture가 공개 REST 필드 타입을 지키며 과거의 잘못�
 	]) assert.throws(() => assertDataContract({ ...valid, ...invalid }), assert.AssertionError);
 });
 
-test('배포 대상 138개 목록과 Business 활성 30개·Web 36개·상태 변경 29개 메타데이터가 일치한다', () => {
+test('배포 대상 142개 목록과 Business 활성 34개·Web 36개·상태 변경 29개 메타데이터가 일치한다', () => {
 	const tools = read('TOOLS.md');
 	const readme = read('README.md');
 	const inventory = tools.match(/<details>[\s\S]*?<\/details>/)[0];
 	const listed = [...inventory.matchAll(/`([a-z0-9_]+)`/g)].map(m => m[1]);
-	assert.equal(listed.length, 138);
-	assert.equal(new Set(listed).size, 138);
+	assert.equal(listed.length, 142);
+	assert.equal(new Set(listed).size, 142);
 	const business = tools.split('## Business & Commerce')[1].split('<a id="identity">')[0];
-	assert.equal([...business.matchAll(/^### `([a-z0-9_]+)`/gm)].length, 42);
+	assert.equal([...business.matchAll(/^### `([a-z0-9_]+)`/gm)].length, 46);
 	const unavailable = [...business.matchAll(/^### `([a-z0-9_]+)`[^\n]*(?:\r?\n)+> 현재 공개 전 점검으로 비활성/gm)].map(m => m[1]);
 	assert.equal(unavailable.length, 12);
 	for (const name of unavailable) assert.ok(!listed.includes(name), name + ' must not be advertised as available');
-	assert.match(readme, /`https:\/\/apick\.app\/mcp\/business` \| 30 \|/);
+	assert.match(readme, /`https:\/\/apick\.app\/mcp\/business` \| 34 \|/);
 	const web = tools.split('## Web & Search')[1].split('<a id="convert">')[0];
 	assert.equal([...web.matchAll(/^### `([a-z0-9_]+)`/gm)].length, 36);
 	assert.match(readme, /`https:\/\/apick\.app\/mcp\/web` \| 44 \|/);
@@ -139,13 +139,13 @@ test('배포 대상 138개 목록과 Business 활성 30개·Web 36개·상태 �
 		assert.ok(listed.includes(name), name);
 		assert.ok(web.includes('### `' + name + '`'), name);
 	}
-	assert.match(readme, /29 of 138 are not read-only/);
-	assert.match(readme, /109 of 138 tools are read-only/);
+	assert.match(readme, /33 of 142 are not read-only/);
+	assert.match(readme, /109 of 142 tools are read-only/);
 	// 3.7.0: all 서버 전용 find_tools 가 전체 목록과 README 한눈에 보기에 포함된다.
 	assert.ok(listed.includes('find_tools'));
 	assert.ok(tools.includes('### `find_tools`'));
 	assert.match(readme, /\*\*All only 통합 서버 전용\*\* `find_tools`/);
-	assert.match(readme, /`https:\/\/apick\.app\/mcp\/all` \| \*\*138\*\* \|/);
+	assert.match(readme, /`https:\/\/apick\.app\/mcp\/all` \| \*\*142\*\* \|/);
 	for (const name of names) {
 		assert.ok(listed.includes(name), name);
 		assert.ok(readme.includes('`' + name + '`'), name);
@@ -158,7 +158,7 @@ test('배포 대상 138개 목록과 Business 활성 30개·Web 36개·상태 �
 	assert.match(tools, /업무 상태 오류는 `isError: false`/);
 	const pkg = JSON.parse(read('package.json'));
 	const lock = JSON.parse(read('package-lock.json'));
-	assert.equal(pkg.version, '4.6.1');
+	assert.equal(pkg.version, '4.7.0');
 	assert.equal(lock.version, pkg.version);
 	assert.equal(lock.packages[''].version, pkg.version);
 	// 공개 JSON-RPC 예시도 실제 목록의 Tool을 참조해야 한다. skills 서버는 all 과 별도 목록이다.
@@ -181,7 +181,7 @@ test('TOOLS.md 상태 계약이 10개 상태·4개 처리 묶음·오류코드·
 	assert.deepEqual(Object.values(errorCodesByStatus).flat().sort(), [...errorCodes].sort());
 	assert.match(section, /`RESULT_EXPIRED`[^\n]*만료된 결과는 다시 조회할 수 없으며 새로운 인증 접수가 필요/);
 	for (const field of ['resultAvailable', 'sources', 'errorCode', 'progress', 'resultExpiresAt', '_meta["app.apick/cost"]']) assert.ok(section.includes('`' + field + '`'), field);
-	const resultKeys = { employment: 'employment', personal_income: 'personalIncome', nps_join_history: 'npsJoinHistory', driving_license: 'drivingLicense', health_checkup: 'healthCheckup', cash_receipt_deduction: 'cashReceiptDeduction', tax_return_history: 'taxReturnHistory' };
+	const resultKeys = { employment: 'employment', personal_income: 'personalIncome', nps_join_history: 'npsJoinHistory', nps_deduction_cert: 'npsDeductionCert', nps_career_history: 'npsCareerHistory', driving_license: 'drivingLicense', health_checkup: 'healthCheckup', cash_receipt_deduction: 'cashReceiptDeduction', tax_return_history: 'taxReturnHistory' };
 	for (const product of products) {
 		assert.equal(documentedResultKey(tools, product), resultKeys[product], product);
 		assert.ok(section.includes('`result.' + resultKeys[product] + '`'), product);

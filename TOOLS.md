@@ -1,9 +1,9 @@
 # APICK MCP — Full Tool Catalog / 전체 Tool 목록
 
-**138 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 146개**, 분야별 서버 8개와 통합 서버 `all`.
+**142 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 142개**, 분야별 서버 8개와 통합 서버 `all`.
 
-4.5.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
+4.7.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
 
 
 
@@ -16,7 +16,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 | Server 서버 | Endpoint | Tools | Coverage 범위 |
 | --- | --- | --- | --- |
-| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 30 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 유효성 검사. |
+| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 34 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 유효성 검사. |
 | [Identity Verification · 신분증 진위확인 · 마스킹](#identity) | `/mcp/identity` | 16 | 주민등록증·운전면허증·여권·외국인등록증 진위확인, 실명확인, 개인정보 마스킹. |
 | [OCR · OCR 문자인식](#ocr) | `/mcp/ocr` | 6 | 이미지 텍스트 추출과 신분증 항목 추출. |
 | [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 3 | 계좌 예금주 실명조회와 1원 인증. |
@@ -24,12 +24,12 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 25 | PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
-| **All 통합** | `/mcp/all` | **138** | 아래 전부 + [`find_tools`](#find-tools) |
+| **All 통합** | `/mcp/all` | **142** | 아래 전부 + [`find_tools`](#find-tools) |
 | [Skills · 검수된 Skill 실행](#skills) | `/mcp/skills` | 6 | Skill 검색·상세·견적·실행·조회·취소. `all`에는 포함되지 않는 별도 서버 / separate server, not part of `all`. |
 
-<details><summary><b>All 146 tool names / 전체 Tool 이름</b></summary>
+<details><summary><b>All 142 tool names / 전체 Tool 이름</b></summary>
 
-`biz_detail` · `venture_biz_info` · `land_rt_price` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup`
+`biz_detail` · `venture_biz_info` · `land_rt_price` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup`
 
 `identi_card1` · `identi_card2` · `identi_card3` · `identi_card4` · `identi_card5` · `identi_card_image1` · `identi_card_image2` · `identi_card_image3` · `identi_card_image4` · `identi_card_image5` · `name_rrn_auth` · `hide_rrn` · `identity_document_residence_card` · `identity_document_passport` · `identity_document_id_card` · `identity_document_driver_license`
 
@@ -55,11 +55,11 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 ## All server only · 통합 서버 전용
 
-`https://apick.app/mcp/all` — 1 tool in addition to the 117 domain tools
+`https://apick.app/mcp/all` — 1 tool in addition to the 141 domain tools
 
 Tools that exist only on the combined `all` server. Domain servers keep their own tool counts.
 
-분야별 Tool 117개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
+분야별 Tool 141개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
 
 <a id="find-tools"></a>
 
@@ -100,7 +100,7 @@ Call the recommended tool afterwards with your API key as usual. 추천받은 To
 
 ## Business & Commerce · 사업자 · 커머스
 
-`https://apick.app/mcp/business` — 30 tools
+`https://apick.app/mcp/business` — 34 tools
 
 Korean business registry, corporate credit, parcel tracking, real-estate prices, vehicle history, and input validation.
 
@@ -273,6 +273,8 @@ Result tools require the `transactionId` from the same product. Both stages are 
 | 재직·보험료 확인 | insuranceYears: 정수 1~3 (선택, 기본 1) | `result.employment` |
 | 금융소득(이자·배당) 조회 | incomeYears: 정수 1~5 (선택, 기본 1) | `result.personalIncome` |
 | 국민연금 가입내역 | from, to: YYYY-MM (각각 선택) | `result.npsJoinHistory` |
+| 국민연금 소득공제용 납부확인서 | years: 정수 1~5 (선택, 기본 1) | `result.npsDeductionCert` |
+| 국민연금 경력 이력 | from, to: YYYY-MM (각각 선택) | `result.npsCareerHistory` |
 | 운전면허 조회 | 없음 | `result.drivingLicense` |
 | 국가 건강검진 결과 | 없음 | `result.healthCheckup` |
 | 현금영수증 소득공제 내역 | incomeYears: 정수 1~3 (선택, 기본 1) | `result.cashReceiptDeduction` |
@@ -396,6 +398,54 @@ REST: `POST /rest/req_nps_join_history` · SDK: `requestNpsJoinHistory()`
 REST: `POST /rest/get_nps_join_history` · SDK: `getNpsJoinHistory()`
 
 필수: `transactionId`. 성공 결과: `result.npsJoinHistory`.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="req-nps-deduction-cert"></a>
+
+### `req_nps_deduction_cert` — 국민연금 소득공제용 납부확인서 인증 요청
+
+REST: `POST /rest/req_nps_deduction_cert` · SDK: `requestNpsDeductionCert()`
+
+필수: `name`, `birthDate`, `phone`, `authProvider`. 선택: years: 정수 1~5 (선택, 기본 1). 가입내역조회와 같은 국민연금 인증을 쓰므로 승인 1회를 공유합니다.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="get-nps-deduction-cert"></a>
+
+### `get_nps_deduction_cert` — 국민연금 소득공제용 납부확인서 결과 조회
+
+REST: `POST /rest/get_nps_deduction_cert` · SDK: `getNpsDeductionCert()`
+
+필수: `transactionId`. 성공 결과: `result.npsDeductionCert` (`조회기간`, `신청인`, `생년월일`, `연도별내역[]`). 최초 결과 60P × (1 + 0.5 × (years - 1)), 기본 60P.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="req-nps-career-history"></a>
+
+### `req_nps_career_history` — 국민연금 경력 이력 인증 요청
+
+REST: `POST /rest/req_nps_career_history` · SDK: `requestNpsCareerHistory()`
+
+필수: `name`, `birthDate`, `phone`, `authProvider`. 선택: from, to: YYYY-MM (각각 선택). 가입내역조회와 같은 국민연금 인증을 쓰므로 승인 1회를 공유합니다.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="get-nps-career-history"></a>
+
+### `get_nps_career_history` — 국민연금 경력 이력 결과 조회
+
+REST: `POST /rest/get_nps_career_history` · SDK: `getNpsCareerHistory()`
+
+필수: `transactionId`. 성공 결과: `result.npsCareerHistory` (`조회기간`, `합계`, `경력[]`, `사업장외가입[]`).
 
 [공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
 

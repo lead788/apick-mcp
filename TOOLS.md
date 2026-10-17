@@ -1,9 +1,9 @@
 # APICK MCP — Full Tool Catalog / 전체 Tool 목록
 
-**142 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 142개**, 분야별 서버 8개와 통합 서버 `all`.
+**143 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 143개**, 분야별 서버 8개와 통합 서버 `all`.
 
-4.7.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
+4.8.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
 
 
 
@@ -16,7 +16,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 | Server 서버 | Endpoint | Tools | Coverage 범위 |
 | --- | --- | --- | --- |
-| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 34 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 유효성 검사. |
+| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 35 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 유효성 검사. |
 | [Identity Verification · 신분증 진위확인 · 마스킹](#identity) | `/mcp/identity` | 16 | 주민등록증·운전면허증·여권·외국인등록증 진위확인, 실명확인, 개인정보 마스킹. |
 | [OCR · OCR 문자인식](#ocr) | `/mcp/ocr` | 6 | 이미지 텍스트 추출과 신분증 항목 추출. |
 | [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 3 | 계좌 예금주 실명조회와 1원 인증. |
@@ -24,12 +24,12 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 25 | PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
-| **All 통합** | `/mcp/all` | **142** | 아래 전부 + [`find_tools`](#find-tools) |
+| **All 통합** | `/mcp/all` | **143** | 아래 전부 + [`find_tools`](#find-tools) |
 | [Skills · 검수된 Skill 실행](#skills) | `/mcp/skills` | 6 | Skill 검색·상세·견적·실행·조회·취소. `all`에는 포함되지 않는 별도 서버 / separate server, not part of `all`. |
 
-<details><summary><b>All 142 tool names / 전체 Tool 이름</b></summary>
+<details><summary><b>All 143 tool names / 전체 Tool 이름</b></summary>
 
-`biz_detail` · `venture_biz_info` · `land_rt_price` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup`
+`biz_detail` · `venture_biz_info` · `land_rt_price` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `vehicle_model_info` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup`
 
 `identi_card1` · `identi_card2` · `identi_card3` · `identi_card4` · `identi_card5` · `identi_card_image1` · `identi_card_image2` · `identi_card_image3` · `identi_card_image4` · `identi_card_image5` · `name_rrn_auth` · `hide_rrn` · `identity_document_residence_card` · `identity_document_passport` · `identity_document_id_card` · `identity_document_driver_license`
 
@@ -55,7 +55,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 ## All server only · 통합 서버 전용
 
-`https://apick.app/mcp/all` — 1 tool in addition to the 141 domain tools
+`https://apick.app/mcp/all` — 1 tool in addition to the 142 domain tools
 
 Tools that exist only on the combined `all` server. Domain servers keep their own tool counts.
 
@@ -100,7 +100,7 @@ Call the recommended tool afterwards with your API key as usual. 추천받은 To
 
 ## Business & Commerce · 사업자 · 커머스
 
-`https://apick.app/mcp/business` — 34 tools
+`https://apick.app/mcp/business` — 35 tools
 
 Korean business registry, corporate credit, parcel tracking, real-estate prices, vehicle history, and input validation.
 
@@ -129,6 +129,7 @@ Korean business registry, corporate credit, parcel tracking, real-estate prices,
 | [`get_tax_return_history`](#get-tax-return-history) | 국세 신고내역 조회 상태·결과 | `transactionId` |
 | [`get_car_flooding`](#get-car-flooding) | 차량 침수차 여부 조회 | `type`, `value` |
 | [`get_car_scrap`](#get-car-scrap) | 차량 폐차사고처리 여부 조회 | `type`, `value` |
+| [`vehicle_model_info`](#vehicle-model-info) | 차종별 차량정보 조회 | — |
 | [`parcel_tracking`](#parcel-tracking) | 택배 배송조회 | `carrier`, `trackingNumber` |
 | [`parcel_tracking_auto`](#parcel-tracking-auto) | 택배 배송조회(자동) | `trackingNumber` |
 | [`check_email_valid`](#check-email-valid) | 이메일 유효성 검사 | `email` |
@@ -584,6 +585,31 @@ Check whether a Korean vehicle has a scrap/total-loss accident record, by VIN or
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"get_car_scrap","arguments":{"type":"<type>","value":"<value>"}}}
 ```
+
+<a id="vehicle-model-info"></a>
+
+### `vehicle_model_info` — 차종별 차량정보 조회
+
+Look up specifications of a Korean-market vehicle model by brand, model name, model year, and trim. Similarity matching finds the closest model when the name is written differently.
+
+브랜드·차명·연식·등급으로 차종의 제원(배기량·연비·치수·타이어·소모품 규격 등)과 사양·등급 후보를 조회합니다. 차명만 넣어도 되고, 차명을 비우면 브랜드·차종 목록을 무료로 돌려줍니다. 차명·등급 표기가 자료마다 달라도(`아반테`/`아반떼`, `K5 하이브리드`/`K5`, `520i`/`5시리즈`) 가장 비슷한 차종을 찾습니다. 확신이 높으면 그 차종의 제원과 함께 `추천`(`자동선택: true`)을, 확신이 낮으면 제원 없이 `추천.대안`만 돌려주며 이때는 과금되지 않습니다. 지정한 등급의 제원이 없으면 같은 차명의 기본 제원과 `제원.등급후보`, `안내`를 함께 줍니다. 값은 표준 표기로만 내려갑니다.
+
+> 읽기 전용 / read-only · 외부 수집 없음 / no external fetch · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `maker` | `string` | 선택 / optional | 브랜드. 예: 현대, 기아, BMW, 렉서스 |
+| `model` | `string` | 선택 / optional | 차명. 예: 아반떼, 더 뉴 K5, 그랜저 하이브리드, 520i. 비우면 목록 조회 |
+| `modelYear` | `string` | 선택 / optional | 연식 4자리. 예: 2024 |
+| `trim` | `string` | 선택 / optional | 등급·트림. 예: 프레스티지 |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"vehicle_model_info","arguments":{"maker":"현대","model":"아반떼","modelYear":"2024"}}}
+```
+
+응답의 `제원` 은 값이 있는 항목만 담고, 항목 이름은 한글입니다(`제조사`, `차명`, `연식`, `등급`, `배기량`, `복합연비`, `전장`, `전륜타이어` 등). 표기 차이로 찾았거나 등급을 대신 골랐으면 `안내` 와 `추천`/`등급후보` 가 함께 나갑니다.
+
+Responses include `차종` (brand, group, model), `제원` (only filled fields, Korean keys), and — when the input was matched by similarity or the trim was substituted — `안내`, `추천` (`{입력, 자동선택, 대안}`), and `제원.등급후보`.
 
 <a id="parcel-tracking"></a>
 

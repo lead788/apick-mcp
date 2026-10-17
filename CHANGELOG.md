@@ -1,3 +1,8 @@
+# 4.8.0
+
+- 차종별 차량정보 조회 `vehicle_model_info` 를 공개했습니다(통합 143개, Business 35개). 브랜드·차명·연식·등급으로 제원·사양·등급 후보를 조회하며, 차명 표기가 달라도 가장 비슷한 차종을 찾습니다. 차명 없이 부르면 브랜드·차종 목록을 무료로 줍니다. 확신이 낮으면 제원 없이 후보만 알려주고 과금하지 않습니다.
+- Published `vehicle_model_info` (143 tools overall, 35 on Business) to look up Korean-market vehicle specifications by brand, model name, model year and trim. Similarity matching finds the closest model when the name is spelled differently; calling without a model returns the brand/model list for free, and low-confidence matches return suggestions without charging.
+
 # 4.6.1
 
 - `text_summary`·`text_polish` 요금 안내를 고쳤습니다. 요청당 기본 100P이며, 사용량 금액(원가 × 환율 × 1.4, 소수점 올림)이 더 크면 그 금액을 받습니다. 긴 입력일수록 100P보다 커질 수 있습니다.

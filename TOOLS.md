@@ -590,9 +590,9 @@ Check whether a Korean vehicle has a scrap/total-loss accident record, by VIN or
 
 ### `vehicle_model_info` — 차종별 차량정보 조회
 
-Look up specifications of a Korean-market vehicle model by brand, model name, model year, and trim. Similarity matching finds the closest model when the name is written differently.
+Look up specifications of a Korean-market vehicle model (passenger cars and motorcycles/scooters) by brand, model name, model year, and trim. Similarity matching finds the closest model when the name is written differently.
 
-브랜드·차명·연식·등급으로 차종의 제원(배기량·연비·치수·타이어·소모품 규격 등)과 사양·등급 후보를 조회합니다. 차명만 넣어도 되고, 차명을 비우면 브랜드·차종 목록을 무료로 돌려줍니다. 차명·등급 표기가 자료마다 달라도(`아반테`/`아반떼`, `K5 하이브리드`/`K5`, `520i`/`5시리즈`) 가장 비슷한 차종을 찾습니다. 확신이 높으면 그 차종의 제원과 함께 `추천`(`자동선택: true`)을, 확신이 낮으면 제원 없이 `추천.대안`만 돌려주며 이때는 과금되지 않습니다. 지정한 등급의 제원이 없으면 같은 차명의 기본 제원과 `제원.등급후보`, `안내`를 함께 줍니다. 값은 표준 표기로만 내려갑니다.
+브랜드·차명·연식·등급으로 차종(승용차와 오토바이·스쿠터 같은 이륜차)의 제원(배기량·연비·치수·타이어·소모품 규격 등)과 사양·등급 후보를 조회합니다. 차명만 넣어도 되고, 차명을 비우면 브랜드·차종 목록을 무료로 돌려줍니다. 차명·등급 표기가 자료마다 달라도(`아반테`/`아반떼`, `K5 하이브리드`/`K5`, `520i`/`5시리즈`) 가장 비슷한 차종을 찾습니다. 확신이 높으면 그 차종의 제원과 함께 `추천`(`자동선택: true`)을, 확신이 낮으면 제원 없이 `추천.대안`만 돌려주며 이때는 과금되지 않습니다. 지정한 등급의 제원이 없으면 같은 차명의 기본 제원과 `제원.등급후보`, `안내`를 함께 줍니다. 값은 표준 표기로만 내려갑니다(차체형상: 세단·SUV·MPV 등과 스쿠터·언더본·네이키드·스포츠바이크·투어링바이크·크루저·어드벤처·오프로드·클래식바이크).
 
 > 읽기 전용 / read-only · 외부 수집 없음 / no external fetch · server `business`
 

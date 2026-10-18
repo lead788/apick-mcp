@@ -1,3 +1,8 @@
+# 4.8.1
+
+- `vehicle_model_info` 설명을 갱신했습니다. 승용차에 더해 오토바이·스쿠터 같은 이륜차도 브랜드·차명·연식·등급으로 조회되며, 차체형상에 스쿠터·언더본·네이키드·스포츠바이크·투어링바이크·크루저·어드벤처·오프로드·클래식바이크 값이 추가됩니다. 요청·응답 형식은 바뀌지 않았습니다.
+- Updated the `vehicle_model_info` description: motorcycles and scooters are now covered alongside passenger cars, and `차체형상` adds the values 스쿠터, 언더본, 네이키드, 스포츠바이크, 투어링바이크, 크루저, 어드벤처, 오프로드 and 클래식바이크. Request and response shapes are unchanged.
+
 # 4.8.0
 
 - 차종별 차량정보 조회 `vehicle_model_info` 를 공개했습니다(통합 143개, Business 35개). 브랜드·차명·연식·등급으로 제원·사양·등급 후보를 조회하며, 차명 표기가 달라도 가장 비슷한 차종을 찾습니다. 차명 없이 부르면 브랜드·차종 목록을 무료로 줍니다. 확신이 낮으면 제원 없이 후보만 알려주고 과금하지 않습니다.

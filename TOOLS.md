@@ -590,9 +590,9 @@ Check whether a Korean vehicle has a scrap/total-loss accident record, by VIN or
 
 ### `vehicle_model_info` — 차종별 차량정보 조회
 
-Look up specifications of a Korean-market vehicle model (passenger cars and motorcycles/scooters) by brand, model name, model year, and trim. Similarity matching finds the closest model when the name is written differently.
+Look up specifications of a Korean-market vehicle model (passenger cars and motorcycles/scooters) by brand, model name, model year, and trim. Similarity matching finds the closest model when the name is written differently. Put the model, trim, year and seat count in model (for example, PANAMERA GTS 19년). Matching prioritizes the supplied year and trim, and the seat count must match the specification. Check the returned year and notice when a nearby year is selected. Unmatched trims and low-confidence matches return suggestions without specifications or charges; no similar vehicle returns a no-result error without charging. Conflicting explicit and free-text constraints are rejected.
 
-브랜드·차명·연식·등급으로 차종(승용차와 오토바이·스쿠터 같은 이륜차)의 제원(배기량·연비·치수·타이어·소모품 규격 등)과 사양·등급 후보를 조회합니다. 차명만 넣어도 되고, 차명을 비우면 브랜드·차종 목록을 무료로 돌려줍니다. 차명·등급 표기가 자료마다 달라도(`아반테`/`아반떼`, `K5 하이브리드`/`K5`, `520i`/`5시리즈`) 가장 비슷한 차종을 찾습니다. 확신이 높으면 그 차종의 제원과 함께 `추천`(`자동선택: true`)을, 확신이 낮으면 제원 없이 `추천.대안`만 돌려주며 이때는 과금되지 않습니다. 지정한 등급의 제원이 없으면 같은 차명의 기본 제원과 `제원.등급후보`, `안내`를 함께 줍니다. 값은 표준 표기로만 내려갑니다(차체형상: 세단·SUV·MPV 등과 스쿠터·언더본·네이키드·스포츠바이크·투어링바이크·크루저·어드벤처·오프로드·클래식바이크).
+브랜드·차명·연식·등급으로 차종(승용차와 오토바이·스쿠터 같은 이륜차)의 제원(배기량·연비·치수·타이어·소모품 규격 등)과 사양·등급 후보를 조회합니다. 차명만 넣어도 되고, 차명을 비우면 브랜드·차종 목록을 무료로 돌려줍니다. 차명·등급 표기가 자료마다 달라도(`아반테`/`아반떼`, `K5 하이브리드`/`K5`, `520i`/`5시리즈`) 가장 비슷한 차종을 찾습니다. 확신이 높으면 그 차종의 제원과 함께 `추천`(`자동선택: true`)을, 확신이 낮으면 제원 없이 `추천.대안`만 돌려주며 이때는 과금되지 않습니다. 차명에 등급·연식·좌석을 함께 넣을 수 있습니다(`파나메라 gts 4인승 19년식`, `PANAMERA GTS 19년`). 입력한 연식·등급을 우선하며 좌석 수는 실제 제원과 일치해야 합니다. 근접 연식을 선택하면 반환 연식과 안내를 확인하세요. 지정 등급을 찾지 못하거나 확신이 낮으면 제원 없이 무료 후보만 반환하며, 유사 차량이 전혀 없으면 없음 오류로 응답하고 과금하지 않습니다. 별도 연식·등급과 문장 조건이 충돌하면 입력 오류입니다. 값은 표준 표기로만 내려갑니다(차체형상: 세단·SUV·MPV 등과 스쿠터·언더본·네이키드·스포츠바이크·투어링바이크·크루저·어드벤처·오프로드·클래식바이크).
 
 > 읽기 전용 / read-only · 외부 수집 없음 / no external fetch · server `business`
 
@@ -600,7 +600,7 @@ Look up specifications of a Korean-market vehicle model (passenger cars and moto
 | --- | --- | --- | --- |
 | `maker` | `string` | 선택 / optional | 브랜드. 예: 현대, 기아, BMW, 렉서스 |
 | `model` | `string` | 선택 / optional | 차명. 예: 아반떼, 더 뉴 K5, 그랜저 하이브리드, 520i. 비우면 목록 조회 |
-| `modelYear` | `string` | 선택 / optional | 연식 4자리. 예: 2024 |
+| `modelYear` | `string` | 선택 / optional | 연식 2자리 또는 4자리. 예: 19, 2019. 차명에 넣은 연식과 같아야 합니다. |
 | `trim` | `string` | 선택 / optional | 등급·트림. 예: 프레스티지 |
 
 ```json

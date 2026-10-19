@@ -590,9 +590,9 @@ Check whether a Korean vehicle has a scrap/total-loss accident record, by VIN or
 
 ### `vehicle_model_info` — 차종별 차량정보 조회
 
-Look up specifications of a Korean-market vehicle model (passenger cars and motorcycles/scooters) by brand, model name, model year, and trim. Similarity matching finds the closest model when the name is written differently. Put the model, trim, year and seat count in model (for example, PANAMERA GTS 19년). Matching prioritizes the supplied year and trim, and the seat count must match the specification. Check the returned year and notice when a nearby year is selected. Unmatched trims and low-confidence matches return suggestions without specifications or charges; no similar vehicle returns a no-result error without charging. Conflicting explicit and free-text constraints are rejected.
+Look up specifications of a Korean-market vehicle model (passenger cars and motorcycles/scooters) by brand, model name, model year, and trim. Similarity matching finds the closest model when the name is written differently. Put the model, trim, year and seat count in model (for example, PANAMERA GTS 19년). Matching prioritizes the supplied year and trim, and the seat count must be identifiable and consistent with the available specification. Check the returned year and notice when a nearby year is selected. Unmatched trims and low-confidence matches return suggestions without specifications or charges; no similar vehicle returns a no-result error without charging. Conflicting explicit and free-text constraints are rejected.
 
-브랜드·차명·연식·등급으로 차종(승용차와 오토바이·스쿠터 같은 이륜차)의 제원(배기량·연비·치수·타이어·소모품 규격 등)과 사양·등급 후보를 조회합니다. 차명만 넣어도 되고, 차명을 비우면 브랜드·차종 목록을 무료로 돌려줍니다. 차명·등급 표기가 자료마다 달라도(`아반테`/`아반떼`, `K5 하이브리드`/`K5`, `520i`/`5시리즈`) 가장 비슷한 차종을 찾습니다. 확신이 높으면 그 차종의 제원과 함께 `추천`(`자동선택: true`)을, 확신이 낮으면 제원 없이 `추천.대안`만 돌려주며 이때는 과금되지 않습니다. 차명에 등급·연식·좌석을 함께 넣을 수 있습니다(`파나메라 gts 4인승 19년식`, `PANAMERA GTS 19년`). 입력한 연식·등급을 우선하며 좌석 수는 실제 제원과 일치해야 합니다. 근접 연식을 선택하면 반환 연식과 안내를 확인하세요. 지정 등급을 찾지 못하거나 확신이 낮으면 제원 없이 무료 후보만 반환하며, 유사 차량이 전혀 없으면 없음 오류로 응답하고 과금하지 않습니다. 별도 연식·등급과 문장 조건이 충돌하면 입력 오류입니다. 값은 표준 표기로만 내려갑니다(차체형상: 세단·SUV·MPV 등과 스쿠터·언더본·네이키드·스포츠바이크·투어링바이크·크루저·어드벤처·오프로드·클래식바이크).
+브랜드·차명·연식·등급으로 차종(승용차와 오토바이·스쿠터 같은 이륜차)의 제원(배기량·연비·치수·타이어·소모품 규격 등)과 사양·등급 후보를 조회합니다. 차명만 넣어도 되고, 차명을 비우면 브랜드·차종 목록을 무료로 돌려줍니다. 차명·등급 표기가 자료마다 달라도(`아반테`/`아반떼`, `K5 하이브리드`/`K5`, `520i`/`5시리즈`) 가장 비슷한 차종을 찾습니다. 확신이 높으면 그 차종의 제원과 함께 `추천`(`자동선택: true`)을, 확신이 낮으면 제원 없이 `추천.대안`만 돌려주며 이때는 과금되지 않습니다. 차명에 등급·연식·좌석을 함께 넣을 수 있습니다(`파나메라 gts 4인승 19년식`, `PANAMERA GTS 19년`). 입력한 연식·등급을 우선하며 좌석 수는 확인 가능한 차량 사양과 일치해야 합니다. 근접 연식을 선택하면 반환 연식과 안내를 확인하세요. 지정 등급을 찾지 못하거나 확신이 낮으면 제원 없이 무료 후보만 반환하며, 유사 차량이 전혀 없으면 없음 오류로 응답하고 과금하지 않습니다. 별도 연식·등급과 문장 조건이 충돌하면 입력 오류입니다. 값은 표준 표기로만 내려갑니다(차체형상: 세단·SUV·MPV 등과 스쿠터·언더본·네이키드·스포츠바이크·투어링바이크·크루저·어드벤처·오프로드·클래식바이크).
 
 > 읽기 전용 / read-only · 외부 수집 없음 / no external fetch · server `business`
 
@@ -610,6 +610,10 @@ Look up specifications of a Korean-market vehicle model (passenger cars and moto
 응답의 `제원` 은 값이 있는 항목만 담고, 항목 이름은 한글입니다(`제조사`, `차명`, `연식`, `등급`, `배기량`, `복합연비`, `전장`, `전륜타이어` 등). 표기 차이로 찾았거나 등급을 대신 골랐으면 `안내` 와 `추천`/`등급후보` 가 함께 나갑니다.
 
 Responses include `차종` (brand, group, model), `제원` (only filled fields, Korean keys), and — when the input was matched by similarity or the trim was substituted — `안내`, `추천` (`{입력, 자동선택, 대안}`), and `제원.등급후보`.
+
+차량정보는 공백·대소문자가 다른 동일 등급을 우선해 찾으며 연식·사양이 다른 차량은 구분합니다. 기존 `안내`에서 연식·사양 대체, 사양 충돌, 국내 출시 여부 확인 보류, 일부 제원의 추가 검증 상태를 확인할 수 있습니다. 국내 미출시가 확인된 차량은 해외 자료 기준이며 100% 정확성을 보장하지 않는다는 안내가 추가됩니다. 반환된 연식·등급과 안내를 확인하세요. 입력·응답 구조와 과금 방식은 유지됩니다.
+
+Vehicle information prioritizes the same trim across spacing and case variations while distinguishing model years and specifications. The existing `안내` notice can describe year/specification substitutions, conflicting specifications, unverified Korean-market availability, or specifications still under review. Confirmed non-Korean-market vehicles receive an additional notice that overseas data does not guarantee 100% accuracy. Check the returned year, trim and notices. Request/response shapes and billing behavior remain unchanged.
 
 <a id="parcel-tracking"></a>
 

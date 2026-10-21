@@ -1,3 +1,8 @@
+# 4.11.0
+
+- `court_auction`(법원 경매 사건 조회)과 `registry_doc_verify`(등기·증명서 발급확인)를 Business 서버에 추가했습니다. 경매는 사건번호와 법원(이름 또는 코드)으로 사건 기본정보·매각물건·감정평가액·최저매각가격·매각기일·배당요구종기를 조회하며 건당 60P입니다. 발급확인은 증명서에 인쇄된 발급확인번호 12자리로 발급 사실과 종류·발급일·등기소를 확인하며 건당 60P입니다. 통합 150개, Business 42개입니다.
+- Added `court_auction` (Korean court auction case) and `registry_doc_verify` (issued certificate verification) to the Business server. The auction lookup takes a case number and court (name or code) and returns case details, sale items, appraised price, minimum price, sale schedule and the dividend claim deadline at 60P per call. Certificate verification takes the 12-digit verification number printed on the certificate and returns the issue fact, document kind, issue date and registry office at 60P per call. 150 tools overall, 42 on Business.
+
 # 4.10.0
 
 - 증빙서류 통합발급 묶음 2종을 Business 서버에 추가했습니다. `req_income_cert_bundle`·`get_income_cert_bundle`은 소득금액증명과 연금보험료등 소득세액 공제확인서를, `req_business_cert_bundle`·`get_business_cert_bundle`은 사업자등록증명·부가가치세 과세표준증명·표준재무제표증명을 휴대폰 승인 한 번으로 함께 발급합니다. 발급 입력 `year`·`use_purpose`·`submit_to`·`delivery`가 필요하고, 사업자 묶음은 `business_no`와 대표자 확인(`agreed: true` 또는 `bind_id`)을 받습니다. 접수 20P, 최초 결과는 소득 묶음 84P·사업자 묶음 126P이며 유효기간 내 재조회는 무료입니다. 통합 148개, Business 40개, 상태 변경 Tool 37개입니다.

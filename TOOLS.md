@@ -1,9 +1,9 @@
 # APICK MCP — Full Tool Catalog / 전체 Tool 목록
 
-**148 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 148개**, 분야별 서버 8개와 통합 서버 `all`.
+**150 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 150개**, 분야별 서버 8개와 통합 서버 `all`.
 
-4.10.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
+4.11.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
 
 
 
@@ -16,7 +16,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 | Server 서버 | Endpoint | Tools | Coverage 범위 |
 | --- | --- | --- | --- |
-| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 40 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 간편인증 데이터 조회·세무 증빙서류 발급, 유효성 검사. |
+| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 42 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 간편인증 데이터 조회·세무 증빙서류 발급, 유효성 검사. |
 | [Identity Verification · 신분증 진위확인 · 마스킹](#identity) | `/mcp/identity` | 16 | 주민등록증·운전면허증·여권·외국인등록증 진위확인, 실명확인, 개인정보 마스킹. |
 | [OCR · OCR 문자인식](#ocr) | `/mcp/ocr` | 6 | 이미지 텍스트 추출과 신분증 항목 추출. |
 | [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 3 | 계좌 예금주 실명조회와 1원 인증. |
@@ -24,12 +24,12 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 25 | PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
-| **All 통합** | `/mcp/all` | **148** | 아래 전부 + [`find_tools`](#find-tools) |
+| **All 통합** | `/mcp/all` | **150** | 아래 전부 + [`find_tools`](#find-tools) |
 | [Skills · 검수된 Skill 실행](#skills) | `/mcp/skills` | 6 | Skill 검색·상세·견적·실행·조회·취소. `all`에는 포함되지 않는 별도 서버 / separate server, not part of `all`. |
 
-<details><summary><b>All 148 tool names / 전체 Tool 이름</b></summary>
+<details><summary><b>All 150 tool names / 전체 Tool 이름</b></summary>
 
-`biz_detail` · `venture_biz_info` · `land_rt_price` · `bldrgst` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `vehicle_model_info` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `req_income_cert_bundle` · `get_income_cert_bundle` · `req_business_cert_bundle` · `get_business_cert_bundle`
+`biz_detail` · `venture_biz_info` · `land_rt_price` · `bldrgst` · `court_auction` · `registry_doc_verify` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `vehicle_model_info` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `req_income_cert_bundle` · `get_income_cert_bundle` · `req_business_cert_bundle` · `get_business_cert_bundle`
 
 `identi_card1` · `identi_card2` · `identi_card3` · `identi_card4` · `identi_card5` · `identi_card_image1` · `identi_card_image2` · `identi_card_image3` · `identi_card_image4` · `identi_card_image5` · `name_rrn_auth` · `hide_rrn` · `identity_document_residence_card` · `identity_document_passport` · `identity_document_id_card` · `identity_document_driver_license`
 
@@ -55,11 +55,11 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 ## All server only · 통합 서버 전용
 
-`https://apick.app/mcp/all` — 1 tool in addition to the 148 domain tools
+`https://apick.app/mcp/all` — 1 tool in addition to the 150 domain tools
 
 Tools that exist only on the combined `all` server. Domain servers keep their own tool counts.
 
-분야별 Tool 148개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
+분야별 Tool 150개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
 
 <a id="find-tools"></a>
 
@@ -100,7 +100,7 @@ Call the recommended tool afterwards with your API key as usual. 추천받은 To
 
 ## Business & Commerce · 사업자 · 커머스
 
-`https://apick.app/mcp/business` — 40 tools
+`https://apick.app/mcp/business` — 42 tools
 
 Korean business registry, corporate credit, parcel tracking, real-estate prices, vehicle history, and input validation.
 
@@ -112,6 +112,8 @@ Korean business registry, corporate credit, parcel tracking, real-estate prices,
 | [`venture_biz_info`](#venture-biz-info) | 벤처기업 정보조회 | `biz_no` |
 | [`land_rt_price`](#land-rt-price) | 부동산 실거래가 조회 | `addr1`, `addr2`, `type`, `year` |
 | [`bldrgst`](#bldrgst) | 건축물대장 조회 | — |
+| [`court_auction`](#court-auction) | 법원 경매 사건 조회 | `case_no`, `court` |
+| [`registry_doc_verify`](#registry-doc-verify) | 등기·증명서 발급확인 | `issue_no`, `kind` |
 | [`req_pccc`](#req-pccc) | 개인통관고유부호 인증 요청 | `name`, `birthday`, `phone`, `provider` |
 | [`get_pccc`](#get-pccc) | 개인통관고유부호 조회 | `tx_id` |
 | [`req_employment`](#req-employment) | 재직·보험료 확인 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
@@ -243,6 +245,44 @@ Look up a Korean building register by parcel number or lot address, across ten r
 
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"bldrgst","arguments":{"pnu":"<pnu>","type":"title","pageNo":1,"numOfRows":20}}}
+```
+
+<a id="court-auction"></a>
+
+### `court_auction` — 법원 경매 사건 조회
+
+Look up a Korean court auction case by case number and court.
+
+법원 경매 사건번호와 법원(이름 또는 코드)으로 사건 기본정보·매각물건·매각기일·배당요구종기를 조회합니다. 사건번호는 법원별로 관리되므로 법원을 함께 넘깁니다. 입찰대행·입찰서 작성은 제공하지 않습니다. 호출당 60 포인트입니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `case_no` | `string` | **필수 / required** | 사건번호 (예: 2024타경12345) |
+| `court` | `string` | **필수 / required** | 법원 이름(예: 서울중앙지방법원) 또는 법원 코드(예: B000210) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"court_auction","arguments":{"case_no":"2024타경12345","court":"서울중앙지방법원"}}}
+```
+
+<a id="registry-doc-verify"></a>
+
+### `registry_doc_verify` — 등기·증명서 발급확인
+
+Verify an issued Korean registration certificate by the verification number printed on it.
+
+증명서에 인쇄된 발급확인번호(12자리)로 발급 사실과 증명서 종류·발급일·등기소를 확인합니다. `kind` 로 부동산(`realestate`, 기본)·법인(`corporate`)·동산채권담보(`movable`)를 고릅니다. 증명서 원문은 돌려주지 않으며 발급일로부터 3개월 이내 발급분만 확인됩니다. 호출당 60 포인트입니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `issue_no` | `string` | **필수 / required** | 발급확인번호 12자리. 하이픈·공백 표기도 받습니다 (예: 2024-1234-5678) |
+| `kind` | `string` (realestate / corporate / movable) | 선택 / optional | 문서 종류 (기본 realestate) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"registry_doc_verify","arguments":{"issue_no":"2024-1234-5678","kind":"realestate"}}}
 ```
 
 <a id="req-pccc"></a>

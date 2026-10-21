@@ -4,6 +4,8 @@ import { readFileSync } from 'node:fs';
 import { createBridge } from '../src/bridge.js';
 
 const products = ['employment', 'personal_income', 'nps_join_history', 'nps_deduction_cert', 'nps_career_history', 'driving_license', 'health_checkup', 'cash_receipt_deduction', 'tax_return_history'];
+// 4.10.0 증빙서류 묶음. 승인 한 번으로 증명 여러 장을 발급하며 결과 섹션이 증명마다 따로 온다.
+const bundles = { income_cert_bundle: ['incomeAmountCert', 'pensionCreditCert'], business_cert_bundle: ['businessRegistrationCert', 'vatTaxBaseCert', 'financialStatementCert'] };
 const names = products.flatMap(p => ['req_' + p, 'get_' + p]);
 const read = file => readFileSync(new URL('../' + file, import.meta.url), 'utf8');
 
@@ -119,19 +121,19 @@ test('응답 fixture가 공개 REST 필드 타입을 지키며 과거의 잘못�
 	]) assert.throws(() => assertDataContract({ ...valid, ...invalid }), assert.AssertionError);
 });
 
-test('배포 대상 144개 목록과 Business 활성 36개·Web 36개·상태 변경 33개 메타데이터가 일치한다', () => {
+test('배포 대상 148개 목록과 Business 활성 40개·Web 36개·상태 변경 37개 메타데이터가 일치한다', () => {
 	const tools = read('TOOLS.md');
 	const readme = read('README.md');
 	const inventory = tools.match(/<details>[\s\S]*?<\/details>/)[0];
 	const listed = [...inventory.matchAll(/`([a-z0-9_]+)`/g)].map(m => m[1]);
-	assert.equal(listed.length, 144);
-	assert.equal(new Set(listed).size, 144);
+	assert.equal(listed.length, 148);
+	assert.equal(new Set(listed).size, 148);
 	const business = tools.split('## Business & Commerce')[1].split('<a id="identity">')[0];
-	assert.equal([...business.matchAll(/^### `([a-z0-9_]+)`/gm)].length, 48);
+	assert.equal([...business.matchAll(/^### `([a-z0-9_]+)`/gm)].length, 52);
 	const unavailable = [...business.matchAll(/^### `([a-z0-9_]+)`[^\n]*(?:\r?\n)+> 현재 공개 전 점검으로 비활성/gm)].map(m => m[1]);
 	assert.equal(unavailable.length, 12);
 	for (const name of unavailable) assert.ok(!listed.includes(name), name + ' must not be advertised as available');
-	assert.match(readme, /`https:\/\/apick\.app\/mcp\/business` \| 36 \|/);
+	assert.match(readme, /`https:\/\/apick\.app\/mcp\/business` \| 40 \|/);
 	const web = tools.split('## Web & Search')[1].split('<a id="convert">')[0];
 	assert.equal([...web.matchAll(/^### `([a-z0-9_]+)`/gm)].length, 36);
 	assert.match(readme, /`https:\/\/apick\.app\/mcp\/web` \| 44 \|/);
@@ -139,13 +141,27 @@ test('배포 대상 144개 목록과 Business 활성 36개·Web 36개·상태 �
 		assert.ok(listed.includes(name), name);
 		assert.ok(web.includes('### `' + name + '`'), name);
 	}
-	assert.match(readme, /33 of 144 are not read-only/);
-	assert.match(readme, /111 of 144 tools are read-only/);
+	assert.match(readme, /37 of 148 are not read-only/);
+	assert.match(readme, /111 of 148 tools are read-only/);
 	// 3.7.0: all 서버 전용 find_tools 가 전체 목록과 README 한눈에 보기에 포함된다.
 	assert.ok(listed.includes('find_tools'));
 	assert.ok(tools.includes('### `find_tools`'));
 	assert.match(readme, /\*\*All only 통합 서버 전용\*\* `find_tools`/);
-	assert.match(readme, /`https:\/\/apick\.app\/mcp\/all` \| \*\*144\*\* \|/);
+	assert.match(readme, /`https:\/\/apick\.app\/mcp\/all` \| \*\*148\*\* \|/);
+	// 증빙서류 묶음은 목록·README·상세 절·REST 경로·결과 섹션·대표자 확인 안내를 모두 갖는다.
+	for (const [bundle, sections] of Object.entries(bundles)) {
+		for (const name of ['req_' + bundle, 'get_' + bundle]) {
+			assert.ok(listed.includes(name), name);
+			assert.ok(readme.includes('`' + name + '`'), name);
+			assert.ok(tools.includes('### `' + name + '`'), name);
+			assert.ok(tools.includes('POST /rest/' + name), name);
+		}
+		const detail = tools.split('### `get_' + bundle + '`')[1].split('\n---')[0];
+		for (const section of sections) assert.ok(detail.includes('result.' + section), bundle + ' / ' + section);
+	}
+	for (const field of ['year', 'use_purpose', 'submit_to', 'delivery', 'business_no', 'agreed', 'bind_id']) assert.ok(tools.includes('`' + field + '`'), field);
+	assert.match(tools, /최초 결과 84P/);
+	assert.match(tools, /최초 결과 126P/);
 	for (const name of names) {
 		assert.ok(listed.includes(name), name);
 		assert.ok(readme.includes('`' + name + '`'), name);
@@ -158,7 +174,7 @@ test('배포 대상 144개 목록과 Business 활성 36개·Web 36개·상태 �
 	assert.match(tools, /업무 상태 오류는 `isError: false`/);
 	const pkg = JSON.parse(read('package.json'));
 	const lock = JSON.parse(read('package-lock.json'));
-	assert.equal(pkg.version, '4.9.0');
+	assert.equal(pkg.version, '4.10.0');
 	assert.equal(lock.version, pkg.version);
 	assert.equal(lock.packages[''].version, pkg.version);
 	// 공개 JSON-RPC 예시도 실제 목록의 Tool을 참조해야 한다. skills 서버는 all 과 별도 목록이다.

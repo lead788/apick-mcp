@@ -1,3 +1,8 @@
+# 4.10.0
+
+- 증빙서류 통합발급 묶음 2종을 Business 서버에 추가했습니다. `req_income_cert_bundle`·`get_income_cert_bundle`은 소득금액증명과 연금보험료등 소득세액 공제확인서를, `req_business_cert_bundle`·`get_business_cert_bundle`은 사업자등록증명·부가가치세 과세표준증명·표준재무제표증명을 휴대폰 승인 한 번으로 함께 발급합니다. 발급 입력 `year`·`use_purpose`·`submit_to`·`delivery`가 필요하고, 사업자 묶음은 `business_no`와 대표자 확인(`agreed: true` 또는 `bind_id`)을 받습니다. 접수 20P, 최초 결과는 소득 묶음 84P·사업자 묶음 126P이며 유효기간 내 재조회는 무료입니다. 통합 148개, Business 40개, 상태 변경 Tool 37개입니다.
+- Added two certificate bundles to the Business server. `req_income_cert_bundle`/`get_income_cert_bundle` issue the income amount certificate and the pension premium tax credit certificate, and `req_business_cert_bundle`/`get_business_cert_bundle` issue the business registration, VAT tax base and standard financial statement certificates after a single phone approval. They take `year`, `use_purpose`, `submit_to` and `delivery`; the business bundle also takes `business_no` and representative consent (`agreed: true` or `bind_id`). 20P on acceptance and 84P (income) / 126P (business) on the first result; repeat reads within the result lifetime are free. 148 tools overall, 40 on Business, 37 non-read-only.
+
 # 4.9.0
 
 - `bldrgst`(건축물대장 조회)를 Business 서버에 추가했습니다. 필지고유번호(PNU) 또는 시군구·법정동·번지로 표제부·총괄표제부·기본개요·층별개요·전유부·전유공용면적·주택가격·오수정화시설·부속지번·지역지구구역 10종을 조회하고, 생성일 범위·동·호·층·쪽 단위 옵션을 받습니다. 그 종류가 지원하지 않는 옵션은 무시하지 않고 오류로 알려줍니다. 호출당 60 포인트입니다. 통합 144개, Business 36개입니다.

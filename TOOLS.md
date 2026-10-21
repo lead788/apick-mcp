@@ -1,9 +1,9 @@
 # APICK MCP — Full Tool Catalog / 전체 Tool 목록
 
-**144 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 144개**, 분야별 서버 8개와 통합 서버 `all`.
+**148 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 148개**, 분야별 서버 8개와 통합 서버 `all`.
 
-4.9.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
+4.10.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
 
 
 
@@ -16,7 +16,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 | Server 서버 | Endpoint | Tools | Coverage 범위 |
 | --- | --- | --- | --- |
-| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 36 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 유효성 검사. |
+| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 40 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 간편인증 데이터 조회·세무 증빙서류 발급, 유효성 검사. |
 | [Identity Verification · 신분증 진위확인 · 마스킹](#identity) | `/mcp/identity` | 16 | 주민등록증·운전면허증·여권·외국인등록증 진위확인, 실명확인, 개인정보 마스킹. |
 | [OCR · OCR 문자인식](#ocr) | `/mcp/ocr` | 6 | 이미지 텍스트 추출과 신분증 항목 추출. |
 | [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 3 | 계좌 예금주 실명조회와 1원 인증. |
@@ -24,12 +24,12 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 25 | PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
-| **All 통합** | `/mcp/all` | **144** | 아래 전부 + [`find_tools`](#find-tools) |
+| **All 통합** | `/mcp/all` | **148** | 아래 전부 + [`find_tools`](#find-tools) |
 | [Skills · 검수된 Skill 실행](#skills) | `/mcp/skills` | 6 | Skill 검색·상세·견적·실행·조회·취소. `all`에는 포함되지 않는 별도 서버 / separate server, not part of `all`. |
 
-<details><summary><b>All 144 tool names / 전체 Tool 이름</b></summary>
+<details><summary><b>All 148 tool names / 전체 Tool 이름</b></summary>
 
-`biz_detail` · `venture_biz_info` · `land_rt_price` · `bldrgst` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `vehicle_model_info` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup`
+`biz_detail` · `venture_biz_info` · `land_rt_price` · `bldrgst` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `vehicle_model_info` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `req_income_cert_bundle` · `get_income_cert_bundle` · `req_business_cert_bundle` · `get_business_cert_bundle`
 
 `identi_card1` · `identi_card2` · `identi_card3` · `identi_card4` · `identi_card5` · `identi_card_image1` · `identi_card_image2` · `identi_card_image3` · `identi_card_image4` · `identi_card_image5` · `name_rrn_auth` · `hide_rrn` · `identity_document_residence_card` · `identity_document_passport` · `identity_document_id_card` · `identity_document_driver_license`
 
@@ -55,11 +55,11 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 ## All server only · 통합 서버 전용
 
-`https://apick.app/mcp/all` — 1 tool in addition to the 144 domain tools
+`https://apick.app/mcp/all` — 1 tool in addition to the 148 domain tools
 
 Tools that exist only on the combined `all` server. Domain servers keep their own tool counts.
 
-분야별 Tool 144개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
+분야별 Tool 148개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
 
 <a id="find-tools"></a>
 
@@ -100,7 +100,7 @@ Call the recommended tool afterwards with your API key as usual. 추천받은 To
 
 ## Business & Commerce · 사업자 · 커머스
 
-`https://apick.app/mcp/business` — 36 tools
+`https://apick.app/mcp/business` — 40 tools
 
 Korean business registry, corporate credit, parcel tracking, real-estate prices, vehicle history, and input validation.
 
@@ -128,6 +128,10 @@ Korean business registry, corporate credit, parcel tracking, real-estate prices,
 | [`get_cash_receipt_deduction`](#get-cash-receipt-deduction) | 현금영수증 소득공제 내역 상태·결과 | `transactionId` |
 | [`req_tax_return_history`](#req-tax-return-history) | 국세 신고내역 조회 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
 | [`get_tax_return_history`](#get-tax-return-history) | 국세 신고내역 조회 상태·결과 | `transactionId` |
+| [`req_income_cert_bundle`](#req-income-cert-bundle) | 소득 증빙서류 통합발급 인증 요청 | `name`, `birthDate`, `phone`, `authProvider`, `year`, `use_purpose`, `submit_to`, `delivery` |
+| [`get_income_cert_bundle`](#get-income-cert-bundle) | 소득 증빙서류 통합발급 상태·결과 | `transactionId` |
+| [`req_business_cert_bundle`](#req-business-cert-bundle) | 사업자 증빙서류 통합발급 인증 요청 | `name`, `birthDate`, `phone`, `authProvider`, `business_no`, `year`, `use_purpose`, `submit_to`, `delivery` |
+| [`get_business_cert_bundle`](#get-business-cert-bundle) | 사업자 증빙서류 통합발급 상태·결과 | `transactionId` |
 | [`get_car_flooding`](#get-car-flooding) | 차량 침수차 여부 조회 | `type`, `value` |
 | [`get_car_scrap`](#get-car-scrap) | 차량 폐차사고처리 여부 조회 | `type`, `value` |
 | [`vehicle_model_info`](#vehicle-model-info) | 차종별 차량정보 조회 | — |
@@ -286,7 +290,7 @@ req_pccc Tool 호출로 받은 tx_id 를 입력해 처리 상태를 확인합니
 
 ### 간편인증 데이터 조회 공통 계약 / Shared data-lookup contract
 
-아래 7개 상품은 **접수 → 휴대폰 승인 → 결과 조회** 순서로 호출합니다. 접수 전에 알림 발송·과금과 조회 항목을 사용자에게 확인하고, 승인은 사용자가 휴대폰에서 직접 수행합니다. 승인 대기 중 접수를 반복하지 않습니다.
+아래 11개 상품은 **접수 → 휴대폰 승인 → 결과 조회** 순서로 호출합니다. 접수 전에 알림 발송·과금과 조회 항목을 사용자에게 확인하고, 승인은 사용자가 휴대폰에서 직접 수행합니다. 승인 대기 중 접수를 반복하지 않습니다.
 
 Use request → user approval on the phone → result lookup. Confirm the requested data and acceptance charge before submitting. Never approve on the user’s behalf or automatically repeat the authentication request.
 
@@ -312,6 +316,8 @@ Result tools require the `transactionId` from the same product. Both stages are 
 | 국가 건강검진 결과 | 없음 | `result.healthCheckup` |
 | 현금영수증 소득공제 내역 | incomeYears: 정수 1~3 (선택, 기본 1) | `result.cashReceiptDeduction` |
 | 국세 신고내역 조회 | years: 정수 1~10 (선택, 기본 1) | `result.taxReturnHistory` |
+| 소득 증빙서류 통합발급 | [발급 입력](#cert-bundle-inputs) 필수 | `result.incomeAmountCert`, `result.pensionCreditCert` |
+| 사업자 증빙서류 통합발급 | `business_no`와 [발급 입력](#cert-bundle-inputs) 필수, `agreed`·`bind_id` | `result.businessRegistrationCert`, `result.vatTaxBaseCert`, `result.financialStatementCert` |
 
 **응답:** MCP의 `structuredContent`와 JSON 텍스트에는 REST 응답의 `data`가 그대로 담깁니다. `schemaVersion`, `transactionId`, `product`, `status`, `resultAvailable`, `charged`, `sources`, `message`, `success`를 확인합니다. 접수에는 `expiresAt`와 선택적 `approvals`, 수집 중에는 `progress`, 결과에는 `checkedAt`, `resultExpiresAt`, `result`가 포함될 수 있습니다. 실제 차감 포인트는 `_meta["app.apick/cost"]`입니다.
 
@@ -575,6 +581,90 @@ REST: `POST /rest/req_tax_return_history` · SDK: `requestTaxReturnHistory()`
 REST: `POST /rest/get_tax_return_history` · SDK: `getTaxReturnHistory()`
 
 필수: `transactionId`. 성공 결과: `result.taxReturnHistory` (`조회기간`, `합계`, `신고내역`). 최초 결과 60P × (1 + 0.5 × (years - 1)), 기본 60P.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="cert-bundle-inputs"></a>
+
+### 증빙서류 통합발급 공통 발급 입력 / Shared certificate issue inputs
+
+증빙서류 묶음 2종은 **승인 한 번으로 담긴 증명을 차례로 발급**합니다. 담긴 증명이 아래 입력을 같은 뜻으로 함께 씁니다. 공통 접수 입력(`name`, `birthDate`, `phone`, `authProvider`)에 더해 보냅니다.
+
+Both certificate bundles issue every included certificate after a single phone approval. The inputs below are shared by all certificates in the bundle.
+
+| 입력 | 형식 | 필수 |
+| --- | --- | --- |
+| `year` | 귀속연도 숫자 4자리, 최근 5년 (예: `2025`) | 필수 |
+| `use_purpose` | 사용용도 코드 숫자 2자리 (예: `99` 기타) | 필수 |
+| `submit_to` | 제출처 코드 숫자 2자리 (예: `99` 기타) | 필수 |
+| `delivery` | 교부방법 `06` 프린터 · `10` 화면 · `04` 팩스 · `12` 전자문서지갑. 문서는 응답으로 받으므로 보통 `06` | 필수 |
+| `format` | `pdf`(PDF base64만) · `json`(PDF를 읽은 값만) · `both`(둘 다, 기본). 대화형 사용은 응답이 작은 `json` 권장 | 선택 |
+| `quantity` | 발급 희망 수량 정수 1~5 (기본 1) | 선택 |
+| `email` | 수령 이메일 (생략 시 회원정보) | 선택 |
+| `fax_no` | 팩스번호 숫자 9~11자리. `delivery=04`일 때 필수 | 조건부 |
+| `wallet_address` | 전자문서지갑 주소. `delivery=12`일 때 필수 | 조건부 |
+
+증명마다 결과 섹션이 따로 옵니다. 각 섹션에는 `문서확인번호`, `응답형식`과 증명별 항목, `format`에 따라 `발급문서`(PDF base64)·`문서파일명`·`문서해시`·`문서크기` 또는 `PDF데이터`가 담깁니다. 일부 증명만 발급되면 `status`가 `PARTIAL_SUCCESS`이고 결과 단가는 그대로 청구됩니다.
+
+Each certificate has its own result section. With `PARTIAL_SUCCESS` some certificates were not issued; the bundle result price is still charged.
+
+---
+
+<a id="req-income-cert-bundle"></a>
+
+### `req_income_cert_bundle` — 소득 증빙서류 통합발급 인증 요청
+
+REST: `POST /rest/req_income_cert_bundle` · SDK: `requestIncomeCertBundle()`
+
+소득금액증명과 연금보험료등 소득세액 공제확인서를 승인 한 번으로 함께 발급합니다. 필수: `name`, `birthDate`, `phone`, `authProvider`와 [발급 입력](#cert-bundle-inputs). 선택: `amount_open_yn`, `income_source_open_yn`, `withholding_all_print_yn`, `address_open_yn`, `resno_open_yn` (각 `Y`/`N`). 인증 발송 성공 시 20P.
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"req_income_cert_bundle","arguments":{"name":"홍길동","birthDate":"19900101","phone":"01012345678","authProvider":"kakao","year":"2025","use_purpose":"99","submit_to":"99","delivery":"06","format":"json"}}}
+```
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="get-income-cert-bundle"></a>
+
+### `get_income_cert_bundle` — 소득 증빙서류 통합발급 결과 조회
+
+REST: `POST /rest/get_income_cert_bundle` · SDK: `getIncomeCertBundle()`
+
+필수: `transactionId`. 성공 결과: `result.incomeAmountCert` (`문서확인번호`, `귀속연도`, `소득금액` …), `result.pensionCreditCert` (`문서확인번호`, `귀속연도` …). 최초 결과 84P (개별 발급 합계 120P에서 30% 할인).
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="req-business-cert-bundle"></a>
+
+### `req_business_cert_bundle` — 사업자 증빙서류 통합발급 인증 요청
+
+REST: `POST /rest/req_business_cert_bundle` · SDK: `requestBusinessCertBundle()`
+
+사업자등록증명·부가가치세 과세표준증명·표준재무제표증명을 승인 한 번으로 함께 발급합니다. 필수: `name`, `birthDate`, `phone`, `authProvider`, `business_no`(숫자 10자리)와 [발급 입력](#cert-bundle-inputs). 선택: `period`(`1` 1기 · `2` 2기 · `all` 연간, 과세표준증명 기간), `engl_yn`(`Y`/`N`, 기본 `N`). 인증 발송 성공 시 20P.
+
+**대표자 확인:** `bind_id`가 없으면 `agreed: true`가 있어야 접수됩니다. 빠지면 인증을 보내지 않고 무과금으로 거절합니다. 결과에 대표자명이 있으면 응답의 `bind_id`를 90일 동안 같은 계정·같은 사업자등록번호 조회에 `agreed` 없이 다시 쓸 수 있습니다.
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"req_business_cert_bundle","arguments":{"name":"홍길동","birthDate":"19900101","phone":"01012345678","authProvider":"kakao","business_no":"1234567890","year":"2025","period":"all","use_purpose":"99","submit_to":"99","delivery":"06","format":"json","agreed":true}}}
+```
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="get-business-cert-bundle"></a>
+
+### `get_business_cert_bundle` — 사업자 증빙서류 통합발급 결과 조회
+
+REST: `POST /rest/get_business_cert_bundle` · SDK: `getBusinessCertBundle()`
+
+필수: `transactionId`. 성공 결과: `result.businessRegistrationCert` (`문서확인번호`, `상호`, `사업자등록번호`, `개업일자`, `업태`, `종목` …), `result.vatTaxBaseCert` (`문서확인번호`, `귀속연도`, `과세기간`, `과세표준`, `매출세액` …), `result.financialStatementCert` (`문서확인번호`, `귀속연도`, `자산총계`, `부채총계`, `자본총계`, `매출액`, `영업이익`, `당기순이익` …). 최초 결과 126P (개별 발급 합계 180P에서 30% 할인). 성공 응답에 `bind_id`가 함께 올 수 있습니다.
 
 [공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
 

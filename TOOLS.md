@@ -1,9 +1,9 @@
 # APICK MCP — Full Tool Catalog / 전체 Tool 목록
 
-**143 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 143개**, 분야별 서버 8개와 통합 서버 `all`.
+**144 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 144개**, 분야별 서버 8개와 통합 서버 `all`.
 
-4.8.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
+4.9.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
 
 
 
@@ -16,7 +16,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 | Server 서버 | Endpoint | Tools | Coverage 범위 |
 | --- | --- | --- | --- |
-| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 35 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 유효성 검사. |
+| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 36 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 유효성 검사. |
 | [Identity Verification · 신분증 진위확인 · 마스킹](#identity) | `/mcp/identity` | 16 | 주민등록증·운전면허증·여권·외국인등록증 진위확인, 실명확인, 개인정보 마스킹. |
 | [OCR · OCR 문자인식](#ocr) | `/mcp/ocr` | 6 | 이미지 텍스트 추출과 신분증 항목 추출. |
 | [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 3 | 계좌 예금주 실명조회와 1원 인증. |
@@ -24,12 +24,12 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 25 | PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
-| **All 통합** | `/mcp/all` | **143** | 아래 전부 + [`find_tools`](#find-tools) |
+| **All 통합** | `/mcp/all` | **144** | 아래 전부 + [`find_tools`](#find-tools) |
 | [Skills · 검수된 Skill 실행](#skills) | `/mcp/skills` | 6 | Skill 검색·상세·견적·실행·조회·취소. `all`에는 포함되지 않는 별도 서버 / separate server, not part of `all`. |
 
-<details><summary><b>All 143 tool names / 전체 Tool 이름</b></summary>
+<details><summary><b>All 144 tool names / 전체 Tool 이름</b></summary>
 
-`biz_detail` · `venture_biz_info` · `land_rt_price` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `vehicle_model_info` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup`
+`biz_detail` · `venture_biz_info` · `land_rt_price` · `bldrgst` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `vehicle_model_info` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup`
 
 `identi_card1` · `identi_card2` · `identi_card3` · `identi_card4` · `identi_card5` · `identi_card_image1` · `identi_card_image2` · `identi_card_image3` · `identi_card_image4` · `identi_card_image5` · `name_rrn_auth` · `hide_rrn` · `identity_document_residence_card` · `identity_document_passport` · `identity_document_id_card` · `identity_document_driver_license`
 
@@ -55,11 +55,11 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 ## All server only · 통합 서버 전용
 
-`https://apick.app/mcp/all` — 1 tool in addition to the 142 domain tools
+`https://apick.app/mcp/all` — 1 tool in addition to the 143 domain tools
 
 Tools that exist only on the combined `all` server. Domain servers keep their own tool counts.
 
-분야별 Tool 141개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
+분야별 Tool 143개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
 
 <a id="find-tools"></a>
 
@@ -100,7 +100,7 @@ Call the recommended tool afterwards with your API key as usual. 추천받은 To
 
 ## Business & Commerce · 사업자 · 커머스
 
-`https://apick.app/mcp/business` — 35 tools
+`https://apick.app/mcp/business` — 36 tools
 
 Korean business registry, corporate credit, parcel tracking, real-estate prices, vehicle history, and input validation.
 
@@ -111,6 +111,7 @@ Korean business registry, corporate credit, parcel tracking, real-estate prices,
 | [`biz_detail`](#biz-detail) | 사업자 정보 조회 | `biz_no` |
 | [`venture_biz_info`](#venture-biz-info) | 벤처기업 정보조회 | `biz_no` |
 | [`land_rt_price`](#land-rt-price) | 부동산 실거래가 조회 | `addr1`, `addr2`, `type`, `year` |
+| [`bldrgst`](#bldrgst) | 건축물대장 조회 | — |
 | [`req_pccc`](#req-pccc) | 개인통관고유부호 인증 요청 | `name`, `birthday`, `phone`, `provider` |
 | [`get_pccc`](#get-pccc) | 개인통관고유부호 조회 | `tx_id` |
 | [`req_employment`](#req-employment) | 재직·보험료 확인 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
@@ -207,6 +208,37 @@ Look up real estate transaction price records in Korea by region, property type,
 
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"land_rt_price","arguments":{"addr1":"<addr1>","addr2":"<addr2>","type":"<type>","year":"<year>"}}}
+```
+
+<a id="bldrgst"></a>
+
+### `bldrgst` — 건축물대장 조회
+
+Look up a Korean building register by parcel number or lot address, across ten register types.
+
+필지고유번호(PNU) 또는 시군구·법정동·번지로 건축물대장을 조회합니다. `type` 으로 표제부·총괄표제부·기본개요·층별개요·전유부·전유공용면적·주택가격·오수정화시설·부속지번·지역지구구역을 고르며, 그 종류가 받지 않는 항목을 보내면 빈 결과 대신 오류로 알려줍니다. 호출당 60 포인트입니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `pnu` | `string` | 선택 / optional | 필지고유번호 19자리. 주면 번지 항목은 무시합니다. |
+| `sigunguCd` | `string` | 선택 / optional | 시군구코드 5자리 (pnu 가 없을 때) |
+| `bjdongCd` | `string` | 선택 / optional | 법정동코드 5자리 (pnu 가 없을 때) |
+| `platGbCd` | `string` (0 / 1) | 선택 / optional | 0 대지(기본), 1 산. 대지·산·임야 표기도 받습니다. |
+| `bun` | `string` | 선택 / optional | 본번. 숫자만 보내면 4자리로 채웁니다. |
+| `ji` | `string` | 선택 / optional | 부번 (기본 0000) |
+| `type` | `string` (title / recap / basis / floor / expos / area / price / wclf / jibun / district) | 선택 / optional | 대장 종류 (기본 title) |
+| `startDate` | `string` | 선택 / optional | 대장 생성일 범위 시작. title·recap 전용. 2024 / 2024-06 / 20240101 |
+| `endDate` | `string` | 선택 / optional | 대장 생성일 범위 끝. title·recap 전용. 연·월만 보내면 그 달 마지막 날로 맞춥니다. |
+| `dongNm` | `string` | 선택 / optional | 동 이름. floor·expos·area·price 전용 |
+| `hoNm` | `string` | 선택 / optional | 호 이름. floor·expos·area·price 전용 (예: 2101호) |
+| `flrNo` | `integer` | 선택 / optional | 층 번호. area 전용. 지하는 음수 |
+| `pageNo` | `integer` | 선택 / optional | 쪽 번호 (기본 1) |
+| `numOfRows` | `integer` | 선택 / optional | 한 쪽 건수 (기본 20, 최대 100) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"bldrgst","arguments":{"pnu":"<pnu>","type":"title","pageNo":1,"numOfRows":20}}}
 ```
 
 <a id="req-pccc"></a>

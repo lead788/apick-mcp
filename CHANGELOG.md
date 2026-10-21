@@ -1,3 +1,8 @@
+# 4.9.0
+
+- `bldrgst`(건축물대장 조회)를 Business 서버에 추가했습니다. 필지고유번호(PNU) 또는 시군구·법정동·번지로 표제부·총괄표제부·기본개요·층별개요·전유부·전유공용면적·주택가격·오수정화시설·부속지번·지역지구구역 10종을 조회하고, 생성일 범위·동·호·층·쪽 단위 옵션을 받습니다. 그 종류가 지원하지 않는 옵션은 무시하지 않고 오류로 알려줍니다. 호출당 60 포인트입니다. 통합 144개, Business 36개입니다.
+- Added `bldrgst` (Korean building register) to the Business server: look up any of ten register types by parcel number or lot address, with creation-date range, dong, ho, floor and paging options, and options a register type does not support are reported instead of ignored. 60 points per call — 144 tools overall, 36 on Business.
+
 # 2026-10-19 서버 동작 안내 / Server behavior notes
 
 - 차량정보는 공백·대소문자가 다른 동일 등급을 우선해 찾으며 연식·사양이 다른 차량은 구분합니다. 기존 `안내`에서 연식·사양 대체, 사양 충돌, 국내 출시 여부 확인 보류, 일부 제원의 추가 검증 상태를 확인할 수 있습니다. 국내 미출시가 확인된 차량은 해외 자료 기준이며 100% 정확성을 보장하지 않는다는 안내가 추가됩니다. 반환된 연식·등급과 안내를 확인하세요. 입력·응답 구조와 과금 방식은 유지됩니다.

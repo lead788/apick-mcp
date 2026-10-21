@@ -156,7 +156,7 @@ Connect to `all` for everything, or to one server to keep the tool list short an
 | Server 서버 | Endpoint | Tools | Coverage 범위 |
 | --- | --- | --- | --- |
 | **All 통합** | `https://apick.app/mcp/all` | **144** | 아래 전부 + `find_tools` |
-| [Business 사업자·커머스](TOOLS.md#business) | `https://apick.app/mcp/business` | 35 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 유효성 검사 |
+| [Business 사업자·커머스](TOOLS.md#business) | `https://apick.app/mcp/business` | 36 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가·건축물대장, 차량 이력, 유효성 검사 |
 | [Identity 신분증](TOOLS.md#identity) | `https://apick.app/mcp/identity` | 16 | 주민등록증·운전면허증·여권·외국인등록증 진위확인, 실명확인, 개인정보 마스킹 |
 | [Convert 파일변환](TOOLS.md#convert) | `https://apick.app/mcp/convert` | 25 | PDF·DOCX·엑셀 변환, STT, 비동기 TTS, 워터마크 |
 | [Web 웹·검색](TOOLS.md#web) | `https://apick.app/mcp/web` | 44 | 도메인·IP·WHOIS, 웹페이지 수집, 구글 검색(웹·이미지·뉴스·쇼핑·지도·장소 상세·순위), 유튜브(검색·채널·댓글·자막·영상 정보), 인스타그램·틱톡·X(프로필·게시물), 아마존·쿠팡·네이버 상품, 링크드인(프로필·회사·채용공고) |
@@ -316,7 +316,7 @@ Seedance 참조 소재 모드는 지원 버전에서 참조 이미지·영상·�
 | **Transport** | Streamable HTTP — one endpoint per server, JSON-RPC 2.0 over HTTPS POST, stateless | 서버당 단일 엔드포인트, HTTPS POST로 JSON-RPC 2.0, 세션 없이 요청 단위 |
 | **Protocol** | MCP `2026-07-28`, auto-compatible with earlier client versions | MCP `2026-07-28` 기본, 이전 규격 클라이언트 자동 호환 |
 | **Discovery** | `tools/list` returns every tool with JSON Schema, description and live price — no key needed | `tools/list`가 스키마·설명·실시간 단가를 반환, 인증 불필요 |
-| **Annotations** | Every tool declares `title`, `readOnlyHint`, `openWorldHint`. 33 of 143 are not read-only | 전 Tool이 `title`·`readOnlyHint`·`openWorldHint` 선언. 143개 중 상태 변경 Tool은 33개 |
+| **Annotations** | Every tool declares `title`, `readOnlyHint`, `openWorldHint`. 33 of 144 are not read-only | 전 Tool이 `title`·`readOnlyHint`·`openWorldHint` 선언. 144개 중 상태 변경 Tool은 33개 |
 | **Results** | Text (JSON) + `structuredContent`. Images as image content; files up to 8MB as base64 | 텍스트(JSON)와 `structuredContent` 동시 반환. 이미지는 이미지 콘텐츠, 8MB 이하 파일은 base64 |
 | **File input** | File-taking tools accept a public `https` URL (`image_url`, `pdf_url`, …) — APICK downloads and processes it | 파일 Tool은 공개 `https` URL을 받습니다. 에이픽 서버가 내려받아 처리합니다 |
 | **Errors** | Delivered via `isError`; identity masking also preserves `structuredContent.error_code` | `isError`로 전달되며 신분증 마스킹은 `structuredContent.error_code`도 보존합니다 |
@@ -352,8 +352,8 @@ Common inputs match the SDK: `name`, `birthDate`, `phone`, and `authProvider`. T
 
 ### Tools with side effects / 부작용이 있는 Tool
 
-110 of 143 tools are read-only. The other 33 change state, charge points, cancel work, or consume a result and carry `readOnlyHint: false` so your client can require approval:
-143개 중 110개는 조회입니다. 나머지 33개는 과금·취소·결과 생성 등 상태를 바꾸므로 `readOnlyHint: false`가 붙습니다.
+111 of 144 tools are read-only. The other 33 change state, charge points, cancel work, or consume a result and carry `readOnlyHint: false` so your client can require approval:
+143개 중 111개는 조회입니다. 나머지 33개는 과금·취소·결과 생성 등 상태를 바꾸므로 `readOnlyHint: false`가 붙습니다.
 
 | Tool | What it does / 하는 일 |
 | --- | --- |

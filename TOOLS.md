@@ -1,9 +1,9 @@
 # APICK MCP — Full Tool Catalog / 전체 Tool 목록
 
-**150 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 150개**, 분야별 서버 8개와 통합 서버 `all`.
+**166 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 166개**, 분야별 서버 8개와 통합 서버 `all`.
 
-4.11.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
+4.12.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
 
 
 
@@ -16,7 +16,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 | Server 서버 | Endpoint | Tools | Coverage 범위 |
 | --- | --- | --- | --- |
-| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 42 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 간편인증 데이터 조회·세무 증빙서류 발급, 유효성 검사. |
+| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 59 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 간편인증 데이터 조회·세무 증빙서류 발급, 유효성 검사. |
 | [Identity Verification · 신분증 진위확인 · 마스킹](#identity) | `/mcp/identity` | 16 | 주민등록증·운전면허증·여권·외국인등록증 진위확인, 실명확인, 개인정보 마스킹. |
 | [OCR · OCR 문자인식](#ocr) | `/mcp/ocr` | 6 | 이미지 텍스트 추출과 신분증 항목 추출. |
 | [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 3 | 계좌 예금주 실명조회와 1원 인증. |
@@ -24,12 +24,12 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 25 | PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
-| **All 통합** | `/mcp/all` | **150** | 아래 전부 + [`find_tools`](#find-tools) |
+| **All 통합** | `/mcp/all` | **166** | 아래 전부 + [`find_tools`](#find-tools) |
 | [Skills · 검수된 Skill 실행](#skills) | `/mcp/skills` | 6 | Skill 검색·상세·견적·실행·조회·취소. `all`에는 포함되지 않는 별도 서버 / separate server, not part of `all`. |
 
-<details><summary><b>All 150 tool names / 전체 Tool 이름</b></summary>
+<details><summary><b>All 166 MCP tool names / 전체 MCP Tool 이름</b></summary>
 
-`biz_detail` · `venture_biz_info` · `land_rt_price` · `bldrgst` · `court_auction` · `registry_doc_verify` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `vehicle_model_info` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `req_income_cert_bundle` · `get_income_cert_bundle` · `req_business_cert_bundle` · `get_business_cert_bundle`
+`biz_detail` · `venture_biz_info` · `land_rt_price` · `bldrgst` · `court_auction` · `registry_doc_verify` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `vehicle_model_info` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `vehicle_emission` · `corp_finance` · `geo_standardize` · `geo_batch_geocode` · `geo_reverse` · `geo_address_search` · `geo_place_search` · `geo_admin_code` · `geo_compare_address` · `geo_measure` · `geo_geojson_analyze` · `geo_address_quality` · `geo_address_autocomplete` · `geo_district_boundary` · `geo_neighborhood` · `registry_realestate_search` · `registry_corporate_search` · `registry_realestate_jobs_create` · `registry_corporate_jobs_create` · `registry_jobs_status` · `registry_jobs_download`
 
 `identi_card1` · `identi_card2` · `identi_card3` · `identi_card4` · `identi_card5` · `identi_card_image1` · `identi_card_image2` · `identi_card_image3` · `identi_card_image4` · `identi_card_image5` · `name_rrn_auth` · `hide_rrn` · `identity_document_residence_card` · `identity_document_passport` · `identity_document_id_card` · `identity_document_driver_license`
 
@@ -37,7 +37,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 `transfer_1won` · `account_realname` · `bank_code`
 
-`nslookup` · `reverse_ip` · `location` · `ip_history` · `whois` · `url_html` · `url_screenshot` · `url_similarity` · `google_search` · `google_image_search` · `google_news_search` · `google_shopping_search` · `google_maps_search` · `google_rank_check` · `google_lens_search` · `crawl_youtube` · `youtube_metadata` · `youtube_thumbnail` · `youtube_subtitle_list` · `youtube_subtitle` · `youtube_search` · `youtube_channel` · `youtube_playlist` · `youtube_hashtag` · `youtube_comments` · `instagram_profile` · `instagram_post` · `tiktok_profile` · `amazon_product` · `coupang_product` · `naver_shopping_product` · `linkedin_profile` · `linkedin_company` · `linkedin_job` · `x_profile` · `x_post`
+`nslookup` · `reverse_ip` · `location` · `ip_history` · `whois` · `url_html` · `url_screenshot` · `url_similarity` · `google_search` · `google_image_search` · `google_news_search` · `google_shopping_search` · `google_maps_search` · `google_rank_check` · `google_lens_search` · `crawl_youtube` · `youtube_search` · `youtube_playlist` · `youtube_channel` · `youtube_hashtag` · `youtube_comments` · `youtube_metadata` · `youtube_thumbnail` · `youtube_subtitle_list` · `youtube_subtitle` · `instagram_profile` · `instagram_post` · `tiktok_profile` · `amazon_product` · `x_profile` · `x_post` · `coupang_product` · `naver_shopping_product` · `linkedin_profile` · `linkedin_company` · `linkedin_job`
 
 `stt` · `tts_jobs_create` · `tts_gemini_create` · `tts_gemini_voices` · `tts_openai_create` · `tts_openai_voices` · `tts_options` · `tts_quote` · `tts_jobs_status` · `tts_jobs_cancel` · `tts_jobs_result` · `tts_jobs_subtitles` · `voice_change` · `face_blur` · `pdf_to_docx` · `pdf_to_image` · `pdf_merge` · `html_to_pdf` · `docx_to_pdf` · `json_to_excel` · `base64_to_image` · `set_watermark` · `get_watermark` · `draw_watermark_pdf` · `draw_watermark_image`
 
@@ -51,15 +51,110 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 ---
 
+<a id="image-generate"></a>
+
+### `image_generate` — 이미지 한 장 생성
+
+텍스트만 사용하거나 참고 이미지와 텍스트를 함께 사용해 이미지 한 장을 생성합니다. 요금은 품질별 장당 고정가(기본 40P·고급 350P·최고급 1,400P)이며, 같은 요청을 다시 보내도 매번 새로 생성하고 과금합니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `ai`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `prompt` | `string` | **필수 / required** | 생성 프롬프트, 최대 28,000자 |
+| `size` | `string` (1024x1024 / 1536x1024 / 1024x1536 / 1152x864 / 864x1152) | 선택 / optional | 표준 이미지 크기, 기본 1024x1024 |
+| `output_format` | `string` (png / jpeg / webp) | 선택 / optional | 출력 포맷 |
+| `background` | `string` (auto / opaque / transparent) | 선택 / optional | 배경 방식 |
+| `quality` | `string` (basic / advanced / premium) | 선택 / optional | 이미지 품질. basic(기본) 40P, advanced(고급) 350P, premium(최고급) 1,400P(장당). 기본 basic |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"image_generate","arguments":{"prompt":"<prompt>"}}}
+```
+
+<a id="image-edit"></a>
+
+### `image_edit` — 이미지 한 장 편집
+
+원본 이미지와 편집 지시로 이미지 한 장을 편집합니다. 요금은 품질별 장당 고정가(기본 40P·고급 350P·최고급 1,400P)이며, 같은 요청을 다시 보내도 매번 새로 편집하고 과금합니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `ai`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `prompt` | `string` | **필수 / required** | 편집 지시, 최대 28,000자 |
+| `size` | `string` (1024x1024 / 1536x1024 / 1024x1536 / 1152x864 / 864x1152) | 선택 / optional | 표준 출력 크기, 기본 1024x1024 |
+| `output_format` | `string` (png / jpeg / webp) | 선택 / optional | 출력 포맷 |
+| `background` | `string` (auto / opaque / transparent) | 선택 / optional | 배경 방식 |
+| `quality` | `string` (basic / advanced / premium) | 선택 / optional | 이미지 품질. basic(기본) 40P, advanced(고급) 350P, premium(최고급) 1,400P(장당). 기본 basic |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"image_edit","arguments":{"prompt":"<prompt>"}}}
+```
+
+<a id="image-batch-create"></a>
+
+### `image_batch_create` — 이미지 대량 작업 생성
+
+이미지 1~50장의 비동기 생성 또는 편집 작업을 접수합니다. 요금은 품질별 장당 고정가(기본 40P·고급 350P·최고급 1,400P)이며 장수만큼 선차감하고 실패한 장은 환급합니다. 같은 요청도 매번 새 작업으로 접수하며, 접수 후에는 취소할 수 없습니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `ai`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `mode` | `string` (generate / edit) | **필수 / required** | 작업 방식 |
+| `prompt` | `string` | **필수 / required** | 생성 또는 편집 지시, 최대 28,000자 |
+| `image_count` | `integer` | **필수 / required** | 만들 이미지 장수, 1~50 |
+| `size` | `string` (1024x1024 / 1536x1024 / 1024x1536 / 1152x864 / 864x1152) | 선택 / optional | 표준 출력 크기, 기본 1024x1024 |
+| `output_format` | `string` (png / jpeg / webp) | 선택 / optional | 출력 포맷 |
+| `background` | `string` (auto / opaque / transparent) | 선택 / optional | 배경 방식 |
+| `quality` | `string` (basic / advanced / premium) | 선택 / optional | 이미지 품질. basic(기본) 40P, advanced(고급) 350P, premium(최고급) 1,400P(장당). 기본 basic |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"image_batch_create","arguments":{"mode":"<mode>","prompt":"<prompt>","image_count":"<image_count>"}}}
+```
+
+<a id="image-batch-status"></a>
+
+### `image_batch_status` — 이미지 대량 작업 상태
+
+대량 이미지 작업의 진행 상태, 선차감·환급·현재 차감 포인트를 조회합니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `ai`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `job_id` | `string` | **필수 / required** | 작업 ID |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"image_batch_status","arguments":{"job_id":"<job_id>"}}}
+```
+
+<a id="image-batch-result"></a>
+
+### `image_batch_result` — 이미지 대량 작업 결과
+
+완료된 대량 작업 결과 중 지정한 한 장을 이미지 콘텐츠로 반환합니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `ai`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `job_id` | `string` | **필수 / required** | 작업 ID |
+| `index` | `integer` | **필수 / required** | 0부터 시작하는 이미지 번호 |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"image_batch_result","arguments":{"job_id":"<job_id>","index":"<index>"}}}
+```
+
 <a id="all-only"></a>
 
 ## All server only · 통합 서버 전용
 
-`https://apick.app/mcp/all` — 1 tool in addition to the 150 domain tools
+`https://apick.app/mcp/all` — 1 tool in addition to the 166 domain tools
 
 Tools that exist only on the combined `all` server. Domain servers keep their own tool counts.
 
-분야별 Tool 150개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
+분야별 Tool 166개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
 
 <a id="find-tools"></a>
 
@@ -100,7 +195,7 @@ Call the recommended tool afterwards with your API key as usual. 추천받은 To
 
 ## Business & Commerce · 사업자 · 커머스
 
-`https://apick.app/mcp/business` — 42 tools
+`https://apick.app/mcp/business` — 59 tools
 
 Korean business registry, corporate credit, parcel tracking, real-estate prices, vehicle history, and input validation.
 
@@ -1226,6 +1321,443 @@ Get App Store app metadata and customer reviews (Apple iTunes) by numeric app id
 
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"app_reviews","arguments":{"appId":"<appId>","country":"<country>","page":1}}}
+```
+
+<a id="vehicle-emission"></a>
+
+### `vehicle_emission` — 배출가스 인증정보 조회
+
+Look up Korean vehicle emission certification details by emission certification number.
+
+배출가스인증번호로 인증일·차명·제조사·제작국가·연료·배출가스차종·배기량·엔진출력·변속기·공차중량·총중량과 인증 이력을 조회합니다. 입력은 차량번호가 아니라 배출가스인증번호이며, 배출가스 등급은 제공하지 않습니다. 호출당 60 포인트입니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `cert_no` | `string` | **필수 / required** | 배출가스인증번호. 예: KMY-SY-13-24 |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"vehicle_emission","arguments":{"cert_no":"<cert_no>"}}}
+```
+
+<a id="corp-finance"></a>
+
+### `corp_finance` — 기업 재무정보
+
+Get a company financial package by corporate registration number and year.
+
+요약재무제표·재무상태표·손익계산서를 한 번에 조회하고 부채비율·영업이익률·ROA·ROE·전년 대비 성장률을 계산해 돌려줍니다. 호출당 100 포인트입니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `crno` | `string` | **필수 / required** | 법인등록번호 (13자리, 하이픈 없이) |
+| `bizYear` | `string` | 선택 / optional | 사업연도 (YYYY, 생략하면 가장 최근 연도) |
+| `type` | `string` (all / summary / balance / income) | 선택 / optional | 조회 항목 (기본 all=통합) |
+| `scope` | `string` (all / consolidated / separate) | 선택 / optional | 연결·별도 구분 (기본 all) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"corp_finance","arguments":{"crno":"<crno>"}}}
+```
+
+<a id="geo-standardize"></a>
+
+### `geo_standardize` — 주소 표준화·코드 변환
+
+Normalize a Korean address into standard jibun/road text, administrative codes, coordinates and postal code in one response.
+
+지번·도로명 주소를 표준 표기, 법정동·행정동·지역 코드, 좌표, 우편번호로 한 번에 분해합니다. 주소 대신 19자리 필지번호를 주면 좌표 조회 없이 코드만 만듭니다. 호출당 30 포인트입니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `address` | `string` | 선택 / optional | 지번 또는 도로명 주소. pnu 와 둘 중 하나는 필요합니다. |
+| `pnu` | `string` | 선택 / optional | 필지번호 19자리. 주면 좌표 조회 없이 코드와 지번만 만듭니다. |
+| `addrType` | `string` (auto / parcel / road) | 선택 / optional | 주소 유형 (기본 auto) |
+| `includeZipcode` | `boolean` | 선택 / optional | 우편번호 포함 여부 (기본 true) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"geo_standardize","arguments":{}}}
+```
+
+<a id="geo-batch-geocode"></a>
+
+### `geo_batch_geocode` — 대량 주소 좌표 변환
+
+Geocode a list of Korean addresses at once, deduplicating repeats and summarizing successes and failures.
+
+주소 목록을 중복 제거해 최대 50건까지 한 번에 좌표·필지번호·행정코드로 바꾸고 성공·실패를 요약합니다. 엑셀·DB에 쌓인 주소를 한 번에 정리할 때 씁니다. 호출당 40 포인트입니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `addresses` | `array` | **필수 / required** | 주소 목록. 최대 50건 |
+| `addrType` | `string` (auto / parcel / road) | 선택 / optional | 주소 유형 (기본 auto) |
+| `dedupe` | `boolean` | 선택 / optional | 중복 주소를 한 번만 조회 (기본 true) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"geo_batch_geocode","arguments":{"addresses":"<addresses>"}}}
+```
+
+<a id="geo-reverse"></a>
+
+### `geo_reverse` — 좌표→주소·행정구역
+
+Convert coordinates into jibun and road addresses, postal code and administrative codes.
+
+경위도 좌표를 지번·도로명 주소, 우편번호, 법정동·행정동 코드로 바꿉니다. 지도에서 고른 지점의 주소와 행정구역을 바로 확인할 때 씁니다. 호출당 20 포인트입니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `x` | `number` | 선택 / optional | 경도 (-180~180). point 를 쓰지 않을 때 필요합니다. |
+| `y` | `number` | 선택 / optional | 위도 (-90~90). point 를 쓰지 않을 때 필요합니다. |
+| `point` | `string` | 선택 / optional | 좌표 문자열 "경도,위도" (예: 127.025,37.504) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"geo_reverse","arguments":{}}}
+```
+
+<a id="geo-address-search"></a>
+
+### `geo_address_search` — 주소 검색·정규화
+
+Search Korean road-name and jibun addresses and return standardized text, parcel number, region code and coordinates.
+
+도로명·지번 주소를 검색해 표준 주소, 필지번호, 지역코드, 좌표로 정리합니다. 도로명과 지번 결과를 합쳐 중복을 제거합니다. 호출당 20 포인트입니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `query` | `string` | **필수 / required** | 검색어 (예: 테헤란로 152) |
+| `category` | `string` (auto / road / parcel) | 선택 / optional | 검색 범위 (기본 auto) |
+| `page` | `integer` | 선택 / optional | 페이지 번호 (기본 1) |
+| `size` | `integer` | 선택 / optional | 페이지당 결과 수 (기본 10, 최대 20) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"geo_address_search","arguments":{"query":"<query>"}}}
+```
+
+<a id="geo-place-search"></a>
+
+### `geo_place_search` — 장소 검색·거리 정렬
+
+Search places by name and enrich each result with category hierarchy, addresses, distance and bearing from an origin.
+
+장소명으로 검색해 분류·주소·좌표를 정리하고, 기준점이 있으면 각 결과의 거리와 방위를 계산해 가까운 순으로 정렬합니다. radius 로 반경 밖 결과를 제외합니다. 호출당 20 포인트입니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `query` | `string` | **필수 / required** | 장소 검색어 |
+| `origin` | `string` | 선택 / optional | 기준점 "경도,위도" (예: 127.025,37.504) |
+| `x` | `number` | 선택 / optional | 기준점 경도. origin 대신 사용합니다. |
+| `y` | `number` | 선택 / optional | 기준점 위도. origin 대신 사용합니다. |
+| `radius` | `number` | 선택 / optional | 반경(m). 주면 반경 밖 결과를 제외합니다. |
+| `sort` | `string` (distance / relevance) | 선택 / optional | 정렬 (기본 distance, 기준점이 있을 때만 적용) |
+| `page` | `integer` | 선택 / optional | 페이지 번호 (기본 1) |
+| `size` | `integer` | 선택 / optional | 페이지당 결과 수 (기본 10, 최대 20) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"geo_place_search","arguments":{"query":"<query>"}}}
+```
+
+<a id="geo-admin-code"></a>
+
+### `geo_admin_code` — 행정구역 코드 조회
+
+Extract administrative names and codes (sido, sigungu, eupmyeondong, admin dong, lawd code) from an address or coordinates.
+
+주소나 좌표에서 시도·시군구·읍면동·행정동 이름과 법정동코드·지역코드를 뽑습니다. lawdCd 는 실거래가 조회에 쓰는 지역코드입니다. 호출당 20 포인트입니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `address` | `string` | 선택 / optional | 주소. 좌표와 둘 중 하나는 필요합니다. |
+| `x` | `number` | 선택 / optional | 경도 |
+| `y` | `number` | 선택 / optional | 위도 |
+| `point` | `string` | 선택 / optional | 좌표 문자열 "경도,위도" |
+| `addrType` | `string` (auto / parcel / road) | 선택 / optional | 주소 유형 (기본 auto) |
+| `includeZipcode` | `boolean` | 선택 / optional | 우편번호 포함 여부 (기본 true) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"geo_admin_code","arguments":{}}}
+```
+
+<a id="geo-compare-address"></a>
+
+### `geo_compare_address` — 주소 동일성 판정
+
+Decide whether two Korean addresses refer to the same parcel or building, with distance and text similarity.
+
+두 주소를 각각 좌표로 바꿔 같은 필지·같은 건물인지, 거리와 유사도는 얼마인지 판정합니다. 고객·거래처 주소 중복 정리에 씁니다. 호출당 10 포인트입니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `addressA` | `string` | **필수 / required** | 첫 번째 주소 |
+| `addressB` | `string` | **필수 / required** | 두 번째 주소 |
+| `addrType` | `string` (auto / parcel / road) | 선택 / optional | 주소 유형 (기본 auto) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"geo_compare_address","arguments":{"addressA":"<addressA>","addressB":"<addressB>"}}}
+```
+
+<a id="geo-measure"></a>
+
+### `geo_measure` — 좌표 거리·면적 측량
+
+Measure segment distances, bearings, total length, polygon area, perimeter, centroid and bounding box from a coordinate list.
+
+좌표 목록의 구간 거리·방위·총길이와 폐합 면적·중심점·경계 상자를 계산합니다. 지도에서 그린 경로나 필지 좌표를 바로 측량할 때 씁니다. 호출당 10 포인트입니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `coordinates` | `array` | **필수 / required** | 좌표 목록 (최대 200개). ["127.025,37.504", ...] 또는 [[경도,위도], ...] |
+| `mode` | `string` (path / polygon) | 선택 / optional | path 길이(기본), polygon 면적·둘레·중심점 |
+| `unit` | `string` (m / km) | 선택 / optional | 거리 단위 (기본 m) |
+| `matrix` | `boolean` | 선택 / optional | 지점 간 거리 행렬 포함 여부 |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"geo_measure","arguments":{"coordinates":"<coordinates>"}}}
+```
+
+<a id="geo-geojson-analyze"></a>
+
+### `geo_geojson_analyze` — GeoJSON 면적·포함 분석
+
+Compute area, perimeter, centroid and bounding box of GeoJSON, check whether a point is inside, and return a simplified boundary. GeoJSON
+
+의 면적·둘레·중심점·경계 상자를 계산하고, 지정점 포함 여부와 단순화 경계를 돌려줍니다. 면적은 m²·평·km² 로 함께 제공합니다. 호출당 10 포인트입니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `geojson` | `object` | **필수 / required** | GeoJSON 객체 (Polygon·MultiPolygon·Feature·FeatureCollection, 1.5MB 이하) |
+| `simplify` | `number` | 선택 / optional | 단순화 허용 오차(m). 0 이면 단순화하지 않습니다. |
+| `point` | `string` | 선택 / optional | 포함 여부를 확인할 점 "경도,위도" |
+| `x` | `number` | 선택 / optional | 확인점 경도 |
+| `y` | `number` | 선택 / optional | 확인점 위도 |
+| `includeGeometry` | `boolean` | 선택 / optional | 단순화한 도형 포함 여부 (기본 true) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"geo_geojson_analyze","arguments":{"geojson":"<geojson>"}}}
+```
+
+<a id="geo-address-quality"></a>
+
+### `geo_address_quality` — 주소 품질 진단
+
+Score a list of Korean addresses for validity and completeness, grade them, and suggest alternatives for addresses that fail.
+
+주소 목록의 유효성·완성도를 점수와 등급으로 진단하고, 찾지 못한 주소에는 대안 후보를 최대 3건 제시합니다. 고객 주소 데이터 정제에 씁니다. 호출당 30 포인트입니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `addresses` | `array` | **필수 / required** | 진단할 주소 목록 (최대 20건) |
+| `addrType` | `string` (auto / parcel / road) | 선택 / optional | 주소 유형 (기본 auto) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"geo_address_quality","arguments":{"addresses":"<addresses>"}}}
+```
+
+<a id="geo-address-autocomplete"></a>
+
+### `geo_address_autocomplete` — 주소 자동완성
+
+Return ranked Korean address candidates for a partial input, merging road-name and jibun results.
+
+입력 중인 주소의 도로명·지번 후보를 합쳐 일치도 순으로 제안합니다. 주소 입력 화면의 자동완성에 씁니다. 호출당 10 포인트입니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `query` | `string` | **필수 / required** | 입력 중인 주소 (예: 테헤란로) |
+| `category` | `string` (auto / road / parcel) | 선택 / optional | 검색 범위 (기본 auto) |
+| `size` | `integer` | 선택 / optional | 후보 수 (기본 5, 최대 10) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"geo_address_autocomplete","arguments":{"query":"<query>"}}}
+```
+
+<a id="geo-district-boundary"></a>
+
+### `geo_district_boundary` — 행정구역 경계·면적 분석
+
+Look up an administrative district boundary and compute its area, perimeter, centroid and bounding box with an optional simplified GeoJSON.
+
+시도·시군구·읍면동 경계를 받아 면적·둘레·중심점·경계 상자를 계산하고 단순화한 GeoJSON 을 돌려줍니다. 정점이 3000개를 넘으면 자동으로 단순화합니다. 호출당 20 포인트입니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `query` | `string` | **필수 / required** | 행정구역 이름 또는 코드 (예: 강남구, 11680) |
+| `level` | `string` (L1 / L2 / L3 / L4) | 선택 / optional | 행정구역 단계. 생략하면 이름으로 추정합니다. |
+| `simplify` | `number` | 선택 / optional | 단순화 허용 오차(m) |
+| `includeGeometry` | `boolean` | 선택 / optional | 단순화한 경계 포함 여부 (기본 true) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"geo_district_boundary","arguments":{"query":"<query>"}}}
+```
+
+<a id="geo-neighborhood"></a>
+
+### `geo_neighborhood` — 주변 생활시설 분석
+
+Analyze daily-life facilities around an address or coordinate by category, with nearest lists and average distance within a radius.
+
+기준 주소·좌표 반경 안의 편의점·지하철역·학교·병원·약국 등을 분류별로 찾아 가까운 순서와 평균 거리로 요약합니다. 상권·입지 분석에 씁니다. 호출당 40 포인트입니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `address` | `string` | 선택 / optional | 기준 주소. 좌표와 둘 중 하나는 필요합니다. |
+| `x` | `number` | 선택 / optional | 기준점 경도 |
+| `y` | `number` | 선택 / optional | 기준점 위도 |
+| `point` | `string` | 선택 / optional | 기준점 "경도,위도" |
+| `radius` | `number` | 선택 / optional | 반경(m). 기본 500 |
+| `categories` | `array` | 선택 / optional | 분류 이름 목록 (최대 6개). 생략하면 편의점·지하철역·학교·병원·약국 |
+| `limit` | `integer` | 선택 / optional | 분류별 가까운 시설 수 (기본 5, 최대 10) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"geo_neighborhood","arguments":{}}}
+```
+
+<a id="registry-realestate-search"></a>
+
+### `registry_realestate_search` — 부동산 등기 검색
+
+Find real estate registry targets in Korea by road/lot address or 14-digit property number.
+
+주소 또는 부동산고유번호로 등기부등본 열람·발급 대상을 찾습니다. 결과 targets의 index를 registry_realestate_jobs_create에 전달하세요. 결과가 없으면 0P입니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `query` | `string` | **필수 / required** | 주소(도로명·지번) 또는 부동산고유번호 14자리 |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"registry_realestate_search","arguments":{"query":"<query>"}}}
+```
+
+<a id="registry-corporate-search"></a>
+
+### `registry_corporate_search` — 법인 등기 검색
+
+Find corporate registry targets in Korea by 13-digit corporate registration number or 10-digit business number.
+
+법인등록번호 또는 사업자등록번호로 법인 등기 대상을 찾습니다. 개인사업자·미등록이면 결과가 없고 0P입니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `corp_reg_no` | `string` | 선택 / optional | 법인등록번호 13자리(하이픈 제외) |
+| `biz_no` | `string` | 선택 / optional | 사업자등록번호 10자리(하이픈 제외). corp_reg_no가 없을 때 사용 |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"registry_corporate_search","arguments":{}}}
+```
+
+<a id="registry-realestate-jobs-create"></a>
+
+### `registry_realestate_jobs_create` — 부동산 등기 열람·발급 접수
+
+Submit a real estate registry view/issue job.
+
+접수 시 880P를 예약하고 서버가 순차 처리합니다. registry_jobs_status로 완료를 확인한 뒤 registry_jobs_download로 PDF를 받으세요. 결제 전 실패는 880P 전액 환급됩니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `query` | `string` | 선택 / optional | 검색에 사용한 주소 또는 부동산고유번호 |
+| `pin` | `string` | 선택 / optional | 부동산고유번호 14자리(선택) |
+| `index` | `integer` | 선택 / optional | 검색 결과 행 번호(1부터), 기본 1 |
+| `usage` | `string` (view / issue / transfer-gov24 / transfer-court) | 선택 / optional | 열람(view)·발급(issue) 등, 기본 view |
+| `record_scope` | `string` (all / part) | 선택 / optional | 전부(all)·일부(part), 기본 all |
+| `include_cancelled` | `boolean` | 선택 / optional | 말소사항 포함 여부, 기본 true |
+| `publish_resident_no` | `boolean` | 선택 / optional | 주민등록번호 공개 여부, 기본 false |
+| `idempotency_key` | `string` | 선택 / optional | 중복 접수·과금 방지 키 |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"registry_realestate_jobs_create","arguments":{}}}
+```
+
+<a id="registry-corporate-jobs-create"></a>
+
+### `registry_corporate_jobs_create` — 법인 등기 열람·발급 접수
+
+Submit a corporate registry view/issue job.
+
+법인등록번호로 접수하며 880P를 예약합니다. 완료 후 registry_jobs_download로 PDF를 받고, 전송 성공 시 20P가 차감됩니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `corp_reg_no` | `string` | 선택 / optional | 법인등록번호 13자리 |
+| `biz_no` | `string` | 선택 / optional | 사업자등록번호 10자리(corp_reg_no가 없을 때) |
+| `index` | `integer` | 선택 / optional | 검색 결과 행 번호(1부터), 기본 1 |
+| `usage` | `string` (view / issue) | 선택 / optional | 열람(view)·발급(issue), 기본 view |
+| `idempotency_key` | `string` | 선택 / optional | 중복 접수·과금 방지 키 |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"registry_corporate_jobs_create","arguments":{}}}
+```
+
+<a id="registry-jobs-status"></a>
+
+### `registry_jobs_status` — 등기 작업 상태 조회
+
+Check a registry job status (waiting, processing, completed, failed) and PDF metadata.
+
+무료이며 PDF가 준비되면 pdf.expires_at(완료 후 72시간)을 확인하세요.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `job_id` | `string` | **필수 / required** | 접수 응답에서 받은 작업 ID(32자리) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"registry_jobs_status","arguments":{"job_id":"<job_id>"}}}
+```
+
+<a id="registry-jobs-download"></a>
+
+### `registry_jobs_download` — 등기 PDF 다운로드
+
+Download the completed registry PDF. PDF
+
+전송이 성공한 호출마다 20P가 차감되며 재다운로드도 20P입니다. 완료 전이거나 보관 기간(72시간)이 지나면 오류가 반환됩니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `job_id` | `string` | **필수 / required** | 접수 응답에서 받은 작업 ID(32자리) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"registry_jobs_download","arguments":{"job_id":"<job_id>"}}}
 ```
 
 <a id="identity"></a>

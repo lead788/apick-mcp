@@ -1,3 +1,13 @@
+# 4.12.0
+
+- 공개 문서를 실제 서버 카탈로그와 다시 맞췄습니다. 통합 166개, Business 59개, Web 36개이며 상태 변경 Tool은 35개입니다. `TOOLS.md`의 전체 목록·서버별 개수·읽기 전용 표기가 실서버와 같아졌습니다.
+- 그동안 문서에 없던 26개 Tool의 상세 절을 채웠습니다: `vehicle_emission`, `corp_finance`, `geo_*` 13종, `registry_*` 6종, `image_generate`, `image_edit`, `image_batch_*` 3종.
+- REST 전용인 증빙서류 묶음 4종은 '전체 MCP Tool 이름' 목록에서 빼고 색인 표·상세 절로만 안내합니다.
+
+- Synchronised the public documents with the live server catalog: 166 tools overall, 59 on Business, 36 on Web, 35 non-read-only. The inventory, per-server counts and read-only markers in `TOOLS.md` now match the server.
+- Documented 26 tools that had no detail section: `vehicle_emission`, `corp_finance`, 13 `geo_*` tools, 6 `registry_*` tools, `image_generate`, `image_edit` and 3 `image_batch_*` tools.
+- Removed the four REST-only certificate bundles from the all-tools name list; they stay in the index table and detail sections.
+
 # 4.11.0
 
 - `court_auction`(법원 경매 사건 조회)과 `registry_doc_verify`(등기·증명서 발급확인)를 Business 서버에 추가했습니다. 경매는 사건번호와 법원(이름 또는 코드)으로 사건 기본정보·매각물건·감정평가액·최저매각가격·매각기일·배당요구종기를 조회하며 건당 60P입니다. 발급확인은 증명서에 인쇄된 발급확인번호 12자리로 발급 사실과 종류·발급일·등기소를 확인하며 건당 60P입니다. 통합 150개, Business 42개입니다.

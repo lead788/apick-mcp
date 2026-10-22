@@ -1,3 +1,9 @@
+# 4.13.2
+
+- `identi_card4`(주민등록등본 진위 확인)에서 `name`(성명) 파라미터를 없앴습니다. 진위는 문서확인번호로만 판정하며, 성명을 보내도 쓰지 않습니다. `identi_card_image4` 응답의 `parsed`에도 성명이 들어가지 않습니다. `TOOLS.md`의 설명을 서버 카탈로그와 맞췄습니다(마지막 구획 4~5자리, 발급 경로 구분).
+
+- Removed the `name` parameter from `identi_card4` (resident registration certificate verification). Authenticity is decided by the document confirmation number only, and a supplied name is ignored. `identi_card_image4` no longer returns a name in `parsed`. `TOOLS.md` now matches the server catalog (4–5 digit last segment, issuance channel).
+
 # 4.13.1
 
 - 요금 안내 문구를 정리했습니다. 모델별 판매 단가, 실제 사용량 기준, 기본요금·소수점 올림, 견적 도구처럼 청구되는 결과만 적습니다. 요금과 동작은 바뀌지 않습니다.

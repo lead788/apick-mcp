@@ -3,7 +3,7 @@
 **174 tools** across **8 domain servers**, plus the combined `all` server.
 **Tool 174개**, 분야별 서버 8개와 통합 서버 `all`.
 
-4.13.1 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
+4.13.2 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
 
 
 
@@ -1866,7 +1866,7 @@ Verify the authenticity of a Korean passport using text input.
 
 Verify the authenticity of a Korean resident registration certificate (jumin-deungnok-deungbon) using text input.
 
-주민등록등본의 문서확인번호로 진위 여부를 확인합니다. 문서확인번호 16자리를 4자리씩 나눈 doc_num1~doc_num4와 발급 종류 type(1: 정부24 발급, 2: 기타 발급)은 필수이며, name(성명)은 선택 입력입니다. 정보주체의 동의 등 적법한 처리 근거를 확보한 경우에만 사용하십시오.
+주민등록등본·초본의 문서확인번호로 진위 여부를 확인합니다. 문서확인번호를 네 구획으로 나눈 doc_num1~doc_num4(마지막 구획은 4~5자리)와 발급 종류 type(1: 온라인 발급, 2: 기타 발급)을 보냅니다. 정보주체의 동의 등 적법한 처리 근거를 확보한 경우에만 사용하십시오.
 
 > 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `identity`
 
@@ -1875,9 +1875,8 @@ Verify the authenticity of a Korean resident registration certificate (jumin-deu
 | `doc_num1` | `string` | **필수 / required** | 문서확인번호 1구획 (4자리) |
 | `doc_num2` | `string` | **필수 / required** | 문서확인번호 2구획 (4자리) |
 | `doc_num3` | `string` | **필수 / required** | 문서확인번호 3구획 (4자리) |
-| `doc_num4` | `string` | **필수 / required** | 문서확인번호 4구획 (4자리) |
-| `name` | `string` | 선택 / optional | 성명 |
-| `type` | `string` | **필수 / required** | 발급 종류 (1: 정부24 발급, 2: 기타 발급) |
+| `doc_num4` | `string` | **필수 / required** | 문서확인번호 4구획 (4~5자리) |
+| `type` | `string` | **필수 / required** | 발급 경로 구분 (1: 인터넷으로 발급한 등본, 2: 그 밖의 경로로 발급한 등본) |
 
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"identi_card4","arguments":{"doc_num1":"<doc_num1>","doc_num2":"<doc_num2>","doc_num3":"<doc_num3>","doc_num4":"<doc_num4>","type":"<type>"}}}

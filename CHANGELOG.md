@@ -1,3 +1,19 @@
+# 4.13.0
+
+- `bid_notice`·`bid_award`·`rtms_trade`·`rtms_rent` 4종이 단순 조회에서 **분석 결과**로 바뀌어 판매를 시작했습니다. 응답은 `summary`·`distribution`·`insights` 중심이며 원본 목록(`items`·`totalCount`)은 더 이상 제공하지 않습니다. 기존 호출 파라미터와 요금은 그대로입니다.
+  - `bid_notice`: 예산구간·발주기관·업종·계약방법 분포, 마감 임박 공고, 규모 상위 공고
+  - `bid_award`: 평균·중위 낙찰률과 표준편차, 낙찰률 구간 분포, 업체별 점유와 집중도, 저가 낙찰
+  - `rtms_trade`: ㎡당 중위가, 면적·가격·층 분포, 단지별 시세, 직거래·해제 비중, 시세 이탈 거래
+  - `rtms_rent`: 전세 비중, 보증금·월세 분포, 보증금 대비 연월세 비율, 갱신 비중, 같은 단지 매매 대비 전세가율
+- 네 상품은 실제 호출 검증을 통과한 뒤 공개했습니다. 나머지 공개데이터 상품은 준비가 끝날 때까지 `tools/list`에서 제외됩니다.
+
+- `bid_notice`, `bid_award`, `rtms_trade` and `rtms_rent` now return **analysis** instead of raw lookups. Responses centre on `summary`, `distribution` and `insights`, and the original lists (`items`, `totalCount`) are no longer returned. Parameters and pricing are unchanged.
+  - `bid_notice`: budget, agency, industry and contract-method distributions, closing urgency and largest opportunities
+  - `bid_award`: average and median success rate with spread, success-rate bands, winner share and concentration, low-rate awards
+  - `rtms_trade`: median price per square metre, area/price/floor bands, per-complex medians, direct-deal and cancellation shares, price outliers
+  - `rtms_rent`: jeonse share, deposit and monthly-rent bands, annual rent to deposit ratio, renewal share, and jeonse ratio against same-complex sale prices
+- These four products were published after passing live verification. The remaining public-data products stay excluded from `tools/list` until they are ready.
+
 # 4.12.0
 
 - 공개 문서를 실제 서버 카탈로그와 다시 맞췄습니다. 통합 166개, Business 59개, Web 36개이며 상태 변경 Tool은 35개입니다. `TOOLS.md`의 전체 목록·서버별 개수·읽기 전용 표기가 실서버와 같아졌습니다.

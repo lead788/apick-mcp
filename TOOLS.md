@@ -1,9 +1,9 @@
 # APICK MCP — Full Tool Catalog / 전체 Tool 목록
 
-**166 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 166개**, 분야별 서버 8개와 통합 서버 `all`.
+**174 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 174개**, 분야별 서버 8개와 통합 서버 `all`.
 
-4.12.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
+4.13.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
 
 
 
@@ -24,12 +24,12 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 25 | PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
-| **All 통합** | `/mcp/all` | **166** | 아래 전부 + [`find_tools`](#find-tools) |
+| **All 통합** | `/mcp/all` | **174** | 아래 전부 + [`find_tools`](#find-tools) |
 | [Skills · 검수된 Skill 실행](#skills) | `/mcp/skills` | 6 | Skill 검색·상세·견적·실행·조회·취소. `all`에는 포함되지 않는 별도 서버 / separate server, not part of `all`. |
 
-<details><summary><b>All 166 MCP tool names / 전체 MCP Tool 이름</b></summary>
+<details><summary><b>All 174 MCP tool names / 전체 MCP Tool 이름</b></summary>
 
-`biz_detail` · `venture_biz_info` · `land_rt_price` · `bldrgst` · `court_auction` · `registry_doc_verify` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `vehicle_model_info` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `vehicle_emission` · `corp_finance` · `geo_standardize` · `geo_batch_geocode` · `geo_reverse` · `geo_address_search` · `geo_place_search` · `geo_admin_code` · `geo_compare_address` · `geo_measure` · `geo_geojson_analyze` · `geo_address_quality` · `geo_address_autocomplete` · `geo_district_boundary` · `geo_neighborhood` · `registry_realestate_search` · `registry_corporate_search` · `registry_realestate_jobs_create` · `registry_corporate_jobs_create` · `registry_jobs_status` · `registry_jobs_download`
+`biz_detail` · `venture_biz_info` · `bid_notice` · `bid_award` · `rtms_trade` · `rtms_rent` · `land_rt_price` · `bldrgst` · `court_auction` · `registry_doc_verify` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `vehicle_model_info` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `vehicle_emission` · `corp_finance` · `geo_standardize` · `geo_batch_geocode` · `geo_reverse` · `geo_address_search` · `geo_place_search` · `geo_admin_code` · `geo_compare_address` · `geo_measure` · `geo_geojson_analyze` · `geo_address_quality` · `geo_address_autocomplete` · `geo_district_boundary` · `geo_neighborhood` · `registry_realestate_search` · `registry_corporate_search` · `registry_realestate_jobs_create` · `registry_corporate_jobs_create` · `registry_jobs_status` · `registry_jobs_download`
 
 `identi_card1` · `identi_card2` · `identi_card3` · `identi_card4` · `identi_card5` · `identi_card_image1` · `identi_card_image2` · `identi_card_image3` · `identi_card_image4` · `identi_card_image5` · `name_rrn_auth` · `hide_rrn` · `identity_document_residence_card` · `identity_document_passport` · `identity_document_id_card` · `identity_document_driver_license`
 
@@ -150,11 +150,11 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 ## All server only · 통합 서버 전용
 
-`https://apick.app/mcp/all` — 1 tool in addition to the 166 domain tools
+`https://apick.app/mcp/all` — 1 tool in addition to the 174 domain tools
 
 Tools that exist only on the combined `all` server. Domain servers keep their own tool counts.
 
-분야별 Tool 166개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
+분야별 Tool 174개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
 
 <a id="find-tools"></a>
 
@@ -195,7 +195,7 @@ Call the recommended tool afterwards with your API key as usual. 추천받은 To
 
 ## Business & Commerce · 사업자 · 커머스
 
-`https://apick.app/mcp/business` — 59 tools
+`https://apick.app/mcp/business` — 67 tools
 
 Korean business registry, corporate credit, parcel tracking, real-estate prices, vehicle history, and input validation.
 
@@ -240,15 +240,15 @@ Korean business registry, corporate credit, parcel tracking, real-estate prices,
 | [`holiday_info`](#holiday-info) | 공휴일 조회 | `year`, `month` |
 | [`search_juso`](#search-juso) | 도로명주소 조회 | `juso` |
 | [`info`](#info) | 계정 정보 조회 | — |
-| [`bid_notice`](#bid-notice) | 나라장터 입찰공고 조회 | — |
-| [`bid_award`](#bid-award) | 나라장터 낙찰정보 조회 | — |
+| [`bid_notice`](#bid-notice) | 입찰 공고 분석 | — |
+| [`bid_award`](#bid-award) | 낙찰 경쟁 분석 | — |
 | [`dart_disclosure`](#dart-disclosure) | 기업 공시 검색 | — |
 | [`dart_company`](#dart-company) | 기업 개황 조회 | `corpCode` |
 | [`dart_financials`](#dart-financials) | 기업 재무제표 조회 | `corpCode`, `bsnsYear` |
 | [`kipris_patent`](#kipris-patent) | 특허·실용신안 검색 | `word` |
 | [`kipris_trademark`](#kipris-trademark) | 상표 검색 | `word` |
-| [`rtms_trade`](#rtms-trade) | 부동산 매매 실거래가 조회 | `lawdCd`, `dealYmd` |
-| [`rtms_rent`](#rtms-rent) | 부동산 전월세 실거래가 조회 | `lawdCd`, `dealYmd` |
+| [`rtms_trade`](#rtms-trade) | 매매 시장 분석 | `lawdCd`, `dealYmd` |
+| [`rtms_rent`](#rtms-rent) | 전월세 시장 분석 | `lawdCd`, `dealYmd` |
 | [`public_price`](#public-price) | 공시가격 조회 | `pnu`, `stdrYear` |
 | [`geocode`](#geocode) | 주소·필지(PNU) 조회 | — |
 | [`shop_price`](#shop-price) | 상품 최저가 조회 | `query` |
@@ -1021,13 +1021,11 @@ _No parameters. 파라미터 없음._
 
 <a id="bid-notice"></a>
 
-### `bid_notice` — 나라장터 입찰공고 조회
+### `bid_notice` — 입찰 공고 분석
 
-> 현재 공개 전 점검으로 비활성 상태이며 `tools/list`와 호출에서 제외됩니다. 아래 계약은 참고용으로 보존합니다. / Currently unavailable and excluded from `tools/list` and calls. The contract below is retained for reference.
+Analyze Korean public-sector bid notices: budget bands, agencies, industries, closing urgency and largest opportunities.
 
-Search Korean public procurement (Nara Market) bid notices by business type, period, or notice number.
-
-조달청 나라장터 입찰공고를 업무구분(물품·공사·용역·외자)·기간(최대 31일)·공고번호로 조회합니다. bizType 미지정 시 용역(Servc)이며, bidNtceNo만 주면 공고번호로 조회합니다. startDate·endDate는 YYYYMMDD 또는 YYYYMMDDHHMM 입니다.
+공공기관 입찰공고를 모아 예산구간·발주기관·업종 분포, 마감 임박 공고, 규모 상위 공고를 분석합니다. bizType 미지정 시 용역(Servc)이며, bidNtceNo만 주면 공고번호로 조회합니다. startDate·endDate는 YYYYMMDD 또는 YYYYMMDDHHMM 입니다. 응답은 summary·distribution·deadlines·largest·insights 이며 공고 원문 목록은 제공하지 않습니다.
 
 > 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
 
@@ -1047,13 +1045,11 @@ Search Korean public procurement (Nara Market) bid notices by business type, per
 
 <a id="bid-award"></a>
 
-### `bid_award` — 나라장터 낙찰정보 조회
+### `bid_award` — 낙찰 경쟁 분석
 
-> 현재 공개 전 점검으로 비활성 상태이며 `tools/list`와 호출에서 제외됩니다. 아래 계약은 참고용으로 보존합니다. / Currently unavailable and excluded from `tools/list` and calls. The contract below is retained for reference.
+Analyze Korean public-sector award results: success-rate distribution and averages, winner concentration, low-rate notices.
 
-Search Korean public procurement (Nara Market) bid-opening and award results by business type, period, or notice number.
-
-조달청 나라장터 개찰·낙찰 결과를 업무구분(물품·공사·용역·외자)·기간(최대 31일)·공고번호로 조회합니다. bizType 미지정 시 용역(Servc)입니다.
+공공기관 낙찰 결과를 모아 평균·중위 낙찰률, 낙찰률 분포, 업체별 낙찰 점유와 집중도(HHI), 저가 낙찰 공고를 분석합니다. 응답은 summary·distribution·competitors·low_rate·insights 이며 원문 목록은 제공하지 않습니다.
 
 > 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
 
@@ -1188,13 +1184,11 @@ Search Korean trademarks by keyword via KIPRIS. KIPRIS Plus
 
 <a id="rtms-trade"></a>
 
-### `rtms_trade` — 부동산 매매 실거래가 조회
+### `rtms_trade` — 매매 시장 분석
 
-> 현재 공개 전 점검으로 비활성 상태이며 `tools/list`와 호출에서 제외됩니다. 아래 계약은 참고용으로 보존합니다. / Currently unavailable and excluded from `tools/list` and calls. The contract below is retained for reference.
+Analyze Korean apartment sale transactions into per-complex and per-area price statistics, direct-deal and cancellation shares, and price outliers.
 
-Search Korean real estate sale transactions (MOLIT RTMS) by district code and contract month.
-
-국토교통부 실거래가 자료를 지역코드(법정동코드 앞 5자리)·계약년월(YYYYMM)·부동산 유형으로 조회합니다(매매). propertyType: apt 아파트, rh 연립다세대, sh 단독다가구, offi 오피스텔.
+지역·월별 매매 실거래를 단지·면적대·가격대·층별로 집계해 ㎡당 중위가, 거래량, 직거래·해제 비중, 시세 이탈 거래를 분석합니다. propertyType: apt 아파트, rh 연립다세대, sh 단독다가구, offi 오피스텔. 응답은 summary·distribution·complexes·anomalies·insights 이며 거래 원문 목록은 제공하지 않습니다.
 
 > 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
 
@@ -1212,13 +1206,11 @@ Search Korean real estate sale transactions (MOLIT RTMS) by district code and co
 
 <a id="rtms-rent"></a>
 
-### `rtms_rent` — 부동산 전월세 실거래가 조회
+### `rtms_rent` — 전월세 시장 분석
 
-> 현재 공개 전 점검으로 비활성 상태이며 `tools/list`와 호출에서 제외됩니다. 아래 계약은 참고용으로 보존합니다. / Currently unavailable and excluded from `tools/list` and calls. The contract below is retained for reference.
+Analyze Korean rent transactions into jeonse share, deposit and monthly-rent bands, annual-rent-to-deposit ratio, renewal share, and jeonse ratio against same-complex sale prices.
 
-Search Korean real estate rent transactions (MOLIT RTMS) by district code and contract month.
-
-국토교통부 실거래가 자료를 지역코드(법정동코드 앞 5자리)·계약년월(YYYYMM)·부동산 유형으로 조회합니다(전월세). propertyType: apt 아파트, rh 연립다세대, sh 단독다가구, offi 오피스텔.
+지역·월별 전월세 실거래를 집계해 전세 비중, 보증금·월세 분포, 보증금 대비 연월세 비율, 갱신 계약 비중을 분석하고 같은 단지 매매가로 전세가율을 계산합니다. 응답은 summary·distribution·complexes·jeonse_ratio·insights 입니다.
 
 > 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
 

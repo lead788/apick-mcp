@@ -22,11 +22,11 @@ test('신분증 structuredContent 오류 코드를 변경 없이 전달한다', 
 	assert.deepEqual(output, [serverMessage]);
 });
 
-test('4.13.0 공개 메타데이터는 대상 174개·Convert 25개·AI 15개와 이미지 작업 계약에 일치한다', () => {
+test('4.13.1 공개 메타데이터는 대상 174개·Convert 25개·AI 15개와 이미지 작업 계약에 일치한다', () => {
 	const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
 	const readme = readFileSync(new URL('../README.md', import.meta.url), 'utf8');
 	const tools = readFileSync(new URL('../TOOLS.md', import.meta.url), 'utf8');
-	assert.equal(pkg.version, '4.13.0');
+	assert.equal(pkg.version, '4.13.1');
 	assert.match(pkg.description, /174 Korean data, AI, image & video tools/);
 	assert.match(readme, /\| \[AI · LLM\]\(TOOLS\.md#ai\) \| `https:\/\/apick\.app\/mcp\/ai` \| 15 \|/);
 	assert.match(tools, /\| \*\*All 통합\*\* \| `\/mcp\/all` \| \*\*174\*\* \|/);
@@ -50,7 +50,7 @@ test('4.13.0 공개 메타데이터는 대상 174개·Convert 25개·AI 15개와
 	assert.match(tools, /reference_image_url/);
 	assert.match(tools, /image_count/);
 	assert.match(tools, /`quality`별 장당 고정가입니다\. `basic`\(기본\) 40P, `advanced`\(고급\) 350P, `premium`\(최고급\) 1,400P/);
-	assert.doesNotMatch(tools, /원가 × 동기화 환율 × 1\.4/);
+	assert.doesNotMatch(tools + readme, /(?<!회|매출)원가(?!입)|×\s?1\.[24](?![\d배])|cost\s?×\s?(the pinned )?exchange|cost plus \d+%|markup_percent|per million tokens/i);
 	for (const retired of ['ai_' + 'image_generation', 'person_' + 'detection', 'car_' + 'detection']) {
 		assert.doesNotMatch(readme, new RegExp(retired));
 		assert.doesNotMatch(tools, new RegExp(retired));

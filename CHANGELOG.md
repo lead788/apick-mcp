@@ -1,3 +1,9 @@
+# 4.13.1
+
+- 요금 안내 문구를 정리했습니다. 모델별 판매 단가, 실제 사용량 기준, 기본요금·소수점 올림, 견적 도구처럼 청구되는 결과만 적습니다. 요금과 동작은 바뀌지 않습니다.
+
+- Billing notes now describe only what you are charged: per-model rates, actual usage, base fees, rounding and quote tools. Prices and behaviour are unchanged.
+
 # 4.13.0
 
 - `bid_notice`·`bid_award`·`rtms_trade`·`rtms_rent` 4종이 단순 조회에서 **분석 결과**로 바뀌어 판매를 시작했습니다. 응답은 `summary`·`distribution`·`insights` 중심이며 원본 목록(`items`·`totalCount`)은 더 이상 제공하지 않습니다. 기존 호출 파라미터와 요금은 그대로입니다.
@@ -63,9 +69,9 @@
 
 # 4.6.1
 
-- `text_summary`·`text_polish` 요금 안내를 고쳤습니다. 요청당 기본 100P이며, 사용량 금액(원가 × 환율 × 1.4, 소수점 올림)이 더 크면 그 금액을 받습니다. 긴 입력일수록 100P보다 커질 수 있습니다.
+- `text_summary`·`text_polish` 요금 안내를 고쳤습니다. 요청당 기본 100P이며, 사용량 금액(모델별 단가 기준, 소수점 올림)이 더 크면 그 금액을 받습니다. 긴 입력일수록 100P보다 커질 수 있습니다.
 - `llm_chat` 은 한 요청 안에서 쓰인 사용량(긴 대화의 이전 내용을 정리하는 처리 포함)을 합산해 과금합니다. 도구·파라미터 추가나 삭제는 없습니다.
-- Corrected the billing notes for `text_summary` and `text_polish`: 100 points per request as the base fee, or the usage amount (cost × exchange rate × 1.4, rounded up) when that is higher, so long inputs can cost more than 100 points.
+- Corrected the billing notes for `text_summary` and `text_polish`: 100 points per request as the base fee, or the usage amount (per-model rates, rounded up) when that is higher, so long inputs can cost more than 100 points.
 - `llm_chat` bills the usage summed over the whole request, including trimming earlier turns of long conversations. No tools or parameters were added or removed.
 
 # 4.5.0

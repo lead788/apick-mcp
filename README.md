@@ -401,9 +401,9 @@ Common inputs match the SDK: `name`, `birthDate`, `phone`, and `authProvider`. T
 
 TTS 입력은 정규화 사용 시 최대 2,000자, 끄면 8,000자입니다. 완성된 MP3와 ASS 자막은 서로 독립된 1회용 원본이므로, 결과를 저장할 준비가 된 뒤 `tts_jobs_result`와 `tts_jobs_subtitles`를 각각 한 번만 호출하세요.
 
-정규화는 기본 켜짐이며 발음을 다듬는 스킬 요금이 추가됩니다. `normalize_text: false`(SDK `normalizeText: false`)로 실행과 요금을 끕니다. 스킬 최종가는 기본요금(판매자 금액·기본 수수료) + AI 원가 × 환율 × 1.4입니다. 정규화 실패는 제작을 중단하며, 서버·공급자의 최종 제작 실패는 정규화까지 전액 환불합니다. ASS에는 원문을 표시합니다.
+정규화는 기본 켜짐이며 발음을 다듬는 스킬 요금이 추가됩니다. `normalize_text: false`(SDK `normalizeText: false`)로 실행과 요금을 끕니다. 스킬 최종가는 기본요금(판매자 금액·기본 수수료) + 실제 AI 사용료입니다. 정규화 실패는 제작을 중단하며, 서버·공급자의 최종 제작 실패는 정규화까지 전액 환불합니다. ASS에는 원문을 표시합니다.
 
-Normalization is on by default and adds a skill charge. Set `normalize_text: false` (SDK `normalizeText: false`) to skip execution and billing. The skill price is its base fee (seller amount and base commission) plus actual AI cost × the pinned exchange rate × 1.4. Normalization failure stops synthesis; final server/provider failures refund normalization as well. ASS preserves the original spelling.
+Normalization is on by default and adds a skill charge. Set `normalize_text: false` (SDK `normalizeText: false`) to skip execution and billing. The skill price is its base fee (seller amount and base commission) plus the actual AI usage fee. Normalization failure stops synthesis; final server/provider failures refund normalization as well. ASS preserves the original spelling.
 
 ### Try it with curl / curl로 바로 확인
 
@@ -524,9 +524,9 @@ Available generations: Seedance 1.0/1.5/2.0/2.5, including Seedance 2.0 Standard
 
 ## 서브에이전트 / Subagent
 
-설치형 `apick-agent` 상품은 `apick-subagent` 스킬 패키지와 전용 REST·MCP를 사용합니다. 설치비·도입비·구독료 없이 원가 +40%(2026-11-06부터 분석 원가는 시간대와 관계없이 혼잡 시간대 단가 기준 20%, 자료 선별 원가는 40%)(소수점 올림, 2026-11-06부터 AI 사용 작업 기본 5P), 승인된 동일 결과 캐시 1P, 충전 잔액 외 상품 한도 없음. [연동 가이드](https://apick.app/dev_guide/subagent).
+설치형 `apick-agent` 상품은 `apick-subagent` 스킬 패키지와 전용 REST·MCP를 사용합니다. 설치비·도입비·구독료 없이 성공한 작업만 사용량대로 정산(소수점 올림, 2026-11-06부터 AI 사용 작업 기본 5P), 승인된 동일 결과 캐시 1P, 충전 잔액 외 상품 한도 없음. [연동 가이드](https://apick.app/dev_guide/subagent).
 
-The installed `apick-agent` product uses the `apick-subagent` skill package and dedicated REST/MCP interfaces. No installation, setup or subscription fee. Confirmed cost plus 40% (from 2026-11-06, analysis cost is based on the peak-hour rate regardless of time with 20% added; source-selection cost stays at 40%) (fractions rounded up, 5-point base fee for AI jobs from 2026-11-06); approved identical cache reuse costs 1 point, with no product quota beyond prepaid balance. [Integration guide](https://apick.app/dev_guide/subagent).
+The installed `apick-agent` product uses the `apick-subagent` skill package and dedicated REST/MCP interfaces. No installation, setup or subscription fee. Successful work is billed by actual usage (fractions rounded up, 5-point base fee for AI jobs from 2026-11-06); approved identical cache reuse costs 1 point, with no product quota beyond prepaid balance. [Integration guide](https://apick.app/dev_guide/subagent).
 
 ```sh
 npx -y apick-mcp --server subagent
@@ -552,9 +552,9 @@ Style, emotion, tone, accent, pace, pitch and volume options can be set per requ
 
 Normalization is enabled by default and costs extra. Disable it with `normalize_text: false` (`normalizeText: false` for the string SDK helper). Input limits are 2,000 characters including utterance separators with normalization, or 8,000 without it. Query a quote, engine-specific voices and supported options before submitting.
 
-실제 AI 원가 × 고정된 환율 × 1.4에 정규화 요금을 더해 정산합니다. Gemini 프로모션 입력/출력 단가는 2026-12-31까지 백만 토큰당 $0.50/$6.00이며 2027-01-01 00:00 UTC부터 $1.00/$12.00입니다. 약 $0.54/시간은 참고값이며 시간 단위 청구가 아닙니다. 엔진별 요금이 다릅니다.
+실제 사용량에 정규화 요금을 더해 정산합니다. 엔진별 요금이 다르며, 예상 금액은 `tts_quote`로 미리 확인할 수 있습니다.
 
-AI usage is charged at verified cost × the pinned exchange rate × 1.4, plus normalization. Gemini promotional input/output rates are $0.50/$6.00 per million tokens through 2026-12-31, then $1.00/$12.00 from 2027-01-01 00:00 UTC. The approximate hourly figure is informational; billing uses actual usage and differs by engine.
+AI usage is charged by actual usage, plus normalization. Rates differ by engine; check the estimate with `tts_quote` first.
 
 두 엔진은 같은 작업 조회·취소·MP3·원문 ASS 계약을 사용합니다. `billing`의 예약·해제·확정·환불을 확인하세요. MP3는 24kHz 모노 48kbps, 결과는 완료 후 24시간 보관합니다. MP3와 ASS는 각각 완료된 다운로드 1회만 허용하며 전송 중단은 재시도할 수 있습니다. 접수 응답 유실 시 같은 입력과 멱등 키를 재사용하세요. 서버·공급자 최종 실패는 정규화까지 환불하며, 연결 종료는 작업 취소가 아닙니다. 취소 시 이미 수행된 작업분을 정산합니다.
 

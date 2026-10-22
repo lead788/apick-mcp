@@ -3,7 +3,7 @@
 **174 tools** across **8 domain servers**, plus the combined `all` server.
 **Tool 174개**, 분야별 서버 8개와 통합 서버 `all`.
 
-4.13.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
+4.13.1 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
 
 
 
@@ -3235,9 +3235,9 @@ ChatGPT TTS 목소리와 음색 특성을 반환합니다. / Lists the ChatGPT T
 
 ## Gemini·ChatGPT TTS
 
-`tts_jobs_create`와 `tts_gemini_create`는 Gemini(기본 Kore), `tts_openai_create`는 ChatGPT(기본 alloy)를 사용합니다. `tts_gemini_voices`, `tts_openai_voices`, `tts_options`, `tts_quote`로 목소리·옵션·요금을 조회합니다. 합성 요금은 실제 원가 × 환율 × 1.4이며, 2026-11-06부터 작업당 기본요금 5P를 최소액으로 받습니다(소수점 올림).
+`tts_jobs_create`와 `tts_gemini_create`는 Gemini(기본 Kore), `tts_openai_create`는 ChatGPT(기본 alloy)를 사용합니다. `tts_gemini_voices`, `tts_openai_voices`, `tts_options`, `tts_quote`로 목소리·옵션·요금을 조회합니다. 합성 요금은 실제 사용량 기준이며, 2026-11-06부터 작업당 기본요금 5P를 최소액으로 받습니다(소수점 올림).
 
-Use `tts_jobs_create` or `tts_gemini_create` for Gemini (default Kore), and `tts_openai_create` for ChatGPT (default alloy). Query voices, options and estimates with the corresponding tools. Synthesis is billed at actual cost × exchange rate × 1.4 with a 5-point base fee per job from 2026-11-06 (fractions rounded up). Legacy APICK voices and automatic fallback have retired.
+Use `tts_jobs_create` or `tts_gemini_create` for Gemini (default Kore), and `tts_openai_create` for ChatGPT (default alloy). Query voices, options and estimates with the corresponding tools. Synthesis is billed by actual usage with a 5-point base fee per job from 2026-11-06 (fractions rounded up). Legacy APICK voices and automatic fallback have retired.
 
 `style`, `emotion`, `tone`, `accent`, `pace`(0.5–2), `pitch`(-12–12), `volume_gain_db`(-12–12)는 최상위·화자·발화에 지정할 수 있습니다. `speakers`는 화자 이름별 설정이고 `multi_speaker: true`는 Gemini 최대 2명, ChatGPT 최대 8명입니다. 엔진에 따라 표현 효과가 달라지며 정확한 속도 배율·반음·dB 적용을 보장하지 않습니다. 특히 ChatGPT는 수치의 방향을 낭독 지시로 전달합니다.
 
@@ -3247,9 +3247,9 @@ Style, emotion, tone, accent, pace, pitch and volume options can be set per requ
 
 Normalization is enabled by default and costs extra. Disable it with `normalize_text: false` (`normalizeText: false` for the string SDK helper). Input limits are 2,000 characters including utterance separators with normalization, or 8,000 without it. Query a quote, engine-specific voices and supported options before submitting.
 
-실제 AI 원가 × 고정된 환율 × 1.4에 정규화 요금을 더해 정산합니다. Gemini 프로모션 입력/출력 단가는 2026-12-31까지 백만 토큰당 $0.50/$6.00이며 2027-01-01 00:00 UTC부터 $1.00/$12.00입니다. 약 $0.54/시간은 참고값이며 시간 단위 청구가 아닙니다. 엔진별 요금이 다릅니다.
+실제 사용량에 정규화 요금을 더해 정산합니다. 엔진별 요금이 다르며, 예상 금액은 `tts_quote`로 미리 확인할 수 있습니다.
 
-AI usage is charged at verified cost × the pinned exchange rate × 1.4, plus normalization. Gemini promotional input/output rates are $0.50/$6.00 per million tokens through 2026-12-31, then $1.00/$12.00 from 2027-01-01 00:00 UTC. The approximate hourly figure is informational; billing uses actual usage and differs by engine.
+AI usage is charged by actual usage, plus normalization. Rates differ by engine; check the estimate with `tts_quote` first.
 
 두 엔진은 같은 작업 조회·취소·MP3·원문 ASS 계약을 사용합니다. `billing`의 예약·해제·확정·환불을 확인하세요. MP3는 24kHz 모노 48kbps, 결과는 완료 후 24시간 보관합니다. MP3와 ASS는 각각 완료된 다운로드 1회만 허용하며 전송 중단은 재시도할 수 있습니다. 접수 응답 유실 시 같은 입력과 멱등 키를 재사용하세요. 서버·공급자 최종 실패는 정규화까지 환불하며, 연결 종료는 작업 취소가 아닙니다. 취소 시 이미 수행된 작업분을 정산합니다.
 
@@ -3708,7 +3708,7 @@ Send a chat request to a selected LLM model and receive the assistant reply.
 
 > 읽기 전용 / read-only · 입력 변환 / transforms your input · server `ai`
 
-요금: 토큰 원가 × 환율 × 1.4, 소수점 올림. 한 요청 안에서 쓰인 사용량(긴 대화의 이전 내용을 정리하는 처리 포함)을 합산합니다. 2026-11-06부터 요청당 기본요금 5P를 최소액으로 받습니다. / Billing: token cost × exchange rate × 1.4, fractions rounded up, summed over all usage within the request (including trimming earlier turns of long conversations), with a 5-point base fee per request from 2026-11-06.
+요금: 모델별 토큰 단가 × 사용량, 소수점 올림. 한 요청 안에서 쓰인 사용량(긴 대화의 이전 내용을 정리하는 처리 포함)을 합산합니다. 2026-11-06부터 요청당 기본요금 5P를 최소액으로 받습니다. / Billing: per-model token rates × usage, fractions rounded up, summed over all usage within the request (including trimming earlier turns of long conversations), with a 5-point base fee per request from 2026-11-06.
 
 | Parameter | Type | Required | Description 설명 |
 | --- | --- | --- | --- |
@@ -3741,11 +3741,11 @@ Send a chat request to a selected LLM model and receive the assistant reply.
 
 Summarize a long text (up to 100,000 characters) into a concise Korean summary.
 
-입력 텍스트(최대 10만 자)의 핵심 내용을 간결하고 정확하게 요약합니다. 모델·파라미터는 서버가 고정하며 빠른 응답에 최적화되어 있습니다. 요청당 기본 100포인트이며, 사용량 금액(원가 × 환율 × 1.4)이 더 크면 그 금액이 차감됩니다.
+입력 텍스트(최대 10만 자)의 핵심 내용을 간결하고 정확하게 요약합니다. 모델·파라미터는 서버가 고정하며 빠른 응답에 최적화되어 있습니다. 요청당 기본 100포인트이며, 사용량 금액(모델별 단가 기준)이 더 크면 그 금액이 차감됩니다.
 
 > 읽기 전용 / read-only · 입력 변환 / transforms your input · server `ai`
 
-요금: 요청당 기본 100P. 사용량 금액(원가 × 환율 × 1.4, 소수점 올림)이 더 크면 그 금액을 받습니다. / Billing: 100 points per request as the base fee; if the usage amount (cost × exchange rate × 1.4, rounded up) is higher, that amount is charged.
+요금: 요청당 기본 100P. 사용량 금액(모델별 단가 기준, 소수점 올림)이 더 크면 그 금액을 받습니다. / Billing: 100 points per request as the base fee; if the usage amount (per-model rates, rounded up) is higher, that amount is charged.
 
 | Parameter | Type | Required | Description 설명 |
 | --- | --- | --- | --- |
@@ -3761,11 +3761,11 @@ Summarize a long text (up to 100,000 characters) into a concise Korean summary.
 
 Polish a text (up to 100,000 characters) by fixing grammar, spelling, and awkward phrasing.
 
-입력 텍스트(최대 10만 자)의 문법 오류, 맞춤법·오타, 어색한 표현, 문장 순서를 의미를 유지한 채 자연스럽게 다듬습니다. 모델·파라미터는 서버가 고정하며 빠른 응답에 최적화되어 있습니다. 요청당 기본 100포인트이며, 사용량 금액(원가 × 환율 × 1.4)이 더 크면 그 금액이 차감됩니다.
+입력 텍스트(최대 10만 자)의 문법 오류, 맞춤법·오타, 어색한 표현, 문장 순서를 의미를 유지한 채 자연스럽게 다듬습니다. 모델·파라미터는 서버가 고정하며 빠른 응답에 최적화되어 있습니다. 요청당 기본 100포인트이며, 사용량 금액(모델별 단가 기준)이 더 크면 그 금액이 차감됩니다.
 
 > 읽기 전용 / read-only · 입력 변환 / transforms your input · server `ai`
 
-요금: 요청당 기본 100P. 사용량 금액(원가 × 환율 × 1.4, 소수점 올림)이 더 크면 그 금액을 받습니다. / Billing: 100 points per request as the base fee; if the usage amount (cost × exchange rate × 1.4, rounded up) is higher, that amount is charged.
+요금: 요청당 기본 100P. 사용량 금액(모델별 단가 기준, 소수점 올림)이 더 크면 그 금액을 받습니다. / Billing: 100 points per request as the base fee; if the usage amount (per-model rates, rounded up) is higher, that amount is charged.
 
 | Parameter | Type | Required | Description 설명 |
 | --- | --- | --- | --- |

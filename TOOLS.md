@@ -1675,7 +1675,7 @@ Find corporate registry targets in Korea by 13-digit corporate registration numb
 
 Submit a real estate registry view/issue job.
 
-접수 시 880P를 예약하고 서버가 순차 처리합니다. registry_jobs_status로 완료를 확인한 뒤 registry_jobs_download로 PDF를 받으세요. 결제 전 실패는 880P 전액 환급됩니다.
+접수 시 830P를 예약하고 서버가 차례로 처리합니다. registry_jobs_status로 완료를 확인한 뒤 registry_jobs_download로 PDF를 받으세요. 결제 전 실패는 830P 전액 환급됩니다.
 
 > 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
 
@@ -1700,7 +1700,7 @@ Submit a real estate registry view/issue job.
 
 Submit a corporate registry view/issue job.
 
-법인등록번호로 접수하며 880P를 예약합니다. 완료 후 registry_jobs_download로 PDF를 받고, 전송 성공 시 20P가 차감됩니다.
+법인등록번호로 접수하며 830P를 예약합니다. 완료 후 registry_jobs_download로 PDF를 받고, 전송 성공 시 20P가 차감됩니다.
 
 > 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
 

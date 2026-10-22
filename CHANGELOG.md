@@ -1,3 +1,11 @@
+# 4.13.3
+
+- 등기 열람·발급 접수 예약 포인트를 830P로 바로잡았습니다. `registry_realestate_jobs_create`·`registry_corporate_jobs_create` 문서의 880P 표기가 실제 접수 금액과 달랐습니다. 결제 전 실패 시 전액 환급되고, PDF 전송 성공 시 20P가 차감되는 동작은 그대로입니다.
+- 결제가 끝난 작업은 문서 준비가 한 번 더 필요해 완료까지 시간이 조금 더 걸릴 수 있습니다. 그동안 `registry_jobs_status`는 처리 중으로 응답하며, 같은 작업에 다시 접수·재결제할 필요가 없습니다.
+
+- Registry view/issue jobs now reserve 830P; the tool docs for `registry_realestate_jobs_create` and `registry_corporate_jobs_create` said 880P. Refund on pre-payment failure and the 20P charge on a successful PDF transfer are unchanged.
+- A paid job may need one more step to prepare the document, so completion can take slightly longer. `registry_jobs_status` reports it as in progress in the meantime, and you should not resubmit or pay again for the same job.
+
 # 4.13.2
 
 - `identi_card4`(주민등록등본 진위 확인)에서 `name`(성명) 파라미터를 없앴습니다. 진위는 문서확인번호로만 판정하며, 성명을 보내도 쓰지 않습니다. `identi_card_image4` 응답의 `parsed`에도 성명이 들어가지 않습니다. `TOOLS.md`의 설명을 서버 카탈로그와 맞췄습니다(마지막 구획 4~5자리, 발급 경로 구분).

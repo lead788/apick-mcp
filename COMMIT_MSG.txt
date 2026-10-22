@@ -1,0 +1,6 @@
+4.13.3: 등기 열람·발급 접수 예약을 830P 로 바로잡는다
+
+registry_realestate_jobs_create·registry_corporate_jobs_create 문서의 880P 표기가 실제 접수
+금액(830P)과 달랐다. 결제 전 실패 전액 환급, PDF 전송 성공 시 20P 차감은 그대로다.
+결제가 끝난 작업은 문서 준비 단계가 한 번 더 있어 완료가 조금 늦어질 수 있고, 그동안
+registry_jobs_status 는 처리 중으로 응답한다(재접수·재결제 금지).

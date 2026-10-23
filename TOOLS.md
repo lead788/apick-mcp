@@ -3128,9 +3128,9 @@ ChatGPT TTS 목소리와 음색 특성을 반환합니다. / Lists the ChatGPT T
 
 ## Gemini·ChatGPT TTS
 
-`tts_jobs_create`와 `tts_gemini_create`는 Gemini(기본 Kore), `tts_openai_create`는 ChatGPT(기본 alloy)를 사용합니다. `tts_gemini_voices`, `tts_openai_voices`, `tts_options`, `tts_quote`로 목소리·옵션·요금을 조회합니다. 합성 요금은 실제 사용량 기준이며, 2026-11-06부터 작업당 기본요금 5P를 최소액으로 받습니다(소수점 올림).
+`tts_jobs_create`와 `tts_gemini_create`는 Gemini(기본 Kore), `tts_openai_create`는 ChatGPT(기본 alloy)를 사용합니다. `tts_gemini_voices`, `tts_openai_voices`, `tts_options`, `tts_quote`로 목소리·옵션·요금을 조회합니다. 합성 요금은 실제 사용량 기준이며, 작업당 기본요금 5P를 최소액으로 받습니다.
 
-Use `tts_jobs_create` or `tts_gemini_create` for Gemini (default Kore), and `tts_openai_create` for ChatGPT (default alloy). Query voices, options and estimates with the corresponding tools. Synthesis is billed by actual usage with a 5-point base fee per job from 2026-11-06 (fractions rounded up). Legacy APICK voices and automatic fallback have retired.
+Use `tts_jobs_create` or `tts_gemini_create` for Gemini (default Kore), and `tts_openai_create` for ChatGPT (default alloy). Query voices, options and estimates with the corresponding tools. Synthesis is billed by actual usage with a 5-point base fee per job. Legacy APICK voices and automatic fallback have retired.
 
 `style`, `emotion`, `tone`, `accent`, `pace`(0.5–2), `pitch`(-12–12), `volume_gain_db`(-12–12)는 최상위·화자·발화에 지정할 수 있습니다. `speakers`는 화자 이름별 설정이고 `multi_speaker: true`는 Gemini 최대 2명, ChatGPT 최대 8명입니다. 엔진에 따라 표현 효과가 달라지며 정확한 속도 배율·반음·dB 적용을 보장하지 않습니다. 특히 ChatGPT는 수치의 방향을 낭독 지시로 전달합니다.
 
@@ -3601,7 +3601,7 @@ Send a chat request to a selected LLM model and receive the assistant reply.
 
 > 읽기 전용 / read-only · 입력 변환 / transforms your input · server `ai`
 
-요금: 모델별 토큰 단가 × 사용량, 소수점 올림. 한 요청 안에서 쓰인 사용량(긴 대화의 이전 내용을 정리하는 처리 포함)을 합산합니다. 2026-11-06부터 요청당 기본요금 5P를 최소액으로 받습니다. / Billing: per-model token rates × usage, fractions rounded up, summed over all usage within the request (including trimming earlier turns of long conversations), with a 5-point base fee per request from 2026-11-06.
+요금: 모델별 토큰 단가 × 사용량. 한 요청 안에서 쓰인 사용량(긴 대화의 이전 내용을 정리하는 처리 포함)을 합산합니다. 요청당 기본요금 5P를 최소액으로 받습니다. / Billing: per-model token rates × usage, summed over all usage within the request (including trimming earlier turns of long conversations), with a 5-point base fee per request.
 
 | Parameter | Type | Required | Description 설명 |
 | --- | --- | --- | --- |
@@ -3638,7 +3638,7 @@ Summarize a long text (up to 100,000 characters) into a concise Korean summary.
 
 > 읽기 전용 / read-only · 입력 변환 / transforms your input · server `ai`
 
-요금: 요청당 기본 100P. 사용량 금액(모델별 단가 기준, 소수점 올림)이 더 크면 그 금액을 받습니다. / Billing: 100 points per request as the base fee; if the usage amount (per-model rates, rounded up) is higher, that amount is charged.
+요금: 요청당 기본 100P. 사용량 금액(모델별 단가 기준)이 더 크면 그 금액을 받습니다. / Billing: 100 points per request as the base fee; if the usage amount (per-model rates) is higher, that amount is charged.
 
 | Parameter | Type | Required | Description 설명 |
 | --- | --- | --- | --- |
@@ -3658,7 +3658,7 @@ Polish a text (up to 100,000 characters) by fixing grammar, spelling, and awkwar
 
 > 읽기 전용 / read-only · 입력 변환 / transforms your input · server `ai`
 
-요금: 요청당 기본 100P. 사용량 금액(모델별 단가 기준, 소수점 올림)이 더 크면 그 금액을 받습니다. / Billing: 100 points per request as the base fee; if the usage amount (per-model rates, rounded up) is higher, that amount is charged.
+요금: 요청당 기본 100P. 사용량 금액(모델별 단가 기준)이 더 크면 그 금액을 받습니다. / Billing: 100 points per request as the base fee; if the usage amount (per-model rates) is higher, that amount is charged.
 
 | Parameter | Type | Required | Description 설명 |
 | --- | --- | --- | --- |

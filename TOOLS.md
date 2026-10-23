@@ -3,7 +3,7 @@
 **177 tools** across **8 domain servers**, plus the combined `all` server.
 **Tool 177개**, 분야별 서버 8개와 통합 서버 `all`.
 
-4.14.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
+4.14.2 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
 
 
 
@@ -1569,7 +1569,7 @@ Find corporate registry targets in Korea by 13-digit corporate registration numb
 
 Submit a real estate registry view/issue job.
 
-접수 시 830P를 예약하고 서버가 차례로 처리합니다. registry_jobs_status로 완료를 확인한 뒤 registry_jobs_download로 PDF를 받으세요. 결제 전 실패는 830P 전액 환급됩니다.
+접수 시 830P를 예약하고 서버가 순차 처리합니다. 열람이 끝나 completed가 되면 830P가 확정 차감되고(이후 환급 없음), 그 전에 실패하거나 접수 후 3분 안에 끝나지 않으면 전액 환급됩니다. registry_jobs_status로 pdf_state가 ready인지 확인한 뒤 registry_jobs_download로 PDF를 받으세요.
 
 > 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
 
@@ -1594,7 +1594,7 @@ Submit a real estate registry view/issue job.
 
 Submit a corporate registry view/issue job.
 
-법인등록번호로 접수하며 830P를 예약합니다. 완료 후 registry_jobs_download로 PDF를 받고, 전송 성공 시 20P가 차감됩니다.
+법인등록번호로 접수하며 830P를 예약합니다. completed가 되면 830P가 확정 차감되고(이후 환급 없음), 그 전에 실패하거나 접수 후 3분 안에 끝나지 않으면 전액 환급됩니다. pdf_state가 ready가 되면 registry_jobs_download로 PDF를 받으며, 받을 때마다 20P가 차감됩니다.
 
 > 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
 
@@ -1614,9 +1614,9 @@ Submit a corporate registry view/issue job.
 
 ### `registry_jobs_status` — 등기 작업 상태 조회
 
-Check a registry job status (waiting, processing, completed, failed) and PDF metadata.
+Check a registry job status (waiting, processing, completed, failed) and PDF state.
 
-무료이며 PDF가 준비되면 pdf.expires_at(완료 후 72시간)을 확인하세요.
+무료입니다. completed 후 pdf_state가 pending이면 PDF 준비 중이고, ready가 되면 다운로드할 수 있습니다. pdf.expires_at은 PDF가 준비된 때부터 72시간입니다.
 
 > 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
 
@@ -1632,9 +1632,9 @@ Check a registry job status (waiting, processing, completed, failed) and PDF met
 
 ### `registry_jobs_download` — 등기 PDF 다운로드
 
-Download the completed registry PDF. PDF
+Download the completed registry PDF.
 
-전송이 성공한 호출마다 20P가 차감되며 재다운로드도 20P입니다. 완료 전이거나 보관 기간(72시간)이 지나면 오류가 반환됩니다.
+PDF를 보낸 호출마다 20P가 차감되며(다시 받을 때 포함, 받는 도중 연결을 끊어도 차감), PDF 준비 중이면 HTTP 202로 안내하고 차감하지 않습니다. 완료 전이거나 보관 기간(PDF 준비 후 72시간)이 지나면 오류가 반환됩니다.
 
 > 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
 

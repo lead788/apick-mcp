@@ -1,3 +1,9 @@
+# 4.14.2
+
+- 등기 Tool 4개(`registry_realestate_jobs_create`·`registry_corporate_jobs_create`·`registry_jobs_status`·`registry_jobs_download`) 설명을 서버 동작에 맞췄습니다. 열람이 끝나 `completed`가 되면 830P가 확정되고(이후 환급 없음), 그 전에 실패하거나 접수 후 3분 안에 끝나지 않으면 전액 환급됩니다. PDF는 그 뒤 준비되며 `pdf_state`가 `ready`일 때 받습니다. 준비 중 다운로드는 HTTP 202로 안내하고 차감하지 않습니다. 보관 기한은 PDF 준비 시점부터 72시간입니다.
+
+- Updated the four registry tool descriptions: 830P is confirmed once the job is `completed` (no refund afterwards) and fully refunded if it fails earlier or does not finish within three minutes. Download once `pdf_state` is `ready`; while the PDF is being prepared the download returns HTTP 202 without a charge. PDFs are kept for 72 hours from when they are ready.
+
 # 4.14.1
 
 - 요금 안내 문구를 서버와 맞췄습니다. `README.md`·`TOOLS.md`의 TTS 합성, `llm_chat`, 설치형 에이전트(`apick-agent`), 요청당 기본 100P 상품 설명에서 시행일(2026-11-06)과 소수점 올림 표기를 뺐습니다. 요금과 Tool·파라미터는 바뀌지 않았습니다.

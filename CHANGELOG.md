@@ -1,3 +1,9 @@
+# 4.14.1
+
+- 요금 안내 문구를 서버와 맞췄습니다. `README.md`·`TOOLS.md`의 TTS 합성, `llm_chat`, 설치형 에이전트(`apick-agent`), 요청당 기본 100P 상품 설명에서 시행일(2026-11-06)과 소수점 올림 표기를 뺐습니다. 요금과 Tool·파라미터는 바뀌지 않았습니다.
+
+- Pricing notes now match the server: the effective date (2026-11-06) and the rounding note were removed from the TTS, `llm_chat`, `apick-agent` and 100-point base-fee descriptions in `README.md` and `TOOLS.md`. Prices, tools and parameters are unchanged.
+
 # 4.14.0
 
 - Tool 3개를 추가했습니다(통합 177개, Business 70개): `vehicle_recall`(자동차 리콜 대상, 대상이 아니면 0P), `hipass_unpaid`(하이패스 미납 여부, 미납이 없으면 0P), `vehicle_tax_calc`(비영업용 승용차 자동차세 계산).

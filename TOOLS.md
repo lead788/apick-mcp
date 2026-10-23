@@ -1,9 +1,9 @@
 # APICK MCP — Full Tool Catalog / 전체 Tool 목록
 
-**174 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 174개**, 분야별 서버 8개와 통합 서버 `all`.
+**177 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 177개**, 분야별 서버 8개와 통합 서버 `all`.
 
-4.13.2 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
+4.14.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
 
 
 
@@ -16,20 +16,20 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 | Server 서버 | Endpoint | Tools | Coverage 범위 |
 | --- | --- | --- | --- |
-| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 59 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 간편인증 데이터 조회·세무 증빙서류 발급, 유효성 검사. |
+| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 70 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 간편인증 데이터 조회·세무 증빙서류 발급, 유효성 검사. |
 | [Identity Verification · 신분증 진위확인 · 마스킹](#identity) | `/mcp/identity` | 16 | 주민등록증·운전면허증·여권·외국인등록증 진위확인, 실명확인, 개인정보 마스킹. |
 | [OCR · OCR 문자인식](#ocr) | `/mcp/ocr` | 6 | 이미지 텍스트 추출과 신분증 항목 추출. |
 | [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 3 | 계좌 예금주 실명조회와 1원 인증. |
-| [Web & Search · 웹 · 검색](#web) | `/mcp/web` | 36 | 도메인·IP 조회, WHOIS, 웹페이지 수집, 구글 검색(웹·이미지·뉴스·쇼핑·지도·장소 상세·순위), 유튜브(검색·채널·재생목록·댓글·자막·영상 정보·썸네일), 인스타그램·틱톡·X(프로필·게시물), 아마존·쿠팡·네이버 상품, 링크드인(프로필·회사·채용공고). |
+| [Web & Search · 웹 · 검색](#web) | `/mcp/web` | 36 | 도메인·IP 조회, WHOIS, 웹페이지 조회, 구글 검색(웹·이미지·뉴스·쇼핑·지도·장소 상세·순위), 유튜브(검색·채널·재생목록·댓글·자막·영상 정보·썸네일), 인스타그램·틱톡·X(프로필·게시물), 아마존·쿠팡·네이버 상품, 링크드인(프로필·회사·채용공고). |
 | [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 25 | PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
-| **All 통합** | `/mcp/all` | **174** | 아래 전부 + [`find_tools`](#find-tools) |
+| **All 통합** | `/mcp/all` | **177** | 아래 전부 + [`find_tools`](#find-tools) |
 | [Skills · 검수된 Skill 실행](#skills) | `/mcp/skills` | 6 | Skill 검색·상세·견적·실행·조회·취소. `all`에는 포함되지 않는 별도 서버 / separate server, not part of `all`. |
 
-<details><summary><b>All 174 MCP tool names / 전체 MCP Tool 이름</b></summary>
+<details><summary><b>All 177 MCP tool names / 전체 MCP Tool 이름</b></summary>
 
-`biz_detail` · `venture_biz_info` · `bid_notice` · `bid_award` · `rtms_trade` · `rtms_rent` · `land_rt_price` · `bldrgst` · `court_auction` · `registry_doc_verify` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `vehicle_model_info` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `vehicle_emission` · `corp_finance` · `geo_standardize` · `geo_batch_geocode` · `geo_reverse` · `geo_address_search` · `geo_place_search` · `geo_admin_code` · `geo_compare_address` · `geo_measure` · `geo_geojson_analyze` · `geo_address_quality` · `geo_address_autocomplete` · `geo_district_boundary` · `geo_neighborhood` · `registry_realestate_search` · `registry_corporate_search` · `registry_realestate_jobs_create` · `registry_corporate_jobs_create` · `registry_jobs_status` · `registry_jobs_download`
+`biz_detail` · `venture_biz_info` · `bid_notice` · `bid_award` · `rtms_trade` · `rtms_rent` · `land_rt_price` · `bldrgst` · `court_auction` · `registry_doc_verify` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `vehicle_model_info` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `req_income_cert_bundle` · `get_income_cert_bundle` · `req_business_cert_bundle` · `get_business_cert_bundle` · `vehicle_emission` · `vehicle_recall` · `hipass_unpaid` · `vehicle_tax_calc` · `corp_finance` · `geo_standardize` · `geo_batch_geocode` · `geo_reverse` · `geo_address_search` · `geo_place_search` · `geo_admin_code` · `geo_compare_address` · `geo_measure` · `geo_geojson_analyze` · `geo_address_quality` · `geo_address_autocomplete` · `geo_district_boundary` · `geo_neighborhood` · `registry_realestate_search` · `registry_corporate_search` · `registry_realestate_jobs_create` · `registry_corporate_jobs_create` · `registry_jobs_status` · `registry_jobs_download`
 
 `identi_card1` · `identi_card2` · `identi_card3` · `identi_card4` · `identi_card5` · `identi_card_image1` · `identi_card_image2` · `identi_card_image3` · `identi_card_image4` · `identi_card_image5` · `name_rrn_auth` · `hide_rrn` · `identity_document_residence_card` · `identity_document_passport` · `identity_document_id_card` · `identity_document_driver_license`
 
@@ -150,11 +150,11 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 ## All server only · 통합 서버 전용
 
-`https://apick.app/mcp/all` — 1 tool in addition to the 174 domain tools
+`https://apick.app/mcp/all` — 1 tool in addition to the 177 domain tools
 
 Tools that exist only on the combined `all` server. Domain servers keep their own tool counts.
 
-분야별 Tool 174개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
+분야별 Tool 177개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
 
 <a id="find-tools"></a>
 
@@ -195,7 +195,7 @@ Call the recommended tool afterwards with your API key as usual. 추천받은 To
 
 ## Business & Commerce · 사업자 · 커머스
 
-`https://apick.app/mcp/business` — 67 tools
+`https://apick.app/mcp/business` — 70 tools
 
 Korean business registry, corporate credit, parcel tracking, real-estate prices, vehicle history, and input validation.
 
@@ -206,32 +206,15 @@ Korean business registry, corporate credit, parcel tracking, real-estate prices,
 | [`biz_detail`](#biz-detail) | 사업자 정보 조회 | `biz_no` |
 | [`venture_biz_info`](#venture-biz-info) | 벤처기업 정보조회 | `biz_no` |
 | [`land_rt_price`](#land-rt-price) | 부동산 실거래가 조회 | `addr1`, `addr2`, `type`, `year` |
-| [`bldrgst`](#bldrgst) | 건축물대장 조회 | — |
-| [`court_auction`](#court-auction) | 법원 경매 사건 조회 | `case_no`, `court` |
-| [`registry_doc_verify`](#registry-doc-verify) | 등기·증명서 발급확인 | `issue_no`, `kind` |
 | [`req_pccc`](#req-pccc) | 개인통관고유부호 인증 요청 | `name`, `birthday`, `phone`, `provider` |
 | [`get_pccc`](#get-pccc) | 개인통관고유부호 조회 | `tx_id` |
-| [`req_employment`](#req-employment) | 재직·보험료 확인 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
-| [`get_employment`](#get-employment) | 재직·보험료 확인 상태·결과 | `transactionId` |
-| [`req_personal_income`](#req-personal-income) | 금융소득(이자·배당) 조회 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
-| [`get_personal_income`](#get-personal-income) | 금융소득(이자·배당) 조회 상태·결과 | `transactionId` |
-| [`req_nps_join_history`](#req-nps-join-history) | 국민연금 가입내역 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
-| [`get_nps_join_history`](#get-nps-join-history) | 국민연금 가입내역 상태·결과 | `transactionId` |
-| [`req_driving_license`](#req-driving-license) | 운전면허 조회 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
-| [`get_driving_license`](#get-driving-license) | 운전면허 조회 상태·결과 | `transactionId` |
-| [`req_health_checkup`](#req-health-checkup) | 국가 건강검진 결과 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
-| [`get_health_checkup`](#get-health-checkup) | 국가 건강검진 결과 상태·결과 | `transactionId` |
-| [`req_cash_receipt_deduction`](#req-cash-receipt-deduction) | 현금영수증 소득공제 내역 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
-| [`get_cash_receipt_deduction`](#get-cash-receipt-deduction) | 현금영수증 소득공제 내역 상태·결과 | `transactionId` |
-| [`req_tax_return_history`](#req-tax-return-history) | 국세 신고내역 조회 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
-| [`get_tax_return_history`](#get-tax-return-history) | 국세 신고내역 조회 상태·결과 | `transactionId` |
-| [`req_income_cert_bundle`](#req-income-cert-bundle) | 소득 증빙서류 통합발급 인증 요청 | `name`, `birthDate`, `phone`, `authProvider`, `year`, `use_purpose`, `submit_to`, `delivery` |
-| [`get_income_cert_bundle`](#get-income-cert-bundle) | 소득 증빙서류 통합발급 상태·결과 | `transactionId` |
-| [`req_business_cert_bundle`](#req-business-cert-bundle) | 사업자 증빙서류 통합발급 인증 요청 | `name`, `birthDate`, `phone`, `authProvider`, `business_no`, `year`, `use_purpose`, `submit_to`, `delivery` |
-| [`get_business_cert_bundle`](#get-business-cert-bundle) | 사업자 증빙서류 통합발급 상태·결과 | `transactionId` |
 | [`get_car_flooding`](#get-car-flooding) | 차량 침수차 여부 조회 | `type`, `value` |
 | [`get_car_scrap`](#get-car-scrap) | 차량 폐차사고처리 여부 조회 | `type`, `value` |
 | [`vehicle_model_info`](#vehicle-model-info) | 차종별 차량정보 조회 | — |
+| [`vehicle_emission`](#vehicle-emission) | 배출가스 인증정보 조회 | `cert_no` |
+| [`vehicle_recall`](#vehicle-recall) | 자동차 리콜 대상 조회 | — |
+| [`hipass_unpaid`](#hipass-unpaid) | 하이패스 미납 여부 조회 | `car_no` |
+| [`vehicle_tax_calc`](#vehicle-tax-calc) | 자동차세 계산 | `cc` |
 | [`parcel_tracking`](#parcel-tracking) | 택배 배송조회 | `carrier`, `trackingNumber` |
 | [`parcel_tracking_auto`](#parcel-tracking-auto) | 택배 배송조회(자동) | `trackingNumber` |
 | [`check_email_valid`](#check-email-valid) | 이메일 유효성 검사 | `email` |
@@ -240,19 +223,56 @@ Korean business registry, corporate credit, parcel tracking, real-estate prices,
 | [`holiday_info`](#holiday-info) | 공휴일 조회 | `year`, `month` |
 | [`search_juso`](#search-juso) | 도로명주소 조회 | `juso` |
 | [`info`](#info) | 계정 정보 조회 | — |
-| [`bid_notice`](#bid-notice) | 입찰 공고 분석 | — |
+| [`bid_notice`](#bid-notice) | 입찰 기회 분석 | — |
 | [`bid_award`](#bid-award) | 낙찰 경쟁 분석 | — |
-| [`dart_disclosure`](#dart-disclosure) | 기업 공시 검색 | — |
-| [`dart_company`](#dart-company) | 기업 개황 조회 | `corpCode` |
-| [`dart_financials`](#dart-financials) | 기업 재무제표 조회 | `corpCode`, `bsnsYear` |
-| [`kipris_patent`](#kipris-patent) | 특허·실용신안 검색 | `word` |
-| [`kipris_trademark`](#kipris-trademark) | 상표 검색 | `word` |
+| [`corp_finance`](#corp-finance) | 기업 재무정보 | `crno` |
 | [`rtms_trade`](#rtms-trade) | 매매 시장 분석 | `lawdCd`, `dealYmd` |
 | [`rtms_rent`](#rtms-rent) | 전월세 시장 분석 | `lawdCd`, `dealYmd` |
-| [`public_price`](#public-price) | 공시가격 조회 | `pnu`, `stdrYear` |
-| [`geocode`](#geocode) | 주소·필지(PNU) 조회 | — |
-| [`shop_price`](#shop-price) | 상품 최저가 조회 | `query` |
+| [`bldrgst`](#bldrgst) | 건축물대장 조회 | — |
+| [`court_auction`](#court-auction) | 법원 경매 사건 조회 | `case_no`, `court` |
+| [`registry_doc_verify`](#registry-doc-verify) | 등기·증명서 발급확인 | `issue_no` |
 | [`app_reviews`](#app-reviews) | 앱 리뷰 조회 | `appId` |
+| [`geo_standardize`](#geo-standardize) | 주소 표준화·코드 변환 | — |
+| [`geo_batch_geocode`](#geo-batch-geocode) | 대량 주소 좌표 변환 | `addresses` |
+| [`geo_reverse`](#geo-reverse) | 좌표→주소·행정구역 | — |
+| [`geo_address_search`](#geo-address-search) | 주소 검색·정규화 | `query` |
+| [`geo_place_search`](#geo-place-search) | 장소 검색·거리 정렬 | `query` |
+| [`geo_admin_code`](#geo-admin-code) | 행정구역 코드 조회 | — |
+| [`geo_compare_address`](#geo-compare-address) | 주소 동일성 판정 | `addressA`, `addressB` |
+| [`geo_measure`](#geo-measure) | 좌표 거리·면적 측량 | `coordinates` |
+| [`geo_geojson_analyze`](#geo-geojson-analyze) | GeoJSON 면적·포함 분석 | `geojson` |
+| [`geo_address_quality`](#geo-address-quality) | 주소 품질 진단 | `addresses` |
+| [`geo_address_autocomplete`](#geo-address-autocomplete) | 주소 자동완성 | `query` |
+| [`geo_district_boundary`](#geo-district-boundary) | 행정구역 경계·면적 분석 | `query` |
+| [`geo_neighborhood`](#geo-neighborhood) | 주변 생활시설 분석 | — |
+| [`req_cash_receipt_deduction`](#req-cash-receipt-deduction) | 현금영수증 소득공제 내역 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
+| [`get_cash_receipt_deduction`](#get-cash-receipt-deduction) | 현금영수증 소득공제 내역 결과 | `transactionId` |
+| [`req_tax_return_history`](#req-tax-return-history) | 국세 신고내역 조회 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
+| [`get_tax_return_history`](#get-tax-return-history) | 국세 신고내역 조회 결과 | `transactionId` |
+| [`req_employment`](#req-employment) | 재직·보험료 확인 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
+| [`get_employment`](#get-employment) | 재직·보험료 확인 결과 | `transactionId` |
+| [`req_personal_income`](#req-personal-income) | 금융소득(이자·배당) 조회 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
+| [`get_personal_income`](#get-personal-income) | 금융소득(이자·배당) 조회 결과 | `transactionId` |
+| [`req_nps_join_history`](#req-nps-join-history) | 국민연금 가입내역 조회 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
+| [`get_nps_join_history`](#get-nps-join-history) | 국민연금 가입내역 조회 결과 | `transactionId` |
+| [`req_nps_deduction_cert`](#req-nps-deduction-cert) | 국민연금 소득공제용 납부확인서 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
+| [`get_nps_deduction_cert`](#get-nps-deduction-cert) | 국민연금 소득공제용 납부확인서 결과 | `transactionId` |
+| [`req_nps_career_history`](#req-nps-career-history) | 국민연금 경력 이력 조회 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
+| [`get_nps_career_history`](#get-nps-career-history) | 국민연금 경력 이력 조회 결과 | `transactionId` |
+| [`req_driving_license`](#req-driving-license) | 운전면허 조회 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
+| [`get_driving_license`](#get-driving-license) | 운전면허 조회 결과 | `transactionId` |
+| [`req_health_checkup`](#req-health-checkup) | 국가 건강검진 결과 조회 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
+| [`get_health_checkup`](#get-health-checkup) | 국가 건강검진 결과 조회 결과 | `transactionId` |
+| [`req_income_cert_bundle`](#req-income-cert-bundle) | 소득 증빙서류 통합발급 인증 요청 | `name`, `birthDate`, `phone`, `authProvider`, `year`, `use_purpose`, `submit_to`, `delivery` |
+| [`get_income_cert_bundle`](#get-income-cert-bundle) | 소득 증빙서류 통합발급 결과 | `transactionId` |
+| [`req_business_cert_bundle`](#req-business-cert-bundle) | 사업자 증빙서류 통합발급 인증 요청 | `name`, `birthDate`, `phone`, `authProvider`, `business_no`, `year`, `use_purpose`, `submit_to`, `delivery` |
+| [`get_business_cert_bundle`](#get-business-cert-bundle) | 사업자 증빙서류 통합발급 결과 | `transactionId` |
+| [`registry_realestate_search`](#registry-realestate-search) | 부동산 등기 검색 | `query` |
+| [`registry_corporate_search`](#registry-corporate-search) | 법인 등기 검색 | — |
+| [`registry_realestate_jobs_create`](#registry-realestate-jobs-create) | 부동산 등기 열람·발급 접수 | — |
+| [`registry_corporate_jobs_create`](#registry-corporate-jobs-create) | 법인 등기 열람·발급 접수 | — |
+| [`registry_jobs_status`](#registry-jobs-status) | 등기 작업 상태 조회 | `job_id` |
+| [`registry_jobs_download`](#registry-jobs-download) | 등기 PDF 다운로드 | `job_id` |
 
 <a id="biz-detail"></a>
 
@@ -409,7 +429,7 @@ Request simple authentication (KakaoTalk, Toss, PASS, etc.) to retrieve a Korean
 
 Retrieve a Korean Personal Customs Clearance Code (PCCC) by transaction ID.
 
-req_pccc Tool 호출로 받은 tx_id 를 입력해 처리 상태를 확인합니다. 아직 승인 전이면 status 는 `pending`, message 는 "인증 대기중입니다." 이며 과금되지 않습니다. 승인이 끝나면 서버가 최종 정보를 조회해 개인통관고유부호와 주소, 수집 시각 `checked_at` 을 반환하며 이때 과금됩니다. 발급된 부호가 없으면 message 는 "조회된 개인통관고유부호가 없습니다." 이고 과금되지 않습니다. 결과는 24시간 동안 재조회할 수 있고 재조회할 때마다 과금됩니다.
+req_pccc Tool 호출로 받은 tx_id 를 입력해 처리 상태를 확인합니다. 아직 승인 전이면 status 는 `pending`, message 는 "인증 대기중입니다." 이며 과금되지 않습니다. 승인이 끝나면 서버가 최종 정보를 조회해 개인통관고유부호와 주소, 조회 시각 `checked_at` 을 반환하며 이때 과금됩니다. 발급된 부호가 없으면 message 는 "조회된 개인통관고유부호가 없습니다." 이고 과금되지 않습니다. 결과는 24시간 동안 재조회할 수 있고 재조회할 때마다 과금됩니다.
 
 > **부작용 있음 / has side effects** · 외부 데이터 조회 / external lookup · server `business`
 
@@ -454,7 +474,7 @@ Result tools require the `transactionId` from the same product. Both stages are 
 | 소득 증빙서류 통합발급 | [발급 입력](#cert-bundle-inputs) 필수 | `result.incomeAmountCert`, `result.pensionCreditCert` |
 | 사업자 증빙서류 통합발급 | `business_no`와 [발급 입력](#cert-bundle-inputs) 필수, `agreed`·`bind_id` | `result.businessRegistrationCert`, `result.vatTaxBaseCert`, `result.financialStatementCert` |
 
-**응답:** MCP의 `structuredContent`와 JSON 텍스트에는 REST 응답의 `data`가 그대로 담깁니다. `schemaVersion`, `transactionId`, `product`, `status`, `resultAvailable`, `charged`, `sources`, `message`, `success`를 확인합니다. 접수에는 `expiresAt`와 선택적 `approvals`, 수집 중에는 `progress`, 결과에는 `checkedAt`, `resultExpiresAt`, `result`가 포함될 수 있습니다. 실제 차감 포인트는 `_meta["app.apick/cost"]`입니다.
+**응답:** MCP의 `structuredContent`와 JSON 텍스트에는 REST 응답의 `data`가 그대로 담깁니다. `schemaVersion`, `transactionId`, `product`, `status`, `resultAvailable`, `charged`, `sources`, `message`, `success`를 확인합니다. 접수에는 `expiresAt`와 선택적 `approvals`, 조회 중에는 `progress`, 결과에는 `checkedAt`, `resultExpiresAt`, `result`가 포함될 수 있습니다. 실제 차감 포인트는 `_meta["app.apick/cost"]`입니다.
 
 **Response:** `structuredContent` and JSON text preserve the REST `data` envelope. Check `status`, `resultAvailable`, `charged`, and `errorCode`; transport success alone does not mean collection succeeded. Billing metadata is available under `_meta["app.apick/cost"]`.
 
@@ -467,7 +487,7 @@ Result tools require the `transactionId` from the same product. Both stages are 
 
 `errorCode`는 `RESULT_EXPIRED`, `AUTH_EXPIRED`, `AUTH_REJECTED`, `COLLECT_FAILED`를 포함합니다. 만료된 결과는 다시 조회할 수 없으며 새로운 인증 접수가 필요합니다. 업무 상태 오류는 `isError: false`인 정상 MCP 응답에도 담길 수 있으므로 `status`와 `errorCode`를 함께 검사하세요.
 
-접수 시 정액 과금, 결과 최초 반환 시 조회 범위별 과금입니다. 현금영수증 소득공제 내역과 국세 신고내역은 인증 발송 성공 시 20P, 최초 결과 60P × (1 + 0.5 × (연수 - 1))입니다. 승인 대기·수집 중 조회 및 `resultExpiresAt` 전 재조회는 무료입니다. **PCCC는 별도 계약**으로 `birthday`·`provider`·`tx_id`를 사용하고 결과 재조회도 과금됩니다.
+접수 시 정액 과금, 결과 최초 반환 시 조회 범위별 과금입니다. 현금영수증 소득공제 내역과 국세 신고내역은 인증 발송 성공 시 20P, 최초 결과 60P × (1 + 0.5 × (연수 - 1))입니다. 승인 대기·조회 중 확인 및 `resultExpiresAt` 전 재조회는 무료입니다. **PCCC는 별도 계약**으로 `birthday`·`provider`·`tx_id`를 사용하고 결과 재조회도 과금됩니다.
 
 Acceptance is billed separately; first result delivery is billed by scope. Waiting/collecting polls and repeat reads before `resultExpiresAt` are free. PCCC keeps its existing `birthday`/`provider`/`tx_id` contract and charges repeated result reads.
 
@@ -851,7 +871,7 @@ Look up specifications of a Korean-market vehicle model (passenger cars and moto
 
 브랜드·차명·연식·등급으로 차종(승용차와 오토바이·스쿠터 같은 이륜차)의 제원(배기량·연비·치수·타이어·소모품 규격 등)과 사양·등급 후보를 조회합니다. 차명만 넣어도 되고, 차명을 비우면 브랜드·차종 목록을 무료로 돌려줍니다. 차명·등급 표기가 자료마다 달라도(`아반테`/`아반떼`, `K5 하이브리드`/`K5`, `520i`/`5시리즈`) 가장 비슷한 차종을 찾습니다. 확신이 높으면 그 차종의 제원과 함께 `추천`(`자동선택: true`)을, 확신이 낮으면 제원 없이 `추천.대안`만 돌려주며 이때는 과금되지 않습니다. 차명에 등급·연식·좌석을 함께 넣을 수 있습니다(`파나메라 gts 4인승 19년식`, `PANAMERA GTS 19년`). 입력한 연식·등급을 우선하며 좌석 수는 확인 가능한 차량 사양과 일치해야 합니다. 근접 연식을 선택하면 반환 연식과 안내를 확인하세요. 지정 등급을 찾지 못하거나 확신이 낮으면 제원 없이 무료 후보만 반환하며, 유사 차량이 전혀 없으면 없음 오류로 응답하고 과금하지 않습니다. 별도 연식·등급과 문장 조건이 충돌하면 입력 오류입니다. 값은 표준 표기로만 내려갑니다(차체형상: 세단·SUV·MPV 등과 스쿠터·언더본·네이키드·스포츠바이크·투어링바이크·크루저·어드벤처·오프로드·클래식바이크).
 
-> 읽기 전용 / read-only · 외부 수집 없음 / no external fetch · server `business`
+> 읽기 전용 / read-only · 외부 조회 없음 / no external fetch · server `business`
 
 | Parameter | Type | Required | Description 설명 |
 | --- | --- | --- | --- |
@@ -1067,121 +1087,6 @@ Analyze Korean public-sector award results: success-rate distribution and averag
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"bid_award","arguments":{"bizType":"<bizType>","startDate":"<startDate>","endDate":"<endDate>","bidNtceNo":"<bidNtceNo>","indstrytyCd":"<indstrytyCd>","pageNo":1,"numOfRows":1}}}
 ```
 
-<a id="dart-disclosure"></a>
-
-### `dart_disclosure` — 기업 공시 검색
-
-> 현재 공개 전 점검으로 비활성 상태이며 `tools/list`와 호출에서 제외됩니다. 아래 계약은 참고용으로 보존합니다. / Currently unavailable and excluded from `tools/list` and calls. The contract below is retained for reference.
-
-Search Korean corporate disclosures (DART) by company code, period, or disclosure type.
-
-금융감독원 DART 전자공시를 회사 고유번호(corpCode)·기간(YYYYMMDD)·공시유형(pblntfTy, A~J)으로 조회합니다. corpCode 없이 기간만 조회하면 기간은 최대 3개월입니다.
-
-> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
-
-| Parameter | Type | Required | Description 설명 |
-| --- | --- | --- | --- |
-| `corpCode` | `string` | 선택 / optional | DART 고유번호 (8자리) |
-| `startDate` | `string` | 선택 / optional | 조회 시작일 (YYYYMMDD) |
-| `endDate` | `string` | 선택 / optional | 조회 종료일 (YYYYMMDD) |
-| `pblntfTy` | `string` (A / B / C / D / E / F / G / H / I / J) | 선택 / optional | 공시유형 (A 정기, B 주요사항, C 발행, D 지분, E 기타, F 외부감사, G 펀드, H 자산유동화, I 거래소, J 공정위) |
-| `pageNo` | `integer` | 선택 / optional | 페이지 번호 (기본 1) |
-| `numOfRows` | `integer` | 선택 / optional | 페이지당 결과 수 (기본 10, 최대 100) |
-
-```json
-{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"dart_disclosure","arguments":{"corpCode":"<corpCode>","startDate":"<startDate>","endDate":"<endDate>","pblntfTy":"<pblntfTy>","pageNo":1,"numOfRows":1}}}
-```
-
-<a id="dart-company"></a>
-
-### `dart_company` — 기업 개황 조회
-
-> 현재 공개 전 점검으로 비활성 상태이며 `tools/list`와 호출에서 제외됩니다. 아래 계약은 참고용으로 보존합니다. / Currently unavailable and excluded from `tools/list` and calls. The contract below is retained for reference.
-
-Get a Korean company overview from DART by its company code.
-
-금융감독원 DART에 등록된 기업의 개황(정식명칭·대표자·주소·업종·설립일 등)을 고유번호로 조회합니다.
-
-> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
-
-| Parameter | Type | Required | Description 설명 |
-| --- | --- | --- | --- |
-| `corpCode` | `string` | **필수 / required** | DART 고유번호 (8자리) |
-
-```json
-{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"dart_company","arguments":{"corpCode":"<corpCode>"}}}
-```
-
-<a id="dart-financials"></a>
-
-### `dart_financials` — 기업 재무제표 조회
-
-> 현재 공개 전 점검으로 비활성 상태이며 `tools/list`와 호출에서 제외됩니다. 아래 계약은 참고용으로 보존합니다. / Currently unavailable and excluded from `tools/list` and calls. The contract below is retained for reference.
-
-Get Korean company financial statements from DART by year and report code.
-
-금융감독원 DART 단일회사 주요 재무제표를 고유번호·사업연도·보고서(1분기/반기/3분기/사업)·개별/연결 구분으로 조회합니다.
-
-> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
-
-| Parameter | Type | Required | Description 설명 |
-| --- | --- | --- | --- |
-| `corpCode` | `string` | **필수 / required** | DART 고유번호 (8자리) |
-| `bsnsYear` | `string` | **필수 / required** | 사업연도 (YYYY, 2015년 이후) |
-| `reprtCode` | `string` (11011 / 11012 / 11013 / 11014) | 선택 / optional | 보고서 코드 (11011 사업, 11012 반기, 11013 1분기, 11014 3분기 / 기본 사업) |
-| `fsDiv` | `string` (CFS / OFS) | 선택 / optional | 연결(CFS)/개별(OFS) 구분 (기본 CFS) |
-
-```json
-{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"dart_financials","arguments":{"corpCode":"<corpCode>","bsnsYear":"<bsnsYear>","reprtCode":"<reprtCode>","fsDiv":"<fsDiv>"}}}
-```
-
-<a id="kipris-patent"></a>
-
-### `kipris_patent` — 특허·실용신안 검색
-
-> 현재 공개 전 점검으로 비활성 상태이며 `tools/list`와 호출에서 제외됩니다. 아래 계약은 참고용으로 보존합니다. / Currently unavailable and excluded from `tools/list` and calls. The contract below is retained for reference.
-
-Search Korean patents and utility models by keyword via KIPRIS. KIPRIS Plus
-
-에서 특허·실용신안 공개·등록공보를 키워드로 검색합니다. patent·utility 로 특허/실용신안 포함 여부를 정합니다.
-
-> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
-
-| Parameter | Type | Required | Description 설명 |
-| --- | --- | --- | --- |
-| `word` | `string` | **필수 / required** | 검색어 (최대 100자) |
-| `patent` | `boolean` | 선택 / optional | 특허 포함 여부 (기본 true) |
-| `utility` | `boolean` | 선택 / optional | 실용신안 포함 여부 (기본 true) |
-| `year` | `string` | 선택 / optional | 연도 필터 (YYYY) |
-| `pageNo` | `integer` | 선택 / optional | 페이지 번호 (기본 1) |
-| `numOfRows` | `integer` | 선택 / optional | 페이지당 결과 수 (기본 10, 최대 500) |
-
-```json
-{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"kipris_patent","arguments":{"word":"<word>","patent":true,"utility":true,"year":"<year>","pageNo":1,"numOfRows":1}}}
-```
-
-<a id="kipris-trademark"></a>
-
-### `kipris_trademark` — 상표 검색
-
-> 현재 공개 전 점검으로 비활성 상태이며 `tools/list`와 호출에서 제외됩니다. 아래 계약은 참고용으로 보존합니다. / Currently unavailable and excluded from `tools/list` and calls. The contract below is retained for reference.
-
-Search Korean trademarks by keyword via KIPRIS. KIPRIS Plus
-
-에서 상표 출원 속보를 키워드로 검색합니다.
-
-> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
-
-| Parameter | Type | Required | Description 설명 |
-| --- | --- | --- | --- |
-| `word` | `string` | **필수 / required** | 검색어 (최대 100자) |
-| `pageNo` | `integer` | 선택 / optional | 페이지 번호 (기본 1) |
-| `numOfRows` | `integer` | 선택 / optional | 페이지당 결과 수 (기본 10, 최대 500) |
-
-```json
-{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"kipris_trademark","arguments":{"word":"<word>","pageNo":1,"numOfRows":1}}}
-```
-
 <a id="rtms-trade"></a>
 
 ### `rtms_trade` — 매매 시장 분석
@@ -1221,78 +1126,10 @@ Analyze Korean rent transactions into jeonse share, deposit and monthly-rent ban
 | `propertyType` | `string` (apt / rh / sh / offi) | 선택 / optional | 부동산 유형 (기본 apt) |
 | `pageNo` | `integer` | 선택 / optional | 페이지 번호 (기본 1) |
 | `numOfRows` | `integer` | 선택 / optional | 페이지당 결과 수 (기본 10, 최대 1000) |
+| `includeTrade` | `boolean` | 선택 / optional | 같은 단지 매매가와 비교한 전세가율(jeonse_ratio) 포함 여부 (기본 true) |
 
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"rtms_rent","arguments":{"lawdCd":"<lawdCd>","dealYmd":"<dealYmd>","propertyType":"<propertyType>","pageNo":1,"numOfRows":1}}}
-```
-
-<a id="public-price"></a>
-
-### `public_price` — 공시가격 조회
-
-> 현재 공개 전 점검으로 비활성 상태이며 `tools/list`와 호출에서 제외됩니다. 아래 계약은 참고용으로 보존합니다. / Currently unavailable and excluded from `tools/list` and calls. The contract below is retained for reference.
-
-Get Korean official real estate prices (MOLIT NSDI) by parcel number and reference year.
-
-국토교통부 공시가격(공동주택·개별주택·개별공시지가)을 PNU(19자리)·기준연도로 조회합니다. priceType: apart 공동주택, indvdHouse 개별주택, indvdLand 개별공시지가.
-
-> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
-
-| Parameter | Type | Required | Description 설명 |
-| --- | --- | --- | --- |
-| `pnu` | `string` | **필수 / required** | 필지고유번호 (19자리) |
-| `stdrYear` | `string` | **필수 / required** | 공시 기준연도 (YYYY) |
-| `priceType` | `string` (apart / indvdHouse / indvdLand) | 선택 / optional | 공시가격 유형 (기본 apart) |
-| `pageNo` | `integer` | 선택 / optional | 페이지 번호 (기본 1) |
-| `numOfRows` | `integer` | 선택 / optional | 페이지당 결과 수 (기본 10, 최대 1000) |
-
-```json
-{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"public_price","arguments":{"pnu":"<pnu>","stdrYear":"<stdrYear>","priceType":"<priceType>","pageNo":1,"numOfRows":1}}}
-```
-
-<a id="geocode"></a>
-
-### `geocode` — 주소·필지(PNU) 조회
-
-> 현재 공개 전 점검으로 비활성 상태이며 `tools/list`와 호출에서 제외됩니다. 아래 계약은 참고용으로 보존합니다. / Currently unavailable and excluded from `tools/list` and calls. The contract below is retained for reference.
-
-Resolve a Korean address to coordinates and parcel identifiers (V-World).
-
-주소를 좌표와 필지로 변환해 PNU(19자리)·법정동코드·지번·좌표를 돌려줍니다. 공시가격·실거래가 조회에 필요한 식별자를 얻을 때 씁니다. addrType: parcel 지번, road 도로명, auto 자동(기본).
-
-> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
-
-| Parameter | Type | Required | Description 설명 |
-| --- | --- | --- | --- |
-| `address` | `string` | 선택 / optional | 지번 또는 도로명 주소 (예: 서울특별시 강남구 역삼동 808) |
-| `pnu` | `string` | 선택 / optional | PNU(19자리). 주면 좌표 조회 없이 바로 조회합니다. |
-| `addrType` | `string` (auto / parcel / road) | 선택 / optional | 주소 유형 (기본 auto) |
-
-```json
-{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"geocode","arguments":{"address":"<address>","pnu":"<pnu>","addrType":"<addrType>"}}}
-```
-
-<a id="shop-price"></a>
-
-### `shop_price` — 상품 최저가 조회
-
-> 현재 공개 전 점검으로 비활성 상태이며 `tools/list`와 호출에서 제외됩니다. 아래 계약은 참고용으로 보존합니다. / Currently unavailable and excluded from `tools/list` and calls. The contract below is retained for reference.
-
-Search Korean shopping listings (Naver Shopping) by keyword and return sellers, prices and the lowest-price item.
-
-키워드로 상품을 검색해 판매처·가격과 최저가 상품을 돌려줍니다. sort: sim 정확도, date 최신, asc 낮은가격, dsc 높은가격.
-
-> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
-
-| Parameter | Type | Required | Description 설명 |
-| --- | --- | --- | --- |
-| `query` | `string` | **필수 / required** | 검색어 (최대 100자) |
-| `display` | `integer` | 선택 / optional | 결과 수 (기본 10, 최대 100) |
-| `start` | `integer` | 선택 / optional | 시작 위치 (기본 1, 최대 1000) |
-| `sort` | `string` (sim / date / asc / dsc) | 선택 / optional | 정렬 (기본 sim) |
-
-```json
-{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"shop_price","arguments":{"query":"<query>","display":1,"start":1,"sort":"<sort>"}}}
 ```
 
 <a id="app-reviews"></a>
@@ -1331,6 +1168,63 @@ Look up Korean vehicle emission certification details by emission certification 
 
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"vehicle_emission","arguments":{"cert_no":"<cert_no>"}}}
+```
+
+<a id="vehicle-recall"></a>
+
+### `vehicle_recall` — 자동차 리콜 대상 조회
+
+Check whether a Korean vehicle is subject to recalls or free repair campaigns by plate number or VIN.
+
+차량번호 또는 차대번호(VIN) 중 하나로 리콜·무상점검수리 대상 여부와 건수, 리콜별 내용·시정 기간을 조회합니다. 리콜 대상이 아니면(recall_target=false) 과금되지 않습니다. car_no 와 vin 은 둘 중 하나만 보냅니다. 호출당 60 포인트입니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `car_no` | `string` | 선택 / optional | 차량번호. 예: 12가3456, 서울12가3456 (vin 과 함께 보내지 않는다) |
+| `vin` | `string` | 선택 / optional | 차대번호 17자리. 예: KMHXX00XXXX000000 (car_no 와 함께 보내지 않는다) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"vehicle_recall","arguments":{"car_no":"<car_no>"}}}
+```
+
+<a id="hipass-unpaid"></a>
+
+### `hipass_unpaid` — 하이패스 미납 여부 조회
+
+Check whether a Korean vehicle has unpaid expressway (Hi-pass) tolls by plate number.
+
+차량번호로 고속도로 통행료 미납 대상 여부와 미납 건수를 조회합니다. 미납이 없으면(unpaid_target=false) 과금되지 않습니다. 미납 금액·통행 내역은 제공하지 않습니다. 호출당 60 포인트입니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `car_no` | `string` | **필수 / required** | 차량번호. 예: 12가3456, 서울12가3456 |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"hipass_unpaid","arguments":{"car_no":"<car_no>"}}}
+```
+
+<a id="vehicle-tax-calc"></a>
+
+### `vehicle_tax_calc` — 자동차세 계산
+
+Calculate the annual Korean automobile tax for a non-commercial passenger car from engine displacement and vehicle age.
+
+비영업용 승용자동차의 배기량(cc)과 차령으로 연간 자동차세·지방교육세·합계를 계산합니다. 차령 3년차부터 매년 5%씩 최대 50%까지 경감합니다. 연납 공제·감면·영업용 차량은 계산하지 않습니다. 호출당 60 포인트입니다.
+
+> 읽기 전용 / read-only · 외부 조회 없음 / no external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `cc` | `integer` | **필수 / required** | 배기량(cc), 50~10000 |
+| `car_age_years` | `integer` | 선택 / optional | 차령(년), 0~40. 생략하면 0 |
+| `year` | `integer` | 선택 / optional | 과세연도(YYYY). 생략하면 올해 |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"vehicle_tax_calc","arguments":{"cc":1998,"car_age_years":4}}}
 ```
 
 <a id="corp-finance"></a>
@@ -1537,7 +1431,7 @@ Compute area, perimeter, centroid and bounding box of GeoJSON, check whether a p
 
 | Parameter | Type | Required | Description 설명 |
 | --- | --- | --- | --- |
-| `geojson` | `object` | **필수 / required** | GeoJSON 객체 (Polygon·MultiPolygon·Feature·FeatureCollection, 1.5MB 이하) |
+| `geojson` | `object` | **필수 / required** | GeoJSON 객체 (Polygon·MultiPolygon·Feature·FeatureCollection, 1MB 이하) |
 | `simplify` | `number` | 선택 / optional | 단순화 허용 오차(m). 0 이면 단순화하지 않습니다. |
 | `point` | `string` | 선택 / optional | 포함 여부를 확인할 점 "경도,위도" |
 | `x` | `number` | 선택 / optional | 확인점 경도 |
@@ -2317,7 +2211,7 @@ _No parameters. 파라미터 없음._
 
 Domain and IP intelligence, WHOIS, page capture, Google search (web, images, news, shopping, maps, rank check), YouTube (search, channels, playlists, comments, subtitles), Instagram, TikTok and X (profiles, posts), and Amazon (products).
 
-도메인·IP 조회, WHOIS, 웹페이지 수집, 구글 검색(웹·이미지·뉴스·쇼핑·지도·장소 상세·순위), 유튜브(검색·채널·재생목록·댓글·자막), 인스타그램·틱톡·X(프로필·게시물), 아마존(상품).
+도메인·IP 조회, WHOIS, 웹페이지 조회, 구글 검색(웹·이미지·뉴스·쇼핑·지도·장소 상세·순위), 유튜브(검색·채널·재생목록·댓글·자막), 인스타그램·틱톡·X(프로필·게시물), 아마존(상품).
 
 | Tool | 기능 | Required 필수 |
 | --- | --- | --- |
@@ -2336,7 +2230,7 @@ Domain and IP intelligence, WHOIS, page capture, Google search (web, images, new
 | [`google_maps_search`](#google-maps-search) | 구글 지도 장소 검색 | `keyword` |
 | [`google_rank_check`](#google-rank-check) | 구글 검색 순위 확인 | `keyword`, `domain` |
 | [`google_lens_search`](#google-lens-search) | 구글 렌즈 검색(이미지로 검색) | `image_url` |
-| [`crawl_youtube`](#crawl-youtube) | 유튜브 계정 정보 수집 | `user_id` |
+| [`crawl_youtube`](#crawl-youtube) | 유튜브 계정 정보 조회 | `user_id` |
 | [`youtube_metadata`](#youtube-metadata) | 유튜브 영상 정보 조회 | `url` |
 | [`youtube_thumbnail`](#youtube-thumbnail) | 유튜브 썸네일 다운로드 | `url` |
 | [`youtube_subtitle_list`](#youtube-subtitle-list) | 유튜브 자막 목록 조회 | `url` |
@@ -2636,11 +2530,11 @@ Reverse image search: upload an image and get visually matching web pages and la
 
 <a id="crawl-youtube"></a>
 
-### `crawl_youtube` — 유튜브 계정 정보 수집
+### `crawl_youtube` — 유튜브 계정 정보 조회
 
 Collect a YouTube channel profile and its latest uploaded videos.
 
-유튜브 계정(채널) 정보와 최근 게시한 동영상 정보를 수집해 반환합니다.
+유튜브 계정(채널) 정보와 최근 게시한 동영상 정보를 조회해 반환합니다.
 
 채널 정보(이름·핸들·구독자 수·설명·인증 여부)와 최근 업로드 영상 최대 60개(제목·주소·조회수·길이·썸네일)를 `user.posts` 로 돌려줍니다. / Returns the channel profile and up to 60 latest uploads in `user.posts`.
 
@@ -2648,7 +2542,7 @@ Collect a YouTube channel profile and its latest uploaded videos.
 
 | Parameter | Type | Required | Description 설명 |
 | --- | --- | --- | --- |
-| `user_id` | `string` | **필수 / required** | 수집할 유튜브 채널 아이디(예: CNN)·핸들(@CNN)·채널 ID(UC…) 또는 채널 URL |
+| `user_id` | `string` | **필수 / required** | 조회할 유튜브 채널 아이디(예: CNN)·핸들(@CNN)·채널 ID(UC…) 또는 채널 URL |
 
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"crawl_youtube","arguments":{"user_id":"<user_id>"}}}
@@ -3250,7 +3144,7 @@ Normalization is enabled by default and costs extra. Disable it with `normalize_
 
 AI usage is charged by actual usage, plus normalization. Rates differ by engine; check the estimate with `tts_quote` first.
 
-두 엔진은 같은 작업 조회·취소·MP3·원문 ASS 계약을 사용합니다. `billing`의 예약·해제·확정·환불을 확인하세요. MP3는 24kHz 모노 48kbps, 결과는 완료 후 24시간 보관합니다. MP3와 ASS는 각각 완료된 다운로드 1회만 허용하며 전송 중단은 재시도할 수 있습니다. 접수 응답 유실 시 같은 입력과 멱등 키를 재사용하세요. 서버·공급자 최종 실패는 정규화까지 환불하며, 연결 종료는 작업 취소가 아닙니다. 취소 시 이미 수행된 작업분을 정산합니다.
+두 엔진은 같은 작업 조회·취소·MP3·원문 ASS 계약을 사용합니다. `billing`의 예약·해제·확정·환불을 확인하세요. MP3는 24kHz 모노 48kbps, 결과는 완료 후 24시간 보관합니다. MP3와 ASS는 각각 완료된 다운로드 1회만 허용하며 전송 중단은 재시도할 수 있습니다. 접수 응답 유실 시 같은 입력과 멱등 키를 재사용하세요. 서버 최종 실패는 정규화까지 환불하며, 연결 종료는 작업 취소가 아닙니다. 취소 시 이미 수행된 작업분을 정산합니다.
 
 Both engines share job status, cancellation, MP3 and original-text ASS downloads. Check reserved, released, captured and refunded amounts in `billing`. MP3 is 24 kHz mono at 48 kbps. Files are kept for 24 hours; each permits one completed download, and interrupted transfers can be retried. Reuse the same input and idempotency key after a lost response. Final server/provider failures refund synthesis and normalization; disconnecting does not cancel work. Explicit cancellation settles work already performed.
 
@@ -4187,7 +4081,7 @@ Read price/duration ranges and expected tool calls from `execution_info` in `get
 
 ## 상품별 조회 가이드
 
-상품별 간편인증 조회 가이드에는 조회 데이터, 출처 기관, 활용 사례와 자주 묻는 질문이 있습니다. 인증 요청은 해당 상품의 자료를 조회하기 위한 단계이며 결과 조회용 transactionId를 반환합니다. 요청·응답 계약과 인증 방식은 동일합니다. [공통 인증 흐름](https://apick.app/dev_guide/data)에서 절차와 오류 처리를 확인하세요.
+상품별 간편인증 조회 가이드에는 조회 데이터, 활용 사례와 자주 묻는 질문이 있습니다. 인증 요청은 해당 상품의 자료를 조회하기 위한 단계이며 결과 조회용 transactionId를 반환합니다. 요청·응답 계약과 인증 방식은 동일합니다. [공통 인증 흐름](https://apick.app/dev_guide/data)에서 절차와 오류 처리를 확인하세요.
 
 Product-specific authenticated-data guides describe returned fields, source institutions, use cases, and FAQs. An authentication request starts access to the selected product and returns a transactionId for result polling. Request and response contracts and authentication are unchanged. See the [shared authentication guide](https://apick.app/dev_guide/data) for the flow and error handling.
 

@@ -121,19 +121,20 @@ test('응답 fixture가 공개 REST 필드 타입을 지키며 과거의 잘못�
 	]) assert.throws(() => assertDataContract({ ...valid, ...invalid }), assert.AssertionError);
 });
 
-test('배포 대상 174개 목록과 Business 절 75개·Web 36개·상태 변경 39개 메타데이터가 일치한다', () => {
+test('배포 대상 177개 목록과 Business 절 70개·Web 36개·상태 변경 39개 메타데이터가 일치한다', () => {
 	const tools = read('TOOLS.md');
 	const readme = read('README.md');
 	const inventory = tools.match(/<details>[\s\S]*?<\/details>/)[0];
 	const listed = [...inventory.matchAll(/`([a-z0-9_]+)`/g)].map(m => m[1]);
-	assert.equal(listed.length, 171);
-	assert.equal(new Set(listed).size, 171);
+	assert.equal(listed.length, 178);
+	assert.equal(new Set(listed).size, 178);
 	const business = tools.split('## Business & Commerce')[1].split('<a id="identity">')[0];
-	assert.equal([...business.matchAll(/^### `([a-z0-9_]+)`/gm)].length, 75);
+	assert.equal([...business.matchAll(/^### `([a-z0-9_]+)`/gm)].length, 70);
 	const unavailable = [...business.matchAll(/^### `([a-z0-9_]+)`[^\n]*(?:\r?\n)+> 현재 공개 전 점검으로 비활성/gm)].map(m => m[1]);
-	assert.equal(unavailable.length, 8);
+	// 4.14.0: 공개 전 점검 중인 상품 계약은 공개 문서에 두지 않는다.
+	assert.equal(unavailable.length, 0);
 	for (const name of unavailable) assert.ok(!listed.includes(name), name + ' must not be advertised as available');
-	assert.match(readme, /`https:\/\/apick\.app\/mcp\/business` \| 67 \|/);
+	assert.match(readme, /`https:\/\/apick\.app\/mcp\/business` \| 70 \|/);
 	const web = tools.split('## Web & Search')[1].split('<a id="convert">')[0];
 	assert.equal([...web.matchAll(/^### `([a-z0-9_]+)`/gm)].length, 36);
 	assert.match(readme, /`https:\/\/apick\.app\/mcp\/web` \| 36 \|/);
@@ -141,17 +142,18 @@ test('배포 대상 174개 목록과 Business 절 75개·Web 36개·상태 변�
 		assert.ok(listed.includes(name), name);
 		assert.ok(web.includes('### `' + name + '`'), name);
 	}
-	assert.match(readme, /39 of 174 are not read-only/);
-	assert.match(readme, /135 of 174 tools are read-only/);
+	assert.match(readme, /39 of 177 are not read-only/);
+	assert.match(readme, /138 of 177 tools are read-only/);
 	// 3.7.0: all 서버 전용 find_tools 가 전체 목록과 README 한눈에 보기에 포함된다.
 	assert.ok(listed.includes('find_tools'));
 	assert.ok(tools.includes('### `find_tools`'));
 	assert.match(readme, /\*\*All only 통합 서버 전용\*\* `find_tools`/);
-	assert.match(readme, /`https:\/\/apick\.app\/mcp\/all` \| \*\*174\*\* \|/);
+	assert.match(readme, /`https:\/\/apick\.app\/mcp\/all` \| \*\*177\*\* \|/);
 	// 증빙서류 묶음은 목록·README·상세 절·REST 경로·결과 섹션·대표자 확인 안내를 모두 갖는다.
 	for (const [bundle, sections] of Object.entries(bundles)) {
 		for (const name of ['req_' + bundle, 'get_' + bundle]) {
-			// 묶음은 MCP Tool 이 아니라 REST 상품이므로 전체 MCP 목록이 아닌 색인 표에서 확인한다.
+			// 묶음도 활성 MCP Tool 이라 전체 목록과 색인 표에 모두 있다.
+			assert.ok(listed.includes(name), name);
 			assert.ok(tools.includes('[`' + name + '`](#'), name);
 			assert.ok(readme.includes('`' + name + '`'), name);
 			assert.ok(tools.includes('### `' + name + '`'), name);
@@ -175,7 +177,7 @@ test('배포 대상 174개 목록과 Business 절 75개·Web 36개·상태 변�
 	assert.match(tools, /업무 상태 오류는 `isError: false`/);
 	const pkg = JSON.parse(read('package.json'));
 	const lock = JSON.parse(read('package-lock.json'));
-	assert.equal(pkg.version, '4.13.3');
+	assert.equal(pkg.version, '4.14.0');
 	assert.equal(lock.version, pkg.version);
 	assert.equal(lock.packages[''].version, pkg.version);
 	// 공개 JSON-RPC 예시도 실제 목록의 Tool을 참조해야 한다. skills 서버는 all 과 별도 목록이다.

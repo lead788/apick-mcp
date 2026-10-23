@@ -6,7 +6,7 @@ Before choosing a Skill, review its [measured performance and test methods](http
 
 <img src="https://raw.githubusercontent.com/lead788/apick-mcp/main/assets/logo-400.png" alt="APICK" width="88" height="88">
 
-# APICK MCP — 174 Korean Data, AI, Image & Video Tools
+# APICK MCP — 177 Korean Data, AI, Image & Video Tools
 
 >
 
@@ -28,9 +28,9 @@ Before choosing a Skill, review its [measured performance and test methods](http
 
 ## What is this? / 이게 뭔가요?
 
-**EN** — APICK is a Korean data and AI API platform. This MCP server exposes **174 tools** for Korean business data, identity verification, OCR, parcel tracking, image and video generation, file conversion, web intelligence, and LLM calls.
+**EN** — APICK is a Korean data and AI API platform. This MCP server exposes **177 tools** for Korean business data, identity verification, OCR, parcel tracking, image and video generation, file conversion, web intelligence, and LLM calls.
 
-**KO** — 에이픽(APICK)은 대한민국 데이터·AI API 플랫폼입니다. 이 MCP 서버는 **Tool 174개**로 사업자 조회, 신분증 진위확인, 택배 배송조회, OCR, 이미지·영상 생성, 파일 변환, 웹 검색과 LLM 호출을 **인증키 하나로** 제공합니다.
+**KO** — 에이픽(APICK)은 대한민국 데이터·AI API 플랫폼입니다. 이 MCP 서버는 **Tool 177개**로 사업자 조회, 신분증 진위확인, 택배 배송조회, OCR, 이미지·영상 생성, 파일 변환, 웹 검색과 LLM 호출을 **인증키 하나로** 제공합니다.
 
 **The server is hosted by APICK. Nothing to install, build, or keep running.**
 **서버는 에이픽이 운영합니다. 설치할 것도, 띄워둘 것도 없습니다.**
@@ -48,8 +48,8 @@ https://apick.app/mcp/all
 Sign up at **[apick.app](https://apick.app)** and copy your license key from the dashboard. New accounts get **1,000 free points**.
 **[apick.app](https://apick.app)** 에서 가입하고 대시보드에서 인증키를 복사하세요. 신규 가입 시 **1,000포인트 무료**.
 
-> `tools/list` works **without** a key — a client can connect and discover all 174 tools before you sign up. Only `tools/call` validates the key and allowed IP.
-> `tools/list`는 **인증 없이** 동작합니다. 가입 전에도 클라이언트가 연결해 174개 Tool을 확인할 수 있고, 키와 허용 IP는 `tools/call`부터 검증합니다.
+> `tools/list` works **without** a key — a client can connect and discover all 177 tools before you sign up. Only `tools/call` validates the key and allowed IP.
+> `tools/list`는 **인증 없이** 동작합니다. 가입 전에도 클라이언트가 연결해 177개 Tool을 확인할 수 있고, 키와 허용 IP는 `tools/call`부터 검증합니다.
 
 Leave the allowed-IP list blank for unrestricted access. To restrict access, register the public IPv4 address seen by APICK as an exact address or CIDR such as `/32`. Changes apply immediately with no separate synchronization.
 마이페이지의 허용 IP가 공란이면 제한 없이 사용할 수 있습니다. 제한하려면 APICK에 도착하는 공인 IPv4를 단일 주소 또는 CIDR(`/32` 등)로 등록하세요. 저장 즉시 반영되며 별도 동기화는 필요하지 않습니다.
@@ -155,11 +155,11 @@ Connect to `all` for everything, or to one server to keep the tool list short an
 
 | Server 서버 | Endpoint | Tools | Coverage 범위 |
 | --- | --- | --- | --- |
-| **All 통합** | `https://apick.app/mcp/all` | **174** | 아래 전부 + `find_tools` |
-| [Business 사업자·커머스](TOOLS.md#business) | `https://apick.app/mcp/business` | 67 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래·입찰 분석, 건축물대장, 차량 이력, 간편인증 데이터 조회·세무 증빙서류 발급, 유효성 검사 |
+| **All 통합** | `https://apick.app/mcp/all` | **177** | 아래 전부 + `find_tools` |
+| [Business 사업자·커머스](TOOLS.md#business) | `https://apick.app/mcp/business` | 70 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래·입찰 분석, 건축물대장, 차량 이력·리콜·하이패스 미납·자동차세, 간편인증 데이터 조회·세무 증빙서류 발급, 유효성 검사 |
 | [Identity 신분증](TOOLS.md#identity) | `https://apick.app/mcp/identity` | 16 | 주민등록증·운전면허증·여권·외국인등록증 진위확인, 실명확인, 개인정보 마스킹 |
 | [Convert 파일변환](TOOLS.md#convert) | `https://apick.app/mcp/convert` | 25 | PDF·DOCX·엑셀 변환, STT, 비동기 TTS, 워터마크 |
-| [Web 웹·검색](TOOLS.md#web) | `https://apick.app/mcp/web` | 36 | 도메인·IP·WHOIS, 웹페이지 수집, 구글 검색(웹·이미지·뉴스·쇼핑·지도·장소 상세·순위), 유튜브(검색·채널·댓글·자막·영상 정보), 인스타그램·틱톡·X(프로필·게시물), 아마존·쿠팡·네이버 상품, 링크드인(프로필·회사·채용공고) |
+| [Web 웹·검색](TOOLS.md#web) | `https://apick.app/mcp/web` | 36 | 도메인·IP·WHOIS, 웹페이지 조회, 구글 검색(웹·이미지·뉴스·쇼핑·지도·장소 상세·순위), 유튜브(검색·채널·댓글·자막·영상 정보), 인스타그램·틱톡·X(프로필·게시물), 아마존·쿠팡·네이버 상품, 링크드인(프로필·회사·채용공고) |
 | [Vision 이미지·영상](TOOLS.md#vision) | `https://apick.app/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출 |
 | [OCR 문자인식](TOOLS.md#ocr) | `https://apick.app/mcp/ocr` | 6 | 이미지 텍스트 추출, 신분증 항목 추출 |
 | [AI · LLM](TOOLS.md#ai) | `https://apick.app/mcp/ai` | 15 | LLM 챗, 텍스트 요약·교정, 이미지 생성·편집·대량 작업, 비동기 영상 생성 |
@@ -168,8 +168,8 @@ Connect to `all` for everything, or to one server to keep the tool list short an
 
 ### Every tool / 전체 Tool
 
-**[→ TOOLS.md](TOOLS.md)** — the current 174-tool inventory and detailed examples for common tools.
-**[→ TOOLS.md](TOOLS.md)** — 현재 174개 목록과 주요 도구의 파라미터·타입·호출 예시를 정리했습니다.
+**[→ TOOLS.md](TOOLS.md)** — the current 177-tool inventory and detailed examples for common tools.
+**[→ TOOLS.md](TOOLS.md)** — 현재 177개 목록과 주요 도구의 파라미터·타입·호출 예시를 정리했습니다.
 
 <details>
 <summary><b>Tool names at a glance / Tool 이름 한눈에 보기</b></summary>
@@ -196,9 +196,9 @@ Connect to `all` for everything, or to one server to keep the tool list short an
 
 ### Find the right tool / 알맞은 Tool 찾기 — `find_tools`
 
-**EN** — The `all` server has 174 tools. `find_tools` recommends the best-matching APICK tools for a task described in natural language (Korean or English). It returns each tool's name, title, description and a relevance label (`high`, `medium`, `low`). It is free, works without an API key, and is available on the `all` server only; domain servers are small enough to choose from `tools/list` directly.
+**EN** — The `all` server has 177 tools. `find_tools` recommends the best-matching APICK tools for a task described in natural language (Korean or English). It returns each tool's name, title, description and a relevance label (`high`, `medium`, `low`). It is free, works without an API key, and is available on the `all` server only; domain servers are small enough to choose from `tools/list` directly.
 
-**KO** — `all` 서버에는 Tool이 174개 있습니다. `find_tools`는 자연어(한국어·영어)로 설명한 작업에 가장 알맞은 에이픽 Tool을 추천하고, Tool 이름·제목·설명과 관련도(`high`·`medium`·`low`)를 돌려줍니다. 무료이며 인증키 없이 호출할 수 있고, `all` 서버에서만 제공합니다. 분야별 서버는 Tool 수가 적어 `tools/list`만으로 고를 수 있습니다.
+**KO** — `all` 서버에는 Tool이 177개 있습니다. `find_tools`는 자연어(한국어·영어)로 설명한 작업에 가장 알맞은 에이픽 Tool을 추천하고, Tool 이름·제목·설명과 관련도(`high`·`medium`·`low`)를 돌려줍니다. 무료이며 인증키 없이 호출할 수 있고, `all` 서버에서만 제공합니다. 분야별 서버는 Tool 수가 적어 `tools/list`만으로 고를 수 있습니다.
 
 | Parameter | Type | Required | Description 설명 |
 | --- | --- | --- | --- |
@@ -232,8 +232,8 @@ If nothing fits, `tools` is empty and a `message` asks you to describe the task 
 
 `biz_detail` → `venture_biz_info` → `check_email_valid` · `check_phone_valid`
 
-Pull registry status, representative, industry code and address for each business number, cross-check the contact email and phone, and get one table back. Replaces manual 국세청/공정위 lookups.
-사업자번호마다 국세청 상태·대표자·업종·주소를 끌어오고 담당자 이메일·전화 유효성까지 교차검증해 표 하나로 받습니다.
+Pull registry status, representative, industry code and address for each business number, cross-check the contact email and phone, and get one table back. Replaces manual one-by-one lookups.
+사업자번호마다 사업자 상태·대표자·업종·주소를 끌어오고 담당자 이메일·전화 유효성까지 교차검증해 표 하나로 받습니다.
 
 ### 2. Identity verification pipeline — 비대면 신원확인
 
@@ -316,7 +316,7 @@ Seedance 참조 소재 모드는 지원 버전에서 참조 이미지·영상·�
 | **Transport** | Streamable HTTP — one endpoint per server, JSON-RPC 2.0 over HTTPS POST, stateless | 서버당 단일 엔드포인트, HTTPS POST로 JSON-RPC 2.0, 세션 없이 요청 단위 |
 | **Protocol** | MCP `2026-07-28`, auto-compatible with earlier client versions | MCP `2026-07-28` 기본, 이전 규격 클라이언트 자동 호환 |
 | **Discovery** | `tools/list` returns every tool with JSON Schema, description and live price — no key needed | `tools/list`가 스키마·설명·실시간 단가를 반환, 인증 불필요 |
-| **Annotations** | Every tool declares `title`, `readOnlyHint`, `openWorldHint`. 39 of 174 are not read-only | 전 Tool이 `title`·`readOnlyHint`·`openWorldHint` 선언. 174개 중 상태 변경 Tool은 39개 |
+| **Annotations** | Every tool declares `title`, `readOnlyHint`, `openWorldHint`. 39 of 177 are not read-only | 전 Tool이 `title`·`readOnlyHint`·`openWorldHint` 선언. 177개 중 상태 변경 Tool은 39개 |
 | **Results** | Text (JSON) + `structuredContent`. Images as image content; files up to 8MB as base64 | 텍스트(JSON)와 `structuredContent` 동시 반환. 이미지는 이미지 콘텐츠, 8MB 이하 파일은 base64 |
 | **File input** | File-taking tools accept a public `https` URL (`image_url`, `pdf_url`, …) — APICK downloads and processes it | 파일 Tool은 공개 `https` URL을 받습니다. 에이픽 서버가 내려받아 처리합니다 |
 | **Errors** | Delivered via `isError`; identity masking also preserves `structuredContent.error_code` | `isError`로 전달되며 신분증 마스킹은 `structuredContent.error_code`도 보존합니다 |
@@ -358,29 +358,29 @@ Common inputs match the SDK: `name`, `birthDate`, `phone`, and `authProvider`. T
 
 ### Tools with side effects / 부작용이 있는 Tool
 
-135 of 174 tools are read-only. The other 39 change state, charge points, cancel work, or consume a result and carry `readOnlyHint: false` so your client can require approval:
-174개 중 135개는 조회입니다. 나머지 39개는 과금·취소·결과 생성 등 상태를 바꾸므로 `readOnlyHint: false`가 붙습니다.
+138 of 177 tools are read-only. The other 39 change state, charge points, cancel work, or consume a result and carry `readOnlyHint: false` so your client can require approval:
+177개 중 138개는 조회입니다. 나머지 39개는 과금·취소·결과 생성 등 상태를 바꾸므로 `readOnlyHint: false`가 붙습니다.
 
 | Tool | What it does / 하는 일 |
 | --- | --- |
 | `req_employment` | Requests phone approval and charges acceptance · 재직·보험료 확인 인증 요청·접수 과금 |
-| `get_employment` | Collects and bills the first result; repeat reads are free · 결과 수집·최초 반환 과금, 재조회 무료 |
+| `get_employment` | Collects and bills the first result; repeat reads are free · 최초 결과 반환 시 과금, 재조회 무료 |
 | `req_personal_income` | Requests phone approval and charges acceptance · 금융소득(이자·배당) 조회 인증 요청·접수 과금 |
-| `get_personal_income` | Collects and bills the first result; repeat reads are free · 결과 수집·최초 반환 과금, 재조회 무료 |
+| `get_personal_income` | Collects and bills the first result; repeat reads are free · 최초 결과 반환 시 과금, 재조회 무료 |
 | `req_nps_join_history` | Requests phone approval and charges acceptance · 국민연금 가입내역 인증 요청·접수 과금 |
-| `get_nps_join_history` | Collects and bills the first result; repeat reads are free · 결과 수집·최초 반환 과금, 재조회 무료 |
+| `get_nps_join_history` | Collects and bills the first result; repeat reads are free · 최초 결과 반환 시 과금, 재조회 무료 |
 | `req_nps_deduction_cert` | Requests phone approval and charges acceptance · 국민연금 소득공제용 납부확인서 인증 요청·접수 과금 |
-| `get_nps_deduction_cert` | Collects and bills the first result; repeat reads are free · 결과 수집·최초 반환 과금, 재조회 무료 |
+| `get_nps_deduction_cert` | Collects and bills the first result; repeat reads are free · 최초 결과 반환 시 과금, 재조회 무료 |
 | `req_nps_career_history` | Requests phone approval and charges acceptance · 국민연금 경력 이력 인증 요청·접수 과금 |
-| `get_nps_career_history` | Collects and bills the first result; repeat reads are free · 결과 수집·최초 반환 과금, 재조회 무료 |
+| `get_nps_career_history` | Collects and bills the first result; repeat reads are free · 최초 결과 반환 시 과금, 재조회 무료 |
 | `req_driving_license` | Requests phone approval and charges acceptance · 운전면허 조회 인증 요청·접수 과금 |
-| `get_driving_license` | Collects and bills the first result; repeat reads are free · 결과 수집·최초 반환 과금, 재조회 무료 |
+| `get_driving_license` | Collects and bills the first result; repeat reads are free · 최초 결과 반환 시 과금, 재조회 무료 |
 | `req_health_checkup` | Requests phone approval and charges acceptance · 국가 건강검진 결과 인증 요청·접수 과금 |
-| `get_health_checkup` | Collects and bills the first result; repeat reads are free · 결과 수집·최초 반환 과금, 재조회 무료 |
+| `get_health_checkup` | Collects and bills the first result; repeat reads are free · 최초 결과 반환 시 과금, 재조회 무료 |
 | `req_cash_receipt_deduction` | Requests phone approval and charges acceptance · 현금영수증 소득공제 내역 인증 요청·접수 과금 |
-| `get_cash_receipt_deduction` | Collects and bills the first result; repeat reads are free · 결과 수집·최초 반환 과금, 재조회 무료 |
+| `get_cash_receipt_deduction` | Collects and bills the first result; repeat reads are free · 최초 결과 반환 시 과금, 재조회 무료 |
 | `req_tax_return_history` | Requests phone approval and charges acceptance · 국세 신고내역 조회 인증 요청·접수 과금 |
-| `get_tax_return_history` | Collects and bills the first result; repeat reads are free · 결과 수집·최초 반환 과금, 재조회 무료 |
+| `get_tax_return_history` | Collects and bills the first result; repeat reads are free · 최초 결과 반환 시 과금, 재조회 무료 |
 | `req_income_cert_bundle` | Requests phone approval and charges acceptance · 소득 증빙서류 통합발급 인증 요청·접수 과금 |
 | `get_income_cert_bundle` | Issues the certificates and bills the first result; repeat reads are free · 증명 발급·최초 반환 과금, 재조회 무료 |
 | `req_business_cert_bundle` | Requests phone approval and charges acceptance · 사업자 증빙서류 통합발급 인증 요청·접수 과금 |
@@ -401,7 +401,7 @@ Common inputs match the SDK: `name`, `birthDate`, `phone`, and `authProvider`. T
 
 TTS 입력은 정규화 사용 시 최대 2,000자, 끄면 8,000자입니다. 완성된 MP3와 ASS 자막은 서로 독립된 1회용 원본이므로, 결과를 저장할 준비가 된 뒤 `tts_jobs_result`와 `tts_jobs_subtitles`를 각각 한 번만 호출하세요.
 
-정규화는 기본 켜짐이며 발음을 다듬는 스킬 요금이 추가됩니다. `normalize_text: false`(SDK `normalizeText: false`)로 실행과 요금을 끕니다. 스킬 최종가는 기본요금(판매자 금액·기본 수수료) + 실제 AI 사용료입니다. 정규화 실패는 제작을 중단하며, 서버·공급자의 최종 제작 실패는 정규화까지 전액 환불합니다. ASS에는 원문을 표시합니다.
+정규화는 기본 켜짐이며 발음을 다듬는 스킬 요금이 추가됩니다. `normalize_text: false`(SDK `normalizeText: false`)로 실행과 요금을 끕니다. 스킬 최종가는 기본요금(판매자 금액·기본 수수료) + 실제 AI 사용료입니다. 정규화 실패는 제작을 중단하며, 서버의 최종 제작 실패는 정규화까지 전액 환불합니다. ASS에는 원문을 표시합니다.
 
 Normalization is on by default and adds a skill charge. Set `normalize_text: false` (SDK `normalizeText: false`) to skip execution and billing. The skill price is its base fee (seller amount and base commission) plus the actual AI usage fee. Normalization failure stops synthesis; final server/provider failures refund normalization as well. ASS preserves the original spelling.
 
@@ -466,11 +466,11 @@ Prepaid points, charged per call, at the same rate as the APICK REST API. No sub
 
 ## Keywords / 검색 키워드
 
-Korean business registry API · 사업자등록번호 조회 API · business registration number lookup · 휴폐업 조회 · 법인등록번호 · 벤처기업 조회 · Korean ID verification · 신분증 진위확인 API · 주민등록증 진위확인 · 운전면허증 진위확인 · 여권 진위확인 · 외국인등록증 · 실명확인 · 주민번호 마스킹 · 개인정보 비식별화 · Korean OCR API · 신분증 OCR · 문자인식 · parcel tracking API Korea · 택배 배송조회 API · 운송장 조회 · CJ대한통운 한진 롯데택배 우체국 로젠 · 계좌 실명조회 · 예금주 조회 · 1원 인증 API · 개인통관고유부호 · PCCC · 부동산 실거래가 API · 침수차 조회 · 폐차 조회 · 도로명주소 검색 API · 공휴일 API · WHOIS API · DNS lookup · IP 위치조회 · 웹페이지 스크린샷 API · 구글 검색 API · 구글 이미지 검색 · 구글 렌즈 · 유튜브 크롤링 · PDF 변환 API · PDF to DOCX · HTML to PDF · 엑셀 변환 · 워터마크 API · STT 음성인식 API · 얼굴 인식 API · 얼굴 블러 · 유해이미지 판별 · NSFW detection · 이미지 유사도 · 워드클라우드 · LLM API
+Korean business registry API · 사업자등록번호 조회 API · business registration number lookup · 휴폐업 조회 · 법인등록번호 · 벤처기업 조회 · Korean ID verification · 신분증 진위확인 API · 주민등록증 진위확인 · 운전면허증 진위확인 · 여권 진위확인 · 외국인등록증 · 실명확인 · 주민번호 마스킹 · 개인정보 비식별화 · Korean OCR API · 신분증 OCR · 문자인식 · parcel tracking API Korea · 택배 배송조회 API · 운송장 조회 · CJ대한통운 한진 롯데택배 우체국 로젠 · 계좌 실명조회 · 예금주 조회 · 1원 인증 API · 개인통관고유부호 · PCCC · 부동산 실거래가 API · 침수차 조회 · 폐차 조회 · 도로명주소 검색 API · 공휴일 API · WHOIS API · DNS lookup · IP 위치조회 · 웹페이지 스크린샷 API · 구글 검색 API · 구글 이미지 검색 · 구글 렌즈 · 유튜브 데이터 · PDF 변환 API · PDF to DOCX · HTML to PDF · 엑셀 변환 · 워터마크 API · STT 음성인식 API · 얼굴 인식 API · 얼굴 블러 · 유해이미지 판별 · NSFW detection · 이미지 유사도 · 워드클라우드 · LLM API
 
 ## Hashtags
 
-`#MCP` `#ModelContextProtocol` `#MCPServer` `#MCPTools` `#AIAgent` `#ClaudeMCP` `#ClaudeCode` `#ClaudeDesktop` `#Cursor` `#Cline` `#Windsurf` `#VSCode` `#APICK` `#에이픽` `#OpenAPI` `#RESTAPI` `#KoreaAPI` `#한국API` `#사업자조회` `#사업자등록번호조회` `#휴폐업조회` `#신분증진위확인` `#실명확인` `#본인인증` `#개인정보마스킹` `#OCR` `#문자인식` `#택배조회` `#배송조회` `#운송장조회` `#계좌실명조회` `#1원인증` `#통관고유부호` `#부동산실거래가` `#도로명주소` `#공휴일API` `#WHOIS` `#DNS` `#IP조회` `#웹크롤링` `#구글검색API` `#스크린샷API` `#PDF변환` `#DOCX변환` `#엑셀변환` `#워터마크` `#STT` `#음성인식` `#얼굴인식` `#얼굴블러` `#유해이미지` `#NSFW` `#이미지유사도` `#LLM` `#KYC` `#KYB` `#핀테크` `#이커머스` `#물류자동화` `#업무자동화`
+`#MCP` `#ModelContextProtocol` `#MCPServer` `#MCPTools` `#AIAgent` `#ClaudeMCP` `#ClaudeCode` `#ClaudeDesktop` `#Cursor` `#Cline` `#Windsurf` `#VSCode` `#APICK` `#에이픽` `#OpenAPI` `#RESTAPI` `#KoreaAPI` `#한국API` `#사업자조회` `#사업자등록번호조회` `#휴폐업조회` `#신분증진위확인` `#실명확인` `#본인인증` `#개인정보마스킹` `#OCR` `#문자인식` `#택배조회` `#배송조회` `#운송장조회` `#계좌실명조회` `#1원인증` `#통관고유부호` `#부동산실거래가` `#도로명주소` `#공휴일API` `#WHOIS` `#DNS` `#IP조회` `#웹페이지조회` `#구글검색API` `#스크린샷API` `#PDF변환` `#DOCX변환` `#엑셀변환` `#워터마크` `#STT` `#음성인식` `#얼굴인식` `#얼굴블러` `#유해이미지` `#NSFW` `#이미지유사도` `#LLM` `#KYC` `#KYB` `#핀테크` `#이커머스` `#물류자동화` `#업무자동화`
 
 ---
 
@@ -556,7 +556,7 @@ Normalization is enabled by default and costs extra. Disable it with `normalize_
 
 AI usage is charged by actual usage, plus normalization. Rates differ by engine; check the estimate with `tts_quote` first.
 
-두 엔진은 같은 작업 조회·취소·MP3·원문 ASS 계약을 사용합니다. `billing`의 예약·해제·확정·환불을 확인하세요. MP3는 24kHz 모노 48kbps, 결과는 완료 후 24시간 보관합니다. MP3와 ASS는 각각 완료된 다운로드 1회만 허용하며 전송 중단은 재시도할 수 있습니다. 접수 응답 유실 시 같은 입력과 멱등 키를 재사용하세요. 서버·공급자 최종 실패는 정규화까지 환불하며, 연결 종료는 작업 취소가 아닙니다. 취소 시 이미 수행된 작업분을 정산합니다.
+두 엔진은 같은 작업 조회·취소·MP3·원문 ASS 계약을 사용합니다. `billing`의 예약·해제·확정·환불을 확인하세요. MP3는 24kHz 모노 48kbps, 결과는 완료 후 24시간 보관합니다. MP3와 ASS는 각각 완료된 다운로드 1회만 허용하며 전송 중단은 재시도할 수 있습니다. 접수 응답 유실 시 같은 입력과 멱등 키를 재사용하세요. 서버 최종 실패는 정규화까지 환불하며, 연결 종료는 작업 취소가 아닙니다. 취소 시 이미 수행된 작업분을 정산합니다.
 
 Both engines share job status, cancellation, MP3 and original-text ASS downloads. Check reserved, released, captured and refunded amounts in `billing`. MP3 is 24 kHz mono at 48 kbps. Files are kept for 24 hours; each permits one completed download, and interrupted transfers can be retried. Reuse the same input and idempotency key after a lost response. Final server/provider failures refund synthesis and normalization; disconnecting does not cancel work. Explicit cancellation settles work already performed.
 

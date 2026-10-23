@@ -1,3 +1,17 @@
+# 4.14.0
+
+- Tool 3개를 추가했습니다(통합 177개, Business 70개): `vehicle_recall`(자동차 리콜 대상, 대상이 아니면 0P), `hipass_unpaid`(하이패스 미납 여부, 미납이 없으면 0P), `vehicle_tax_calc`(비영업용 승용차 자동차세 계산).
+- `rtms_rent`에 `includeTrade`(기본 true)를 추가했습니다. `false`면 같은 단지 매매가 비교(전세가율) 없이 임대 분석만 돌려줍니다.
+- `TOOLS.md`의 Business 표를 실제 제공 목록과 맞췄습니다. 빠져 있던 공간정보 13종·등기 6종·배출가스·기업 재무정보·국민연금 2종 등 Tool을 표에 넣고, 공개 전 점검 중이라 `tools/list`에 없는 상품 8종의 계약을 문서에서 뺐습니다. 전체 이름 목록에 증빙서류 묶음 4개를 넣었습니다.
+- 서버 변경: 공간정보·차량 조회·입찰·부동산 분석·건축물대장·경매·발급확인의 입력 오류는 HTTP 400, 공간정보에서 위치·주소·장소를 찾지 못하면 404로 응답합니다. 오류 결과는 계속 `isError`로 오며 과금되지 않습니다.
+- GeoJSON 입력 한도 표기를 실제 한도(1MB)로 고쳤습니다. 문서의 상품 이름과 설명 문구를 서버 공개 명칭에 맞췄습니다.
+
+- Added three tools (177 overall, Business 70): `vehicle_recall` (free when no recall), `hipass_unpaid` (free when nothing is unpaid) and `vehicle_tax_calc`.
+- `rtms_rent` accepts `includeTrade` (default true) to skip the same-complex sale comparison.
+- The Business table in `TOOLS.md` now matches the live tool list; contracts for eight products not yet in `tools/list` were removed, and the four certificate-bundle tools were added to the full name list.
+- Server change: input errors for geo, vehicle, bid/real-estate analytics, building register, court auction and registry verification return HTTP 400, and geo lookups that find nothing return 404. Errors still arrive as `isError` with no charge.
+- The GeoJSON input limit is documented as 1 MB, matching the server.
+
 # 4.13.3
 
 - 등기 열람·발급 접수 예약 포인트를 830P로 바로잡았습니다. `registry_realestate_jobs_create`·`registry_corporate_jobs_create` 문서의 880P 표기가 실제 접수 금액과 달랐습니다. 결제 전 실패 시 전액 환급되고, PDF 전송 성공 시 20P가 차감되는 동작은 그대로입니다.
@@ -174,10 +188,10 @@
 
 # 3.12.0
 
-- TTS: ChatGPT(gpt-audio-mini) 직접 합성 도구 `tts_openai_create`·`tts_openai_voices`를 추가했습니다. 도구 수는 133개(Convert 27개)입니다.
+- TTS: ChatGPT 음성 직접 합성 도구 `tts_openai_create`·`tts_openai_voices`를 추가했습니다. 도구 수는 133개(Convert 27개)입니다.
 - TTS: 감정·톤·억양·속도·음높이·음량·멀티화자 옵션과 `speakers`·`multi_speaker`를 Gemini·ChatGPT 공통으로 지원합니다. 옵션을 생략한 기존 호출은 그대로 동작합니다.
 - TTS: `tts_quote` 엔진이 `gemini | openai`로 바뀌었습니다. `apick` 자체 합성과 대기열 전환(`fallback_policy`·`fallback_options`)은 종료되었습니다.
-- TTS: add ChatGPT (gpt-audio-mini) synthesis tools `tts_openai_create` and `tts_openai_voices`, for 133 tools overall (Convert 27).
+- TTS: add ChatGPT voice synthesis tools `tts_openai_create` and `tts_openai_voices`, for 133 tools overall (Convert 27).
 - TTS: emotion, tone, accent, pace, pitch, volume and multi-speaker options now work on both engines through the same fields; omitting them keeps the previous behavior.
 - TTS: `tts_quote` now takes `engine: gemini | openai`. The apick engine and its queue fallback options are retired.
 

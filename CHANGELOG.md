@@ -1,3 +1,9 @@
+# 4.15.0
+
+- 등기 Tool 목록을 서버와 맞췄습니다. 서버에 없는 `registry_jobs_status`·`registry_jobs_download`를 목록과 설명에서 뺐습니다. 열람·발급 2종은 한 호출로 결제와 PDF 확보를 끝내고 PDF를 돌려주며(최대 180초, 건당 850P, 실패 시 차감 없음), 다시 받을 때는 응답 헤더 `X-Apick-Job-Id`를 `job_id`로 `POST /rest/registry_jobs/:job_id/download`에 보냅니다(건당 30P).
+
+- The registry tool list now matches the server. `registry_jobs_status` and `registry_jobs_download` were removed from the index and descriptions (175 tools). The two view/issue tools submit, pay and return the PDF in one call (up to 180 seconds, 850P per issue, no charge on failure); to fetch the same PDF again, send `X-Apick-Job-Id` as `job_id` to `POST /rest/registry_jobs/:job_id/download` (30P per issue).
+
 # 4.14.2
 
 - 등기 Tool 4개(`registry_realestate_jobs_create`·`registry_corporate_jobs_create`·`registry_jobs_status`·`registry_jobs_download`) 설명을 서버 동작에 맞췄습니다. 열람이 끝나 `completed`가 되면 830P가 확정되고(이후 환급 없음), 그 전에 실패하거나 접수 후 3분 안에 끝나지 않으면 전액 환급됩니다. PDF는 그 뒤 준비되며 `pdf_state`가 `ready`일 때 받습니다. 준비 중 다운로드는 HTTP 202로 안내하고 차감하지 않습니다. 보관 기한은 PDF 준비 시점부터 72시간입니다.

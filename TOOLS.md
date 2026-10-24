@@ -1,9 +1,9 @@
 # APICK MCP — Full Tool Catalog / 전체 Tool 목록
 
-**177 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 177개**, 분야별 서버 8개와 통합 서버 `all`.
+**175 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 175개**, 분야별 서버 8개와 통합 서버 `all`.
 
-4.14.2 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
+4.15.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
 
 
 
@@ -24,12 +24,12 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 25 | PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
-| **All 통합** | `/mcp/all` | **177** | 아래 전부 + [`find_tools`](#find-tools) |
+| **All 통합** | `/mcp/all` | **175** | 아래 전부 + [`find_tools`](#find-tools) |
 | [Skills · 검수된 Skill 실행](#skills) | `/mcp/skills` | 6 | Skill 검색·상세·견적·실행·조회·취소. `all`에는 포함되지 않는 별도 서버 / separate server, not part of `all`. |
 
 <details><summary><b>All 177 MCP tool names / 전체 MCP Tool 이름</b></summary>
 
-`biz_detail` · `venture_biz_info` · `bid_notice` · `bid_award` · `rtms_trade` · `rtms_rent` · `land_rt_price` · `bldrgst` · `court_auction` · `registry_doc_verify` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `vehicle_model_info` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `req_income_cert_bundle` · `get_income_cert_bundle` · `req_business_cert_bundle` · `get_business_cert_bundle` · `vehicle_emission` · `vehicle_recall` · `hipass_unpaid` · `vehicle_tax_calc` · `corp_finance` · `geo_standardize` · `geo_batch_geocode` · `geo_reverse` · `geo_address_search` · `geo_place_search` · `geo_admin_code` · `geo_compare_address` · `geo_measure` · `geo_geojson_analyze` · `geo_address_quality` · `geo_address_autocomplete` · `geo_district_boundary` · `geo_neighborhood` · `registry_realestate_search` · `registry_corporate_search` · `registry_realestate_jobs_create` · `registry_corporate_jobs_create` · `registry_jobs_status` · `registry_jobs_download`
+`biz_detail` · `venture_biz_info` · `bid_notice` · `bid_award` · `rtms_trade` · `rtms_rent` · `land_rt_price` · `bldrgst` · `court_auction` · `registry_doc_verify` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `vehicle_model_info` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `req_income_cert_bundle` · `get_income_cert_bundle` · `req_business_cert_bundle` · `get_business_cert_bundle` · `vehicle_emission` · `vehicle_recall` · `hipass_unpaid` · `vehicle_tax_calc` · `corp_finance` · `geo_standardize` · `geo_batch_geocode` · `geo_reverse` · `geo_address_search` · `geo_place_search` · `geo_admin_code` · `geo_compare_address` · `geo_measure` · `geo_geojson_analyze` · `geo_address_quality` · `geo_address_autocomplete` · `geo_district_boundary` · `geo_neighborhood` · `registry_realestate_search` · `registry_corporate_search` · `registry_realestate_jobs_create` · `registry_corporate_jobs_create`
 
 `identi_card1` · `identi_card2` · `identi_card3` · `identi_card4` · `identi_card5` · `identi_card_image1` · `identi_card_image2` · `identi_card_image3` · `identi_card_image4` · `identi_card_image5` · `name_rrn_auth` · `hide_rrn` · `identity_document_residence_card` · `identity_document_passport` · `identity_document_id_card` · `identity_document_driver_license`
 
@@ -154,7 +154,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 Tools that exist only on the combined `all` server. Domain servers keep their own tool counts.
 
-분야별 Tool 177개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
+분야별 Tool 175개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
 
 <a id="find-tools"></a>
 
@@ -195,7 +195,7 @@ Call the recommended tool afterwards with your API key as usual. 추천받은 To
 
 ## Business & Commerce · 사업자 · 커머스
 
-`https://apick.app/mcp/business` — 70 tools
+`https://apick.app/mcp/business` — 68 tools
 
 Korean business registry, corporate credit, parcel tracking, real-estate prices, vehicle history, and input validation.
 
@@ -270,9 +270,7 @@ Korean business registry, corporate credit, parcel tracking, real-estate prices,
 | [`registry_realestate_search`](#registry-realestate-search) | 부동산 등기 검색 | `query` |
 | [`registry_corporate_search`](#registry-corporate-search) | 법인 등기 검색 | — |
 | [`registry_realestate_jobs_create`](#registry-realestate-jobs-create) | 부동산 등기 열람·발급 접수 | — |
-| [`registry_corporate_jobs_create`](#registry-corporate-jobs-create) | 법인 등기 열람·발급 접수 | — |
-| [`registry_jobs_status`](#registry-jobs-status) | 등기 작업 상태 조회 | `job_id` |
-| [`registry_jobs_download`](#registry-jobs-download) | 등기 PDF 다운로드 | `job_id` |
+| [`registry_corporate_jobs_create`](#registry-corporate-jobs-create) | 법인 등기 열람·발급 | — |
 
 <a id="biz-detail"></a>
 
@@ -1565,13 +1563,13 @@ Find corporate registry targets in Korea by 13-digit corporate registration numb
 
 <a id="registry-realestate-jobs-create"></a>
 
-### `registry_realestate_jobs_create` — 부동산 등기 열람·발급 접수
+### `registry_realestate_jobs_create` — 부동산 등기 열람·발급
 
-Submit a real estate registry view/issue job.
+View and issue a real estate registry certificate in one call.
 
-접수 시 830P를 예약하고 서버가 순차 처리합니다. 열람이 끝나 completed가 되면 830P가 확정 차감되고(이후 환급 없음), 그 전에 실패하거나 접수 후 3분 안에 끝나지 않으면 전액 환급됩니다. registry_jobs_status로 pdf_state가 ready인지 확인한 뒤 registry_jobs_download로 PDF를 받으세요.
+검색 결과의 대상을 지정하면 결제와 PDF 확보를 같은 호출에서 끝내고 PDF 를 돌려줍니다. 최대 180초까지 걸릴 수 있습니다. 건당 850P(PDF 전송 포함). 실패하면 포인트는 차감되지 않습니다. 이미 발급한 PDF는 응답 헤더 X-Apick-Job-Id 를 job_id 로 POST /rest/registry_jobs/:job_id/download 에 보내 다시 받을 수 있습니다(건당 30P, 횟수 제한 없음).
 
-> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+> 과금 / billable · 외부 데이터 조회 / external lookup · server `business`
 
 | Parameter | Type | Required | Description 설명 |
 | --- | --- | --- | --- |
@@ -1590,13 +1588,13 @@ Submit a real estate registry view/issue job.
 
 <a id="registry-corporate-jobs-create"></a>
 
-### `registry_corporate_jobs_create` — 법인 등기 열람·발급 접수
+### `registry_corporate_jobs_create` — 법인 등기 열람·발급
 
-Submit a corporate registry view/issue job.
+View and issue a corporate registry certificate in one call.
 
-법인등록번호로 접수하며 830P를 예약합니다. completed가 되면 830P가 확정 차감되고(이후 환급 없음), 그 전에 실패하거나 접수 후 3분 안에 끝나지 않으면 전액 환급됩니다. pdf_state가 ready가 되면 registry_jobs_download로 PDF를 받으며, 받을 때마다 20P가 차감됩니다.
+법인등록번호로 열람·발급을 끝내고 PDF 를 돌려줍니다. 최대 180초까지 걸릴 수 있습니다. 건당 850P(PDF 전송 포함). 결제 전에 실패하면 차감하지 않습니다. 이미 발급한 PDF는 응답 헤더 X-Apick-Job-Id 를 job_id 로 POST /rest/registry_jobs/:job_id/download 에 보내 다시 받을 수 있습니다(건당 30P, 횟수 제한 없음).
 
-> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+> 과금 / billable · 외부 데이터 조회 / external lookup · server `business`
 
 | Parameter | Type | Required | Description 설명 |
 | --- | --- | --- | --- |
@@ -1608,42 +1606,6 @@ Submit a corporate registry view/issue job.
 
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"registry_corporate_jobs_create","arguments":{}}}
-```
-
-<a id="registry-jobs-status"></a>
-
-### `registry_jobs_status` — 등기 작업 상태 조회
-
-Check a registry job status (waiting, processing, completed, failed) and PDF state.
-
-무료입니다. completed 후 pdf_state가 pending이면 PDF 준비 중이고, ready가 되면 다운로드할 수 있습니다. pdf.expires_at은 PDF가 준비된 때부터 72시간입니다.
-
-> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
-
-| Parameter | Type | Required | Description 설명 |
-| --- | --- | --- | --- |
-| `job_id` | `string` | **필수 / required** | 접수 응답에서 받은 작업 ID(32자리) |
-
-```json
-{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"registry_jobs_status","arguments":{"job_id":"<job_id>"}}}
-```
-
-<a id="registry-jobs-download"></a>
-
-### `registry_jobs_download` — 등기 PDF 다운로드
-
-Download the completed registry PDF.
-
-PDF를 보낸 호출마다 20P가 차감되며(다시 받을 때 포함, 받는 도중 연결을 끊어도 차감), PDF 준비 중이면 HTTP 202로 안내하고 차감하지 않습니다. 완료 전이거나 보관 기간(PDF 준비 후 72시간)이 지나면 오류가 반환됩니다.
-
-> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
-
-| Parameter | Type | Required | Description 설명 |
-| --- | --- | --- | --- |
-| `job_id` | `string` | **필수 / required** | 접수 응답에서 받은 작업 ID(32자리) |
-
-```json
-{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"registry_jobs_download","arguments":{"job_id":"<job_id>"}}}
 ```
 
 <a id="identity"></a>

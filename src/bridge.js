@@ -21,7 +21,6 @@ export const SERVERS = [
 	'convert',
 	'vision',
 	'ai',
-	'skills',
 	'subagent'
 ];
 
@@ -55,6 +54,7 @@ function parseEventStream(text) {
 
 export function createBridge(options = {}) {
 	const server = options.server || 'all';
+	if (server === 'skills') throw new Error('SKILLS_MOVED: https://reqeo.com/mcp/skills — 계정·포인트·인증키는 별개입니다. Accounts, points and API keys are separate.');
 	const apiKey = options.apiKey || '';
 	const endpoint = (options.endpoint || DEFAULT_ENDPOINT).replace(/\/+$/, '') + '/' + server;
 	const fetchImpl = options.fetch || globalThis.fetch;

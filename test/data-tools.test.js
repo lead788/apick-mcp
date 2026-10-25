@@ -177,13 +177,13 @@ test('배포 대상 175개 목록과 Business 절 68개·Web 36개·상태 변�
 	assert.match(tools, /업무 상태 오류는 `isError: false`/);
 	const pkg = JSON.parse(read('package.json'));
 	const lock = JSON.parse(read('package-lock.json'));
-	assert.equal(pkg.version, '4.15.0');
+	assert.equal(pkg.version, '5.0.0');
 	assert.equal(lock.version, pkg.version);
 	assert.equal(lock.packages[''].version, pkg.version);
 	// 공개 JSON-RPC 예시도 실제 목록의 Tool을 참조해야 한다. skills 서버는 all 과 별도 목록이다.
 	const skillsSection = tools.split('<a id="skills"></a>')[1] || '';
 	const skillsListed = [...skillsSection.matchAll(/^### `([a-z0-9_]+)`/gm)].map(m => m[1]);
-	assert.equal(skillsListed.length, 6);
+	assert.equal(skillsListed.length, 0);
 	for (const name of skillsListed) assert.ok(!listed.includes(name), name);
 	for (const match of tools.matchAll(/```json\s*([\s\S]*?)```/g)) {
 		const example = JSON.parse(match[1]);

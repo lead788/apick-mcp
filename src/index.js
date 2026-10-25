@@ -63,6 +63,10 @@ async function main() {
 		process.exitCode = 2;
 		return;
 	}
+	if (args.server === 'skills') {
+		process.stderr.write('SKILLS_MOVED: https://reqeo.com/mcp/skills — 계정·포인트·인증키는 별개입니다. Accounts, points and API keys are separate.\n');
+		process.exitCode = 2; return;
+	}
 	if (!SERVERS.includes(args.server)) {
 		process.stderr.write(
 			'apick-mcp: unknown server "' + args.server + '". Available: ' + SERVERS.join(', ') + '\n'

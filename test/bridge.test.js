@@ -22,11 +22,11 @@ test('신분증 structuredContent 오류 코드를 변경 없이 전달한다', 
 	assert.deepEqual(output, [serverMessage]);
 });
 
-test('4.15.0 공개 메타데이터는 대상 175개·Convert 25개·AI 15개와 이미지 작업 계약에 일치한다', () => {
+test('5.0.0 공개 메타데이터는 대상 175개·Convert 25개·AI 15개와 이미지 작업 계약에 일치한다', () => {
 	const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
 	const readme = readFileSync(new URL('../README.md', import.meta.url), 'utf8');
 	const tools = readFileSync(new URL('../TOOLS.md', import.meta.url), 'utf8');
-	assert.equal(pkg.version, '4.15.0');
+	assert.equal(pkg.version, '5.0.0');
 	assert.match(pkg.description, /175 Korean data, AI, image & video tools/);
 	assert.match(readme, /\| \[AI · LLM\]\(TOOLS\.md#ai\) \| `https:\/\/apick\.app\/mcp\/ai` \| 15 \|/);
 	assert.match(tools, /\| \*\*All 통합\*\* \| `\/mcp\/all` \| \*\*175\*\* \|/);

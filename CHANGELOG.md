@@ -1,3 +1,9 @@
+## 5.0.0 (2026-10-25)
+
+스킬 판매·실행은 [리퀘오 REQEO](https://reqeo.com/dev_guide/skills)로 이전했습니다. 원격 MCP 주소는 `https://reqeo.com/mcp/skills`입니다. 리퀘오 계정에서 발급한 인증키로 연결하세요. 두 서비스의 계정과 포인트는 별개이며 에이픽 인증키는 전달하지 않습니다. `--server skills`는 이전 안내와 함께 종료합니다. 일반 API·TTS·설치형 에이전트는 계속 지원합니다.
+
+Skill sales and execution have moved to [REQEO](https://reqeo.com/dev_guide/skills). Connect directly to `https://reqeo.com/mcp/skills` with a key from your REQEO account. Accounts and points are separate; APICK credentials are not forwarded. `--server skills` exits with a migration notice. General APIs, TTS and the installed agent remain supported.
+
 # 4.15.0
 
 - 등기 Tool 목록을 서버와 맞췄습니다. 서버에 없는 `registry_jobs_status`·`registry_jobs_download`를 목록과 설명에서 뺐습니다. 열람·발급 2종은 한 호출로 결제와 PDF 확보를 끝내고 PDF를 돌려주며(최대 180초, 건당 850P, 실패 시 차감 없음), 다시 받을 때는 응답 헤더 `X-Apick-Job-Id`를 `job_id`로 `POST /rest/registry_jobs/:job_id/download`에 보냅니다(건당 30P).

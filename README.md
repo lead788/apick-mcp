@@ -1,11 +1,3 @@
-스킬 구매 전 [성능표와 시험 방식](https://apick.app/skills/performance)을 확인하세요. 표본 수·평가일·기계 검사와 모델 점수를 구분하며, 미검증 항목은 수치를 표시하지 않습니다. [공개 JSON](https://apick.app/skills/performance/data.json)도 제공하며 별도의 유료 도구 호출이 필요하지 않습니다.
-
-Before choosing a Skill, review its [measured performance and test methods](https://apick.app/skills/performance). Sample sizes, dates, machine checks and model scores are reported separately; untested values are not scored. A [public JSON report](https://apick.app/skills/performance/data.json) is available without a paid tool call.
-
-<div align="center">
-
-<img src="https://raw.githubusercontent.com/lead788/apick-mcp/main/assets/logo-400.png" alt="APICK" width="88" height="88">
-
 # APICK MCP — 175 Korean Data, AI, Image & Video Tools
 
 >
@@ -164,7 +156,6 @@ Connect to `all` for everything, or to one server to keep the tool list short an
 | [OCR 문자인식](TOOLS.md#ocr) | `https://apick.app/mcp/ocr` | 6 | 이미지 텍스트 추출, 신분증 항목 추출 |
 | [AI · LLM](TOOLS.md#ai) | `https://apick.app/mcp/ai` | 15 | LLM 챗, 텍스트 요약·교정, 이미지 생성·편집·대량 작업, 비동기 영상 생성 |
 | [Finance 금융](TOOLS.md#finance) | `https://apick.app/mcp/finance` | 3 | 계좌 예금주 조회, 1원 인증 |
-| [Skills](TOOLS.md#skills) | `https://apick.app/mcp/skills` | 6 | 검수된 Skill 검색·견적·실행. `all`과 별도 서버 / reviewed Skills, separate from `all` |
 
 ### Every tool / 전체 Tool
 
@@ -567,3 +558,10 @@ Both engines share job status, cancellation, MP3 and original-text ASS downloads
 Put the model, trim, year and seat count in model (for example, PANAMERA GTS 19년). Matching prioritizes the supplied year and trim, and the seat count must match the specification. Check the returned year and notice when a nearby year is selected. Unmatched trims and low-confidence matches return suggestions without specifications or charges; no similar vehicle returns a no-result error without charging. Conflicting explicit and free-text constraints are rejected.
 
 도구 / Tool: `vehicle_model_info`, arguments: `{ "model": "PANAMERA GTS 19년" }`.
+
+
+## 리퀘오 이전 / Move to REQEO
+
+스킬 판매·실행은 [리퀘오 REQEO](https://reqeo.com/dev_guide/skills)로 이전했습니다. 원격 MCP 주소는 `https://reqeo.com/mcp/skills`입니다. 리퀘오 계정에서 발급한 인증키로 연결하세요. 두 서비스의 계정과 포인트는 별개이며 에이픽 인증키는 전달하지 않습니다. `--server skills`는 이전 안내와 함께 종료합니다. 일반 API·TTS·설치형 에이전트는 계속 지원합니다.
+
+Skill sales and execution have moved to [REQEO](https://reqeo.com/dev_guide/skills). Connect directly to `https://reqeo.com/mcp/skills` with a key from your REQEO account. Accounts and points are separate; APICK credentials are not forwarded. `--server skills` exits with a migration notice. General APIs, TTS and the installed agent remain supported.

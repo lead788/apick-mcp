@@ -1,7 +1,7 @@
 # APICK MCP — Full Tool Catalog / 전체 Tool 목록
 
-**175 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 175개**, 분야별 서버 8개와 통합 서버 `all`.
+**184 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 184개**, 분야별 서버 8개와 통합 서버 `all`.
 
 4.15.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
 
@@ -24,11 +24,11 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 25 | PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
-| **All 통합** | `/mcp/all` | **175** | 아래 전부 + [`find_tools`](#find-tools) |
+| **All 통합** | `/mcp/all` | **184** | 아래 전부 + [`find_tools`](#find-tools) |
 
-<details><summary><b>All 177 MCP tool names / 전체 MCP Tool 이름</b></summary>
+<details><summary><b>All 185 MCP tool names / 전체 MCP Tool 이름</b></summary>
 
-`biz_detail` · `venture_biz_info` · `bid_notice` · `bid_award` · `rtms_trade` · `rtms_rent` · `land_rt_price` · `bldrgst` · `court_auction` · `registry_doc_verify` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `vehicle_model_info` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `req_income_cert_bundle` · `get_income_cert_bundle` · `req_business_cert_bundle` · `get_business_cert_bundle` · `vehicle_emission` · `vehicle_recall` · `hipass_unpaid` · `vehicle_tax_calc` · `corp_finance` · `geo_standardize` · `geo_batch_geocode` · `geo_reverse` · `geo_address_search` · `geo_place_search` · `geo_admin_code` · `geo_compare_address` · `geo_measure` · `geo_geojson_analyze` · `geo_address_quality` · `geo_address_autocomplete` · `geo_district_boundary` · `geo_neighborhood` · `registry_realestate_search` · `registry_corporate_search` · `registry_realestate_jobs_create` · `registry_corporate_jobs_create`
+`biz_detail` · `venture_biz_info` · `bid_notice` · `bid_award` · `rtms_trade` · `rtms_rent` · `land_rt_price` · `land_info` · `bldrgst` · `court_auction` · `registry_doc_verify` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `vehicle_model_info` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `req_income_cert_bundle` · `get_income_cert_bundle` · `req_business_cert_bundle` · `get_business_cert_bundle` · `req_nps_bundle` · `get_nps_bundle` · `req_hometax_bundle` · `get_hometax_bundle` · `req_hometax_biz_bundle` · `get_hometax_biz_bundle` · `vehicle_emission` · `vehicle_recall` · `hipass_unpaid` · `vehicle_tax_calc` · `corp_finance` · `geo_standardize` · `geo_batch_geocode` · `geo_reverse` · `geo_address_search` · `geo_place_search` · `geo_admin_code` · `geo_compare_address` · `geo_measure` · `geo_geojson_analyze` · `geo_address_quality` · `geo_address_autocomplete` · `geo_district_boundary` · `geo_neighborhood` · `geo_site_score` · `geo_address_cleanup` · `registry_realestate_search` · `registry_corporate_search` · `registry_realestate_jobs_create` · `registry_corporate_jobs_create`
 
 `identi_card1` · `identi_card2` · `identi_card3` · `identi_card4` · `identi_card5` · `identi_card_image1` · `identi_card_image2` · `identi_card_image3` · `identi_card_image4` · `identi_card_image5` · `name_rrn_auth` · `hide_rrn` · `identity_document_residence_card` · `identity_document_passport` · `identity_document_id_card` · `identity_document_driver_license`
 
@@ -149,11 +149,11 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 ## All server only · 통합 서버 전용
 
-`https://apick.app/mcp/all` — 1 tool in addition to the 177 domain tools
+`https://apick.app/mcp/all` — 1 tool in addition to the 184 domain tools
 
 Tools that exist only on the combined `all` server. Domain servers keep their own tool counts.
 
-분야별 Tool 175개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
+분야별 Tool 184개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
 
 <a id="find-tools"></a>
 
@@ -194,7 +194,7 @@ Call the recommended tool afterwards with your API key as usual. 추천받은 To
 
 ## Business & Commerce · 사업자 · 커머스
 
-`https://apick.app/mcp/business` — 68 tools
+`https://apick.app/mcp/business` — 77 tools
 
 Korean business registry, corporate credit, parcel tracking, real-estate prices, vehicle history, and input validation.
 
@@ -205,6 +205,7 @@ Korean business registry, corporate credit, parcel tracking, real-estate prices,
 | [`biz_detail`](#biz-detail) | 사업자 정보 조회 | `biz_no` |
 | [`venture_biz_info`](#venture-biz-info) | 벤처기업 정보조회 | `biz_no` |
 | [`land_rt_price`](#land-rt-price) | 부동산 실거래가 조회 | `addr1`, `addr2`, `type`, `year` |
+| [`land_info`](#land-info) | 토지 종합 분석 | — |
 | [`req_pccc`](#req-pccc) | 개인통관고유부호 인증 요청 | `name`, `birthday`, `phone`, `provider` |
 | [`get_pccc`](#get-pccc) | 개인통관고유부호 조회 | `tx_id` |
 | [`get_car_flooding`](#get-car-flooding) | 차량 침수차 여부 조회 | `type`, `value` |
@@ -244,6 +245,8 @@ Korean business registry, corporate credit, parcel tracking, real-estate prices,
 | [`geo_address_autocomplete`](#geo-address-autocomplete) | 주소 자동완성 | `query` |
 | [`geo_district_boundary`](#geo-district-boundary) | 행정구역 경계·면적 분석 | `query` |
 | [`geo_neighborhood`](#geo-neighborhood) | 주변 생활시설 분석 | — |
+| [`geo_site_score`](#geo-site-score) | 입지 종합 점수 | — |
+| [`geo_address_cleanup`](#geo-address-cleanup) | 주소록 중복·권역 정비 | `addresses` |
 | [`req_cash_receipt_deduction`](#req-cash-receipt-deduction) | 현금영수증 소득공제 내역 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
 | [`get_cash_receipt_deduction`](#get-cash-receipt-deduction) | 현금영수증 소득공제 내역 결과 | `transactionId` |
 | [`req_tax_return_history`](#req-tax-return-history) | 국세 신고내역 조회 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
@@ -266,6 +269,12 @@ Korean business registry, corporate credit, parcel tracking, real-estate prices,
 | [`get_income_cert_bundle`](#get-income-cert-bundle) | 소득 증빙서류 통합발급 결과 | `transactionId` |
 | [`req_business_cert_bundle`](#req-business-cert-bundle) | 사업자 증빙서류 통합발급 인증 요청 | `name`, `birthDate`, `phone`, `authProvider`, `business_no`, `year`, `use_purpose`, `submit_to`, `delivery` |
 | [`get_business_cert_bundle`](#get-business-cert-bundle) | 사업자 증빙서류 통합발급 결과 | `transactionId` |
+| [`req_nps_bundle`](#req-nps-bundle) | 국민연금 통합조회 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
+| [`get_nps_bundle`](#get-nps-bundle) | 국민연금 통합조회 결과 | `transactionId` |
+| [`req_hometax_bundle`](#req-hometax-bundle) | 개인 국세 통합조회 인증 요청 | `name`, `birthDate`, `phone`, `authProvider`, `products` |
+| [`get_hometax_bundle`](#get-hometax-bundle) | 개인 국세 통합조회 결과 | `transactionId` |
+| [`req_hometax_biz_bundle`](#req-hometax-biz-bundle) | 사업자 국세 통합조회 인증 요청 | `name`, `birthDate`, `phone`, `authProvider`, `products`, `business_no` |
+| [`get_hometax_biz_bundle`](#get-hometax-biz-bundle) | 사업자 국세 통합조회 결과 | `transactionId` |
 | [`registry_realestate_search`](#registry-realestate-search) | 부동산 등기 검색 | `query` |
 | [`registry_corporate_search`](#registry-corporate-search) | 법인 등기 검색 | — |
 | [`registry_realestate_jobs_create`](#registry-realestate-jobs-create) | 부동산 등기 열람·발급 접수 | — |
@@ -326,6 +335,28 @@ Look up real estate transaction price records in Korea by region, property type,
 
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"land_rt_price","arguments":{"addr1":"<addr1>","addr2":"<addr2>","type":"<type>","year":"<year>"}}}
+```
+
+<a id="land-info"></a>
+
+### `land_info` — 토지 종합 분석
+
+Analyze a Korean parcel: characteristics, land-use plan, official land price history with change rates and CAGR, regulation conflicts.
+
+필지의 지목·면적·용도지역·공시지가 이력·토지이동이력을 모아 공시지가 변동률·연평균 변동률·추세·규제 저촉을 분석합니다. `pnu`(19자리) 또는 `address` 중 하나가 필요하며, 분석 블록에 변동률·추세가 담깁니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `pnu` | `string` | 선택 / optional | 필지고유번호 (19자리) |
+| `address` | `string` | 선택 / optional | 지번 또는 도로명 주소 (`pnu` 가 없을 때 사용) |
+| `addrType` | `string` (parcel / road / auto) | 선택 / optional | 주소 유형 (기본 auto) |
+| `year` | `string` | 선택 / optional | 토지특성·공시지가 기준연도 (기본 전년도) |
+| `priceYears` | `integer` | 선택 / optional | 공시지가 이력 연수 (1~5, 기본 3) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"land_info","arguments":{"address":"서울특별시 구로구 구로동 1-1","priceYears":3}}}
 ```
 
 <a id="bldrgst"></a>
@@ -817,6 +848,92 @@ REST: `POST /rest/req_business_cert_bundle` · SDK: `requestBusinessCertBundle()
 REST: `POST /rest/get_business_cert_bundle` · SDK: `getBusinessCertBundle()`
 
 필수: `transactionId`. 성공 결과: `result.businessRegistrationCert` (`문서확인번호`, `상호`, `사업자등록번호`, `개업일자`, `업태`, `종목` …), `result.vatTaxBaseCert` (`문서확인번호`, `귀속연도`, `과세기간`, `과세표준`, `매출세액` …), `result.financialStatementCert` (`문서확인번호`, `귀속연도`, `자산총계`, `부채총계`, `자본총계`, `매출액`, `영업이익`, `당기순이익` …). 최초 결과 126P (개별 발급 합계 180P에서 30% 할인). 성공 응답에 `bind_id`가 함께 올 수 있습니다.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="req-nps-bundle"></a>
+
+### `req_nps_bundle` — 국민연금 통합조회 인증 요청
+
+REST: `POST /rest/req_nps_bundle` · SDK: `requestNpsBundle()`
+
+국민연금 가입내역·소득공제용 납부확인서·경력이력을 승인 한 번으로 함께 조회합니다. 세 조회가 같은 인증 단위라 승인은 한 번이고, 담긴 조회를 고르는 `products` 입력은 없습니다. 필수: `name`, `birthDate`, `phone`, `authProvider`. 선택: `from`·`to`(`YYYY-MM`, 가입내역·경력 구간), `years`(1~5, 납부확인서 연수). 인증 발송 성공 시 20P.
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"req_nps_bundle","arguments":{"name":"홍길동","birthDate":"19900101","phone":"01012345678","authProvider":"kakao","years":5}}}
+```
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="get-nps-bundle"></a>
+
+### `get_nps_bundle` — 국민연금 통합조회 결과 조회
+
+REST: `POST /rest/get_nps_bundle` · SDK: `getNpsBundle()`
+
+필수: `transactionId`. 성공 결과는 `result.npsJoinHistory`(`조회기간`, `합계`, `가입내역`), `result.npsDeductionCert`(`조회기간`, `연도별내역`), `result.npsCareerHistory`(`조회기간`, `합계`, `경력`, `사업장외가입`)에 나뉘어 옵니다. 최초 결과 126P(3종 묶음).
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="req-hometax-bundle"></a>
+
+### `req_hometax_bundle` — 개인 국세 통합조회 인증 요청
+
+REST: `POST /rest/req_hometax_bundle` · SDK: `requestHometaxBundle()`
+
+개인 국세 9종 중 `products` 로 고른 조회만 홈택스 간편인증 한 번으로 실행합니다. 필수: `name`, `birthDate`, `phone`, `authProvider`, `products`. 고를 수 있는 키: `personal_income`, `cash_receipt_deduction`, `income_by_payer`, `income_data_check`, `tax_return_history`, `tax_payment_history`, `income_amount_cert`, `pension_credit_cert`, `fact_cert`. 선택: `incomeYears`(1~5), `years`(1~10), 증명 발급 조건(`year`·`use_purpose`·`submit_to`·`delivery`·`format` 등). 과금은 고른 상품 단가의 합이고, 담지 않은 조회는 인증도 수집도 하지 않습니다. 인증 발송 성공 시 20P.
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"req_hometax_bundle","arguments":{"name":"홍길동","birthDate":"19900101","phone":"01012345678","authProvider":"kakao","products":["personal_income","tax_return_history"]}}}
+```
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="get-hometax-bundle"></a>
+
+### `get_hometax_bundle` — 개인 국세 통합조회 결과 조회
+
+REST: `POST /rest/get_hometax_bundle` · SDK: `getHometaxBundle()`
+
+필수: `transactionId`. 결과는 `result.personalIncome`·`result.cashReceiptDeduction`·`result.incomeByPayer`·`result.incomeDataCheck`·`result.taxReturnHistory`·`result.taxPaymentHistory`·`result.incomeAmountCert`·`result.pensionCreditCert`·`result.taxPaymentHistoryCert` 중 접수 때 `products` 로 고른 상품의 섹션만 옵니다. 최초 결과는 고른 상품 단가의 합입니다.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="req-hometax-biz-bundle"></a>
+
+### `req_hometax_biz_bundle` — 사업자 국세 통합조회 인증 요청
+
+REST: `POST /rest/req_hometax_biz_bundle` · SDK: `requestHometaxBizBundle()`
+
+사업자 국세 15종 중 `products` 로 고른 조회만 홈택스 간편인증 한 번으로 실행합니다. 필수: `name`, `birthDate`, `phone`, `authProvider`, `products`, `business_no`(숫자 10자리). 고를 수 있는 키: `business_sales`, `business_purchase`, `business_registration_cert`, `vat_tax_base_cert`, `financial_statement_cert`, `closure_cert`, `tax_clearance_cert`, `etax_sales_list`, `etax_purchase_list`, `etax_sales_summary`, `etax_purchase_summary`, `etax_stats`, `etax_client_list`, `etax_item_list`, `etax_status`. 증명 발급 조건(`year`·`period`·`cert_type`·`use_purpose`·`submit_to`·`delivery`·`format` 등)과 전자세금계산서 조회 기간(`from`·`to`·`keyword`)을 함께 받습니다. 과금은 고른 상품 단가의 합입니다. 인증 발송 성공 시 20P.
+
+**대표자 확인:** 사업자 조회라 `bind_id` 가 없으면 `agreed: true` 가 있어야 접수됩니다. 빠지면 인증을 보내지 않고 무과금으로 거절합니다.
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"req_hometax_biz_bundle","arguments":{"name":"홍길동","birthDate":"19900101","phone":"01012345678","authProvider":"kakao","products":["business_sales","etax_status"],"business_no":"1234567890","agreed":true}}}
+```
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="get-hometax-biz-bundle"></a>
+
+### `get_hometax_biz_bundle` — 사업자 국세 통합조회 결과 조회
+
+REST: `POST /rest/get_hometax_biz_bundle` · SDK: `getHometaxBizBundle()`
+
+필수: `transactionId`. 결과는 `result.businessSales`·`result.businessPurchase`·`result.businessRegistrationCert`·`result.vatTaxBaseCert`·`result.financialStatementCert`·`result.closureCert`·`result.taxClearanceCert`·`result.etaxSalesList`·`result.etaxPurchaseList`·`result.etaxSalesSummary`·`result.etaxPurchaseSummary`·`result.etaxStats`·`result.etaxClientList`·`result.etaxItemList`·`result.etaxStatus` 중 접수 때 `products` 로 고른 상품의 섹션만 옵니다. 최초 결과는 고른 상품 단가의 합이며, 성공 응답에 다음 조회에 쓸 `bind_id` 가 함께 올 수 있습니다.
 
 [공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
 
@@ -1521,6 +1638,50 @@ Analyze daily-life facilities around an address or coordinate by category, with 
 
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"geo_neighborhood","arguments":{}}}
+```
+
+<a id="geo-site-score"></a>
+
+### `geo_site_score` — 입지 종합 점수
+
+Score an address or coordinate for site selection by combining daily-infrastructure accessibility, category diversity and address confidence into a 0-100 score with components and grade.
+
+주소 또는 좌표를 생활 인프라 접근성·분류 다양성·주소 신뢰도로 점수화해 0~100 점수와 구성 항목·등급으로 돌려줍니다. 후보지 여러 곳을 같은 기준으로 비교할 때 씁니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `address` | `string` | 선택 / optional | 기준 주소. 좌표와 둘 중 하나는 필요합니다. |
+| `x` | `number` | 선택 / optional | 기준점 경도 |
+| `y` | `number` | 선택 / optional | 기준점 위도 |
+| `point` | `string` | 선택 / optional | 기준점 "경도,위도" |
+| `radius` | `number` | 선택 / optional | 반경(m). 기본 800 (100~2000) |
+| `categories` | `array` | 선택 / optional | 분류 이름 목록 (최대 6개). 생략하면 편의점·지하철역·학교·병원·약국 |
+| `limit` | `integer` | 선택 / optional | 분류별로 함께 돌려줄 가까운 시설 수 (기본 3, 0이면 생략) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"geo_site_score","arguments":{"address":"서울특별시 구로구 디지털로 33길 12"}}}
+```
+
+<a id="geo-address-cleanup"></a>
+
+### `geo_address_cleanup` — 주소록 중복·권역 정비
+
+Group an address list into real sites and report duplicate rate, district distribution and unmatched addresses with alternatives.
+
+여러 표기가 섞인 주소록을 실제 지점 단위로 묶고 중복률·권역 분포·찾지 못한 주소와 대안을 돌려줍니다. 지점·고객 주소록을 정리할 때 씁니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `addresses` | `array` | **필수 / required** | 정리할 주소 목록 (최대 50건). 줄바꿈 문자열 또는 JSON 배열 |
+| `addrType` | `string` (auto / parcel / road) | 선택 / optional | 주소 유형. 기본 auto |
+| `includeSuggestions` | `boolean` | 선택 / optional | 찾지 못한 주소의 대안 후보 포함 여부 (기본 true, 최대 10건 조회) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"geo_address_cleanup","arguments":{"addresses":["서울 구로구 디지털로33길 12","서울특별시 구로구 디지털로33길 12"]}}}
 ```
 
 <a id="registry-realestate-search"></a>

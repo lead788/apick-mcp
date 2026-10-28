@@ -1,3 +1,21 @@
+## 5.1.0 (2026-10-28)
+
+통합 조회 묶음 6개 Tool을 추가했습니다(통합 184개, Business 77개). 한 번 인증으로 여러 조회를 처리합니다.
+
+- `req_nps_bundle` / `get_nps_bundle` — 국민연금 가입내역·소득공제용 납부확인서·경력이력을 승인 한 번으로 조회합니다. 최초 결과 126P(3종 묶음).
+- `req_hometax_bundle` / `get_hometax_bundle` — 개인 국세 9종 중 `products`로 고른 조회만 홈택스 간편인증 한 번으로 실행합니다. 과금은 고른 상품 단가의 합입니다.
+- `req_hometax_biz_bundle` / `get_hometax_biz_bundle` — 사업자 국세 15종 중 `products`로 고른 조회만 실행합니다. `business_no`와 대표자 확인(`agreed: true` 또는 이전 `bind_id`)이 필요합니다.
+- 담지 않은 조회는 인증도 수집도 하지 않으며, 고른 조회가 모두 실패하면 과금되지 않습니다. 같은 인증 단위의 조회는 승인 요청을 한 번만 보냅니다.
+- `TOOLS.md`에 빠져 있던 `land_info`·`geo_site_score`·`geo_address_cleanup`과 새 묶음 6개를 더해 전체 184개 목록·Business 77개 표를 서버와 맞췄습니다.
+
+Adds six lookup-bundle tools (184 tools total, 77 on the Business server). One phone approval runs several lookups.
+
+- `req_nps_bundle` / `get_nps_bundle` — three pension lookups under one approval; 126P for the first result.
+- `req_hometax_bundle` / `get_hometax_bundle` — runs only the personal tax products listed in `products` under one approval; billing is the sum of the selected products.
+- `req_hometax_biz_bundle` / `get_hometax_biz_bundle` — same for 15 business tax products; needs `business_no` and representative consent (`agreed: true` or a previous `bind_id`).
+- Products not listed are neither approved nor collected, and nothing is charged when every selected lookup fails. Lookups sharing one authentication unit request approval only once.
+- `TOOLS.md` now documents `land_info`, `geo_site_score`, `geo_address_cleanup` and the six bundles, so the 184-tool inventory and the 77-tool Business table match the server.
+
 ## 5.0.0 (2026-10-25)
 
 스킬 판매·실행은 [리퀘오 REQEO](https://reqeo.com/dev_guide/skills)로 이전했습니다. 원격 MCP 주소는 `https://reqeo.com/mcp/skills`입니다. 리퀘오 계정에서 발급한 인증키로 연결하세요. 두 서비스의 계정과 포인트는 별개이며 에이픽 인증키는 전달하지 않습니다. `--server skills`는 이전 안내와 함께 종료합니다. 일반 API·TTS·설치형 에이전트는 계속 지원합니다.

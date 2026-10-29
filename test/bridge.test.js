@@ -22,11 +22,11 @@ test('신분증 structuredContent 오류 코드를 변경 없이 전달한다', 
 	assert.deepEqual(output, [serverMessage]);
 });
 
-test('5.1.0 공개 메타데이터는 대상 184개·Convert 25개·AI 15개와 이미지 작업 계약에 일치한다', () => {
+test('5.1.1 공개 메타데이터는 대상 184개·Convert 25개·AI 15개와 이미지 작업 계약에 일치한다', () => {
 	const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
 	const readme = readFileSync(new URL('../README.md', import.meta.url), 'utf8');
 	const tools = readFileSync(new URL('../TOOLS.md', import.meta.url), 'utf8');
-	assert.equal(pkg.version, '5.1.0');
+	assert.equal(pkg.version, '5.1.1');
 	assert.match(pkg.description, /184 Korean data, AI, image & video tools/);
 	assert.match(readme, /\| \[AI · LLM\]\(TOOLS\.md#ai\) \| `https:\/\/apick\.app\/mcp\/ai` \| 15 \|/);
 	assert.match(tools, /\| \*\*All 통합\*\* \| `\/mcp\/all` \| \*\*184\*\* \|/);
@@ -107,4 +107,12 @@ test('3.7.0 find_tools·stt artifact_filter·llm_chat relevance 계약이 문서
 	// llm_chat compact.strategy relevance
 	assert.match(tools, /strategy: 'none'\(기본\) \\\| 'sliding_window' \\\| 'relevance'/);
 	assert.match(changelog, /## 3\.7\.0[\s\S]*`find_tools`[\s\S]*`artifact_filter`[\s\S]*`relevance`[\s\S]*## 3\.6\.0/);
+});
+
+test('README 는 클라이언트 MCP 도구 대기 시간을 안내한다', () => {
+	const readme = readFileSync(new URL('../README.md', import.meta.url), 'utf8');
+	assert.match(readme, /Tool wait time \/ 도구 대기 시간/);
+	assert.match(readme, /"timeout": 660000/);
+	assert.match(readme, /MCP_TOOL_TIMEOUT=660000/);
+	assert.match(readme, /최소 120초/);
 });

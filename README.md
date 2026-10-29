@@ -128,6 +128,10 @@ Zero-dependency stdio bridge, Node 18+. 의존성 0개 stdio 브릿지.
 </td></tr>
 </table>
 
+**Tool wait time / 도구 대기 시간** — Most tools finish within two minutes, but some (speech-to-text, long chats, image generation, registry document issuance) take several minutes. If your client's MCP tool timeout is short, the call is cut off before the result arrives. Set it to at least 120 seconds, or 660 seconds (11 minutes) if you use those tools. In Claude Code, add `"timeout": 660000` (milliseconds) to the server entry or set `MCP_TOOL_TIMEOUT=660000`. For other clients, see their MCP settings. Do not resend the same request while waiting; raise the timeout and retry once.
+
+대부분의 Tool은 2분 안에 끝나지만 음성 받아쓰기·긴 대화·그림 생성·등기 발급처럼 몇 분이 걸리는 Tool도 있습니다. 클라이언트의 MCP 도구 대기 시간이 짧으면 결과가 오기 전에 호출이 끊기므로 최소 120초, 이런 Tool을 쓴다면 660초(11분) 이상으로 두세요. Claude Code는 서버 설정 항목에 `"timeout": 660000`(밀리초)을 넣거나 `MCP_TOOL_TIMEOUT=660000`으로 늘립니다. 다른 도구는 각 도구의 MCP 설정 안내를 확인하세요. 기다리는 동안 같은 요청을 거듭 보내지 말고, 대기 시간을 늘린 뒤 한 번만 다시 보내세요.
+
 ### 3. Ask / 물어보기
 
 ```

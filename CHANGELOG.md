@@ -1,3 +1,9 @@
+## 5.1.1 (2026-10-29)
+
+README에 클라이언트 MCP 도구 대기 시간 안내를 더했습니다. 대부분의 Tool은 2분 안에 끝나지만 음성 받아쓰기·긴 대화·그림 생성·등기 발급은 몇 분이 걸리므로 대기 시간을 최소 120초, 이런 Tool을 쓰면 660초 이상으로 두세요(Claude Code: 서버 항목 `"timeout": 660000` 또는 `MCP_TOOL_TIMEOUT`). 코드와 Tool 목록은 바뀌지 않았습니다.
+
+README now explains client tool timeouts. Most tools finish within two minutes; speech-to-text, long chats, image generation and registry issuance can take several minutes, so set the MCP tool timeout to at least 120 seconds, or 660 seconds for those tools (Claude Code: `"timeout": 660000` on the server entry or `MCP_TOOL_TIMEOUT`). No code or tool-list changes.
+
 ## 5.1.0 (2026-10-28)
 
 통합 조회 묶음 6개 Tool을 추가했습니다(통합 184개, Business 77개). 한 번 인증으로 여러 조회를 처리합니다.

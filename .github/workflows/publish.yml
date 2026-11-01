@@ -1,0 +1,39 @@
+name: publish
+
+# npm 게시는 OIDC 신뢰 게시(Trusted Publishing)로 한다.
+# 계정 2FA 가 보안 키 전용이라 CLI 가 OTP 를 만들 수 없어, 로컬 `npm publish` 는 EOTP 로 막힌다.
+# npmjs.com 의 apick-mcp → Settings → Trusted publishing 에 이 저장소와 이 파일 이름을 등록해야 동작한다.
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          registry-url: 'https://registry.npmjs.org'
+
+      # 신뢰 게시는 npm 11.5.1 이상이 필요하다.
+      - name: Upgrade npm
+        run: npm install -g npm@latest
+
+      - name: Install
+        run: npm ci
+
+      - name: Test
+        run: npm test
+
+      - name: Publish
+        run: npm publish --provenance --access public

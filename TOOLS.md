@@ -1,9 +1,9 @@
 # APICK MCP — Full Tool Catalog / 전체 Tool 목록
 
-**184 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 184개**, 분야별 서버 8개와 통합 서버 `all`.
+**188 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 188개**, 분야별 서버 8개와 통합 서버 `all`.
 
-4.15.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
+5.2.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
 
 
 
@@ -16,27 +16,27 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 | Server 서버 | Endpoint | Tools | Coverage 범위 |
 | --- | --- | --- | --- |
-| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 70 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 간편인증 데이터 조회·세무 증빙서류 발급, 유효성 검사. |
+| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 78 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 간편인증 데이터 조회·세무 증빙서류 발급, 이메일 위험 일괄 검사, 유효성 검사. |
 | [Identity Verification · 신분증 진위확인 · 마스킹](#identity) | `/mcp/identity` | 16 | 주민등록증·운전면허증·여권·외국인등록증 진위확인, 실명확인, 개인정보 마스킹. |
 | [OCR · OCR 문자인식](#ocr) | `/mcp/ocr` | 6 | 이미지 텍스트 추출과 신분증 항목 추출. |
-| [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 3 | 계좌 예금주 실명조회와 1원 인증. |
-| [Web & Search · 웹 · 검색](#web) | `/mcp/web` | 36 | 도메인·IP 조회, WHOIS, 웹페이지 조회, 구글 검색(웹·이미지·뉴스·쇼핑·지도·장소 상세·순위), 유튜브(검색·채널·재생목록·댓글·자막·영상 정보·썸네일), 인스타그램·틱톡·X(프로필·게시물), 아마존·쿠팡·네이버 상품, 링크드인(프로필·회사·채용공고). |
+| [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 4 | 계좌 예금주 실명조회, 1원 인증, 암호화폐 통합 시세·김치프리미엄. |
+| [Web & Search · 웹 · 검색](#web) | `/mcp/web` | 38 | 도메인·IP 조회, WHOIS, 웹페이지 조회, URL→Markdown 변환, 페이지 캡처·텍스트 좌표, 구글 검색(웹·이미지·뉴스·쇼핑·지도·장소 상세·순위), 유튜브(검색·채널·재생목록·댓글·자막·영상 정보·썸네일), 인스타그램·틱톡·X(프로필·게시물), 아마존·쿠팡·네이버 상품, 링크드인(프로필·회사·채용공고). |
 | [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 25 | PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
-| **All 통합** | `/mcp/all` | **184** | 아래 전부 + [`find_tools`](#find-tools) |
+| **All 통합** | `/mcp/all` | **188** | 아래 전부 + [`find_tools`](#find-tools) |
 
-<details><summary><b>All 185 MCP tool names / 전체 MCP Tool 이름</b></summary>
+<details><summary><b>All 189 MCP tool names / 전체 MCP Tool 이름</b></summary>
 
-`biz_detail` · `venture_biz_info` · `bid_notice` · `bid_award` · `rtms_trade` · `rtms_rent` · `land_rt_price` · `land_info` · `bldrgst` · `court_auction` · `registry_doc_verify` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `vehicle_model_info` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `req_income_cert_bundle` · `get_income_cert_bundle` · `req_business_cert_bundle` · `get_business_cert_bundle` · `req_nps_bundle` · `get_nps_bundle` · `req_hometax_bundle` · `get_hometax_bundle` · `req_hometax_biz_bundle` · `get_hometax_biz_bundle` · `vehicle_emission` · `vehicle_recall` · `hipass_unpaid` · `vehicle_tax_calc` · `corp_finance` · `geo_standardize` · `geo_batch_geocode` · `geo_reverse` · `geo_address_search` · `geo_place_search` · `geo_admin_code` · `geo_compare_address` · `geo_measure` · `geo_geojson_analyze` · `geo_address_quality` · `geo_address_autocomplete` · `geo_district_boundary` · `geo_neighborhood` · `geo_site_score` · `geo_address_cleanup` · `registry_realestate_search` · `registry_corporate_search` · `registry_realestate_jobs_create` · `registry_corporate_jobs_create`
+`biz_detail` · `venture_biz_info` · `bid_notice` · `bid_award` · `rtms_trade` · `rtms_rent` · `land_rt_price` · `land_info` · `bldrgst` · `court_auction` · `registry_doc_verify` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `vehicle_model_info` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `req_income_cert_bundle` · `get_income_cert_bundle` · `req_business_cert_bundle` · `get_business_cert_bundle` · `req_nps_bundle` · `get_nps_bundle` · `req_hometax_bundle` · `get_hometax_bundle` · `req_hometax_biz_bundle` · `get_hometax_biz_bundle` · `vehicle_emission` · `vehicle_recall` · `hipass_unpaid` · `vehicle_tax_calc` · `corp_finance` · `geo_standardize` · `geo_batch_geocode` · `geo_reverse` · `geo_address_search` · `geo_place_search` · `geo_admin_code` · `geo_compare_address` · `geo_measure` · `geo_geojson_analyze` · `geo_address_quality` · `geo_address_autocomplete` · `geo_district_boundary` · `geo_neighborhood` · `geo_site_score` · `geo_address_cleanup` · `registry_realestate_search` · `registry_corporate_search` · `registry_realestate_jobs_create` · `registry_corporate_jobs_create` · `email_risk_batch`
 
 `identi_card1` · `identi_card2` · `identi_card3` · `identi_card4` · `identi_card5` · `identi_card_image1` · `identi_card_image2` · `identi_card_image3` · `identi_card_image4` · `identi_card_image5` · `name_rrn_auth` · `hide_rrn` · `identity_document_residence_card` · `identity_document_passport` · `identity_document_id_card` · `identity_document_driver_license`
 
 `ocr` · `ocr_identi1` · `ocr_identi2` · `ocr_identi3` · `ocr_identi4` · `ocr_identi5`
 
-`transfer_1won` · `account_realname` · `bank_code`
+`transfer_1won` · `account_realname` · `bank_code` · `crypto_market`
 
-`nslookup` · `reverse_ip` · `location` · `ip_history` · `whois` · `url_html` · `url_screenshot` · `url_similarity` · `google_search` · `google_image_search` · `google_news_search` · `google_shopping_search` · `google_maps_search` · `google_rank_check` · `google_lens_search` · `crawl_youtube` · `youtube_search` · `youtube_playlist` · `youtube_channel` · `youtube_hashtag` · `youtube_comments` · `youtube_metadata` · `youtube_thumbnail` · `youtube_subtitle_list` · `youtube_subtitle` · `instagram_profile` · `instagram_post` · `tiktok_profile` · `amazon_product` · `x_profile` · `x_post` · `coupang_product` · `naver_shopping_product` · `linkedin_profile` · `linkedin_company` · `linkedin_job`
+`nslookup` · `reverse_ip` · `location` · `ip_history` · `whois` · `url_html` · `url_screenshot` · `url_similarity` · `google_search` · `google_image_search` · `google_news_search` · `google_shopping_search` · `google_maps_search` · `google_rank_check` · `google_lens_search` · `crawl_youtube` · `youtube_search` · `youtube_playlist` · `youtube_channel` · `youtube_hashtag` · `youtube_comments` · `youtube_metadata` · `youtube_thumbnail` · `youtube_subtitle_list` · `youtube_subtitle` · `instagram_profile` · `instagram_post` · `tiktok_profile` · `amazon_product` · `x_profile` · `x_post` · `coupang_product` · `naver_shopping_product` · `linkedin_profile` · `linkedin_company` · `linkedin_job` · `url_to_markdown` · `web_capture_extract`
 
 `stt` · `tts_jobs_create` · `tts_gemini_create` · `tts_gemini_voices` · `tts_openai_create` · `tts_openai_voices` · `tts_options` · `tts_quote` · `tts_jobs_status` · `tts_jobs_cancel` · `tts_jobs_result` · `tts_jobs_subtitles` · `voice_change` · `face_blur` · `pdf_to_docx` · `pdf_to_image` · `pdf_merge` · `html_to_pdf` · `docx_to_pdf` · `json_to_excel` · `base64_to_image` · `set_watermark` · `get_watermark` · `draw_watermark_pdf` · `draw_watermark_image`
 
@@ -149,11 +149,11 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 ## All server only · 통합 서버 전용
 
-`https://apick.app/mcp/all` — 1 tool in addition to the 184 domain tools
+`https://apick.app/mcp/all` — 1 tool in addition to the 188 domain tools
 
 Tools that exist only on the combined `all` server. Domain servers keep their own tool counts.
 
-분야별 Tool 184개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
+분야별 Tool 188개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
 
 <a id="find-tools"></a>
 
@@ -194,7 +194,7 @@ Call the recommended tool afterwards with your API key as usual. 추천받은 To
 
 ## Business & Commerce · 사업자 · 커머스
 
-`https://apick.app/mcp/business` — 77 tools
+`https://apick.app/mcp/business` — 78 tools
 
 Korean business registry, corporate credit, parcel tracking, real-estate prices, vehicle history, and input validation.
 
@@ -232,6 +232,7 @@ Korean business registry, corporate credit, parcel tracking, real-estate prices,
 | [`court_auction`](#court-auction) | 법원 경매 사건 조회 | `case_no`, `court` |
 | [`registry_doc_verify`](#registry-doc-verify) | 등기·증명서 발급확인 | `issue_no` |
 | [`app_reviews`](#app-reviews) | 앱 리뷰 조회 | `appId` |
+| [`email_risk_batch`](#email-risk-batch) | 이메일 위험도 일괄 검사 | `emails` |
 | [`geo_standardize`](#geo-standardize) | 주소 표준화·코드 변환 | — |
 | [`geo_batch_geocode`](#geo-batch-geocode) | 대량 주소 좌표 변환 | `addresses` |
 | [`geo_reverse`](#geo-reverse) | 좌표→주소·행정구역 | — |
@@ -278,7 +279,7 @@ Korean business registry, corporate credit, parcel tracking, real-estate prices,
 | [`registry_realestate_search`](#registry-realestate-search) | 부동산 등기 검색 | `query` |
 | [`registry_corporate_search`](#registry-corporate-search) | 법인 등기 검색 | — |
 | [`registry_realestate_jobs_create`](#registry-realestate-jobs-create) | 부동산 등기 열람·발급 접수 | — |
-| [`registry_corporate_jobs_create`](#registry-corporate-jobs-create) | 법인 등기 열람·발급 | — |
+| [`registry_corporate_jobs_create` · `email_risk_batch`](#registry-corporate-jobs-create) | 법인 등기 열람·발급 | — |
 
 <a id="biz-detail"></a>
 
@@ -1266,6 +1267,24 @@ Get App Store app metadata and customer reviews (Apple iTunes) by numeric app id
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"app_reviews","arguments":{"appId":"<appId>","country":"<country>","page":1}}}
 ```
 
+<a id="email-risk-batch"></a>
+
+### `email_risk_batch` — 이메일 위험도 일괄 검사
+
+Check up to 100 email addresses at once and return syntax, disposable, free and role-account flags with a risk level.
+
+이메일 주소 목록을 한 번에 100건까지 받아 형식·일회용 메일·무료 메일·공용 주소 여부와 위험 등급(high·medium·low)을 돌려줍니다. 도메인 목록으로 판정하며 메일 서버 조회는 하지 않습니다. 호출당 20P, 실패하면 과금되지 않습니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `emails` | `string` | **필수 / required** | 이메일 주소를 줄바꿈 또는 쉼표로 구분해 최대 100건 (예: a@example.com, b@example.com) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"email_risk_batch","arguments":{"emails":"a@example.com, b@example.com"}}}
+```
+
 <a id="vehicle-emission"></a>
 
 ### `vehicle_emission` — 배출가스 인증정보 조회
@@ -1748,7 +1767,7 @@ View and issue a real estate registry certificate in one call.
 
 <a id="registry-corporate-jobs-create"></a>
 
-### `registry_corporate_jobs_create` — 법인 등기 열람·발급
+### `registry_corporate_jobs_create` · `email_risk_batch` — 법인 등기 열람·발급
 
 View and issue a corporate registry certificate in one call.
 
@@ -2255,7 +2274,7 @@ Extract key fields from a Korean alien registration card (residence card) image 
 
 ## Finance · 금융 · 계좌확인
 
-`https://apick.app/mcp/finance` — 3 tools
+`https://apick.app/mcp/finance` — 4 tools
 
 Korean bank account holder lookup and 1 KRW deposit verification.
 
@@ -2266,6 +2285,7 @@ Korean bank account holder lookup and 1 KRW deposit verification.
 | [`transfer_1won`](#transfer-1won) | 1원 인증 | `account_num` |
 | [`account_realname`](#account-realname) | 계좌 예금주 실명 조회 | `account_num` |
 | [`bank_code`](#bank-code) | 은행코드 조회 | — |
+| [`crypto_market`](#crypto-market) | 암호화폐 통합 시세·김치프리미엄 | `symbols` |
 
 <a id="transfer-1won"></a>
 
@@ -2325,11 +2345,29 @@ _No parameters. 파라미터 없음._
 
 ---
 
+<a id="crypto-market"></a>
+
+### `crypto_market` — 암호화폐 통합 시세·김치프리미엄
+
+Compare Korean-won crypto prices with global USDT prices and return the Korea premium (kimchi premium) per coin.
+
+국내외 주요 거래소의 실시간 시세를 모아 원화 환산 기준가와 한국 시장 프리미엄을 함께 계산합니다. 일부 거래소가 응답하지 않으면 partial=true 로 나머지 시세만 돌려줍니다. 호출당 30P, 실패하면 과금되지 않습니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `finance`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `symbols` | `string` | 선택 / optional | 심볼을 쉼표로 구분 (예: BTC,ETH,XRP). 생략하면 BTC,ETH,XRP,SOL,DOGE |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"crypto_market","arguments":{"symbols":"BTC,ETH"}}}
+```
+
 <a id="web"></a>
 
 ## Web & Search · 웹 · 검색
 
-`https://apick.app/mcp/web` — 36 tools
+`https://apick.app/mcp/web` — 38 tools
 
 Domain and IP intelligence, WHOIS, page capture, Google search (web, images, news, shopping, maps, rank check), YouTube (search, channels, playlists, comments, subtitles), Instagram, TikTok and X (profiles, posts), and Amazon (products).
 
@@ -2345,6 +2383,8 @@ Domain and IP intelligence, WHOIS, page capture, Google search (web, images, new
 | [`url_html`](#url-html) | URL HTML 추출 | `url` |
 | [`url_screenshot`](#url-screenshot) | URL 화면캡처 | `url` |
 | [`url_similarity`](#url-similarity) | URL 유사도 비교 | `url1`, `url2` |
+| [`url_to_markdown`](#url-to-markdown) | URL을 Markdown·JSON으로 변환 | `url` |
+| [`web_capture_extract`](#web-capture-extract) | 웹페이지 캡처+텍스트 좌표 | `url` |
 | [`google_search`](#google-search) | 구글 키워드 검색 | `keyword` |
 | [`google_image_search`](#google-image-search) | 구글 이미지 검색(키워드로 검색) | `keyword` |
 | [`google_news_search`](#google-news-search) | 구글 뉴스 검색 | `keyword` |
@@ -3068,6 +3108,44 @@ LinkedIn job posting by URL: title, company, location, employment type, seniorit
 
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"linkedin_job","arguments":{"url":"https://www.linkedin.com/jobs/view/4445916652"}}}
+```
+
+<a id="url-to-markdown"></a>
+
+### `url_to_markdown` — URL을 Markdown·JSON으로 변환
+
+Return the main content of a web page as clean Markdown and structured JSON (headings, links, images, plain text).
+
+임의의 웹페이지에서 메뉴·광고·각주를 걷어 낸 본문을 Markdown 또는 JSON 으로 정리합니다. 문서 정리·요약 입력 만들기에 사용합니다. 호출당 15P, 실패하면 과금되지 않습니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `web`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `url` | `string` | **필수 / required** | 변환할 페이지 주소 (http·https) |
+| `format` | `string` | 선택 / optional | `markdown` · `json` · `both` (기본 `both`) |
+| `max_chars` | `integer` | 선택 / optional | 본문 최대 글자 수 (기본 100000) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"url_to_markdown","arguments":{"url":"https://example.com","format":"both"}}}
+```
+
+<a id="web-capture-extract"></a>
+
+### `web_capture_extract` — 웹페이지 캡처+텍스트 좌표
+
+Capture a full-page screenshot and return the on-screen text blocks with their x/y/width/height coordinates.
+
+웹페이지 전체 화면 이미지와 화면에 보이는 제목·문단·목록·표의 글자와 위치를 함께 반환합니다. 이미지 위에 글자 위치를 표시하거나 화면 구성을 분석할 때 사용합니다. 호출당 20P, 실패하면 과금되지 않습니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `web`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `url` | `string` | **필수 / required** | 캡처할 페이지 주소 (http·https) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"web_capture_extract","arguments":{"url":"https://example.com"}}}
 ```
 
 <a id="convert"></a>

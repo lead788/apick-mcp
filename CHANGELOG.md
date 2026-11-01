@@ -1,3 +1,21 @@
+## 5.2.0 (2026-11-01)
+
+웹 데이터 가공 4종을 추가했습니다(통합 188개, Business 78개·Web 38개·Finance 4개). 모두 조회 전용입니다.
+
+- `crypto_market` — 국내외 주요 거래소의 원화·USDT 시세를 모아 코인별 한국 시장 프리미엄을 계산합니다. `symbols`를 생략하면 BTC·ETH·XRP·SOL·DOGE를 봅니다. 일부 거래소가 응답하지 않으면 `partial: true`와 나머지 시세를 돌려줍니다. 호출당 30P.
+- `url_to_markdown` — 웹페이지 본문에서 메뉴·광고·각주를 걷어 내 Markdown과 구조화 JSON으로 정리합니다. `format`은 `markdown`·`json`·`both`. 호출당 15P.
+- `web_capture_extract` — 페이지 전체 화면 이미지와 화면에 보이는 글자의 `x`·`y`·`width`·`height`를 함께 돌려줍니다. 호출당 20P.
+- `email_risk_batch` — 이메일 최대 100건의 형식·일회용 메일·무료 메일·공용 주소 여부와 위험 등급(`high`·`medium`·`low`)을 한 번에 판정합니다. 도메인 목록으로 판정하며 메일 서버는 조회하지 않습니다. 호출당 20P.
+- 실패한 호출은 과금되지 않습니다. `TOOLS.md` 색인·분야별 표·본문 절과 `README` 수치를 서버 목록 188개에 맞췄습니다(조회 143개·상태 변경 45개).
+
+Adds four web-data tools (188 tools total; Business 78, Web 38, Finance 4). All are read-only.
+
+- `crypto_market` — Korean-won and USDT prices by coin with the Korea premium; `symbols` defaults to BTC·ETH·XRP·SOL·DOGE; partial exchanges return `partial: true`. 30 points per call.
+- `url_to_markdown` — turns a page's main content into clean Markdown and structured JSON (`format`: `markdown`, `json`, `both`). 15 points per call.
+- `web_capture_extract` — full-page screenshot plus on-screen text blocks with `x`·`y`·`width`·`height`. 20 points per call.
+- `email_risk_batch` — checks up to 100 addresses for syntax, disposable, free and role-account flags with a risk level; domain-list based, no mailbox probing. 20 points per call.
+- Failed calls are not charged. `TOOLS.md` and `README` counts now match the 188-tool server list (143 read-only, 45 state-changing).
+
 ## 5.1.1 (2026-10-29)
 
 README에 클라이언트 MCP 도구 대기 시간 안내를 더했습니다. 대부분의 Tool은 2분 안에 끝나지만 음성 받아쓰기·긴 대화·그림 생성·등기 발급은 몇 분이 걸리므로 대기 시간을 최소 120초, 이런 Tool을 쓰면 660초 이상으로 두세요(Claude Code: 서버 항목 `"timeout": 660000` 또는 `MCP_TOOL_TIMEOUT`). 코드와 Tool 목록은 바뀌지 않았습니다.

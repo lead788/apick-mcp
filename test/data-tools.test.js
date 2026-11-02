@@ -121,13 +121,13 @@ test('응답 fixture가 공개 REST 필드 타입을 지키며 과거의 잘못�
 	]) assert.throws(() => assertDataContract({ ...valid, ...invalid }), assert.AssertionError);
 });
 
-test('배포 대상 191개 목록과 Business 절 81개·Web 38개·상태 변경 45개 메타데이터가 일치한다', () => {
+test('배포 대상 192개 목록과 Business 절 81개·Web 38개·상태 변경 45개 메타데이터가 일치한다', () => {
 	const tools = read('TOOLS.md');
 	const readme = read('README.md');
 	const inventory = tools.match(/<details>[\s\S]*?<\/details>/)[0];
 	const listed = [...inventory.matchAll(/`([a-z0-9_]+)`/g)].map(m => m[1]);
-	assert.equal(listed.length, 192);
-	assert.equal(new Set(listed).size, 192);
+	assert.equal(listed.length, 193);
+	assert.equal(new Set(listed).size, 193);
 	const business = tools.split('## Business & Commerce')[1].split('<a id="identity">')[0];
 	assert.equal([...business.matchAll(/^### `([a-z0-9_]+)`/gm)].length, 81);
 	const unavailable = [...business.matchAll(/^### `([a-z0-9_]+)`[^\n]*(?:\r?\n)+> 현재 공개 전 점검으로 비활성/gm)].map(m => m[1]);
@@ -142,13 +142,13 @@ test('배포 대상 191개 목록과 Business 절 81개·Web 38개·상태 변�
 		assert.ok(listed.includes(name), name);
 		assert.ok(web.includes('### `' + name + '`'), name);
 	}
-	assert.match(readme, /45 of 191 are not read-only/);
-	assert.match(readme, /146 of 191 tools are read-only/);
+	assert.match(readme, /45 of 192 are not read-only/);
+	assert.match(readme, /147 of 193 tools are read-only/);
 	// 3.7.0: all 서버 전용 find_tools 가 전체 목록과 README 한눈에 보기에 포함된다.
 	assert.ok(listed.includes('find_tools'));
 	assert.ok(tools.includes('### `find_tools`'));
 	assert.match(readme, /\*\*All only 통합 서버 전용\*\* `find_tools`/);
-	assert.match(readme, /`https:\/\/apick\.app\/mcp\/all` \| \*\*191\*\* \|/);
+	assert.match(readme, /`https:\/\/apick\.app\/mcp\/all` \| \*\*193\*\* \|/);
 	// 증빙서류 묶음은 목록·README·상세 절·REST 경로·결과 섹션·대표자 확인 안내를 모두 갖는다.
 	for (const [bundle, sections] of Object.entries(bundles)) {
 		for (const name of ['req_' + bundle, 'get_' + bundle]) {
@@ -177,7 +177,7 @@ test('배포 대상 191개 목록과 Business 절 81개·Web 38개·상태 변�
 	assert.match(tools, /업무 상태 오류는 `isError: false`/);
 	const pkg = JSON.parse(read('package.json'));
 	const lock = JSON.parse(read('package-lock.json'));
-	assert.equal(pkg.version, '5.3.0');
+	assert.equal(pkg.version, '5.4.0');
 	assert.equal(lock.version, pkg.version);
 	assert.equal(lock.packages[''].version, pkg.version);
 	// 공개 JSON-RPC 예시도 실제 목록의 Tool을 참조해야 한다. skills 서버는 all 과 별도 목록이다.

@@ -1,9 +1,9 @@
 # APICK MCP — Full Tool Catalog / 전체 Tool 목록
 
-**191 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 191개**, 분야별 서버 8개와 통합 서버 `all`.
+**193 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 193개**, 분야별 서버 8개와 통합 서버 `all`.
 
-5.3.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
+5.4.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
 
 
 
@@ -21,12 +21,12 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | [OCR · OCR 문자인식](#ocr) | `/mcp/ocr` | 6 | 이미지 텍스트 추출과 신분증 항목 추출. |
 | [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 4 | 계좌 예금주 실명조회, 1원 인증, 암호화폐 통합 시세·김치프리미엄. |
 | [Web & Search · 웹 · 검색](#web) | `/mcp/web` | 38 | 도메인·IP 조회, WHOIS, 웹페이지 조회, URL→Markdown 변환, 페이지 캡처·텍스트 좌표, 구글 검색(웹·이미지·뉴스·쇼핑·지도·장소 상세·순위), 유튜브(검색·채널·재생목록·댓글·자막·영상 정보·썸네일), 인스타그램·틱톡·X(프로필·게시물), 아마존·쿠팡·네이버 상품, 링크드인(프로필·회사·채용공고). |
-| [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 25 | PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크. |
+| [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 26 | PDF·DOCX·엑셀 변환, 서식 문서 작성, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
-| **All 통합** | `/mcp/all` | **191** | 아래 전부 + [`find_tools`](#find-tools) |
+| **All 통합** | `/mcp/all` | **193** | 아래 전부 + [`find_tools`](#find-tools) |
 
-<details><summary><b>All 192 MCP tool names / 전체 MCP Tool 이름</b></summary>
+<details><summary><b>All 193 MCP tool names / 전체 MCP Tool 이름</b></summary>
 
 `biz_detail` · `venture_biz_info` · `bid_notice` · `bid_award` · `dart_disclosure` · `dart_company` · `dart_financials` · `rtms_trade` · `rtms_rent` · `land_rt_price` · `land_info` · `bldrgst` · `court_auction` · `registry_doc_verify` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `vehicle_model_info` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `req_income_cert_bundle` · `get_income_cert_bundle` · `req_business_cert_bundle` · `get_business_cert_bundle` · `req_nps_bundle` · `get_nps_bundle` · `req_hometax_bundle` · `get_hometax_bundle` · `req_hometax_biz_bundle` · `get_hometax_biz_bundle` · `vehicle_emission` · `vehicle_recall` · `hipass_unpaid` · `vehicle_tax_calc` · `corp_finance` · `geo_standardize` · `geo_batch_geocode` · `geo_reverse` · `geo_address_search` · `geo_place_search` · `geo_admin_code` · `geo_compare_address` · `geo_measure` · `geo_geojson_analyze` · `geo_address_quality` · `geo_address_autocomplete` · `geo_district_boundary` · `geo_neighborhood` · `geo_site_score` · `geo_address_cleanup` · `registry_realestate_search` · `registry_corporate_search` · `registry_realestate_jobs_create` · `registry_corporate_jobs_create` · `email_risk_batch`
 
@@ -38,7 +38,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 `nslookup` · `reverse_ip` · `location` · `ip_history` · `whois` · `url_html` · `url_screenshot` · `url_similarity` · `google_search` · `google_image_search` · `google_news_search` · `google_shopping_search` · `google_maps_search` · `google_rank_check` · `google_lens_search` · `crawl_youtube` · `youtube_search` · `youtube_playlist` · `youtube_channel` · `youtube_hashtag` · `youtube_comments` · `youtube_metadata` · `youtube_thumbnail` · `youtube_subtitle_list` · `youtube_subtitle` · `instagram_profile` · `instagram_post` · `tiktok_profile` · `amazon_product` · `x_profile` · `x_post` · `coupang_product` · `naver_shopping_product` · `linkedin_profile` · `linkedin_company` · `linkedin_job` · `url_to_markdown` · `web_capture_extract`
 
-`stt` · `tts_jobs_create` · `tts_gemini_create` · `tts_gemini_voices` · `tts_openai_create` · `tts_openai_voices` · `tts_options` · `tts_quote` · `tts_jobs_status` · `tts_jobs_cancel` · `tts_jobs_result` · `tts_jobs_subtitles` · `voice_change` · `face_blur` · `pdf_to_docx` · `pdf_to_image` · `pdf_merge` · `html_to_pdf` · `docx_to_pdf` · `json_to_excel` · `base64_to_image` · `set_watermark` · `get_watermark` · `draw_watermark_pdf` · `draw_watermark_image`
+`stt` · `tts_jobs_create` · `tts_gemini_create` · `tts_gemini_voices` · `tts_openai_create` · `tts_openai_voices` · `tts_options` · `tts_quote` · `tts_jobs_status` · `tts_jobs_cancel` · `tts_jobs_result` · `tts_jobs_subtitles` · `voice_change` · `face_blur` · `pdf_to_docx` · `pdf_to_image` · `pdf_merge` · `html_to_pdf` · `docx_to_pdf` · `json_to_excel` · `form_document` · `base64_to_image` · `set_watermark` · `get_watermark` · `draw_watermark_pdf` · `draw_watermark_image`
 
 `nsfw_detection` · `image_similarity` · `video_to_mp3` · `extract_video_thumbnail` · `word_cloud` · `face_detection`
 
@@ -149,11 +149,11 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 ## All server only · 통합 서버 전용
 
-`https://apick.app/mcp/all` — 1 tool in addition to the 191 domain tools
+`https://apick.app/mcp/all` — 1 tool in addition to the 193 domain tools
 
 Tools that exist only on the combined `all` server. Domain servers keep their own tool counts.
 
-분야별 Tool 191개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
+분야별 Tool 192개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
 
 <a id="find-tools"></a>
 
@@ -3216,7 +3216,7 @@ Capture a full-page screenshot and return the on-screen text blocks with their x
 
 ## File Conversion · 파일 변환 · 워터마크
 
-`https://apick.app/mcp/convert` — 25 tools
+`https://apick.app/mcp/convert` — 26 tools
 
 PDF, DOCX, Excel, speech-to-text, asynchronous TTS jobs, and watermarking.
 
@@ -3238,6 +3238,7 @@ PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크.
 | [`html_to_pdf`](#html-to-pdf) | HTML PDF 변환 | `html` |
 | [`docx_to_pdf`](#docx-to-pdf) | DOCX 파일을 PDF 파일로 변환 | `docx_url` |
 | [`json_to_excel`](#json-to-excel) | JSON 데이터 EXCEL 파일 변환 | `data_list` |
+| [`form_document`](#form-document) | 서식 자동작성(계약서·증명서·신고서 50종) | `form`, `text`, `data`, `format` |
 | [`base64_to_image`](#base64-to-image) | base64 이미지 변환 | `base64` |
 | [`set_watermark`](#set-watermark) | 비가시성 워터마크 삽입 | `code`, `image_url` |
 | [`get_watermark`](#get-watermark) | 비가시성 워터마크 조회 | `image_url` |
@@ -3557,6 +3558,27 @@ JSON 데이터를 EXCEL(XLSX) 파일로 변환해 반환합니다. data_list 는
 
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"json_to_excel","arguments":{"data_list":"<data_list>"}}}
+```
+
+<a id="form-document"></a>
+
+### `form_document` — 서식 자동작성
+
+Generate a Korean business form from free-form text or explicit fields and return it as PDF, DOCX, HWPX, RTF, HTML, Markdown, TXT, JSON, or XLSX.
+
+자유 문장 또는 정형 필드로 계약서·증명서·신고서 등 50종 서식을 만들어 파일로 돌려줍니다. `data` 가 `text` 보다 우선하며, 입력하지 않은 항목은 오류가 아니라 빈칸으로 출력됩니다. 서식 키·필드 정의는 `/rest/form_list`·`/rest/form_fields`(무료)에서 확인합니다. 문서(PDF·DOCX·HWPX·RTF) 100P, 값·미리보기 포맷 30P.
+
+읽기 전용 / read-only · 입력 변환 / transforms your input · server `convert`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `form` | `string` | **필수 / required** | 서식 키 (예: labor_contract_standard, biz_estimate). 전체 목록은 /rest/form_list(무료) |
+| `text` | `string` | 선택 / optional | 자유 문장. 라벨 없이도 전화·주소·금액·날짜를 형식으로 인식합니다 |
+| `data` | `object` | 선택 / optional | 정형 필드. 서식별 키는 /rest/form_fields(무료)로 확인하며, 같은 키는 text 보다 우선합니다 |
+| `format` | `string` | 선택 / optional | pdf(기본)·docx·hwpx·rtf·html·md·txt·json·xlsx |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"form_document","arguments":{"form":"labor_contract_standard","text":"근로자 성명: 김철수\n임금액: 3백만원","format":"docx"}}}
 ```
 
 <a id="base64-to-image"></a>
@@ -4211,3 +4233,6 @@ Bearer 인증이 필요합니다. Requires Bearer authentication. 업로드·RES
 스킬 판매·실행은 [리퀘오 REQEO](https://reqeo.com/dev_guide/skills)로 이전했습니다. 원격 MCP 주소는 `https://reqeo.com/mcp/skills`입니다. 리퀘오 계정에서 발급한 인증키로 연결하세요. 두 서비스의 계정과 포인트는 별개이며 에이픽 인증키는 전달하지 않습니다. `--server skills`는 이전 안내와 함께 종료합니다. 일반 API·TTS·설치형 에이전트는 계속 지원합니다.
 
 Skill sales and execution have moved to [REQEO](https://reqeo.com/dev_guide/skills). Connect directly to `https://reqeo.com/mcp/skills` with a key from your REQEO account. Accounts and points are separate; APICK credentials are not forwarded. `--server skills` exits with a migration notice. General APIs, TTS and the installed agent remain supported.
+
+
+

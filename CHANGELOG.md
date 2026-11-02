@@ -1,3 +1,11 @@
+## 5.4.0 (2026-11-02)
+
+서식 자동작성 Tool 1종을 추가했습니다(통합 192개, Convert 26개).
+
+- `form_document` — 계약서·증명서·신고서 50종을 자유 문장(`text`) 또는 정형 필드(`data`)로 받아 PDF·DOCX·HWPX·RTF·HTML·MD·TXT·JSON·XLSX 로 만듭니다. 없는 항목은 오류 없이 빈칸으로 남습니다. 문서 포맷 100P·값 포맷 30P.
+- 서식 키·필드 정의는 무료 REST(`/rest/form_list`·`/rest/form_fields`)에서 확인합니다.
+
+Adds one Korean form-generation tool (192 total, Convert 26). 50 form types, free-form text and/or structured fields, blank fields left blank, nine output formats.
 ## 5.3.0 (2026-11-02)
 
 기업·공시 Tool 3종을 추가했습니다(통합 191개, Business 81개·Web 38개·Finance 4개·Identity 그대로). 모두 조회 전용입니다.
@@ -466,3 +474,4 @@ Adds the Subagent integration and usage-based installed-agent contract. Existing
 - 종료된 이미지 기능과 관련 문서·메타데이터를 제거했습니다.
 - 운영 `tools/list`와 공개 카탈로그를 전체 79개, AI 그룹 4개로 동기화했습니다.
 - OCR, Google Lens 이미지 역검색, 이미지 변환과 얼굴 검출 Tool은 그대로 유지합니다.
+

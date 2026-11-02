@@ -1,3 +1,19 @@
+## 5.3.0 (2026-11-02)
+
+기업·공시 Tool 3종을 추가했습니다(통합 191개, Business 81개·Web 38개·Finance 4개·Identity 그대로). 모두 조회 전용입니다.
+
+- `dart_disclosure` — 기업 공시를 유형별로 나눠 공시 밀도와 위험 공시 타임라인을 분석합니다. `corpCode`를 생략하면 기간 전체를 훑고, 넣으면 해당 기업으로 좁힙니다. 호출당 50P.
+- `dart_company` — 기업 개황에 최근 90일 공시 이벤트와 위험 신호를 붙여 상장구분·업력·위험공시를 한 장으로 정리합니다. 호출당 30P.
+- `dart_financials` — 재무제표 계정에서 영업이익률·순이익률·부채비율·유동비율·ROE·ROA와 전년 대비 성장률, 적자·과다부채 신호를 계산합니다. 호출당 50P.
+- 실패·0건 호출은 과금되지 않습니다. `TOOLS.md` 색인·분야별 표·본문 절과 `README` 수치를 서버 목록 191개에 맞췄습니다(조회 146개·상태 변경 45개).
+
+Adds three corporate-disclosure tools (191 tools total; Business 81). All are read-only.
+
+- `dart_disclosure` — disclosure event mix, per-company density and a high-risk timeline; `corpCode` narrows the range to one company. 50 points per call.
+- `dart_company` — company profile with the last 90 days of disclosure events and risk flags. 30 points per call.
+- `dart_financials` — margins, debt and current ratios, ROE/ROA, year-over-year growth and distress flags. 50 points per call.
+- Failed or empty calls are not charged. `TOOLS.md` and `README` counts now match the 191-tool server list (146 read-only, 45 state-changing).
+
 ## 5.2.0 (2026-11-01)
 
 웹 데이터 가공 4종을 추가했습니다(통합 188개, Business 78개·Web 38개·Finance 4개). 모두 조회 전용입니다.

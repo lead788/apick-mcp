@@ -1,9 +1,9 @@
 # APICK MCP — Full Tool Catalog / 전체 Tool 목록
 
-**188 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 188개**, 분야별 서버 8개와 통합 서버 `all`.
+**191 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 191개**, 분야별 서버 8개와 통합 서버 `all`.
 
-5.2.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
+5.3.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
 
 
 
@@ -16,7 +16,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 | Server 서버 | Endpoint | Tools | Coverage 범위 |
 | --- | --- | --- | --- |
-| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 78 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 간편인증 데이터 조회·세무 증빙서류 발급, 이메일 위험 일괄 검사, 유효성 검사. |
+| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 81 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 간편인증 데이터 조회·세무 증빙서류 발급, 이메일 위험 일괄 검사, 유효성 검사. |
 | [Identity Verification · 신분증 진위확인 · 마스킹](#identity) | `/mcp/identity` | 16 | 주민등록증·운전면허증·여권·외국인등록증 진위확인, 실명확인, 개인정보 마스킹. |
 | [OCR · OCR 문자인식](#ocr) | `/mcp/ocr` | 6 | 이미지 텍스트 추출과 신분증 항목 추출. |
 | [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 4 | 계좌 예금주 실명조회, 1원 인증, 암호화폐 통합 시세·김치프리미엄. |
@@ -24,11 +24,11 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 25 | PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
-| **All 통합** | `/mcp/all` | **188** | 아래 전부 + [`find_tools`](#find-tools) |
+| **All 통합** | `/mcp/all` | **191** | 아래 전부 + [`find_tools`](#find-tools) |
 
-<details><summary><b>All 189 MCP tool names / 전체 MCP Tool 이름</b></summary>
+<details><summary><b>All 192 MCP tool names / 전체 MCP Tool 이름</b></summary>
 
-`biz_detail` · `venture_biz_info` · `bid_notice` · `bid_award` · `rtms_trade` · `rtms_rent` · `land_rt_price` · `land_info` · `bldrgst` · `court_auction` · `registry_doc_verify` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `vehicle_model_info` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `req_income_cert_bundle` · `get_income_cert_bundle` · `req_business_cert_bundle` · `get_business_cert_bundle` · `req_nps_bundle` · `get_nps_bundle` · `req_hometax_bundle` · `get_hometax_bundle` · `req_hometax_biz_bundle` · `get_hometax_biz_bundle` · `vehicle_emission` · `vehicle_recall` · `hipass_unpaid` · `vehicle_tax_calc` · `corp_finance` · `geo_standardize` · `geo_batch_geocode` · `geo_reverse` · `geo_address_search` · `geo_place_search` · `geo_admin_code` · `geo_compare_address` · `geo_measure` · `geo_geojson_analyze` · `geo_address_quality` · `geo_address_autocomplete` · `geo_district_boundary` · `geo_neighborhood` · `geo_site_score` · `geo_address_cleanup` · `registry_realestate_search` · `registry_corporate_search` · `registry_realestate_jobs_create` · `registry_corporate_jobs_create` · `email_risk_batch`
+`biz_detail` · `venture_biz_info` · `bid_notice` · `bid_award` · `dart_disclosure` · `dart_company` · `dart_financials` · `rtms_trade` · `rtms_rent` · `land_rt_price` · `land_info` · `bldrgst` · `court_auction` · `registry_doc_verify` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `vehicle_model_info` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `req_income_cert_bundle` · `get_income_cert_bundle` · `req_business_cert_bundle` · `get_business_cert_bundle` · `req_nps_bundle` · `get_nps_bundle` · `req_hometax_bundle` · `get_hometax_bundle` · `req_hometax_biz_bundle` · `get_hometax_biz_bundle` · `vehicle_emission` · `vehicle_recall` · `hipass_unpaid` · `vehicle_tax_calc` · `corp_finance` · `geo_standardize` · `geo_batch_geocode` · `geo_reverse` · `geo_address_search` · `geo_place_search` · `geo_admin_code` · `geo_compare_address` · `geo_measure` · `geo_geojson_analyze` · `geo_address_quality` · `geo_address_autocomplete` · `geo_district_boundary` · `geo_neighborhood` · `geo_site_score` · `geo_address_cleanup` · `registry_realestate_search` · `registry_corporate_search` · `registry_realestate_jobs_create` · `registry_corporate_jobs_create` · `email_risk_batch`
 
 `identi_card1` · `identi_card2` · `identi_card3` · `identi_card4` · `identi_card5` · `identi_card_image1` · `identi_card_image2` · `identi_card_image3` · `identi_card_image4` · `identi_card_image5` · `name_rrn_auth` · `hide_rrn` · `identity_document_residence_card` · `identity_document_passport` · `identity_document_id_card` · `identity_document_driver_license`
 
@@ -149,11 +149,11 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 ## All server only · 통합 서버 전용
 
-`https://apick.app/mcp/all` — 1 tool in addition to the 188 domain tools
+`https://apick.app/mcp/all` — 1 tool in addition to the 191 domain tools
 
 Tools that exist only on the combined `all` server. Domain servers keep their own tool counts.
 
-분야별 Tool 188개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
+분야별 Tool 191개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
 
 <a id="find-tools"></a>
 
@@ -194,7 +194,7 @@ Call the recommended tool afterwards with your API key as usual. 추천받은 To
 
 ## Business & Commerce · 사업자 · 커머스
 
-`https://apick.app/mcp/business` — 78 tools
+`https://apick.app/mcp/business` — 81 tools
 
 Korean business registry, corporate credit, parcel tracking, real-estate prices, vehicle history, and input validation.
 
@@ -225,6 +225,9 @@ Korean business registry, corporate credit, parcel tracking, real-estate prices,
 | [`info`](#info) | 계정 정보 조회 | — |
 | [`bid_notice`](#bid-notice) | 입찰 기회 분석 | — |
 | [`bid_award`](#bid-award) | 낙찰 경쟁 분석 | — |
+| [`dart_disclosure`](#dart-disclosure) | 공시 이벤트 분석 | — |
+| [`dart_company`](#dart-company) | 기업 스냅샷 | `corpCode` |
+| [`dart_financials`](#dart-financials) | 재무 건전성 분석 | `corpCode`, `bsnsYear` |
 | [`corp_finance`](#corp-finance) | 기업 재무정보 | `crno` |
 | [`rtms_trade`](#rtms-trade) | 매매 시장 분석 | `lawdCd`, `dealYmd` |
 | [`rtms_rent`](#rtms-rent) | 전월세 시장 분석 | `lawdCd`, `dealYmd` |
@@ -1358,6 +1361,67 @@ Calculate the annual Korean automobile tax for a non-commercial passenger car fr
 
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"vehicle_tax_calc","arguments":{"cc":1998,"car_age_years":4}}}
+```
+
+<a id="dart-disclosure"></a>
+
+### `dart_disclosure` — 공시 이벤트 분석
+
+Analyze Korean corporate disclosures into event types, per-company density and high-risk timelines.
+
+기업 공시를 유형별(자본변동·인수합병·소송·실적·정기공시 등)로 분류하고 기업별 공시 밀도와 위험 공시 타임라인을 분석합니다. 응답은 `summary`·`distribution`·`timeline`·`high_risk`·`insights` 이며 원문 목록은 제공하지 않습니다. 호출당 50 포인트입니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `corpCode` | `string` | 선택 / optional | 기업 고유번호 (8자리) |
+| `startDate` | `string` | 선택 / optional | 조회 시작일 (YYYYMMDD) |
+| `endDate` | `string` | 선택 / optional | 조회 종료일 (YYYYMMDD) |
+| `pageNo` | `integer` | 선택 / optional | 페이지 번호 (기본 1) |
+| `numOfRows` | `integer` | 선택 / optional | 페이지당 결과 수 (기본 10, 최대 100) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"dart_disclosure","arguments":{"corpCode":"00126380","startDate":"20260101","endDate":"20260331"}}}
+```
+
+<a id="dart-company"></a>
+
+### `dart_company` — 기업 스냅샷
+
+Build a Korean company snapshot: profile with listing status and age, recent 90-day disclosure events and risk flags.
+
+기업 개황에 최근 90일 공시 이벤트 요약과 위험 신호를 결합해 상장구분·업력·위험공시를 한 장으로 정리합니다. 응답은 `company`·`recent_events`·`risk_flags`·`insights` 이며 최근 공시 조회가 실패하면 `recent_events` 는 `null` 입니다. 호출당 30 포인트입니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `corpCode` | `string` | **필수 / required** | 기업 고유번호 (8자리) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"dart_company","arguments":{"corpCode":"00126380"}}}
+```
+
+<a id="dart-financials"></a>
+
+### `dart_financials` — 재무 건전성 분석
+
+Compute Korean company financial health: margins, debt and current ratios, ROE/ROA, year-over-year growth and distress flags.
+
+재무제표 계정에서 영업이익률·순이익률·부채비율·유동비율·ROE·ROA와 전기 대비 성장률을 계산하고 적자·과다부채 신호를 표시합니다. 응답은 `summary`·`metrics`·`distribution`·`flags`·`insights` 이며 계정 원문 목록은 제공하지 않습니다. 호출당 50 포인트입니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `corpCode` | `string` | **필수 / required** | 기업 고유번호 (8자리) |
+| `bsnsYear` | `string` | **필수 / required** | 사업연도 (YYYY, 2015년 이후) |
+| `reprtCode` | `string` (11011 / 11012 / 11013 / 11014) | 선택 / optional | 보고서 코드 (11011 사업, 11012 반기, 11013 1분기, 11014 3분기 / 기본 사업) |
+| `fsDiv` | `string` (CFS / OFS) | 선택 / optional | 연결(CFS)/개별(OFS) 구분 (기본 CFS) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"dart_financials","arguments":{"corpCode":"00126380","bsnsYear":"2024","reprtCode":"11011"}}}
 ```
 
 <a id="corp-finance"></a>

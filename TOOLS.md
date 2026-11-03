@@ -1,9 +1,9 @@
 # APICK MCP — Full Tool Catalog / 전체 Tool 목록
 
-**198 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 198개**, 분야별 서버 8개와 통합 서버 `all`.
+**206 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 206개**, 분야별 서버 8개와 통합 서버 `all`.
 
-5.5.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
+5.7.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
 
 
 
@@ -21,12 +21,12 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | [OCR · OCR 문자인식](#ocr) | `/mcp/ocr` | 6 | 이미지 텍스트 추출과 신분증 항목 추출. |
 | [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 4 | 계좌 예금주 실명조회, 1원 인증, 암호화폐 통합 시세·김치프리미엄. |
 | [Web & Search · 웹 · 검색](#web) | `/mcp/web` | 38 | 도메인·IP 조회, WHOIS, 웹페이지 조회, URL→Markdown 변환, 페이지 캡처·텍스트 좌표, 구글 검색(웹·이미지·뉴스·쇼핑·지도·장소 상세·순위), 유튜브(검색·채널·재생목록·댓글·자막·영상 정보·썸네일), 인스타그램·틱톡·X(프로필·게시물), 아마존·쿠팡·네이버 상품, 링크드인(프로필·회사·채용공고). |
-| [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 31 | PDF·DOCX·엑셀 변환, 서식 문서 작성·목록·미리보기·AI 채우기, 음성인식(STT), 비동기 TTS, 워터마크. |
+| [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 39 | PDF·DOCX·엑셀 변환, 서식 문서 작성·목록·미리보기·AI 채우기, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
-| **All 통합** | `/mcp/all` | **198** | 아래 전부 + [`find_tools`](#find-tools) |
+| **All 통합** | `/mcp/all` | **206** | 아래 전부 + [`find_tools`](#find-tools) |
 
-<details><summary><b>All 198 MCP tool names / 전체 MCP Tool 이름</b></summary>
+<details><summary><b>All 206 MCP tool names / 전체 MCP Tool 이름</b></summary>
 
 `biz_detail` · `venture_biz_info` · `bid_notice` · `bid_award` · `dart_disclosure` · `dart_company` · `dart_financials` · `rtms_trade` · `rtms_rent` · `land_rt_price` · `land_info` · `bldrgst` · `court_auction` · `registry_doc_verify` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `vehicle_model_info` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `req_income_cert_bundle` · `get_income_cert_bundle` · `req_business_cert_bundle` · `get_business_cert_bundle` · `req_nps_bundle` · `get_nps_bundle` · `req_hometax_bundle` · `get_hometax_bundle` · `req_hometax_biz_bundle` · `get_hometax_biz_bundle` · `vehicle_emission` · `vehicle_recall` · `hipass_unpaid` · `vehicle_tax_calc` · `corp_finance` · `geo_standardize` · `geo_batch_geocode` · `geo_reverse` · `geo_address_search` · `geo_place_search` · `geo_admin_code` · `geo_compare_address` · `geo_measure` · `geo_geojson_analyze` · `geo_address_quality` · `geo_address_autocomplete` · `geo_district_boundary` · `geo_neighborhood` · `geo_site_score` · `geo_address_cleanup` · `registry_realestate_search` · `registry_corporate_search` · `registry_realestate_jobs_create` · `registry_corporate_jobs_create` · `email_risk_batch`
 
@@ -45,6 +45,8 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 `llm_models` · `llm_chat` · `text_summary` · `text_polish` · `image_generate` · `image_edit` · `image_batch_create` · `image_batch_status` · `image_batch_result` · `seedance_jobs_create` · `seedance_jobs_status` · `veo_jobs_create` · `veo_jobs_status` · `kling_jobs_create` · `kling_jobs_status`
 
 `find_tools` (all only / 통합 서버 전용)
+
+`document_create` · `document_list` · `document_get` · `document_update` · `document_delete` · `document_ai_write` · `document_quote` · `document_download`
 
 </details>
 
@@ -149,11 +151,11 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 ## All server only · 통합 서버 전용
 
-`https://apick.app/mcp/all` — 1 tool in addition to the 197 domain tools
+`https://apick.app/mcp/all` — 1 tool in addition to the 205 domain tools
 
 Tools that exist only on the combined `all` server. Domain servers keep their own tool counts.
 
-분야별 Tool 197개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
+분야별 Tool 205개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
 
 <a id="find-tools"></a>
 
@@ -3216,7 +3218,7 @@ Capture a full-page screenshot and return the on-screen text blocks with their x
 
 ## File Conversion · 파일 변환 · 워터마크
 
-`https://apick.app/mcp/convert` — 31 tools
+`https://apick.app/mcp/convert` — 39 tools
 
 PDF, DOCX, Excel, speech-to-text, asynchronous TTS jobs, and watermarking.
 
@@ -4340,3 +4342,105 @@ Skill sales and execution have moved to [REQEO](https://reqeo.com/dev_guide/skil
 
 
 
+
+## 문서함과 DOCX / Saved documents
+
+웹과 같은 문서함과 구매 이력을 사용합니다. Storage and purchase history are shared with the website.
+
+### `document_create`
+
+빈 문서 또는 양식으로 새 문서를 만들고 문서함에 저장합니다. 무료.
+
+Server: `convert` / `all`.
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `title` | `string` | 선택 / optional | 문서에 표시할 제목, 최대 120자 |
+| `form` | `string` | 선택 / optional | 서식 키. 자유 문서는 빈 문자열 |
+| `content` | `object` | 선택 / optional | 문서 JSON. type=doc, content에 문단·표·텍스트를 넣습니다. 스키마 버전 1 |
+| `request_id` | `string` | 필수 / required | 중복 방지 요청 ID. UUID 권장, 같은 요청의 재시도는 같은 값 |
+
+### `document_list`
+
+보관 중인 내 문서 목록과 보관기한을 확인합니다. 무료.
+
+Server: `convert` / `all`.
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+
+
+### `document_get`
+
+저장한 문서의 제목·본문·버전을 확인합니다. 무료.
+
+Server: `convert` / `all`.
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `document_id` | `string` | 필수 / required | 내 문서 ID |
+
+### `document_update`
+
+편집한 문서를 저장합니다. 다른 곳에서 수정되었다면 충돌을 알려 줍니다. 무료.
+
+Server: `convert` / `all`.
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `document_id` | `string` | 필수 / required | 내 문서 ID |
+| `version` | `integer` | 필수 / required | 마지막으로 읽은 문서 버전 |
+| `title` | `string` | 선택 / optional | 문서에 표시할 제목, 최대 120자 |
+| `form` | `string` | 선택 / optional | 서식 키. 자유 문서는 빈 문자열 |
+| `content` | `object` | 선택 / optional | 문서 JSON. type=doc, content에 문단·표·텍스트를 넣습니다. 스키마 버전 1 |
+| `request_id` | `string` | 필수 / required | 중복 방지 요청 ID. UUID 권장, 같은 요청의 재시도는 같은 값 |
+
+### `document_delete`
+
+내 문서와 다운로드 파일을 삭제합니다. 삭제한 문서는 복구할 수 없습니다. 무료.
+
+Server: `convert` / `all`.
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `document_id` | `string` | 필수 / required | 내 문서 ID |
+
+### `document_ai_write`
+
+에이픽에이전트로 문서 초안·양식 채우기·선택 문장 수정을 제안받습니다. 성공한 요청당 20P.
+
+Server: `convert` / `all`.
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `action` | `string` | 선택 / optional | draft·fill·polish·summarize·expand 중 하나. 기본 draft |
+| `text` | `string` | 필수 / required | 작성할 내용 또는 수정 지시, 최대 3,000자 |
+| `document` | `object` | 선택 / optional | title·form·content를 포함한 현재 문서 |
+| `selection` | `string` | 선택 / optional | 다듬기·요약·확장할 선택 문장 |
+| `request_id` | `string` | 필수 / required | 중복 방지 요청 ID. UUID 권장, 같은 요청의 재시도는 같은 값 |
+
+### `document_quote`
+
+현재 내용의 DOCX 다운로드 가격과 무료 재다운로드 여부를 확인합니다. 무료.
+
+Server: `convert` / `all`.
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `document_id` | `string` | 필수 / required | 내 문서 ID |
+| `version` | `integer` | 필수 / required | 마지막으로 읽은 문서 버전 |
+
+### `document_download`
+
+편집한 문서를 DOCX로 받습니다. 같은 문서의 구매한 내용은 보관기간 내 재다운로드가 무료입니다. 최초 100P, 같은 내용 재다운로드 무료.
+
+Server: `convert` / `all`.
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `document_id` | `string` | 필수 / required | 내 문서 ID |
+| `version` | `integer` | 필수 / required | 마지막으로 읽은 문서 버전 |
+| `content_hash` | `string` | 필수 / required | 견적 응답의 내용 해시 |
+| `request_id` | `string` | 필수 / required | 중복 방지 요청 ID. UUID 권장, 같은 요청의 재시도는 같은 값 |
+
+AI writing costs 20P per successful public API request. DOCX costs 100P for new output; the same document’s previously purchased content can be downloaded free during retention. Documents expire 14 days after creation, the last actual edit or successful download. Reuse request IDs on retries; send the last read version for updates and the quote’s version and content hash for downloads. AI returns a proposal; apply it with document_update after review.

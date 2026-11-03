@@ -1,5 +1,10 @@
 ## 5.6.1 (2026-11-03)
 
+## 5.7.0 — 2026-11-04
+
+- 문서함·AI 제안·견적·DOCX 도구 8종을 문서화했습니다. 전체 206개, 분야별 205개, Convert 39개입니다.
+- Documented eight document tools, shared purchase history, retention and retry contracts.
+
 현재 제공하지 않는 Tool 2종(`geocode`·`public_price`)을 문서에서 뺐습니다. 이제 문서의 개수가 실제 `tools/list` 와 같습니다(통합 198개, 분야별 197개, Business 81개).
 
 Removes two tools that are not currently offered (`geocode`, `public_price`) from the docs so the documented counts match `tools/list` (198 total, Business 81).

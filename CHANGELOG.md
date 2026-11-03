@@ -1,3 +1,15 @@
+## 5.5.0 (2026-11-03)
+
+서식 지원 Tool 4종을 추가했습니다(통합 199개, Convert 30개). 조회 3종은 무료이고 묶음 생성은 성공한 건만 합계 과금합니다.
+
+- `form_list` — 만들 수 있는 서식 100종의 키·이름·분류·필드 수를 돌려줍니다. `category`·`keyword` 로 좁힙니다. 무료.
+- `form_fields` — 서식 1종의 입력 항목(키·라벨·형식·필수 여부·예시)을 돌려줍니다. 무료.
+- `form_preview` — 문서를 만들지 않고 자유 문장·정형 필드를 해석한 결과와 비어 있는 필수 항목을 돌려줍니다. 무료.
+- `form_bundle` — 서식 최대 10건을 한 번에 만들어 ZIP 하나로 돌려줍니다. 항목마다 `form_document` 와 같은 입력을 쓰고, 실패 사유는 ZIP 안 `_index.txt` 에 남깁니다.
+- `form_document` 지원 서식이 50종에서 100종으로 늘었고, 서명·도장 이미지(data URL)를 넣을 수 있습니다.
+
+Adds three free form helpers plus a 10-item ZIP bundle (199 tools total, Convert 30) and expands `form_document` to 100 form types with signature/stamp images.
+
 ## 5.4.0 (2026-11-02)
 
 서식 자동작성 Tool 1종을 추가했습니다(통합 192개, Convert 26개).

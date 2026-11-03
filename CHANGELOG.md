@@ -1,3 +1,13 @@
+## 5.6.0 (2026-11-03)
+
+서식 AI 채우기 Tool 을 추가하고 지원 서식을 130종으로 넓혔습니다(통합 200개, Convert 31개).
+
+- `form_ai_fill` — 상황을 문장으로 적으면(최대 3,000자) 서식 항목에 맞는 값만 골라 돌려줍니다. 경위·사유 같은 서술 항목은 적은 사실만으로 다듬고, 글에 없는 이름·번호·금액·날짜는 만들지 않고 빈칸으로 둡니다. `data` 로 준 값은 바꾸지 않습니다. 결과 `values` 를 `form_document` 의 `data` 로 넘기면 됩니다. 요청당 20P, 처리하지 못하면 차감하지 않습니다.
+- `form_document`·`form_bundle`·`form_list` 가 다루는 서식이 100종에서 130종으로 늘었습니다(시말서·경위서·품의서·지출결의서·고소장·탄원서 등).
+- `form_bundle` 의 `forms` 항목 스키마를 배열 항목 정의로 바로잡아, 속성 이름을 엄격하게 검사하는 클라이언트에서도 Tool 이 빠지지 않습니다.
+
+Adds `form_ai_fill` (AI form filling from a situation description; unknown facts stay blank; 20P) and expands form generation to 130 forms (200 tools total, Convert 31).
+
 ## 5.5.0 (2026-11-03)
 
 서식 지원 Tool 4종을 추가했습니다(통합 199개, Convert 30개). 조회 3종은 무료이고 묶음 생성은 성공한 건만 합계 과금합니다.

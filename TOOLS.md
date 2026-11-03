@@ -1,7 +1,7 @@
 # APICK MCP — Full Tool Catalog / 전체 Tool 목록
 
-**200 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 200개**, 분야별 서버 8개와 통합 서버 `all`.
+**198 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 198개**, 분야별 서버 8개와 통합 서버 `all`.
 
 5.5.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
 
@@ -16,7 +16,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 | Server 서버 | Endpoint | Tools | Coverage 범위 |
 | --- | --- | --- | --- |
-| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 83 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가·공시가격 추이, 차량 이력, 간편인증 데이터 조회·세무 증빙서류 발급, 이메일 위험 일괄 검사, 유효성 검사. |
+| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 81 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 간편인증 데이터 조회·세무 증빙서류 발급, 이메일 위험 일괄 검사, 유효성 검사. |
 | [Identity Verification · 신분증 진위확인 · 마스킹](#identity) | `/mcp/identity` | 16 | 주민등록증·운전면허증·여권·외국인등록증 진위확인, 실명확인, 개인정보 마스킹. |
 | [OCR · OCR 문자인식](#ocr) | `/mcp/ocr` | 6 | 이미지 텍스트 추출과 신분증 항목 추출. |
 | [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 4 | 계좌 예금주 실명조회, 1원 인증, 암호화폐 통합 시세·김치프리미엄. |
@@ -24,11 +24,11 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 31 | PDF·DOCX·엑셀 변환, 서식 문서 작성·목록·미리보기·AI 채우기, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
-| **All 통합** | `/mcp/all` | **200** | 아래 전부 + [`find_tools`](#find-tools) |
+| **All 통합** | `/mcp/all` | **198** | 아래 전부 + [`find_tools`](#find-tools) |
 
-<details><summary><b>All 200 MCP tool names / 전체 MCP Tool 이름</b></summary>
+<details><summary><b>All 198 MCP tool names / 전체 MCP Tool 이름</b></summary>
 
-`biz_detail` · `venture_biz_info` · `bid_notice` · `bid_award` · `dart_disclosure` · `dart_company` · `dart_financials` · `rtms_trade` · `rtms_rent` · `land_rt_price` · `public_price` · `geocode` · `land_info` · `bldrgst` · `court_auction` · `registry_doc_verify` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `vehicle_model_info` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `req_income_cert_bundle` · `get_income_cert_bundle` · `req_business_cert_bundle` · `get_business_cert_bundle` · `req_nps_bundle` · `get_nps_bundle` · `req_hometax_bundle` · `get_hometax_bundle` · `req_hometax_biz_bundle` · `get_hometax_biz_bundle` · `vehicle_emission` · `vehicle_recall` · `hipass_unpaid` · `vehicle_tax_calc` · `corp_finance` · `geo_standardize` · `geo_batch_geocode` · `geo_reverse` · `geo_address_search` · `geo_place_search` · `geo_admin_code` · `geo_compare_address` · `geo_measure` · `geo_geojson_analyze` · `geo_address_quality` · `geo_address_autocomplete` · `geo_district_boundary` · `geo_neighborhood` · `geo_site_score` · `geo_address_cleanup` · `registry_realestate_search` · `registry_corporate_search` · `registry_realestate_jobs_create` · `registry_corporate_jobs_create` · `email_risk_batch`
+`biz_detail` · `venture_biz_info` · `bid_notice` · `bid_award` · `dart_disclosure` · `dart_company` · `dart_financials` · `rtms_trade` · `rtms_rent` · `land_rt_price` · `land_info` · `bldrgst` · `court_auction` · `registry_doc_verify` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `vehicle_model_info` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `req_income_cert_bundle` · `get_income_cert_bundle` · `req_business_cert_bundle` · `get_business_cert_bundle` · `req_nps_bundle` · `get_nps_bundle` · `req_hometax_bundle` · `get_hometax_bundle` · `req_hometax_biz_bundle` · `get_hometax_biz_bundle` · `vehicle_emission` · `vehicle_recall` · `hipass_unpaid` · `vehicle_tax_calc` · `corp_finance` · `geo_standardize` · `geo_batch_geocode` · `geo_reverse` · `geo_address_search` · `geo_place_search` · `geo_admin_code` · `geo_compare_address` · `geo_measure` · `geo_geojson_analyze` · `geo_address_quality` · `geo_address_autocomplete` · `geo_district_boundary` · `geo_neighborhood` · `geo_site_score` · `geo_address_cleanup` · `registry_realestate_search` · `registry_corporate_search` · `registry_realestate_jobs_create` · `registry_corporate_jobs_create` · `email_risk_batch`
 
 `identi_card1` · `identi_card2` · `identi_card3` · `identi_card4` · `identi_card5` · `identi_card_image1` · `identi_card_image2` · `identi_card_image3` · `identi_card_image4` · `identi_card_image5` · `name_rrn_auth` · `hide_rrn` · `identity_document_residence_card` · `identity_document_passport` · `identity_document_id_card` · `identity_document_driver_license`
 
@@ -149,11 +149,11 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 ## All server only · 통합 서버 전용
 
-`https://apick.app/mcp/all` — 1 tool in addition to the 199 domain tools
+`https://apick.app/mcp/all` — 1 tool in addition to the 197 domain tools
 
 Tools that exist only on the combined `all` server. Domain servers keep their own tool counts.
 
-분야별 Tool 199개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
+분야별 Tool 197개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
 
 <a id="find-tools"></a>
 
@@ -194,7 +194,7 @@ Call the recommended tool afterwards with your API key as usual. 추천받은 To
 
 ## Business & Commerce · 사업자 · 커머스
 
-`https://apick.app/mcp/business` — 83 tools
+`https://apick.app/mcp/business` — 81 tools
 
 Korean business registry, corporate credit, parcel tracking, real-estate prices, vehicle history, and input validation.
 
@@ -205,8 +205,6 @@ Korean business registry, corporate credit, parcel tracking, real-estate prices,
 | [`biz_detail`](#biz-detail) | 사업자 정보 조회 | `biz_no` |
 | [`venture_biz_info`](#venture-biz-info) | 벤처기업 정보조회 | `biz_no` |
 | [`land_rt_price`](#land-rt-price) | 부동산 실거래가 조회 | `addr1`, `addr2`, `type`, `year` |
-| [`geocode`](#geocode) | 주소·필지 입지 분석 | `address`, `pnu`, `addrType` |
-| [`public_price`](#public-price) | 공시가격 추이 분석 | `pnu`, `stdrYear`, `priceType`, `priceYears` |
 | [`land_info`](#land-info) | 토지 종합 분석 | — |
 | [`req_pccc`](#req-pccc) | 개인통관고유부호 인증 요청 | `name`, `birthday`, `phone`, `provider` |
 | [`get_pccc`](#get-pccc) | 개인통관고유부호 조회 | `tx_id` |
@@ -341,49 +339,6 @@ Look up real estate transaction price records in Korea by region, property type,
 
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"land_rt_price","arguments":{"addr1":"<addr1>","addr2":"<addr2>","type":"<type>","year":"<year>"}}}
-```
-
-<a id="geocode"></a>
-
-### `geocode` — 주소·필지 입지 분석
-
-Resolve a Korean address into a parcel and analyze its location: PNU breakdown, administrative codes, official land price per square meter and coordinate.
-
-주소를 필지로 확정하고 PNU를 행정구역·지번 구조로 분해해 법정동·지역코드·공시지가 단가·좌표·주소 정규화 여부를 함께 돌려줍니다.
-
-> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
-
-| Parameter | Type | Required | Description 설명 |
-| --- | --- | --- | --- |
-| `address` | `string` | 선택 / optional | 지번 또는 도로명 주소 (예: 서울특별시 강남구 역삼동 808) |
-| `pnu` | `string` | 선택 / optional | PNU(19자리). 주면 좌표 조회 없이 바로 조회합니다 |
-| `addrType` | `string` | 선택 / optional | `auto`(기본)·`parcel`(지번)·`road`(도로명) |
-
-```json
-{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"geocode","arguments":{"address":"서울특별시 강남구 역삼동 808"}}}
-```
-
-<a id="public-price"></a>
-
-### `public_price` — 공시가격 추이 분석
-
-Analyze Korean official property price history: yearly change rates, CAGR, trend and range.
-
-PNU의 공시가격을 여러 연도로 모아 연도별 변동률·연평균 변동률(CAGR)·추세·최고/최저를 분석합니다. 응답은 `summary`·`series`·`metrics`·`insights` 이며 `priceYears` 로 조회 연수(1~5, 기본 3)를 정합니다.
-
-> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
-
-| Parameter | Type | Required | Description 설명 |
-| --- | --- | --- | --- |
-| `pnu` | `string` | **필수 / required** | 필지고유번호 (19자리) |
-| `stdrYear` | `string` | **필수 / required** | 공시 기준연도 (YYYY) |
-| `priceType` | `string` | 선택 / optional | `apart`(기본)·`indvdHouse`·`indvdLand` |
-| `priceYears` | `integer` | 선택 / optional | 조회 연수 (1~5, 기본 3) |
-| `pageNo` | `integer` | 선택 / optional | 페이지 번호 (기본 1) |
-| `numOfRows` | `integer` | 선택 / optional | 페이지당 결과 수 (기본 10, 최대 1000) |
-
-```json
-{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"public_price","arguments":{"pnu":"<pnu>","stdrYear":"2026"}}}
 ```
 
 <a id="land-info"></a>

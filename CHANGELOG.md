@@ -1,3 +1,9 @@
+## 5.6.1 (2026-11-03)
+
+현재 제공하지 않는 Tool 2종(`geocode`·`public_price`)을 문서에서 뺐습니다. 이제 문서의 개수가 실제 `tools/list` 와 같습니다(통합 198개, 분야별 197개, Business 81개).
+
+Removes two tools that are not currently offered (`geocode`, `public_price`) from the docs so the documented counts match `tools/list` (198 total, Business 81).
+
 ## 5.6.0 (2026-11-03)
 
 서식 AI 채우기 Tool 을 추가하고 지원 서식을 130종으로 넓혔습니다(통합 200개, Convert 31개).

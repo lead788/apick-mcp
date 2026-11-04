@@ -1,5 +1,7 @@
 # APICK MCP — 205 Korean Data, AI, Image & Video Tools
 
+자동차등록원부 등본은 REST 결과(`/rest/get_vehicle_register_doc`)에서 원본 PDF와 `문서내용`을 제공합니다. 전용 MCP 도구는 없습니다. For the vehicle register PDF and structured text, use the REST API or the `apick-api` SDK.
+
 >
 
 **Korean business registry, ID verification, OCR, parcel tracking, file conversion, web intelligence and LLM — as MCP tools for any AI agent.**

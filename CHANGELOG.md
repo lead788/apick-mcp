@@ -1,3 +1,8 @@
+## 5.7.1 (2026-11-04)
+
+- 자동차등록원부 PDF·JSON을 제공하는 REST·SDK 경로를 안내했습니다.
+- Documented REST and SDK access to vehicle register text and the optional VIN.
+
 ## 5.6.1 (2026-11-03)
 
 ## 5.7.0 — 2026-11-04

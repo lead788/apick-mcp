@@ -1,5 +1,7 @@
 # APICK MCP — Full Tool Catalog / 전체 Tool 목록
 
+자동차등록원부 등본의 PDF·본문·차대번호는 REST 또는 `apick-api` SDK로 받습니다. 이 상품에는 전용 MCP 도구가 없습니다. The vehicle register is available through REST or the SDK. Read `data.result.vehicleRegisterDoc.문서내용` for the text and optional VIN.
+
 **206 tools** across **8 domain servers**, plus the combined `all` server.
 **Tool 206개**, 분야별 서버 8개와 통합 서버 `all`.
 

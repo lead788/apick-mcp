@@ -22,14 +22,14 @@ test('신분증 structuredContent 오류 코드를 변경 없이 전달한다', 
 	assert.deepEqual(output, [serverMessage]);
 });
 
-test('공개 메타데이터는 대상 205개·Convert 39개·AI 15개와 이미지 작업 계약에 일치한다', () => {
+test('공개 메타데이터는 대상 224개·Convert 57개·AI 15개와 이미지 작업 계약에 일치한다', () => {
 	const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
 	const readme = readFileSync(new URL('../README.md', import.meta.url), 'utf8');
 	const tools = readFileSync(new URL('../TOOLS.md', import.meta.url), 'utf8');
-	assert.equal(pkg.version, '5.7.1');
-	assert.match(pkg.description, /205 Korean data, AI, image & video tools/);
+	assert.equal(pkg.version, '5.8.0');
+	assert.match(pkg.description, /224 Korean data, AI, image & video tools/);
 	assert.match(readme, /\| \[AI · LLM\]\(TOOLS\.md#ai\) \| `https:\/\/apick\.app\/mcp\/ai` \| 15 \|/);
-	assert.match(tools, /\| \*\*All 통합\*\* \| `\/mcp\/all` \| \*\*206\*\* \|/);
+	assert.match(tools, /\| \*\*All 통합\*\* \| `\/mcp\/all` \| \*\*224\*\* \|/);
 	assert.match(tools, /`https:\/\/apick\.app\/mcp\/business` — 81 tools/);
 	assert.match(tools, /`https:\/\/apick\.app\/mcp\/web` — 38 tools/);
 	assert.doesNotMatch(tools, /`check_pccc`/);
@@ -39,7 +39,7 @@ test('공개 메타데이터는 대상 205개·Convert 39개·AI 15개와 이미
 	assert.match(tools, /조회된 개인통관고유부호가 없습니다/);
 	assert.doesNotMatch(tools, /`auth_key`/);
 	assert.doesNotMatch(tools, /인증번호 6자리/);
-	assert.match(tools, /`https:\/\/apick\.app\/mcp\/convert` — 39 tools/);
+	assert.match(tools, /`https:\/\/apick\.app\/mcp\/convert` — 57 tools/);
 	assert.match(tools, /`https:\/\/apick\.app\/mcp\/ai` — 15 tools/);
 	for (const name of ['image_generate','image_edit','image_batch_create','image_batch_status','image_batch_result']) assert.match(tools, new RegExp('`'+name+'`'));
 	assert.doesNotMatch(tools, /image_batch_cancel/);
@@ -68,7 +68,7 @@ test('공개 메타데이터는 대상 205개·Convert 39개·AI 15개와 이미
 	assert.doesNotMatch(tools, /완료된 ZIP 결과/);
 	assert.match(readme, /MP3와 ASS 자막은 서로 독립된 1회용 원본/);
 	assert.match(tools, /최대 2,000자/);
-	assert.doesNotMatch(tools, /20,000자/);
+	for(const section of tools.matchAll(/### `(tts[^`]+)`([\s\S]*?)(?=\n### |$)/g))assert.doesNotMatch(section[2], /20,000자/);
 	assert.match(tools, /ASS 타이밍 자막/);
 	assert.match(readme, /8MB/);
 	assert.match(readme, /허용 IP가 공란이면 제한 없이/);
@@ -99,7 +99,7 @@ test('3.7.0 find_tools·stt artifact_filter·llm_chat relevance 계약이 문서
 	assert.match(readme, /`bank_code`·`info`·`llm_models`·`find_tools`는 무료입니다/);
 	assert.match(readme, /"name":"find_tools"/);
 	// find_tools 는 all 전용이라 분야별 서버 수는 그대로다.
-	assert.match(readme, /`https:\/\/apick\.app\/mcp\/convert` \| 39 \|/);
+	assert.match(readme, /`https:\/\/apick\.app\/mcp\/convert` \| 57 \|/);
 	assert.match(readme, /`https:\/\/apick\.app\/mcp\/ai` \| 15 \|/);
 	// stt artifact_filter
 	assert.match(tools, /\| `artifact_filter` \| `string` \| 선택 \/ optional \| [^\n]*`flag`, `remove` \|/);
@@ -118,3 +118,7 @@ test('README 는 클라이언트 MCP 도구 대기 시간을 안내한다', () =
 });
 
 test('문서 도구의 중첩 JSON과 요청 식별자를 그대로 전달한다', async()=>{ let sent;const output=[];const args={document_id:'test-document-id',version:2,request_id:'test-request-id',content:{type:'doc',content:[{type:'paragraph',content:[{type:'text',text:'한글'}]}]}};const bridge=createBridge({server:'convert',write:line=>output.push(JSON.parse(line)),fetch:async(url,options)=>{sent=JSON.parse(options.body);return new Response(JSON.stringify({jsonrpc:'2.0',id:8,result:{content:[{type:'text',text:'저장됨'}]}}),{headers:{'content-type':'application/json'}});}});await bridge.handleLine(JSON.stringify({jsonrpc:'2.0',id:8,method:'tools/call',params:{name:'document_update',arguments:args}}));assert.deepEqual(sent.params.arguments,args);assert.equal(sent.params.name,'document_update');assert.equal(output[0].id,8);});
+
+test('문서 작업의 중첩 입력·예산·검증 결과를 변형하지 않는다',async()=>{
+ const output=[],requests=[];const request={jsonrpc:'2.0',id:31,method:'tools/call',params:{name:'document_workflow_start',arguments:{text:'제안서',max_points:20,total_max_points:100,request_id:'document-request-01'}}};const reply={jsonrpc:'2.0',id:31,result:{content:[{type:'text',text:'접수됨'}],structuredContent:{job_id:'document-job-001',state:'queued',charged_points:0}}};const bridge=createBridge({server:'convert',write:line=>output.push(JSON.parse(line)),fetch:async(url,options)=>{requests.push(JSON.parse(options.body));return new Response(JSON.stringify(reply),{headers:{'content-type':'application/json'}});}});await bridge.handleLine(JSON.stringify(request));assert.deepEqual(requests[0],request);assert.deepEqual(output[0],reply);
+});

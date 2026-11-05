@@ -1,3 +1,8 @@
+# 5.8.0
+
+- 문서 작성·첨부·검증·출력 도구 18개와 총 224개 도구 안내를 추가했습니다.
+- Added documentation for 18 document operations; the bridge preserves nested arguments and verification results unchanged.
+
 ## 5.7.1 (2026-11-04)
 
 - 자동차등록원부 PDF·JSON을 제공하는 REST·SDK 경로를 안내했습니다.

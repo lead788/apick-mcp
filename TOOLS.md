@@ -2,10 +2,10 @@
 
 자동차등록원부 등본의 PDF·본문·차대번호는 REST 또는 `apick-api` SDK로 받습니다. 이 상품에는 전용 MCP 도구가 없습니다. The vehicle register is available through REST or the SDK. Read `data.result.vehicleRegisterDoc.문서내용` for the text and optional VIN.
 
-**206 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 206개**, 분야별 서버 8개와 통합 서버 `all`.
+**224 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 224개**, 분야별 서버 8개와 통합 서버 `all`.
 
-5.7.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
+5.8.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
 
 
 
@@ -23,12 +23,12 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | [OCR · OCR 문자인식](#ocr) | `/mcp/ocr` | 6 | 이미지 텍스트 추출과 신분증 항목 추출. |
 | [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 4 | 계좌 예금주 실명조회, 1원 인증, 암호화폐 통합 시세·김치프리미엄. |
 | [Web & Search · 웹 · 검색](#web) | `/mcp/web` | 38 | 도메인·IP 조회, WHOIS, 웹페이지 조회, URL→Markdown 변환, 페이지 캡처·텍스트 좌표, 구글 검색(웹·이미지·뉴스·쇼핑·지도·장소 상세·순위), 유튜브(검색·채널·재생목록·댓글·자막·영상 정보·썸네일), 인스타그램·틱톡·X(프로필·게시물), 아마존·쿠팡·네이버 상품, 링크드인(프로필·회사·채용공고). |
-| [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 39 | PDF·DOCX·엑셀 변환, 서식 문서 작성·목록·미리보기·AI 채우기, 음성인식(STT), 비동기 TTS, 워터마크. |
+| [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 57 | PDF·DOCX·엑셀 변환, 서식 문서 작성·목록·미리보기·AI 채우기, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
-| **All 통합** | `/mcp/all` | **206** | 아래 전부 + [`find_tools`](#find-tools) |
+| **All 통합** | `/mcp/all` | **224** | 아래 전부 + [`find_tools`](#find-tools) |
 
-<details><summary><b>All 206 MCP tool names / 전체 MCP Tool 이름</b></summary>
+<details><summary><b>All 224 MCP tool names / 전체 MCP Tool 이름</b></summary>
 
 `biz_detail` · `venture_biz_info` · `bid_notice` · `bid_award` · `dart_disclosure` · `dart_company` · `dart_financials` · `rtms_trade` · `rtms_rent` · `land_rt_price` · `land_info` · `bldrgst` · `court_auction` · `registry_doc_verify` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `vehicle_model_info` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `req_income_cert_bundle` · `get_income_cert_bundle` · `req_business_cert_bundle` · `get_business_cert_bundle` · `req_nps_bundle` · `get_nps_bundle` · `req_hometax_bundle` · `get_hometax_bundle` · `req_hometax_biz_bundle` · `get_hometax_biz_bundle` · `vehicle_emission` · `vehicle_recall` · `hipass_unpaid` · `vehicle_tax_calc` · `corp_finance` · `geo_standardize` · `geo_batch_geocode` · `geo_reverse` · `geo_address_search` · `geo_place_search` · `geo_admin_code` · `geo_compare_address` · `geo_measure` · `geo_geojson_analyze` · `geo_address_quality` · `geo_address_autocomplete` · `geo_district_boundary` · `geo_neighborhood` · `geo_site_score` · `geo_address_cleanup` · `registry_realestate_search` · `registry_corporate_search` · `registry_realestate_jobs_create` · `registry_corporate_jobs_create` · `email_risk_batch`
 
@@ -48,7 +48,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 `find_tools` (all only / 통합 서버 전용)
 
-`document_create` · `document_list` · `document_get` · `document_update` · `document_delete` · `document_ai_write` · `document_quote` · `document_download`
+`document_create` · `document_list` · `document_get` · `document_update` · `document_delete` · `document_ai_write` · `document_quote` · `document_download` · `document_quota` · `document_template` · `document_templates` · `document_assist` · `document_review` · `document_attachment_list` · `document_attachment_add` · `document_attachment_remove` · `document_download_bundle` · `document_download_pdf` · `document_workflow_quote` · `document_workflow_start` · `document_workflow_get` · `document_workflow_answer` · `document_workflow_apply` · `document_workflow_cancel` · `document_verify` · `document_finalize`
 
 </details>
 
@@ -153,11 +153,11 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 ## All server only · 통합 서버 전용
 
-`https://apick.app/mcp/all` — 1 tool in addition to the 205 domain tools
+`https://apick.app/mcp/all` — 1 tool in addition to the 223 domain tools
 
 Tools that exist only on the combined `all` server. Domain servers keep their own tool counts.
 
-분야별 Tool 205개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
+분야별 Tool 223개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
 
 <a id="find-tools"></a>
 
@@ -3220,7 +3220,7 @@ Capture a full-page screenshot and return the on-screen text blocks with their x
 
 ## File Conversion · 파일 변환 · 워터마크
 
-`https://apick.app/mcp/convert` — 39 tools
+`https://apick.app/mcp/convert` — 57 tools
 
 PDF, DOCX, Excel, speech-to-text, asynchronous TTS jobs, and watermarking.
 
@@ -4446,3 +4446,222 @@ Server: `convert` / `all`.
 | `request_id` | `string` | 필수 / required | 중복 방지 요청 ID. UUID 권장, 같은 요청의 재시도는 같은 값 |
 
 AI writing costs 20P per successful public API request. DOCX costs 100P for new output; the same document’s previously purchased content can be downloaded free during retention. Documents expire 14 days after creation, the last actual edit or successful download. Reuse request IDs on retries; send the last read version for updates and the quote’s version and content hash for downloads. AI returns a proposal; apply it with document_update after review.
+
+## 핵심 문서 작성·검증 / Core document workflows
+
+공통 작성·첨부·검증·출력 작업을 웹과 같은 문서에 적용합니다. 작성 단계당 20P, 첨부 대조는 별도 견적의 파일당 20P입니다. 작성 흐름의 총 한도는 최초 `total_max_points`이며 추가 단계가 상속합니다. 문서가 수정되면 다시 검증해야 합니다. 읽지 못한 첨부는 검증 완료로 표시하지 않으며, 검증은 법적 효력이나 개인 사실의 실재를 보증하지 않습니다.
+
+The same document operations are available through REST and MCP. Writing costs 20P per step; attachment review has a separate quote at 20P per file. The initial `total_max_points` caps the writing workflow and is inherited by child steps. Changes invalidate verification. Unread attachments remain unverified; verification does not guarantee legal effect or real-world personal facts.
+
+### `document_quota`
+
+웹 무료 체험과 공개 API의 AI 이용 기준을 확인합니다. 무료.
+
+Check web trial and public API AI usage terms. Free.
+
+입력 없음. / No parameters.
+
+### `document_template`
+
+서식과 선택한 판본의 편집 문서를 불러옵니다. 무료.
+
+Load an editable template and selected edition. Free.
+
+| 입력 / Parameter | 형식 / Type | 필수 / Required | 설명 / Description |
+|---|---|---|---|
+| `form` | `string` | 필수 / Yes | 서식 키 / Template key |
+| `edition` | `string` | 선택 / No | 판본 ID / Edition ID |
+
+### `document_templates`
+
+핵심 서식의 목적·말투·필수 항목·작성 기준을 검색합니다. 무료.
+
+Search core profiles, purposes, tone, required inputs and writing guidance. Free.
+
+| 입력 / Parameter | 형식 / Type | 필수 / Required | 설명 / Description |
+|---|---|---|---|
+| `query` | `string` | 선택 / No | 제목·목적 검색어 / Search by title or purpose |
+
+### `document_assist`
+
+입력 근거에 따른 항목 채우기·선택 문장 수정·서식 추천을 제안받습니다. 성공한 요청당 20P.
+
+Suggest field values, selected-text edits or templates from the supplied material. 20P per successful request.
+
+| 입력 / Parameter | 형식 / Type | 필수 / Required | 설명 / Description |
+|---|---|---|---|
+| `text` | `string` | 필수 / Yes | 작성 요청 / Writing request or additional answer; required for writing, up to 20,000 characters |
+| `document` | `object` | 선택 / No | 현재 문서 / Current document object |
+| `selection` | `string` | 선택 / No | 수정할 선택 문장 / Selected text to revise |
+| `request_id` | `string` | 필수 / Yes | 중복 방지 요청 ID. UUID 권장, 같은 요청의 재시도는 같은 값 / Idempotency key; UUID recommended. Reuse the identical value and body on retry |
+
+### `document_review`
+
+문서의 입력 오류와 확인할 문장을 검토합니다. 외부 사실을 검증했다고 보장하지 않습니다. 성공한 요청당 20P.
+
+Review input errors and claims needing confirmation. This does not guarantee external factual verification. 20P per successful request.
+
+| 입력 / Parameter | 형식 / Type | 필수 / Required | 설명 / Description |
+|---|---|---|---|
+| `document` | `object` | 필수 / Yes | 검토할 문서 / Current document object |
+| `request_id` | `string` | 필수 / Yes | 중복 방지 요청 ID. UUID 권장, 같은 요청의 재시도는 같은 값 / Idempotency key; UUID recommended. Reuse the identical value and body on retry |
+
+### `document_attachment_list`
+
+내 문서의 첨부 목록을 확인합니다. 무료.
+
+List attachments belonging to your document. Free.
+
+| 입력 / Parameter | 형식 / Type | 필수 / Required | 설명 / Description |
+|---|---|---|---|
+| `document_id` | `string` | 필수 / Yes | 내 문서 ID / Your document ID |
+
+### `document_attachment_add`
+
+내 문서에 파일을 추가합니다. 문서당 5개, 파일당 10MB입니다. 무료.
+
+Add an attachment: up to five per document and 10MB per file. Free.
+
+| 입력 / Parameter | 형식 / Type | 필수 / Required | 설명 / Description |
+|---|---|---|---|
+| `document_id` | `string` | 필수 / Yes | 내 문서 ID / Your document ID |
+| `name` | `string` | 필수 / Yes | 확장자를 포함한 파일 이름 / File name including extension |
+| `base64` | `string` | 필수 / Yes | 파일의 base64, 최대 10MB / Base64-encoded file, up to 10MB |
+| `request_id` | `string` | 필수 / Yes | 중복 방지 요청 ID. UUID 권장, 같은 요청의 재시도는 같은 값 / Idempotency key; UUID recommended. Reuse the identical value and body on retry |
+
+### `document_attachment_remove`
+
+내 문서의 지정 첨부를 삭제합니다. 무료.
+
+Remove the selected attachment from your document. Free.
+
+| 입력 / Parameter | 형식 / Type | 필수 / Required | 설명 / Description |
+|---|---|---|---|
+| `document_id` | `string` | 필수 / Yes | 내 문서 ID / Your document ID |
+| `attachment_id` | `string` | 필수 / Yes | 삭제할 첨부 ID / Attachment ID to remove |
+
+### `document_download_bundle`
+
+DOCX와 첨부를 ZIP으로 받습니다. 기존 문서 구매 권리를 사용합니다. 최초 100P, 같은 내용 재다운로드 무료.
+
+Download DOCX and attachments as ZIP using existing document purchase rights. First output costs 100P; repeat downloads of purchased content are free.
+
+| 입력 / Parameter | 형식 / Type | 필수 / Required | 설명 / Description |
+|---|---|---|---|
+| `document_id` | `string` | 필수 / Yes | 내 문서 ID / Your document ID |
+| `version` | `integer` | 필수 / Yes | 마지막으로 읽은 문서 버전 / Last read document version |
+| `content_hash` | `string` | 필수 / Yes | 견적 응답의 내용 해시 / Content hash from the download quote |
+| `request_id` | `string` | 필수 / Yes | 중복 방지 요청 ID. UUID 권장, 같은 요청의 재시도는 같은 값 / Idempotency key; UUID recommended. Reuse the identical value and body on retry |
+
+### `document_download_pdf`
+
+현재 문서를 PDF로 받습니다. 기존 문서 구매 권리를 사용합니다. 최초 100P, 같은 내용 재다운로드 무료.
+
+Download PDF using existing document purchase rights. First output costs 100P; repeat downloads of purchased content are free.
+
+| 입력 / Parameter | 형식 / Type | 필수 / Required | 설명 / Description |
+|---|---|---|---|
+| `document_id` | `string` | 필수 / Yes | 내 문서 ID / Your document ID |
+| `version` | `integer` | 필수 / Yes | 마지막으로 읽은 문서 버전 / Last read document version |
+| `content_hash` | `string` | 필수 / Yes | 견적 응답의 내용 해시 / Content hash from the download quote |
+| `request_id` | `string` | 필수 / Yes | 중복 방지 요청 ID. UUID 권장, 같은 요청의 재시도는 같은 값 / Idempotency key; UUID recommended. Reuse the identical value and body on retry |
+
+### `document_workflow_quote`
+
+문서 분석 한 단계의 총 견적을 확인합니다. 추가 단계와 다운로드는 별도입니다. 무료.
+
+Quote one writing step or all attachments. Later steps and downloads are separate. Free.
+
+| 입력 / Parameter | 형식 / Type | 필수 / Required | 설명 / Description |
+|---|---|---|---|
+| `action` | `string` | 선택 / No | attachment_review이면 첨부 수에 따른 총 견적 / Omit for writing; attachment_review compares every attachment with the saved document |
+| `document_id` | `string` | 선택 / No | 첨부 대조 대상 문서 ID / Your document ID; required for attachment review |
+| `version` | `integer` | 선택 / No | 첨부 대조 대상 문서 버전 / Last read document version; required for attachment review |
+
+### `document_workflow_start`
+
+최대 포인트 한도 내에서 문서 분석 작업을 접수합니다. 작업 ID로 결과를 조회합니다. 견적 승인 후 작성 20P · 첨부 대조 파일당 20P.
+
+Submit a job within the approved per-step and total budgets; use the job ID to read its result. Writing costs 20P; attachment review costs 20P per file.
+
+| 입력 / Parameter | 형식 / Type | 필수 / Required | 설명 / Description |
+|---|---|---|---|
+| `action` | `string` | 선택 / No | 기본 작성, attachment_review는 저장 문서의 첨부 전체 대조 / Omit for writing; attachment_review compares every attachment with the saved document |
+| `document_id` | `string` | 선택 / No | 첨부 대조할 내 문서 ID / Your document ID; required for attachment review |
+| `version` | `integer` | 선택 / No | 첨부 대조할 문서 버전 / Last read document version; required for attachment review |
+| `text` | `string` | 선택 / No | 작성 요청 또는 추가 답변에는 필수, 최대 20,000자 / Writing request or additional answer; required for writing, up to 20,000 characters |
+| `form` | `string` | 선택 / No | 선택한 핵심 서식 키 / Template key |
+| `edition` | `string` | 선택 / No | 선택한 판본 ID / Edition ID |
+| `max_points` | `integer` | 필수 / Yes | 이 단계의 최대 허용 포인트 / Maximum approved points for this step |
+| `total_max_points` | `integer` | 선택 / No | 최초 접수에서 정하는 전체 작성 흐름의 최대 포인트. 생략하면 이 단계 한도와 같으며 후속 단계가 상속합니다. / Initial total workflow cap; defaults to the step cap and is inherited by later steps without increase |
+| `request_id` | `string` | 필수 / Yes | 중복 방지 요청 ID. UUID 권장, 같은 요청의 재시도는 같은 값 / Idempotency key; UUID recommended. Reuse the identical value and body on retry |
+
+### `document_workflow_get`
+
+내 문서 작업의 상태·확인 질문·초안·검증 결과를 조회합니다. 무료.
+
+Read your job status, questions, draft and verification results. Free.
+
+| 입력 / Parameter | 형식 / Type | 필수 / Required | 설명 / Description |
+|---|---|---|---|
+| `job_id` | `string` | 필수 / Yes | 내 문서 작업 ID / Your workflow job ID |
+
+### `document_workflow_answer`
+
+확인 질문에 답변하여 다음 단계를 접수합니다. 새 견적과 최대 포인트가 필요합니다. 견적 승인 후 작성 20P.
+
+Answer questions to submit the next writing step with a new request ID and per-step budget. The original total cap is inherited. 20P after quote approval. Attachment review is accepted only by workflow_start.
+
+| 입력 / Parameter | 형식 / Type | 필수 / Required | 설명 / Description |
+|---|---|---|---|
+| `job_id` | `string` | 필수 / Yes | 내 문서 작업 ID / Your workflow job ID |
+| `text` | `string` | 필수 / Yes | 작성 요청 또는 추가 답변에는 필수, 최대 20,000자 / Writing request or additional answer; required for writing, up to 20,000 characters |
+| `form` | `string` | 선택 / No | 선택한 핵심 서식 키 / Template key |
+| `edition` | `string` | 선택 / No | 선택한 판본 ID / Edition ID |
+| `max_points` | `integer` | 필수 / Yes | 이 단계의 최대 허용 포인트 / Maximum approved points for this step |
+| `total_max_points` | `integer` | 선택 / No | 최초 접수에서 정하는 전체 작성 흐름의 최대 포인트. 생략하면 이 단계 한도와 같으며 후속 단계가 상속합니다. / Initial total workflow cap; defaults to the step cap and is inherited by later steps without increase |
+| `request_id` | `string` | 필수 / Yes | 중복 방지 요청 ID. UUID 권장, 같은 요청의 재시도는 같은 값 / Idempotency key; UUID recommended. Reuse the identical value and body on retry |
+
+### `document_workflow_apply`
+
+작업에서 제안한 초안을 내 문서함에 저장합니다. 무료.
+
+Save the proposed writing draft to your document library. Attachment-review jobs cannot be applied as drafts. Free.
+
+| 입력 / Parameter | 형식 / Type | 필수 / Required | 설명 / Description |
+|---|---|---|---|
+| `job_id` | `string` | 필수 / Yes | 내 문서 작업 ID / Your workflow job ID |
+| `request_id` | `string` | 필수 / Yes | 중복 방지 요청 ID. UUID 권장, 같은 요청의 재시도는 같은 값 / Idempotency key; UUID recommended. Reuse the identical value and body on retry |
+
+### `document_workflow_cancel`
+
+미완료 작업을 취소하고 예약 포인트를 반환합니다. 무료.
+
+Cancel unfinished work and return reserved points. Free.
+
+| 입력 / Parameter | 형식 / Type | 필수 / Required | 설명 / Description |
+|---|---|---|---|
+| `job_id` | `string` | 필수 / Yes | 내 문서 작업 ID / Your workflow job ID |
+
+### `document_verify`
+
+저장된 문서를 입력 근거 및 필수 항목·계산 규칙과 대조합니다. 확인 불가를 구분합니다. 무료.
+
+Compare the current document with supplied evidence and required-field/calculation rules. Unverifiable items remain distinct. Free.
+
+| 입력 / Parameter | 형식 / Type | 필수 / Required | 설명 / Description |
+|---|---|---|---|
+| `document_id` | `string` | 필수 / Yes | 내 문서 ID / Your document ID |
+| `version` | `integer` | 필수 / Yes | 마지막으로 읽은 문서 버전 / Last read document version |
+
+### `document_finalize`
+
+현재 버전의 검증에서 차단 항목이 없을 때만 완성본으로 확정합니다. 무료.
+
+Finalize only if verification for the current version contains no blocking issues. Free.
+
+| 입력 / Parameter | 형식 / Type | 필수 / Required | 설명 / Description |
+|---|---|---|---|
+| `document_id` | `string` | 필수 / Yes | 내 문서 ID / Your document ID |
+| `version` | `integer` | 필수 / Yes | 마지막으로 읽은 문서 버전 / Last read document version |
+| `verification_hash` | `string` | 필수 / Yes | 직전 검증 응답의 검증 해시 / Verification hash returned for this document version |

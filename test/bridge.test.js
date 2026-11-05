@@ -26,7 +26,7 @@ test('공개 메타데이터는 대상 224개·Convert 57개·AI 15개와 이미
 	const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
 	const readme = readFileSync(new URL('../README.md', import.meta.url), 'utf8');
 	const tools = readFileSync(new URL('../TOOLS.md', import.meta.url), 'utf8');
-	assert.equal(pkg.version, '5.8.0');
+	assert.equal(pkg.version, '5.8.1');
 	assert.match(pkg.description, /224 Korean data, AI, image & video tools/);
 	assert.match(readme, /\| \[AI · LLM\]\(TOOLS\.md#ai\) \| `https:\/\/apick\.app\/mcp\/ai` \| 15 \|/);
 	assert.match(tools, /\| \*\*All 통합\*\* \| `\/mcp\/all` \| \*\*224\*\* \|/);

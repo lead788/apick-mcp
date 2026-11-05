@@ -1,4 +1,9 @@
-# 5.8.0
+# 5.8.1
+
+- 공개 도구 수·읽기 전용 안내·패키지 버전 검증을 갱신했습니다. 5.8.0은 게시 전 검사에서 중단되어 npm에 게시되지 않았습니다.
+- Updated metadata checks for the expanded tool set. Version 5.8.0 was stopped by pre-publish tests and was not published to npm.
+
+## 5.8.0
 
 - 문서 작성·첨부·검증·출력 도구 18개와 총 224개 도구 안내를 추가했습니다.
 - Added documentation for 18 document operations; the bridge preserves nested arguments and verification results unchanged.

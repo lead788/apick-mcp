@@ -1,4 +1,9 @@
-# 5.8.1
+# 5.8.2
+
+- `document_assist`에 대화 맥락 입력 `history`와 서식 전환 확인 응답(`switch: true`, 차감 없음)을 문서화했습니다. 입력 글자 수 상한을 실제 값(3,000자)으로 바로잡았습니다.
+- Documented the `history` input and the free template-switch confirmation (`switch: true`) for `document_assist`, and corrected the text limit to 3,000 characters.
+
+## 5.8.1
 
 - 공개 도구 수·읽기 전용 안내·패키지 버전 검증을 갱신했습니다. 5.8.0은 게시 전 검사에서 중단되어 npm에 게시되지 않았습니다.
 - Updated metadata checks for the expanded tool set. Version 5.8.0 was stopped by pre-publish tests and was not published to npm.

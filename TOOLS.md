@@ -4488,11 +4488,16 @@ Search core profiles, purposes, tone, required inputs and writing guidance. Free
 
 Suggest field values, selected-text edits or templates from the supplied material. 20P per successful request.
 
+`history`에 같은 대화의 앞선 말을 넣으면 앞에서 말한 값을 다시 묻지 않고 채웁니다. `document.form`과 다른 서식을 이름으로 요청하면 값을 채우기 전에 `kind: "recommendations"`, `switch: true` 응답으로 전환 여부를 먼저 묻고, 이 확인 응답은 차감하지 않습니다.
+
+Pass earlier turns in `history` so values already given are filled without asking again. If the request names a template different from `document.form`, the tool first asks whether to switch (`kind: "recommendations"`, `switch: true`) without filling values; this confirmation is not charged.
+
 | 입력 / Parameter | 형식 / Type | 필수 / Required | 설명 / Description |
 |---|---|---|---|
-| `text` | `string` | 필수 / Yes | 작성 요청 / Writing request or additional answer; required for writing, up to 20,000 characters |
+| `text` | `string` | 필수 / Yes | 작성 요청, 최대 3,000자 / Writing request, up to 3,000 characters |
 | `document` | `object` | 선택 / No | 현재 문서 / Current document object |
 | `selection` | `string` | 선택 / No | 수정할 선택 문장 / Selected text to revise |
+| `history` | `array` | 선택 / No | 같은 대화의 앞선 말 `[{role, text}]`. `role`은 `user`·`assistant`, 최근 8개·한 말당 1,500자. 근거는 `user` 말만 씁니다 / Earlier turns `[{role, text}]` (`user` or `assistant`), last 8, 1,500 characters each; only `user` turns count as evidence |
 | `request_id` | `string` | 필수 / Yes | 중복 방지 요청 ID. UUID 권장, 같은 요청의 재시도는 같은 값 / Idempotency key; UUID recommended. Reuse the identical value and body on retry |
 
 ### `document_review`

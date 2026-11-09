@@ -3242,7 +3242,7 @@ PDF·DOCX·엑셀 변환, 음성인식(STT), 비동기 TTS, 워터마크.
 | [`html_to_pdf`](#html-to-pdf) | HTML PDF 변환 | `html` |
 | [`docx_to_pdf`](#docx-to-pdf) | DOCX 파일을 PDF 파일로 변환 | `docx_url` |
 | [`json_to_excel`](#json-to-excel) | JSON 데이터 EXCEL 파일 변환 | `data_list` |
-| [`form_document`](#form-document) | 서식 자동작성(계약서·증명서·신고서 160종) | `form`, `text`, `data`, `format` |
+| [`form_document`](#form-document) | 서식 자동작성(계약서·증명서·신고서 200종) | `form`, `text`, `data`, `format` |
 | [`form_list`](#form-list) | 서식 목록(무료) | `category`, `keyword` |
 | [`form_fields`](#form-fields) | 서식 필드 정의(무료) | `form` |
 | [`form_preview`](#form-preview) | 서식 인식 미리보기(무료) | `form`, `text`, `data` |
@@ -3575,7 +3575,7 @@ JSON 데이터를 EXCEL(XLSX) 파일로 변환해 반환합니다. data_list 는
 
 Generate a Korean business form from free-form text or explicit fields and return it as PDF, DOCX, HWPX, RTF, HTML, Markdown, TXT, JSON, or XLSX.
 
-자유 문장 또는 정형 필드로 계약서·증명서·신고서 등 160종 서식을 만들어 파일로 돌려줍니다. `data` 가 `text` 보다 우선하며, 입력하지 않은 항목은 오류가 아니라 빈칸으로 출력됩니다. 서식 키·필드 정의는 `form_list`·`form_fields`(무료)에서 확인합니다. 문서(PDF·DOCX·HWPX·RTF) 100P, 값·미리보기 포맷 30P.
+자유 문장 또는 정형 필드로 계약서·증명서·신고서 등 200종 서식을 만들어 파일로 돌려줍니다. `data` 가 `text` 보다 우선하며, 입력하지 않은 항목은 오류가 아니라 빈칸으로 출력됩니다. 서식 키·필드 정의는 `form_list`·`form_fields`(무료)에서 확인합니다. 문서(PDF·DOCX·HWPX·RTF) 100P, 값·미리보기 포맷 30P.
 
 읽기 전용 / read-only · 입력 변환 / transforms your input · server `convert`
 
@@ -3596,7 +3596,7 @@ Generate a Korean business form from free-form text or explicit fields and retur
 
 List the Korean form documents that `form_document` can generate, with category, purpose, and field counts.
 
-`form_document` 로 만들 수 있는 160종 서식의 키·이름·분류·필드 수를 돌려줍니다. 무료이며 과금되지 않습니다. 문서를 만들기 전에 `form` 키를 고를 때 씁니다.
+`form_document` 로 만들 수 있는 200종 서식의 키·이름·분류·필드 수를 돌려줍니다. 무료이며 과금되지 않습니다. 문서를 만들기 전에 `form` 키를 고를 때 씁니다.
 
 읽기 전용 / read-only · server `convert`
 

@@ -491,6 +491,7 @@ Use request → user approval on the phone → result lookup. Confirm the reques
 | `birthDate` | 생년월일 숫자 8자리, YYYYMMDD | 필수 |
 | `phone` | 본인 명의 휴대전화 번호, 숫자 10~11자리, 01로 시작 | 필수 |
 | `authProvider` | `kakao`, `naver`, `toss`, `pass`, `samsung`, `kb`, `shinhan`, `hana`, `woori`, `ibk`, `nh`, `kakaobank`, `banksalad` | 필수 |
+| `telco` | 통신사 코드 `S`(SKT), `K`(KT), `L`(LGU+), `SA`(알뜰폰 SKT), `KA`(알뜰폰 KT), `LA`(알뜰폰 LGU+) | 조건부: `authProvider=pass`일 때만 필수, 다른 인증수단은 보내지 않음 |
 
 결과 Tool은 **같은 상품**의 접수 응답에서 받은 `transactionId`(소문자 16진수 32자리)만 받습니다. 접수·결과 Tool 모두 `readOnlyHint: false`입니다. 접수는 `idempotentHint: false`, 결과 조회는 동일 거래 재조회 시 중복 과금하지 않아 `idempotentHint: true`입니다.
 

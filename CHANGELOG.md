@@ -1,3 +1,10 @@
+## 5.10.1 (2026-11-12)
+
+- 틱톡 프로필 조회(`tiktok_profile`)가 종료돼 문서의 웹 서버 설명에서 틱톡을 뺐습니다. 도구 수는 그대로입니다(웹 35개, 전체 222개).
+- `coupang_product` 설명에 품절 안내를 더했습니다. 품절 상품도 정상 응답이며 과금되고, `is_in_stock` 은 `false`, 판매가는 빈 값일 수 있습니다.
+- `tiktok_profile` is retired; removed TikTok from the `web` server description. Tool counts are unchanged (35 on `web`, 222 in total).
+- `coupang_product` now notes that sold-out items are returned and billed (`is_in_stock` false, price may be empty).
+
 ## 5.10.0 (2026-11-11)
 
 - 웹 서버(`web`)에서 `tiktok_profile`(틱톡 프로필)·`naver_shopping_product`(네이버 브랜드스토어 상품)·`linkedin_profile`(링크드인 프로필)을 뺐습니다. 응답 시간·성공률이 공개 기준에 못 미쳐 공개 전 점검으로 돌렸고, 기준을 충족하면 다시 공개합니다. 호출하면 과금 없이 실패합니다. 웹 서버는 35개, 전체 도구 수는 222개입니다.

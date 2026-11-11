@@ -2460,9 +2460,9 @@ Monthly average and yearly average (year-to-date for the current year) exchange 
 
 `https://apick.app/mcp/web` — 35 tools
 
-Domain and IP intelligence, WHOIS, page capture, Google search (web, images, news, shopping, maps, rank check), YouTube (search, channels, playlists, comments, subtitles), Instagram, TikTok and X (profiles, posts), and Amazon (products).
+Domain and IP intelligence, WHOIS, page capture, Google search (web, images, news, shopping, maps, rank check), YouTube (search, channels, playlists, comments, subtitles), Instagram and X (profiles, posts), and Amazon (products).
 
-도메인·IP 조회, WHOIS, 웹페이지 조회, 구글 검색(웹·이미지·뉴스·쇼핑·지도·장소 상세·순위), 유튜브(검색·채널·재생목록·댓글·자막), 인스타그램·틱톡·X(프로필·게시물), 아마존(상품).
+도메인·IP 조회, WHOIS, 웹페이지 조회, 구글 검색(웹·이미지·뉴스·쇼핑·지도·장소 상세·순위), 유튜브(검색·채널·재생목록·댓글·자막), 인스타그램·X(프로필·게시물), 아마존(상품).
 
 | Tool | 기능 | Required 필수 |
 | --- | --- | --- |
@@ -3055,9 +3055,9 @@ Amazon product by URL or ASIN: title, price, rating, reviews count, availability
 
 ### `coupang_product` — 쿠팡 상품 정보 조회
 
-Coupang product by URL or product id: title, prices, discount, rating, reviews, stock, seller, options, categories and images. 30 points per call; failed calls are free.
+Coupang product by URL or product id: title, prices, discount, rating, reviews, stock, seller, options, categories and images. 30 points per call; failed calls are free. Sold-out items are returned and billed (is_in_stock false, price may be empty).
 
-쿠팡 상품 주소 또는 상품번호로 상품명·정가·판매가·할인율·평점·리뷰 수·재고·판매자·옵션·카테고리·이미지를 조회합니다. 호출당 30P, 실패하면 과금되지 않습니다. 보통 15~30초, 최대 40초 걸립니다.
+쿠팡 상품 주소 또는 상품번호로 상품명·정가·판매가·할인율·평점·리뷰 수·재고·판매자·옵션·카테고리·이미지를 조회합니다. 호출당 30P, 실패하면 과금되지 않습니다. 보통 15~30초, 최대 40초 걸립니다. 품절 상품도 정상 응답이며 과금됩니다(is_in_stock false, 판매가 빈 값 가능).
 
 > 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `web`
 

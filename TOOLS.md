@@ -2,8 +2,8 @@
 
 자동차등록원부 등본의 PDF·본문·차대번호는 REST 또는 `apick-api` SDK로 받습니다. 이 상품에는 전용 MCP 도구가 없습니다. The vehicle register is available through REST or the SDK. Read `data.result.vehicleRegisterDoc.문서내용` for the text and optional VIN.
 
-**224 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 224개**, 분야별 서버 8개와 통합 서버 `all`.
+**225 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 225개**, 분야별 서버 8개와 통합 서버 `all`.
 
 5.8.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
 
@@ -21,14 +21,14 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 81 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 간편인증 데이터 조회·세무 증빙서류 발급, 이메일 위험 일괄 검사, 유효성 검사. |
 | [Identity Verification · 신분증 진위확인 · 마스킹](#identity) | `/mcp/identity` | 16 | 주민등록증·운전면허증·여권·외국인등록증 진위확인, 실명확인, 개인정보 마스킹. |
 | [OCR · OCR 문자인식](#ocr) | `/mcp/ocr` | 6 | 이미지 텍스트 추출과 신분증 항목 추출. |
-| [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 4 | 계좌 예금주 실명조회, 1원 인증, 암호화폐 통합 시세·김치프리미엄. |
+| [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 5 | 계좌 예금주 실명조회, 1원 인증, 암호화폐 통합 시세·김치프리미엄, 월평균·연평균 환율. |
 | [Web & Search · 웹 · 검색](#web) | `/mcp/web` | 38 | 도메인·IP 조회, WHOIS, 웹페이지 조회, URL→Markdown 변환, 페이지 캡처·텍스트 좌표, 구글 검색(웹·이미지·뉴스·쇼핑·지도·장소 상세·순위), 유튜브(검색·채널·재생목록·댓글·자막·영상 정보·썸네일), 인스타그램·틱톡·X(프로필·게시물), 아마존·쿠팡·네이버 상품, 링크드인(프로필·회사·채용공고). |
 | [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 57 | PDF·DOCX·엑셀 변환, 서식 문서 작성·목록·미리보기·AI 채우기, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
-| **All 통합** | `/mcp/all` | **224** | 아래 전부 + [`find_tools`](#find-tools) |
+| **All 통합** | `/mcp/all` | **225** | 아래 전부 + [`find_tools`](#find-tools) |
 
-<details><summary><b>All 224 MCP tool names / 전체 MCP Tool 이름</b></summary>
+<details><summary><b>All 225 MCP tool names / 전체 MCP Tool 이름</b></summary>
 
 `biz_detail` · `venture_biz_info` · `bid_notice` · `bid_award` · `dart_disclosure` · `dart_company` · `dart_financials` · `rtms_trade` · `rtms_rent` · `land_rt_price` · `land_info` · `bldrgst` · `court_auction` · `registry_doc_verify` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `vehicle_model_info` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `req_income_cert_bundle` · `get_income_cert_bundle` · `req_business_cert_bundle` · `get_business_cert_bundle` · `req_nps_bundle` · `get_nps_bundle` · `req_hometax_bundle` · `get_hometax_bundle` · `req_hometax_biz_bundle` · `get_hometax_biz_bundle` · `vehicle_emission` · `vehicle_recall` · `hipass_unpaid` · `vehicle_tax_calc` · `corp_finance` · `geo_standardize` · `geo_batch_geocode` · `geo_reverse` · `geo_address_search` · `geo_place_search` · `geo_admin_code` · `geo_compare_address` · `geo_measure` · `geo_geojson_analyze` · `geo_address_quality` · `geo_address_autocomplete` · `geo_district_boundary` · `geo_neighborhood` · `geo_site_score` · `geo_address_cleanup` · `registry_realestate_search` · `registry_corporate_search` · `registry_realestate_jobs_create` · `registry_corporate_jobs_create` · `email_risk_batch`
 
@@ -36,7 +36,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 `ocr` · `ocr_identi1` · `ocr_identi2` · `ocr_identi3` · `ocr_identi4` · `ocr_identi5`
 
-`transfer_1won` · `account_realname` · `bank_code` · `crypto_market`
+`transfer_1won` · `account_realname` · `bank_code` · `crypto_market` · `exchange_rate`
 
 `nslookup` · `reverse_ip` · `location` · `ip_history` · `whois` · `url_html` · `url_screenshot` · `url_similarity` · `google_search` · `google_image_search` · `google_news_search` · `google_shopping_search` · `google_maps_search` · `google_rank_check` · `google_lens_search` · `crawl_youtube` · `youtube_search` · `youtube_playlist` · `youtube_channel` · `youtube_hashtag` · `youtube_comments` · `youtube_metadata` · `youtube_thumbnail` · `youtube_subtitle_list` · `youtube_subtitle` · `instagram_profile` · `instagram_post` · `tiktok_profile` · `amazon_product` · `x_profile` · `x_post` · `coupang_product` · `naver_shopping_product` · `linkedin_profile` · `linkedin_company` · `linkedin_job` · `url_to_markdown` · `web_capture_extract`
 
@@ -2343,7 +2343,7 @@ Extract key fields from a Korean alien registration card (residence card) image 
 
 ## Finance · 금융 · 계좌확인
 
-`https://apick.app/mcp/finance` — 4 tools
+`https://apick.app/mcp/finance` — 5 tools
 
 Korean bank account holder lookup and 1 KRW deposit verification.
 
@@ -2355,6 +2355,7 @@ Korean bank account holder lookup and 1 KRW deposit verification.
 | [`account_realname`](#account-realname) | 계좌 예금주 실명 조회 | `account_num` |
 | [`bank_code`](#bank-code) | 은행코드 조회 | — |
 | [`crypto_market`](#crypto-market) | 암호화폐 통합 시세·김치프리미엄 | `symbols` |
+| [`exchange_rate`](#exchange-rate) | 월평균·연평균 환율 조회 | — |
 
 <a id="transfer-1won"></a>
 
@@ -2430,6 +2431,27 @@ Compare Korean-won crypto prices with global USDT prices and return the Korea pr
 
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"crypto_market","arguments":{"symbols":"BTC,ETH"}}}
+```
+
+---
+
+<a id="exchange-rate"></a>
+
+### `exchange_rate` — 월평균·연평균 환율 조회
+
+Monthly average and yearly average (year-to-date for the current year) exchange rates against the Korean won (KRW) for about 50 major currencies.
+
+원화 기준 주요 통화의 월평균·연평균 환율을 월 단위로 조회합니다. `month`를 생략하면 지난달이고, 이번 달과 이후 달은 조회할 수 없습니다. JPY·IDR·VND 는 100단위(`unit`=100) 값입니다. 원화 환산은 `외화 금액 ÷ unit × monthly_average`입니다. 호출당 5P, 실패하면 과금되지 않습니다.
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `finance`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `month` | `string` | 선택 / optional | 조회 월 YYYYMM (예: 202609). 생략하면 지난달. 이번 달 이후는 조회 불가 |
+| `currency` | `string` | 선택 / optional | 통화 코드를 쉼표로 구분 (예: USD,JPY,EUR, 최대 60개). 생략하면 전체 통화 |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"exchange_rate","arguments":{"month":"202609","currency":"USD,JPY"}}}
 ```
 
 <a id="web"></a>

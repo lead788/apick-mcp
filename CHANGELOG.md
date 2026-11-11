@@ -1,3 +1,8 @@
+## 5.9.0 (2026-11-11)
+
+- 금융 서버(`finance`)에 `exchange_rate`(월평균·연평균 환율 조회)를 추가했습니다. 원화 기준 50여 개 통화의 월평균 환율과 연평균 환율을 월 단위로 돌려줍니다. `month`(YYYYMM)를 생략하면 지난달이고, `currency`로 통화를 고를 수 있습니다. JPY·IDR·VND 는 100단위(`unit`=100) 값입니다. 호출당 5P, 실패하면 과금되지 않습니다. 전체 도구 수는 225개입니다.
+- Added `exchange_rate` to the `finance` server: monthly and yearly (year-to-date for the current year) average KRW exchange rates for about 50 currencies. `month` (YYYYMM) defaults to last month; `currency` filters codes; JPY, IDR and VND are quoted per 100 units. 5 points per call, no charge on failure. 225 tools in total.
+
 ## 5.8.5 (2026-11-09)
 
 - 간편인증 접수 공통 계약에 `telco`(통신사 코드) 입력을 추가했습니다. `authProvider=pass`(통신사 PASS)일 때만 필수이며 `S`(SKT)·`K`(KT)·`L`(LGU+)·`SA`·`KA`·`LA`(각 알뜰폰)를 받습니다. 다른 인증수단은 기존처럼 `telco` 없이 요청합니다.

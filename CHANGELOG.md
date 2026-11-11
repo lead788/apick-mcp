@@ -1,3 +1,10 @@
+## 5.10.0 (2026-11-11)
+
+- 웹 서버(`web`)에서 `tiktok_profile`(틱톡 프로필)·`naver_shopping_product`(네이버 브랜드스토어 상품)·`linkedin_profile`(링크드인 프로필)을 뺐습니다. 응답 시간·성공률이 공개 기준에 못 미쳐 공개 전 점검으로 돌렸고, 기준을 충족하면 다시 공개합니다. 호출하면 과금 없이 실패합니다. 웹 서버는 35개, 전체 도구 수는 222개입니다.
+- `coupang_product`(쿠팡 상품 조회)를 다시 정상 제공합니다. 응답은 보통 15~30초이며 최대 40초 안에 끝납니다. 클라이언트의 요청 시간 제한은 45초 이상으로 잡으세요.
+- Removed `tiktok_profile`, `naver_shopping_product` and `linkedin_profile` from the `web` server while they are under pre-release review (latency and success rate below the public bar). Calls fail without charge. The `web` server now has 35 tools, 222 in total.
+- `coupang_product` is available again. Typical response is 15–30 s with a 40 s upper bound; set client timeouts to at least 45 s.
+
 ## 5.9.0 (2026-11-11)
 
 - 금융 서버(`finance`)에 `exchange_rate`(월평균·연평균 환율 조회)를 추가했습니다. 원화 기준 50여 개 통화의 월평균 환율과 연평균 환율을 월 단위로 돌려줍니다. `month`(YYYYMM)를 생략하면 지난달이고, `currency`로 통화를 고를 수 있습니다. JPY·IDR·VND 는 100단위(`unit`=100) 값입니다. 호출당 5P, 실패하면 과금되지 않습니다. 전체 도구 수는 225개입니다.

@@ -1,3 +1,12 @@
+## 5.11.0 (2026-11-17)
+
+- 이미지 서버(`vision`)에 `face_similarity`(얼굴 유사도 비교)를 추가했습니다. 기준 사진과 비교 사진의 대표 얼굴이 같은 사람인지 0~1 점수·판정(`is_match`)·구간(높음·보통·낮음)으로 돌려줍니다. 신분증 사진과 셀피 대조에 씁니다. 기본 10P이며 얼굴을 찾지 못하면 과금되지 않습니다. 얼굴 특징값은 응답에 담지 않습니다.
+- OCR 서버(`ocr`)에 `business_doc_ocr`(사업자 서류 판독)를 추가했습니다. 사업자등록증·통신판매업 신고증·법인 등기사항증명서·인감증명서 사진을 항목별로 읽고(주민등록번호는 뒤 6자리 가림) 등록번호 검증과 읽지 못한 필수 항목을 알려주며, `check_status=1`이면 현재 사업자 상태도 함께 확인합니다(추가 요금 없음). 판독 20P이며 결제 이력이 있는 계정에서 쓸 수 있고, 글자를 읽지 못했거나 사업자 서류가 아니면 과금되지 않습니다.
+- 이미지 서버 7개, OCR 서버 7개, 전체 도구 수는 224개입니다. 조회 전용 도구는 162개입니다.
+- Added `face_similarity` to the `vision` server: compares the main faces in a reference image and another image and returns a 0-1 score, a match decision and a level. 10 points by default; no charge when no face is found. Face feature vectors are never returned.
+- Added `business_doc_ocr` to the `ocr` server: reads Korean business registration, e-commerce registration, corporate registry and seal certificates field by field (resident registration numbers are masked), validates the registration number, lists unread required fields, and optionally checks the current business status at no extra cost. 20 points per document (requires a paid account); no charge when no text or no business document is found.
+- 7 tools on `vision`, 7 on `ocr`, 224 in total; 162 are read-only.
+
 ## 5.10.1 (2026-11-12)
 
 - 틱톡 프로필 조회(`tiktok_profile`)가 종료돼 문서의 웹 서버 설명에서 틱톡을 뺐습니다. 도구 수는 그대로입니다(웹 35개, 전체 222개).

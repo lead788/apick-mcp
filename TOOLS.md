@@ -2,8 +2,8 @@
 
 자동차등록원부 등본의 PDF·본문·차대번호는 REST 또는 `apick-api` SDK로 받습니다. 이 상품에는 전용 MCP 도구가 없습니다. The vehicle register is available through REST or the SDK. Read `data.result.vehicleRegisterDoc.문서내용` for the text and optional VIN.
 
-**222 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 222개**, 분야별 서버 8개와 통합 서버 `all`.
+**224 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 224개**, 분야별 서버 8개와 통합 서버 `all`.
 
 5.8.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
 
@@ -20,21 +20,21 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | --- | --- | --- | --- |
 | [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 81 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 간편인증 데이터 조회·세무 증빙서류 발급, 이메일 위험 일괄 검사, 유효성 검사. |
 | [Identity Verification · 신분증 진위확인 · 마스킹](#identity) | `/mcp/identity` | 16 | 주민등록증·운전면허증·여권·외국인등록증 진위확인, 실명확인, 개인정보 마스킹. |
-| [OCR · OCR 문자인식](#ocr) | `/mcp/ocr` | 6 | 이미지 텍스트 추출과 신분증 항목 추출. |
+| [OCR · OCR 문자인식](#ocr) | `/mcp/ocr` | 7 | 이미지 텍스트 추출, 신분증 항목 추출, 사업자 서류 판독. |
 | [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 5 | 계좌 예금주 실명조회, 1원 인증, 암호화폐 통합 시세·김치프리미엄, 월평균·연평균 환율. |
 | [Web & Search · 웹 · 검색](#web) | `/mcp/web` | 35 | 도메인·IP 조회, WHOIS, 웹페이지 조회, URL→Markdown 변환, 페이지 캡처·텍스트 좌표, 구글 검색(웹·이미지·뉴스·쇼핑·지도·장소 상세·순위), 유튜브(검색·채널·재생목록·댓글·자막·영상 정보·썸네일), 인스타그램·X(프로필·게시물), 아마존·쿠팡 상품, 링크드인(회사·채용공고). |
 | [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 57 | PDF·DOCX·엑셀 변환, 서식 문서 작성·목록·미리보기·AI 채우기, 음성인식(STT), 비동기 TTS, 워터마크. |
-| [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 6 | 얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출. |
+| [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 7 | 얼굴 검출, 얼굴 유사도 비교, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
-| **All 통합** | `/mcp/all` | **222** | 아래 전부 + [`find_tools`](#find-tools) |
+| **All 통합** | `/mcp/all` | **224** | 아래 전부 + [`find_tools`](#find-tools) |
 
-<details><summary><b>All 222 MCP tool names / 전체 MCP Tool 이름</b></summary>
+<details><summary><b>All 224 MCP tool names / 전체 MCP Tool 이름</b></summary>
 
 `biz_detail` · `venture_biz_info` · `bid_notice` · `bid_award` · `dart_disclosure` · `dart_company` · `dart_financials` · `rtms_trade` · `rtms_rent` · `land_rt_price` · `land_info` · `bldrgst` · `court_auction` · `registry_doc_verify` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `vehicle_model_info` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `req_income_cert_bundle` · `get_income_cert_bundle` · `req_business_cert_bundle` · `get_business_cert_bundle` · `req_nps_bundle` · `get_nps_bundle` · `req_hometax_bundle` · `get_hometax_bundle` · `req_hometax_biz_bundle` · `get_hometax_biz_bundle` · `vehicle_emission` · `vehicle_recall` · `hipass_unpaid` · `vehicle_tax_calc` · `corp_finance` · `geo_standardize` · `geo_batch_geocode` · `geo_reverse` · `geo_address_search` · `geo_place_search` · `geo_admin_code` · `geo_compare_address` · `geo_measure` · `geo_geojson_analyze` · `geo_address_quality` · `geo_address_autocomplete` · `geo_district_boundary` · `geo_neighborhood` · `geo_site_score` · `geo_address_cleanup` · `registry_realestate_search` · `registry_corporate_search` · `registry_realestate_jobs_create` · `registry_corporate_jobs_create` · `email_risk_batch`
 
 `identi_card1` · `identi_card2` · `identi_card3` · `identi_card4` · `identi_card5` · `identi_card_image1` · `identi_card_image2` · `identi_card_image3` · `identi_card_image4` · `identi_card_image5` · `name_rrn_auth` · `hide_rrn` · `identity_document_residence_card` · `identity_document_passport` · `identity_document_id_card` · `identity_document_driver_license`
 
-`ocr` · `ocr_identi1` · `ocr_identi2` · `ocr_identi3` · `ocr_identi4` · `ocr_identi5`
+`ocr` · `business_doc_ocr` · `ocr_identi1` · `ocr_identi2` · `ocr_identi3` · `ocr_identi4` · `ocr_identi5`
 
 `transfer_1won` · `account_realname` · `bank_code` · `crypto_market` · `exchange_rate`
 
@@ -42,7 +42,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 `stt` · `tts_jobs_create` · `tts_gemini_create` · `tts_gemini_voices` · `tts_openai_create` · `tts_openai_voices` · `tts_options` · `tts_quote` · `tts_jobs_status` · `tts_jobs_cancel` · `tts_jobs_result` · `tts_jobs_subtitles` · `voice_change` · `face_blur` · `pdf_to_docx` · `pdf_to_image` · `pdf_merge` · `html_to_pdf` · `docx_to_pdf` · `json_to_excel` · `form_document` · `form_list` · `form_fields` · `form_preview` · `form_bundle` · `form_ai_fill` · `base64_to_image` · `set_watermark` · `get_watermark` · `draw_watermark_pdf` · `draw_watermark_image`
 
-`nsfw_detection` · `image_similarity` · `video_to_mp3` · `extract_video_thumbnail` · `word_cloud` · `face_detection`
+`nsfw_detection` · `image_similarity` · `video_to_mp3` · `extract_video_thumbnail` · `word_cloud` · `face_detection` · `face_similarity`
 
 `llm_models` · `llm_chat` · `text_summary` · `text_polish` · `image_generate` · `image_edit` · `image_batch_create` · `image_batch_status` · `image_batch_result` · `seedance_jobs_create` · `seedance_jobs_status` · `veo_jobs_create` · `veo_jobs_status` · `kling_jobs_create` · `kling_jobs_status`
 
@@ -2214,15 +2214,16 @@ Extract key fields from a Korean driver license image and mask the last 6 digits
 
 ## OCR · OCR 문자인식
 
-`https://apick.app/mcp/ocr` — 6 tools
+`https://apick.app/mcp/ocr` — 7 tools
 
-Text extraction from images and structured field extraction from Korean ID documents.
+Text extraction from images, structured field extraction from Korean ID documents, and business registration document reading.
 
-이미지 텍스트 추출과 신분증 항목 추출.
+이미지 텍스트 추출, 신분증 항목 추출, 사업자 서류 판독.
 
 | Tool | 기능 | Required 필수 |
 | --- | --- | --- |
 | [`ocr`](#ocr) | 이미지 텍스트 추출(OCR) | `image_url` |
+| [`business_doc_ocr`](#business-doc-ocr) | 사업자 서류 판독(OCR) | `image_url` |
 | [`ocr_identi1`](#ocr-identi1) | 주민등록증 텍스트 추출(OCR) | `image_url` |
 | [`ocr_identi2`](#ocr-identi2) | 운전면허증 텍스트 추출(OCR) | `image_url` |
 | [`ocr_identi3`](#ocr-identi3) | 여권 텍스트 추출(OCR) | `image_url` |
@@ -2335,6 +2336,30 @@ Extract key fields from a Korean alien registration card (residence card) image 
 
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"ocr_identi5","arguments":{"image_url":"https://example.com/file"}}}
+```
+
+<a id="business-doc-ocr"></a>
+
+### `business_doc_ocr` — 사업자 서류 판독(OCR)
+
+Read a Korean business registration certificate, e-commerce (mail-order) business registration certificate, corporate registry certificate or seal certificate image and return each field. Resident registration numbers are masked. Optionally checks the current business status.
+
+사업자등록증·통신판매업 신고증·법인 등기사항증명서·인감증명서 사진에서 등록번호·상호·대표자·주소·발급일을 항목별로 읽고, 등록번호 검증 결과와 읽지 못한 필수 항목(`missing`)을 돌려줍니다. 등기부는 자본금·목적·임원(직위·성명)까지, 인감증명서는 개인·법인을 나눠(`seal_kind`) 읽으며 주민등록번호는 뒤 6자리를 가립니다. `check_status=1`이면 현재 사업자 상태(계속·휴업·폐업)와 과세유형을 함께 확인합니다(추가 요금 없음, 등기부·인감증명서는 조회 안 함). 글자를 읽지 못했거나 사업자 서류가 아니면 과금되지 않습니다.
+
+> 읽기 전용 / read-only · 입력 변환 / transforms your input · server `ocr`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `doc_type` | `string` | 선택 / optional | 문서 종류: auto(기본, 자동 판별) · business_registration(사업자등록증) · ecommerce_registration(통신판매업 신고증) · corporate_registry(법인 등기사항증명서) · seal_certificate(인감증명서) |
+| `check_status` | `string` | 선택 / optional | 1 이면 사업자등록번호로 현재 사업자 상태(계속·휴업·폐업)와 과세유형을 함께 확인 (추가 요금 없음, 등기부·인감증명서는 조회 안 함) |
+| `include_text` | `string` | 선택 / optional | 1 이면 판독한 전체 글자(text)도 함께 반환 |
+| `image_url` | `string` (file) | **필수 / required** | https URL, image/png, image/jpeg, 최대 25MB |
+
+Result fields: `doc_type`, `business_kind` (개인/법인), `seal_kind` (seal certificate: 개인/법인), `fields` (사업자등록번호·상호·대표자·개업연월일·사업장소재지·업태·종목·발급일자, corporate registry: 법인등록번호·본점·자본금·목적·임원 …), `checks`, `missing`, `status` (when `check_status=1`).
+결과: `doc_type`·`business_kind`·`seal_kind`·`fields`·`checks`(사업자등록번호 또는 법인등록번호 형식·검증 숫자, 문서 종류 일치)·`missing`·`status`. 읽지 못한 항목은 빈 문자열이며 추측해 채우지 않습니다.
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"business_doc_ocr","arguments":{"image_url":"https://example.com/business_registration.jpg","check_status":"1"}}}
 ```
 
 ---
@@ -3764,11 +3789,11 @@ Draw a visible text watermark across an image.
 
 ## Vision · 이미지 · 영상 분석
 
-`https://apick.app/mcp/vision` — 6 tools
+`https://apick.app/mcp/vision` — 7 tools
 
-Face detection, image similarity, NSFW detection, and video extraction.
+Face detection, face similarity, image similarity, NSFW detection, and video extraction.
 
-얼굴 검출, 이미지 유사도, 유해이미지 판별, 영상 추출.
+얼굴 검출, 얼굴 유사도 비교, 이미지 유사도, 유해이미지 판별, 영상 추출.
 
 | Tool | 기능 | Required 필수 |
 | --- | --- | --- |
@@ -3778,6 +3803,7 @@ Face detection, image similarity, NSFW detection, and video extraction.
 | [`extract_video_thumbnail`](#extract-video-thumbnail) | 동영상 미리보기 이미지 추출 | `video_url` |
 | [`word_cloud`](#word-cloud) | 워드클라우드 생성 | `text` |
 | [`face_detection`](#face-detection) | 이미지 얼굴 인식 | `image_url` |
+| [`face_similarity`](#face-similarity) | 얼굴 유사도 비교 | `image_url`, `compare_image_url` |
 
 <a id="nsfw-detection"></a>
 
@@ -3891,6 +3917,29 @@ Detect faces in an image and return their coordinates.
 
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"face_detection","arguments":{"image_url":"https://example.com/file"}}}
+```
+
+<a id="face-similarity"></a>
+
+### `face_similarity` — 얼굴 유사도 비교
+
+Compare the main face in a reference image with the face in another image and return a 0-1 similarity score, a match decision and a level (high/medium/low). Use it to check an ID card photo against a selfie.
+
+기준 사진과 비교 사진의 대표 얼굴이 같은 사람인지 0~1 점수와 판정(is_match)으로 알려줍니다. 신분증 사진과 셀피 대조에 씁니다. 얼굴을 찾지 못하면 과금되지 않습니다.
+
+> 읽기 전용 / read-only · 입력 변환 / transforms your input · server `vision`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `threshold` | `string` | 선택 / optional | 같은 사람으로 판정할 기준 점수 (범위: 0.2 ~ 0.8, 기본값 0.4, 높을수록 엄격) |
+| `image_url` | `string` (file) | **필수 / required** | 기준 사진. https URL, image/jpeg, image/png, image/webp, image/bmp, 최대 25MB |
+| `compare_image_url` | `string` (file) | **필수 / required** | 비교 사진. https URL, image/jpeg, image/png, image/webp, image/bmp, 최대 25MB |
+
+Result fields: `similarity` (0-1), `is_match`, `level` (`높음` ≥ 0.5, `보통` 0.3-0.5, `낮음` < 0.3), `threshold`, `best_index`, `base_face`, `results[]`. Face feature vectors are never returned.
+결과: `similarity`(0~1)·`is_match`·`level`(높음·보통·낮음)·`threshold`·`best_index`·`base_face`·`results[]`. 얼굴 특징값은 응답에 담지 않습니다. 여러 장 비교(최대 10장)는 REST `POST /rest/face_similarity`의 `compare_image1`~`compare_image10`으로 보냅니다.
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"face_similarity","arguments":{"image_url":"https://example.com/id_card.jpg","compare_image_url":"https://example.com/selfie.jpg"}}}
 ```
 
 ---

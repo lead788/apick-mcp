@@ -18,7 +18,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 | Server 서버 | Endpoint | Tools | Coverage 범위 |
 | --- | --- | --- | --- |
-| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 81 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 간편인증 데이터 조회·세무 증빙서류 발급, 이메일 위험 일괄 검사, 유효성 검사. |
+| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 82 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 간편인증 데이터 조회·세무 증빙서류 발급, 이메일 위험 일괄 검사, 유효성 검사. |
 | [Identity Verification · 신분증 진위확인 · 마스킹](#identity) | `/mcp/identity` | 16 | 주민등록증·운전면허증·여권·외국인등록증 진위확인, 실명확인, 개인정보 마스킹. |
 | [OCR · OCR 문자인식](#ocr) | `/mcp/ocr` | 7 | 이미지 텍스트 추출, 신분증 항목 추출, 사업자 서류 판독. |
 | [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 5 | 계좌 예금주 실명조회, 1원 인증, 암호화폐 통합 시세·김치프리미엄, 월평균·연평균 환율. |
@@ -26,11 +26,11 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 57 | PDF·DOCX·엑셀 변환, 서식 문서 작성·목록·미리보기·AI 채우기, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 7 | 얼굴 검출, 얼굴 유사도 비교, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
-| **All 통합** | `/mcp/all` | **224** | 아래 전부 + [`find_tools`](#find-tools) |
+| **All 통합** | `/mcp/all` | **225** | 아래 전부 + [`find_tools`](#find-tools) |
 
-<details><summary><b>All 224 MCP tool names / 전체 MCP Tool 이름</b></summary>
+<details><summary><b>All 225 MCP tool names / 전체 MCP Tool 이름</b></summary>
 
-`biz_detail` · `venture_biz_info` · `bid_notice` · `bid_award` · `dart_disclosure` · `dart_company` · `dart_financials` · `rtms_trade` · `rtms_rent` · `land_rt_price` · `land_info` · `bldrgst` · `court_auction` · `registry_doc_verify` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `vehicle_model_info` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `req_income_cert_bundle` · `get_income_cert_bundle` · `req_business_cert_bundle` · `get_business_cert_bundle` · `req_nps_bundle` · `get_nps_bundle` · `req_hometax_bundle` · `get_hometax_bundle` · `req_hometax_biz_bundle` · `get_hometax_biz_bundle` · `vehicle_emission` · `vehicle_recall` · `hipass_unpaid` · `vehicle_tax_calc` · `corp_finance` · `geo_standardize` · `geo_batch_geocode` · `geo_reverse` · `geo_address_search` · `geo_place_search` · `geo_admin_code` · `geo_compare_address` · `geo_measure` · `geo_geojson_analyze` · `geo_address_quality` · `geo_address_autocomplete` · `geo_district_boundary` · `geo_neighborhood` · `geo_site_score` · `geo_address_cleanup` · `registry_realestate_search` · `registry_corporate_search` · `registry_realestate_jobs_create` · `registry_corporate_jobs_create` · `email_risk_batch`
+`biz_detail` · `venture_biz_info` · `ecommerce_registration` · `bid_notice` · `bid_award` · `dart_disclosure` · `dart_company` · `dart_financials` · `rtms_trade` · `rtms_rent` · `land_rt_price` · `land_info` · `bldrgst` · `court_auction` · `registry_doc_verify` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `vehicle_model_info` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `req_income_cert_bundle` · `get_income_cert_bundle` · `req_business_cert_bundle` · `get_business_cert_bundle` · `req_nps_bundle` · `get_nps_bundle` · `req_hometax_bundle` · `get_hometax_bundle` · `req_hometax_biz_bundle` · `get_hometax_biz_bundle` · `vehicle_emission` · `vehicle_recall` · `hipass_unpaid` · `vehicle_tax_calc` · `corp_finance` · `geo_standardize` · `geo_batch_geocode` · `geo_reverse` · `geo_address_search` · `geo_place_search` · `geo_admin_code` · `geo_compare_address` · `geo_measure` · `geo_geojson_analyze` · `geo_address_quality` · `geo_address_autocomplete` · `geo_district_boundary` · `geo_neighborhood` · `geo_site_score` · `geo_address_cleanup` · `registry_realestate_search` · `registry_corporate_search` · `registry_realestate_jobs_create` · `registry_corporate_jobs_create` · `email_risk_batch`
 
 `identi_card1` · `identi_card2` · `identi_card3` · `identi_card4` · `identi_card5` · `identi_card_image1` · `identi_card_image2` · `identi_card_image3` · `identi_card_image4` · `identi_card_image5` · `name_rrn_auth` · `hide_rrn` · `identity_document_residence_card` · `identity_document_passport` · `identity_document_id_card` · `identity_document_driver_license`
 
@@ -198,7 +198,7 @@ Call the recommended tool afterwards with your API key as usual. 추천받은 To
 
 ## Business & Commerce · 사업자 · 커머스
 
-`https://apick.app/mcp/business` — 81 tools
+`https://apick.app/mcp/business` — 82 tools
 
 Korean business registry, corporate credit, parcel tracking, real-estate prices, vehicle history, and input validation.
 
@@ -208,6 +208,7 @@ Korean business registry, corporate credit, parcel tracking, real-estate prices,
 | --- | --- | --- |
 | [`biz_detail`](#biz-detail) | 사업자 정보 조회 | `biz_no` |
 | [`venture_biz_info`](#venture-biz-info) | 벤처기업 정보조회 | `biz_no` |
+| [`ecommerce_registration`](#ecommerce-registration) | 통신판매업 신고 조회 | `biz_no` |
 | [`land_rt_price`](#land-rt-price) | 부동산 실거래가 조회 | `addr1`, `addr2`, `type`, `year` |
 | [`land_info`](#land-info) | 토지 종합 분석 | — |
 | [`req_pccc`](#req-pccc) | 개인통관고유부호 인증 요청 | `name`, `birthday`, `phone`, `provider` |
@@ -322,6 +323,26 @@ Look up venture company information of a Korean business, including financial st
 
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"venture_biz_info","arguments":{"biz_no":"<biz_no>"}}}
+```
+
+<a id="ecommerce-registration"></a>
+
+### `ecommerce_registration` — 통신판매업 신고 조회
+
+Look up every e-commerce (mail-order) business registration filed by a Korean business: registration number, trade name, representative, operating status, filing date, filing office and address. Active registrations come first.
+
+사업자등록번호로 통신판매업 신고 이력 전부(신고번호·상호·대표자·운영상태·신고일자·신고기관·소재지)를 조회합니다. 정상영업 신고가 앞에 오며, 이력이 없으면 `count` 0 이고 과금되지 않습니다(건당 10P, 결제 이력 필요).
+
+> 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `biz_no` | `string` | **필수 / required** | 사업자등록번호 10자리 (하이픈 포함 가능, 예: 1234567890) |
+
+Result fields: `biz_no`, `count`, `active`, `active_count`, `representative`, `items[]` (신고번호·상호·대표자명·운영상태·신고일자·신고기관·시도·소재지주소·도로명주소·법인등록번호·대표자이메일·담당부서·담당부서전화).
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"ecommerce_registration","arguments":{"biz_no":"<biz_no>"}}}
 ```
 
 <a id="land-rt-price"></a>

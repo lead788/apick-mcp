@@ -1,3 +1,10 @@
+## 5.12.0 (2026-11-17)
+
+- 사업자 서버(`business`)에 `ecommerce_registration`(통신판매업 신고 조회)을 추가했습니다. 사업자등록번호로 통신판매업 신고 이력 전부(신고번호·상호·대표자·운영상태·신고일자·신고기관·소재지)를 돌려주며 정상영업 신고가 앞에 옵니다. 건당 10P(결제 이력 필요)이고, 신고 이력이 없으면 `count` 0 으로 응답하며 차감되지 않습니다.
+- 사업자 서버 82개, 전체 도구 수는 225개입니다. 조회 전용 도구는 163개입니다.
+- Added `ecommerce_registration` to the `business` server: returns every e-commerce (mail-order) business registration filed by a Korean business, active ones first. 10 points (paid account required); no charge when there are none (`count` 0).
+- 82 tools on `business`, 225 in total; 163 are read-only.
+
 ## 5.11.0 (2026-11-17)
 
 - 이미지 서버(`vision`)에 `face_similarity`(얼굴 유사도 비교)를 추가했습니다. 기준 사진과 비교 사진의 대표 얼굴이 같은 사람인지 0~1 점수·판정(`is_match`)·구간(높음·보통·낮음)으로 돌려줍니다. 신분증 사진과 셀피 대조에 씁니다. 기본 10P이며 얼굴을 찾지 못하면 과금되지 않습니다. 얼굴 특징값은 응답에 담지 않습니다.

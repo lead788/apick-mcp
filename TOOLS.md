@@ -2409,7 +2409,7 @@ Korean bank account holder lookup and 1 KRW deposit verification.
 
 Send a 1 KRW verification deposit to a Korean bank account and return the 4-character verification code printed on the transaction.
 
-대한민국 은행 계좌로 1원을 입금해 적요에 표시되는 인증코드를 반환합니다. 계좌 실소유 확인(1원 인증) 절차에 사용합니다. bank_code 또는 bank_name 중 하나는 입력해야 합니다.
+대한민국 은행 계좌로 1원을 입금해 적요에 표시되는 인증코드를 반환합니다. 계좌 실소유 확인(1원 인증) 절차에 사용합니다. bank_code 또는 bank_name 중 하나는 입력해야 합니다. 입금통장메모는 자동 생성되며 응답의 입금통장메모 값으로 인증합니다. 응답을 받지 못해 다시 호출할 때는 같은 idempotency_key 를 넣으면 1원을 다시 보내지 않고 처음 결과를 요금 없이 돌려줍니다.
 
 > **부작용 있음 / has side effects** · 외부 데이터 조회 / external lookup · server `finance`
 
@@ -2418,10 +2418,15 @@ Send a 1 KRW verification deposit to a Korean bank account and return the 4-char
 | `account_num` | `string` | **필수 / required** | 계좌번호 (숫자만, 하이픈 제외) |
 | `bank_code` | `string` | 선택 / optional | 은행 코드 (bank_code Tool로 조회 가능, 예: 004) |
 | `bank_name` | `string` | 선택 / optional | 은행명 (예: 국민). bank_code 대신 입력 가능 |
+| `idempotency_key` | `string` | 선택 / optional | 같은 송금을 두 번 하지 않게 하는 요청 키(영문·숫자와 - _ . :, 1~80자). 인증 1건마다 새 값, 재시도 때는 같은 값 |
 
 ```json
-{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"transfer_1won","arguments":{"account_num":"<account_num>"}}}
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"transfer_1won","arguments":{"account_num":"<account_num>","bank_name":"국민","idempotency_key":"verify-20261119-0001"}}}
 ```
+
+A 1 KRW deposit cannot be undone, so retry a timed-out call with the **same** `idempotency_key`: a key that already succeeded returns the first result without sending again or charging (`api.idempotent_replay: true`). Use a new key for each new verification. Errors: `INVALID_IDEMPOTENCY_KEY` (400), `IDEMPOTENCY_KEY_CONFLICT` (409, same key for another account), `IDEMPOTENCY_IN_PROGRESS` (409, retry after a few seconds), `IDEMPOTENCY_OUTCOME_UNKNOWN` (409, check the account's transactions; use a new key to send again).
+
+1원 입금은 되돌릴 수 없으므로 응답을 받지 못했다면 **같은** `idempotency_key` 로 다시 호출하세요. 이미 성공한 키는 다시 보내거나 차감하지 않고 처음 결과를 돌려줍니다(`api.idempotent_replay: true`). 인증 1건마다 새 키를 씁니다. 오류: `INVALID_IDEMPOTENCY_KEY`(400), `IDEMPOTENCY_KEY_CONFLICT`(409, 같은 키로 다른 계좌), `IDEMPOTENCY_IN_PROGRESS`(409, 몇 초 뒤 다시), `IDEMPOTENCY_OUTCOME_UNKNOWN`(409, 계좌 거래내역 확인 후 다시 보내려면 새 키).
 
 <a id="account-realname"></a>
 

@@ -294,6 +294,9 @@ Built for phishing and copycat-site investigation: resolve the host, trace its I
 `account_realname` reads the holder name; `transfer_1won` proves ownership by depositing 1 KRW with a code in the memo.
 `account_realname`은 예금주명을 읽고, `transfer_1won`은 적요에 인증코드를 담아 1원을 입금해 실소유를 증명합니다.
 
+Pass the same `idempotency_key` when retrying `transfer_1won` after a timeout; it returns the first result without depositing again.
+`transfer_1won` 을 응답 없이 다시 호출할 때는 같은 `idempotency_key` 를 넣으세요. 1원을 다시 보내지 않고 처음 결과를 돌려줍니다.
+
 ### 8. AI video generation — AI 영상 생성
 
 > "제품 사진으로 4초짜리 짧은 홍보 영상 만들어줘"

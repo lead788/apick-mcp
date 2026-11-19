@@ -1,3 +1,9 @@
+## 5.12.1 (2026-11-19)
+
+- `transfer_1won`(1원 인증)에 선택 입력 `idempotency_key` 를 문서화했습니다. 응답을 받지 못해 다시 호출할 때 같은 키를 넣으면 1원을 다시 보내지 않고 처음 결과를 요금 없이 돌려줍니다(`api.idempotent_replay: true`). 결과를 확인할 수 없는 키는 다시 보내지 않고 `IDEMPOTENCY_OUTCOME_UNKNOWN` 으로 알려 줍니다. 입금통장메모는 자동 생성되며 응답 값으로 인증합니다.
+- 도구 수는 그대로입니다(전체 225개).
+- Documented the optional `idempotency_key` input of `transfer_1won`: retrying with the same key returns the first result without depositing again or charging (`api.idempotent_replay: true`). Keys whose outcome cannot be confirmed are not resent (`IDEMPOTENCY_OUTCOME_UNKNOWN`). The deposit memo is generated automatically; verify with the value in the response.
+
 ## 5.12.0 (2026-11-17)
 
 - 사업자 서버(`business`)에 `ecommerce_registration`(통신판매업 신고 조회)을 추가했습니다. 사업자등록번호로 통신판매업 신고 이력 전부(신고번호·상호·대표자·운영상태·신고일자·신고기관·소재지)를 돌려주며 정상영업 신고가 앞에 옵니다. 건당 10P(결제 이력 필요)이고, 신고 이력이 없으면 `count` 0 으로 응답하며 차감되지 않습니다.

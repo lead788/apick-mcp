@@ -1799,7 +1799,7 @@ Group an address list into real sites and report duplicate rate, district distri
 
 Find real estate registry targets in Korea by road/lot address or 14-digit property number.
 
-주소 또는 부동산고유번호로 등기부등본 열람·발급 대상을 찾습니다. 결과 targets의 index를 registry_realestate_jobs_create에 전달하세요. 결과가 없으면 0P입니다.
+주소 또는 부동산고유번호로 등기부등본 열람·발급 대상을 찾습니다. 특정 대상을 발급하려면 결과 targets의 pin(부동산고유번호)을 registry_realestate_jobs_create에 전달하세요. 결과가 없어도 검색이 정상으로 끝나면 40P가 차감되고, 실패하면 0P입니다.
 
 > 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
 
@@ -1817,7 +1817,7 @@ Find real estate registry targets in Korea by road/lot address or 14-digit prope
 
 Find corporate registry targets in Korea by 13-digit corporate registration number or 10-digit business number.
 
-법인등록번호 또는 사업자등록번호로 법인 등기 대상을 찾습니다. 개인사업자·미등록이면 결과가 없고 0P입니다.
+법인등록번호 또는 사업자등록번호로 법인 등기 대상을 찾습니다. 개인사업자·미등록이면 결과가 없으며, 검색이 정상으로 끝났으면 결과가 없어도 40P가 차감됩니다.
 
 > 읽기 전용 / read-only · 외부 데이터 조회 / external lookup · server `business`
 
@@ -1836,20 +1836,20 @@ Find corporate registry targets in Korea by 13-digit corporate registration numb
 
 View and issue a real estate registry certificate in one call.
 
-검색 결과의 대상을 지정하면 결제와 PDF 확보를 같은 호출에서 끝내고 PDF 를 돌려줍니다. 최대 180초까지 걸릴 수 있습니다. 건당 850P(PDF 전송 포함). 실패하면 포인트는 차감되지 않습니다. 이미 발급한 PDF는 응답 헤더 X-Apick-Job-Id 를 job_id 로 POST /rest/registry_jobs/:job_id/download 에 보내 다시 받을 수 있습니다(건당 30P, 횟수 제한 없음).
+검색 결과의 대상을 지정하면 결제와 PDF 확보를 같은 호출에서 끝내고 PDF 를 돌려줍니다. 주소(query)로 접수하면 입력 주소와 정확히 맞는 등기부 중 맨 위 대상을 발급하므로(같은 주소에 건물이 여러 개여도 맨 위), 특정 건물·호실은 pin(부동산고유번호) 접수를 권장합니다. 최대 180초까지 걸릴 수 있습니다. 열람(view) 850P, 발급(issue) 1250P(PDF 전송 포함), 2026-11-23 00:00(KST)부터 열람 1300P · 발급 1700P. 발급이 실패하면 같은 job_id 로 결과 조회(POST /rest/registry_jobs/:job_id/download)를 호출할 때 접수 때 차감한 금액을 환급합니다. 결과 조회를 하지 않으면 환급되지 않고, 접수 후 24시간이 지난 조회는 환급되지 않습니다. 이미 발급한 PDF는 응답 헤더 X-Apick-Job-Id 를 job_id 로 POST /rest/registry_jobs/:job_id/download 에 보내 다시 받을 수 있습니다(건당 30P, 횟수 제한 없음).
 
 > 과금 / billable · 외부 데이터 조회 / external lookup · server `business`
 
 | Parameter | Type | Required | Description 설명 |
 | --- | --- | --- | --- |
 | `query` | `string` | 선택 / optional | 검색에 사용한 주소 또는 부동산고유번호 |
-| `pin` | `string` | 선택 / optional | 부동산고유번호 14자리(선택) |
-| `index` | `integer` | 선택 / optional | 검색 결과 행 번호(1부터), 기본 1 |
+| `pin` | `string` | 선택 / optional | 부동산고유번호 14자리. 특정 대상을 정확히 받으려면 권장 |
+| `index` | `integer` | 선택 / optional | 주소(query) 접수 때 입력 주소와 맞는 결과 중 순번(1부터), 기본 1(맨 위) |
 | `usage` | `string` (view / issue / transfer-gov24 / transfer-court) | 선택 / optional | 열람(view)·발급(issue) 등, 기본 view |
 | `record_scope` | `string` (all / part) | 선택 / optional | 전부(all)·일부(part), 기본 all |
 | `include_cancelled` | `boolean` | 선택 / optional | 말소사항 포함 여부, 기본 true |
 | `publish_resident_no` | `boolean` | 선택 / optional | 주민등록번호 공개 여부, 기본 false |
-| `idempotency_key` | `string` | 선택 / optional | 중복 접수·과금 방지 키 |
+| `idempotency_key` | `string` | 선택 / optional | 중복 결제 방지 키. 같은 키로 다시 호출하면 기존 작업의 PDF를 받습니다 |
 
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"registry_realestate_jobs_create","arguments":{}}}
@@ -1861,7 +1861,7 @@ View and issue a real estate registry certificate in one call.
 
 View and issue a corporate registry certificate in one call.
 
-법인등록번호로 열람·발급을 끝내고 PDF 를 돌려줍니다. 최대 180초까지 걸릴 수 있습니다. 건당 850P(PDF 전송 포함). 결제 전에 실패하면 차감하지 않습니다. 이미 발급한 PDF는 응답 헤더 X-Apick-Job-Id 를 job_id 로 POST /rest/registry_jobs/:job_id/download 에 보내 다시 받을 수 있습니다(건당 30P, 횟수 제한 없음).
+법인등록번호로 열람·발급을 끝내고 PDF 를 돌려줍니다. 최대 180초까지 걸릴 수 있습니다. 열람(view) 850P, 발급(issue) 1250P(PDF 전송 포함), 2026-11-23 00:00(KST)부터 열람 1300P · 발급 1700P. 발급이 실패하면 같은 job_id 로 결과 조회(POST /rest/registry_jobs/:job_id/download)를 호출할 때 접수 때 차감한 금액을 환급합니다. 결과 조회를 하지 않으면 환급되지 않고, 접수 후 24시간이 지난 조회는 환급되지 않습니다. 이미 발급한 PDF는 응답 헤더 X-Apick-Job-Id 를 job_id 로 POST /rest/registry_jobs/:job_id/download 에 보내 다시 받을 수 있습니다(건당 30P, 횟수 제한 없음).
 
 > 과금 / billable · 외부 데이터 조회 / external lookup · server `business`
 
@@ -1871,7 +1871,7 @@ View and issue a corporate registry certificate in one call.
 | `biz_no` | `string` | 선택 / optional | 사업자등록번호 10자리(corp_reg_no가 없을 때) |
 | `index` | `integer` | 선택 / optional | 검색 결과 행 번호(1부터), 기본 1 |
 | `usage` | `string` (view / issue) | 선택 / optional | 열람(view)·발급(issue), 기본 view |
-| `idempotency_key` | `string` | 선택 / optional | 중복 접수·과금 방지 키 |
+| `idempotency_key` | `string` | 선택 / optional | 중복 결제 방지 키. 같은 키로 다시 호출하면 기존 작업의 PDF를 받습니다 |
 
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"registry_corporate_jobs_create","arguments":{}}}

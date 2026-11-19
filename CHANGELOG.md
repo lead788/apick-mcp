@@ -1,3 +1,11 @@
+## 5.12.2 (2026-11-19)
+
+- 부동산·법인 등기 열람·발급(`registry_realestate_jobs_create`·`registry_corporate_jobs_create`) 설명의 환급 안내를 고쳤습니다. 발급이 실패하면 같은 `job_id` 로 결과 조회(`POST /rest/registry_jobs/:job_id/download`)를 호출할 때 접수 때 차감한 금액을 환급합니다. 결과 조회를 하지 않으면 환급되지 않고, 접수 후 24시간이 지난 조회는 환급되지 않습니다.
+- 주소(`query`)로 접수하면 입력 주소와 정확히 맞는 등기부 중 맨 위 대상을 발급합니다. 특정 건물·호실은 `registry_realestate_search` 결과의 `pin`(부동산고유번호)으로 접수하세요. 열람 850P·발급 1250P(2026-11-23 00:00 KST부터 열람 1300P·발급 1700P)와 검색 40P(결과가 없어도 정상 종료 시 차감) 표기도 서버 설명과 맞췄습니다.
+- 도구 정의는 서버에서 내려오므로 브릿지 코드는 그대로이고, 도구 수도 그대로입니다(전체 225개).
+- Corrected the refund notes of `registry_realestate_jobs_create` and `registry_corporate_jobs_create`: when issuance fails, the amount charged at submission is refunded when you call the result endpoint (`POST /rest/registry_jobs/:job_id/download`) with the same `job_id`. Without that call there is no refund, and calls made more than 24 hours after submission are not refunded.
+- Address (`query`) submissions issue the top matching register for that exact address; use the `pin` from `registry_realestate_search` for a specific building or unit. Prices (view 850P, issue 1250P; 1300P / 1700P from 2026-11-23 00:00 KST) and the 40P search charge (also charged when a completed search finds nothing) now match the server descriptions.
+
 ## 5.12.1 (2026-11-19)
 
 - `transfer_1won`(1원 인증)에 선택 입력 `idempotency_key` 를 문서화했습니다. 응답을 받지 못해 다시 호출할 때 같은 키를 넣으면 1원을 다시 보내지 않고 처음 결과를 요금 없이 돌려줍니다(`api.idempotent_replay: true`). 결과를 확인할 수 없는 키는 다시 보내지 않고 `IDEMPOTENCY_OUTCOME_UNKNOWN` 으로 알려 줍니다. 입금통장메모는 자동 생성되며 응답 값으로 인증합니다.

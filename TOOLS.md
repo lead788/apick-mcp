@@ -2,10 +2,10 @@
 
 자동차등록원부 등본의 PDF·본문·차대번호는 REST 또는 `apick-api` SDK로 받습니다. 이 상품에는 전용 MCP 도구가 없습니다. The vehicle register is available through REST or the SDK. Read `data.result.vehicleRegisterDoc.문서내용` for the text and optional VIN.
 
-**224 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 224개**, 분야별 서버 8개와 통합 서버 `all`.
+**249 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 249개**, 분야별 서버 8개와 통합 서버 `all`.
 
-5.8.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
+5.13.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
 
 
 
@@ -18,31 +18,31 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 | Server 서버 | Endpoint | Tools | Coverage 범위 |
 | --- | --- | --- | --- |
-| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 82 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 간편인증 데이터 조회·세무 증빙서류 발급, 이메일 위험 일괄 검사, 유효성 검사. |
+| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 104 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 간편인증 데이터 조회·세무 증빙서류 발급, 이메일 위험 일괄 검사, 유효성 검사. |
 | [Identity Verification · 신분증 진위확인 · 마스킹](#identity) | `/mcp/identity` | 16 | 주민등록증·운전면허증·여권·외국인등록증 진위확인, 실명확인, 개인정보 마스킹. |
 | [OCR · OCR 문자인식](#ocr) | `/mcp/ocr` | 7 | 이미지 텍스트 추출, 신분증 항목 추출, 사업자 서류 판독. |
-| [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 5 | 계좌 예금주 실명조회, 1원 인증, 암호화폐 통합 시세·김치프리미엄, 월평균·연평균 환율. |
+| [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 7 | 계좌 예금주 실명조회, 1원 인증, 암호화폐 통합 시세·김치프리미엄, 월평균·연평균 환율. |
 | [Web & Search · 웹 · 검색](#web) | `/mcp/web` | 35 | 도메인·IP 조회, WHOIS, 웹페이지 조회, URL→Markdown 변환, 페이지 캡처·텍스트 좌표, 구글 검색(웹·이미지·뉴스·쇼핑·지도·장소 상세·순위), 유튜브(검색·채널·재생목록·댓글·자막·영상 정보·썸네일), 인스타그램·X(프로필·게시물), 아마존·쿠팡 상품, 링크드인(회사·채용공고). |
 | [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 57 | PDF·DOCX·엑셀 변환, 서식 문서 작성·목록·미리보기·AI 채우기, 음성인식(STT), 비동기 TTS, 워터마크. |
-| [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 7 | 얼굴 검출, 얼굴 유사도 비교, 이미지 유사도, 유해이미지 판별, 영상 추출. |
+| [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 8 | 얼굴 검출, 얼굴 유사도 비교, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
-| **All 통합** | `/mcp/all` | **225** | 아래 전부 + [`find_tools`](#find-tools) |
+| **All 통합** | `/mcp/all` | **250** | 아래 전부 + [`find_tools`](#find-tools) |
 
-<details><summary><b>All 225 MCP tool names / 전체 MCP Tool 이름</b></summary>
+<details><summary><b>All 250 MCP tool names / 전체 MCP Tool 이름</b></summary>
 
-`biz_detail` · `venture_biz_info` · `ecommerce_registration` · `bid_notice` · `bid_award` · `dart_disclosure` · `dart_company` · `dart_financials` · `rtms_trade` · `rtms_rent` · `land_rt_price` · `land_info` · `bldrgst` · `court_auction` · `registry_doc_verify` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `vehicle_model_info` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `req_income_cert_bundle` · `get_income_cert_bundle` · `req_business_cert_bundle` · `get_business_cert_bundle` · `req_nps_bundle` · `get_nps_bundle` · `req_hometax_bundle` · `get_hometax_bundle` · `req_hometax_biz_bundle` · `get_hometax_biz_bundle` · `vehicle_emission` · `vehicle_recall` · `hipass_unpaid` · `vehicle_tax_calc` · `corp_finance` · `geo_standardize` · `geo_batch_geocode` · `geo_reverse` · `geo_address_search` · `geo_place_search` · `geo_admin_code` · `geo_compare_address` · `geo_measure` · `geo_geojson_analyze` · `geo_address_quality` · `geo_address_autocomplete` · `geo_district_boundary` · `geo_neighborhood` · `geo_site_score` · `geo_address_cleanup` · `registry_realestate_search` · `registry_corporate_search` · `registry_realestate_jobs_create` · `registry_corporate_jobs_create` · `email_risk_batch`
+`biz_detail` · `venture_biz_info` · `ecommerce_registration` · `bid_notice` · `bid_award` · `dart_disclosure` · `dart_company` · `dart_financials` · `rtms_trade` · `rtms_rent` · `land_rt_price` · `land_info` · `bldrgst` · `court_auction` · `registry_doc_verify` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `vehicle_model_info` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_nps_join_cert` · `get_nps_join_cert` · `req_nps_career_cert` · `get_nps_career_cert` · `req_nps_lump_sum_cert` · `get_nps_lump_sum_cert` · `req_nps_rehabilitation_cert` · `get_nps_rehabilitation_cert` · `req_nps_pension_tax_cert` · `get_nps_pension_tax_cert` · `req_nps_pension_payment_cert` · `get_nps_pension_payment_cert` · `req_nps_member_cert` · `get_nps_member_cert` · `req_nps_paid_cert` · `get_nps_paid_cert` · `req_nps_contribution_unpaid_cert` · `get_nps_contribution_unpaid_cert` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `req_income_cert_bundle` · `get_income_cert_bundle` · `req_business_cert_bundle` · `get_business_cert_bundle` · `req_nps_bundle` · `get_nps_bundle` · `req_hometax_bundle` · `get_hometax_bundle` · `req_hometax_biz_bundle` · `get_hometax_biz_bundle` · `vehicle_emission` · `vehicle_recall` · `hipass_unpaid` · `vehicle_tax_calc` · `corp_finance` · `geo_standardize` · `geo_batch_geocode` · `geo_reverse` · `geo_address_search` · `geo_place_search` · `geo_admin_code` · `geo_compare_address` · `geo_measure` · `geo_geojson_analyze` · `geo_address_quality` · `geo_address_autocomplete` · `geo_district_boundary` · `geo_neighborhood` · `geo_site_score` · `geo_address_cleanup` · `registry_realestate_search` · `registry_corporate_search` · `registry_realestate_jobs_create` · `registry_corporate_jobs_create` · `email_risk_batch` · `debarred_company` · `tax_cert_verify` · `tax_invoice_third_party_check` · `std_price_commercial`
 
 `identi_card1` · `identi_card2` · `identi_card3` · `identi_card4` · `identi_card5` · `identi_card_image1` · `identi_card_image2` · `identi_card_image3` · `identi_card_image4` · `identi_card_image5` · `name_rrn_auth` · `hide_rrn` · `identity_document_residence_card` · `identity_document_passport` · `identity_document_id_card` · `identity_document_driver_license`
 
 `ocr` · `business_doc_ocr` · `ocr_identi1` · `ocr_identi2` · `ocr_identi3` · `ocr_identi4` · `ocr_identi5`
 
-`transfer_1won` · `account_realname` · `bank_code` · `crypto_market` · `exchange_rate`
+`transfer_1won` · `account_realname` · `bank_code` · `crypto_market` · `exchange_rate` · `loan_interest_rate` · `intl_interest_rate`
 
 `nslookup` · `reverse_ip` · `location` · `ip_history` · `whois` · `url_html` · `url_screenshot` · `url_similarity` · `google_search` · `google_image_search` · `google_news_search` · `google_shopping_search` · `google_maps_search` · `google_rank_check` · `google_lens_search` · `crawl_youtube` · `youtube_search` · `youtube_playlist` · `youtube_channel` · `youtube_hashtag` · `youtube_comments` · `youtube_metadata` · `youtube_thumbnail` · `youtube_subtitle_list` · `youtube_subtitle` · `instagram_profile` · `instagram_post` · `amazon_product` · `x_profile` · `x_post` · `coupang_product` · `linkedin_company` · `linkedin_job` · `url_to_markdown` · `web_capture_extract`
 
 `stt` · `tts_jobs_create` · `tts_gemini_create` · `tts_gemini_voices` · `tts_openai_create` · `tts_openai_voices` · `tts_options` · `tts_quote` · `tts_jobs_status` · `tts_jobs_cancel` · `tts_jobs_result` · `tts_jobs_subtitles` · `voice_change` · `face_blur` · `pdf_to_docx` · `pdf_to_image` · `pdf_merge` · `html_to_pdf` · `docx_to_pdf` · `json_to_excel` · `form_document` · `form_list` · `form_fields` · `form_preview` · `form_bundle` · `form_ai_fill` · `base64_to_image` · `set_watermark` · `get_watermark` · `draw_watermark_pdf` · `draw_watermark_image`
 
-`nsfw_detection` · `image_similarity` · `video_to_mp3` · `extract_video_thumbnail` · `word_cloud` · `face_detection` · `face_similarity`
+`nsfw_detection` · `image_similarity` · `video_to_mp3` · `extract_video_thumbnail` · `word_cloud` · `face_detection` · `face_similarity` · `kyc_verify`
 
 `llm_models` · `llm_chat` · `text_summary` · `text_polish` · `image_generate` · `image_edit` · `image_batch_create` · `image_batch_status` · `image_batch_result` · `seedance_jobs_create` · `seedance_jobs_status` · `veo_jobs_create` · `veo_jobs_status` · `kling_jobs_create` · `kling_jobs_status`
 
@@ -153,11 +153,11 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 ## All server only · 통합 서버 전용
 
-`https://apick.app/mcp/all` — 1 tool in addition to the 221 domain tools
+`https://apick.app/mcp/all` — 1 tool in addition to the 249 domain tools
 
 Tools that exist only on the combined `all` server. Domain servers keep their own tool counts.
 
-분야별 Tool 223개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
+분야별 Tool 249개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
 
 <a id="find-tools"></a>
 
@@ -198,7 +198,7 @@ Call the recommended tool afterwards with your API key as usual. 추천받은 To
 
 ## Business & Commerce · 사업자 · 커머스
 
-`https://apick.app/mcp/business` — 82 tools
+`https://apick.app/mcp/business` — 104 tools
 
 Korean business registry, corporate credit, parcel tracking, real-estate prices, vehicle history, and input validation.
 
@@ -270,6 +270,24 @@ Korean business registry, corporate credit, parcel tracking, real-estate prices,
 | [`get_nps_deduction_cert`](#get-nps-deduction-cert) | 국민연금 소득공제용 납부확인서 결과 | `transactionId` |
 | [`req_nps_career_history`](#req-nps-career-history) | 국민연금 경력 이력 조회 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
 | [`get_nps_career_history`](#get-nps-career-history) | 국민연금 경력 이력 조회 결과 | `transactionId` |
+| [`req_nps_join_cert`](#req-nps-join-cert) | 국민연금 가입자 가입증명 발급 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
+| [`get_nps_join_cert`](#get-nps-join-cert) | 국민연금 가입자 가입증명 발급 결과 | `transactionId` |
+| [`req_nps_career_cert`](#req-nps-career-cert) | 국민연금 연금산정용 가입내역 확인서 발급 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
+| [`get_nps_career_cert`](#get-nps-career-cert) | 국민연금 연금산정용 가입내역 확인서 발급 결과 | `transactionId` |
+| [`req_nps_lump_sum_cert`](#req-nps-lump-sum-cert) | 국민연금 일시금 지급내역 발급 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
+| [`get_nps_lump_sum_cert`](#get-nps-lump-sum-cert) | 국민연금 일시금 지급내역 발급 결과 | `transactionId` |
+| [`req_nps_rehabilitation_cert`](#req-nps-rehabilitation-cert) | 국민연금 개인회생 신청용 확인서 발급 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
+| [`get_nps_rehabilitation_cert`](#get-nps-rehabilitation-cert) | 국민연금 개인회생 신청용 확인서 발급 결과 | `transactionId` |
+| [`req_nps_pension_tax_cert`](#req-nps-pension-tax-cert) | 국민연금 연금소득 원천징수영수증 발급 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
+| [`get_nps_pension_tax_cert`](#get-nps-pension-tax-cert) | 국민연금 연금소득 원천징수영수증 발급 결과 | `transactionId` |
+| [`req_nps_pension_payment_cert`](#req-nps-pension-payment-cert) | 국민연금 수급증명서 재발급 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
+| [`get_nps_pension_payment_cert`](#get-nps-pension-payment-cert) | 국민연금 수급증명서 재발급 결과 | `transactionId` |
+| [`req_nps_member_cert`](#req-nps-member-cert) | 국민연금 가입자증명서 발급 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
+| [`get_nps_member_cert`](#get-nps-member-cert) | 국민연금 가입자증명서 발급 결과 | `transactionId` |
+| [`req_nps_paid_cert`](#req-nps-paid-cert) | 국민연금보험료 납부확인서 발급 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
+| [`get_nps_paid_cert`](#get-nps-paid-cert) | 국민연금보험료 납부확인서 발급 결과 | `transactionId` |
+| [`req_nps_contribution_unpaid_cert`](#req-nps-contribution-unpaid-cert) | 국민연금보험료 미납증명 발급 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
+| [`get_nps_contribution_unpaid_cert`](#get-nps-contribution-unpaid-cert) | 국민연금보험료 미납증명 발급 결과 | `transactionId` |
 | [`req_driving_license`](#req-driving-license) | 운전면허 조회 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
 | [`get_driving_license`](#get-driving-license) | 운전면허 조회 결과 | `transactionId` |
 | [`req_health_checkup`](#req-health-checkup) | 국가 건강검진 결과 조회 인증 요청 | `name`, `birthDate`, `phone`, `authProvider` |
@@ -288,6 +306,10 @@ Korean business registry, corporate credit, parcel tracking, real-estate prices,
 | [`registry_corporate_search`](#registry-corporate-search) | 법인 등기 검색 | — |
 | [`registry_realestate_jobs_create`](#registry-realestate-jobs-create) | 부동산 등기 열람·발급 접수 | — |
 | [`registry_corporate_jobs_create` · `email_risk_batch`](#registry-corporate-jobs-create) | 법인 등기 열람·발급 | — |
+| [`debarred_company`](#debarred-company) | 부정당제재 업체 조회 | `bizno` |
+| [`tax_cert_verify`](#tax-cert-verify) | 국세 증명서 원본 확인 | `cert_no`, `txpr_no` |
+| [`tax_invoice_third_party_check`](#tax-invoice-third-party-check) | 전자세금계산서 발급사실 확인 | `splr_no`, `dmnr_no`, `etan`, `wrt_dt`, `sum_amt` |
+| [`std_price_commercial`](#std-price-commercial) | 상가·오피스텔 기준시가 | — |
 
 <a id="biz-detail"></a>
 
@@ -703,6 +725,221 @@ REST: `POST /rest/get_nps_career_history` · SDK: `getNpsCareerHistory()`
 
 ---
 
+<a id="req-nps-join-cert"></a>
+
+### `req_nps_join_cert` — 국민연금 가입자 가입증명 발급 인증 요청
+
+REST: `POST /rest/req_nps_join_cert` · SDK: `requestNpsJoinCert()`
+
+필수: `name`, `birthDate`, `phone`, `authProvider`. 선택: `purpose`(01 개인 확인용·02 공공기관 제출용·03 금융기관 제출용·04 기타, 기본 01), `pdf`(boolean), `format`(json·pdf·both, 기본 json), `lang`(K 국문·E 영문, 기본 K). 기본은 조회값만 받고, `pdf: true` 또는 `format`이 pdf·both면 증명서 PDF를 발급합니다. 접수 20P.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="get-nps-join-cert"></a>
+
+### `get_nps_join_cert` — 국민연금 가입자 가입증명 발급 결과 조회
+
+REST: `POST /rest/get_nps_join_cert` · SDK: `getNpsJoinCert()`
+
+필수: `transactionId`. 성공 결과: `result.npsJoinCert`. PDF를 요청했으면 `result.npsJoinCert.발급`에 `발급번호`·`PDF`(발급됨/발급하지 못함)가 오고, `format`이 pdf·both면 `발급문서`(PDF base64)·`문서파일명`이 함께 옵니다. 최초 결과 60P(PDF 발급 포함 같은 금액), 재조회 무료.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="req-nps-career-cert"></a>
+
+### `req_nps_career_cert` — 국민연금 연금산정용 가입내역 확인서 발급 인증 요청
+
+REST: `POST /rest/req_nps_career_cert` · SDK: `requestNpsCareerCert()`
+
+필수: `name`, `birthDate`, `phone`, `authProvider`. 선택: `purpose`(01 개인 확인용·02 공공기관 제출용·03 금융기관 제출용·04 기타, 기본 01), `pdf`(boolean), `format`(json·pdf·both, 기본 json), `lang`(K 국문·E 영문, 기본 K). 기본은 조회값만 받고, `pdf: true` 또는 `format`이 pdf·both면 증명서 PDF를 발급합니다. 접수 20P.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="get-nps-career-cert"></a>
+
+### `get_nps_career_cert` — 국민연금 연금산정용 가입내역 확인서 발급 결과 조회
+
+REST: `POST /rest/get_nps_career_cert` · SDK: `getNpsCareerCert()`
+
+필수: `transactionId`. 성공 결과: `result.npsCareerCert`. PDF를 요청했으면 `result.npsCareerCert.발급`에 `발급번호`·`PDF`(발급됨/발급하지 못함)가 오고, `format`이 pdf·both면 `발급문서`(PDF base64)·`문서파일명`이 함께 옵니다. 최초 결과 60P(PDF 발급 포함 같은 금액), 재조회 무료.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="req-nps-lump-sum-cert"></a>
+
+### `req_nps_lump_sum_cert` — 국민연금 일시금 지급내역 발급 인증 요청
+
+REST: `POST /rest/req_nps_lump_sum_cert` · SDK: `requestNpsLumpSumCert()`
+
+필수: `name`, `birthDate`, `phone`, `authProvider`. 선택: `purpose`(01 개인 확인용·02 공공기관 제출용·03 금융기관 제출용·04 기타, 기본 01), `pdf`(boolean), `format`(json·pdf·both, 기본 json), `lang`(K 국문·E 영문, 기본 K). 기본은 조회값만 받고, `pdf: true` 또는 `format`이 pdf·both면 증명서 PDF를 발급합니다. 접수 20P.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="get-nps-lump-sum-cert"></a>
+
+### `get_nps_lump_sum_cert` — 국민연금 일시금 지급내역 발급 결과 조회
+
+REST: `POST /rest/get_nps_lump_sum_cert` · SDK: `getNpsLumpSumCert()`
+
+필수: `transactionId`. 성공 결과: `result.npsLumpSumCert`. PDF를 요청했으면 `result.npsLumpSumCert.발급`에 `발급번호`·`PDF`(발급됨/발급하지 못함)가 오고, `format`이 pdf·both면 `발급문서`(PDF base64)·`문서파일명`이 함께 옵니다. 최초 결과 60P(PDF 발급 포함 같은 금액), 재조회 무료.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="req-nps-rehabilitation-cert"></a>
+
+### `req_nps_rehabilitation_cert` — 국민연금 개인회생 신청용 확인서 발급 인증 요청
+
+REST: `POST /rest/req_nps_rehabilitation_cert` · SDK: `requestNpsRehabilitationCert()`
+
+필수: `name`, `birthDate`, `phone`, `authProvider`. 선택: `purpose`(01 개인 확인용·02 공공기관 제출용·03 금융기관 제출용·04 기타, 기본 01), `pdf`(boolean), `format`(json·pdf·both, 기본 json). 기본은 조회값만 받고, `pdf: true` 또는 `format`이 pdf·both면 증명서 PDF를 발급합니다. 접수 20P.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="get-nps-rehabilitation-cert"></a>
+
+### `get_nps_rehabilitation_cert` — 국민연금 개인회생 신청용 확인서 발급 결과 조회
+
+REST: `POST /rest/get_nps_rehabilitation_cert` · SDK: `getNpsRehabilitationCert()`
+
+필수: `transactionId`. 성공 결과: `result.npsRehabilitationCert`. PDF를 요청했으면 `result.npsRehabilitationCert.발급`에 `발급번호`·`PDF`(발급됨/발급하지 못함)가 오고, `format`이 pdf·both면 `발급문서`(PDF base64)·`문서파일명`이 함께 옵니다. 최초 결과 60P(PDF 발급 포함 같은 금액), 재조회 무료.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="req-nps-pension-tax-cert"></a>
+
+### `req_nps_pension_tax_cert` — 국민연금 연금소득 원천징수영수증 발급 인증 요청
+
+REST: `POST /rest/req_nps_pension_tax_cert` · SDK: `requestNpsPensionTaxCert()`
+
+필수: `name`, `birthDate`, `phone`, `authProvider`. 선택: `purpose`(01 개인 확인용·02 공공기관 제출용·03 금융기관 제출용·04 기타, 기본 01), `pdf`(boolean), `format`(json·pdf·both, 기본 json), `year`(귀속연도 YYYY, 기본 작년). 기본은 조회값만 받고, `pdf: true` 또는 `format`이 pdf·both면 증명서 PDF를 발급합니다. 접수 20P.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="get-nps-pension-tax-cert"></a>
+
+### `get_nps_pension_tax_cert` — 국민연금 연금소득 원천징수영수증 발급 결과 조회
+
+REST: `POST /rest/get_nps_pension_tax_cert` · SDK: `getNpsPensionTaxCert()`
+
+필수: `transactionId`. 성공 결과: `result.npsPensionTaxCert`. PDF를 요청했으면 `result.npsPensionTaxCert.발급`에 `발급번호`·`PDF`(발급됨/발급하지 못함)가 오고, `format`이 pdf·both면 `발급문서`(PDF base64)·`문서파일명`이 함께 옵니다. 최초 결과 60P(PDF 발급 포함 같은 금액), 재조회 무료.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="req-nps-pension-payment-cert"></a>
+
+### `req_nps_pension_payment_cert` — 국민연금 수급증명서 재발급 인증 요청
+
+REST: `POST /rest/req_nps_pension_payment_cert` · SDK: `requestNpsPensionPaymentCert()`
+
+필수: `name`, `birthDate`, `phone`, `authProvider`. 선택: `purpose`(01 개인 확인용·02 공공기관 제출용·03 금융기관 제출용·04 기타, 기본 01), `pdf`(boolean), `format`(json·pdf·both, 기본 json), `lang`(K 국문·E 영문, 기본 K). 기본은 조회값만 받고, `pdf: true` 또는 `format`이 pdf·both면 증명서 PDF를 발급합니다. 접수 20P.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="get-nps-pension-payment-cert"></a>
+
+### `get_nps_pension_payment_cert` — 국민연금 수급증명서 재발급 결과 조회
+
+REST: `POST /rest/get_nps_pension_payment_cert` · SDK: `getNpsPensionPaymentCert()`
+
+필수: `transactionId`. 성공 결과: `result.npsPensionPaymentCert`. PDF를 요청했으면 `result.npsPensionPaymentCert.발급`에 `발급번호`·`PDF`(발급됨/발급하지 못함)가 오고, `format`이 pdf·both면 `발급문서`(PDF base64)·`문서파일명`이 함께 옵니다. 최초 결과 60P(PDF 발급 포함 같은 금액), 재조회 무료.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="req-nps-member-cert"></a>
+
+### `req_nps_member_cert` — 국민연금 가입자증명서 발급 인증 요청
+
+REST: `POST /rest/req_nps_member_cert` · SDK: `requestNpsMemberCert()`
+
+필수: `name`, `birthDate`, `phone`, `authProvider`. 선택: `purpose`(01 개인 확인용·02 공공기관 제출용·03 금융기관 제출용·04 기타, 기본 01), `pdf`(boolean), `format`(json·pdf·both, 기본 json), `maskRrn`(boolean, 주민등록번호 뒤 6자리 가림, 기본 true). 기본은 조회값만 받고, `pdf: true` 또는 `format`이 pdf·both면 증명서 PDF를 발급합니다. 접수 20P.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="get-nps-member-cert"></a>
+
+### `get_nps_member_cert` — 국민연금 가입자증명서 발급 결과 조회
+
+REST: `POST /rest/get_nps_member_cert` · SDK: `getNpsMemberCert()`
+
+필수: `transactionId`. 성공 결과: `result.npsMemberCert`. PDF를 요청했으면 `result.npsMemberCert.발급`에 `발급번호`·`PDF`(발급됨/발급하지 못함)가 오고, `format`이 pdf·both면 `발급문서`(PDF base64)·`문서파일명`이 함께 옵니다. 최초 결과 60P(PDF 발급 포함 같은 금액), 재조회 무료.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="req-nps-paid-cert"></a>
+
+### `req_nps_paid_cert` — 국민연금보험료 납부확인서 발급 인증 요청
+
+REST: `POST /rest/req_nps_paid_cert` · SDK: `requestNpsPaidCert()`
+
+필수: `name`, `birthDate`, `phone`, `authProvider`. 선택: `purpose`(01 개인 확인용·02 공공기관 제출용·03 금융기관 제출용·04 기타, 기본 01), `pdf`(boolean), `format`(json·pdf·both, 기본 json), `workplaceNo`(사업장관리번호, 기본 가장 최근 사업장)·`fromYear`·`toYear`(YYYY, 기본 1988~올해). 기본은 조회값만 받고, `pdf: true` 또는 `format`이 pdf·both면 증명서 PDF를 발급합니다. 접수 20P.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="get-nps-paid-cert"></a>
+
+### `get_nps_paid_cert` — 국민연금보험료 납부확인서 발급 결과 조회
+
+REST: `POST /rest/get_nps_paid_cert` · SDK: `getNpsPaidCert()`
+
+필수: `transactionId`. 성공 결과: `result.npsPaidCert`. PDF를 요청했으면 `result.npsPaidCert.발급`에 `발급번호`·`PDF`(발급됨/발급하지 못함)가 오고, `format`이 pdf·both면 `발급문서`(PDF base64)·`문서파일명`이 함께 옵니다. 최초 결과 60P(PDF 발급 포함 같은 금액), 재조회 무료.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="req-nps-contribution-unpaid-cert"></a>
+
+### `req_nps_contribution_unpaid_cert` — 국민연금보험료 미납증명 발급 인증 요청
+
+REST: `POST /rest/req_nps_contribution_unpaid_cert` · SDK: `requestNpsContributionUnpaidCert()`
+
+필수: `name`, `birthDate`, `phone`, `authProvider`. 선택: `purpose`(01 개인 확인용·02 공공기관 제출용·03 금융기관 제출용·04 기타, 기본 01), `pdf`(boolean), `format`(json·pdf·both, 기본 json). 기본은 조회값만 받고, `pdf: true` 또는 `format`이 pdf·both면 증명서 PDF를 발급합니다. 접수 20P.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
+
+<a id="get-nps-contribution-unpaid-cert"></a>
+
+### `get_nps_contribution_unpaid_cert` — 국민연금보험료 미납증명 발급 결과 조회
+
+REST: `POST /rest/get_nps_contribution_unpaid_cert` · SDK: `getNpsContributionUnpaidCert()`
+
+필수: `transactionId`. 성공 결과: `result.npsContributionUnpaidCert`. PDF를 요청했으면 `result.npsContributionUnpaidCert.발급`에 `발급번호`·`PDF`(발급됨/발급하지 못함)가 오고, `format`이 pdf·both면 `발급문서`(PDF base64)·`문서파일명`이 함께 옵니다. 최초 결과 60P(PDF 발급 포함 같은 금액), 재조회 무료.
+
+[공통 입력·응답·과금 계약](#simple-auth-data)을 따릅니다.
+
+---
 <a id="req-driving-license"></a>
 
 ### `req_driving_license` — 운전면허 조회 인증 요청
@@ -1877,6 +2114,80 @@ View and issue a corporate registry certificate in one call.
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"registry_corporate_jobs_create","arguments":{}}}
 ```
 
+<a id="debarred-company"></a>
+
+### `debarred_company` — 부정당제재 업체 조회
+
+Check whether a Korean business registration number currently has active debarment sanctions in public procurement, with sanction details. 사업자등록번호로 조회 시점에 유효한 부정당제재 여부를 확인합니다. 만료·해제 이력은 제공하지 않으며, 제재가 없으면 no_active_sanctions 로 정상 응답합니다. 응답은 business_no·checked_at·status·count·sanctions(number·name·agency·start_date·end_date·basis) 입니다.
+
+> 읽기 전용 / read-only · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `bizno` | `string` | **필수 / required** | 사업자등록번호 10자리 (하이픈 허용) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"debarred_company","arguments":{"bizno":"<bizno>"}}}
+```
+
+<a id="tax-cert-verify"></a>
+
+### `tax_cert_verify` — 국세 증명서 원본 확인
+
+Verify a Korean tax certificate by the issuance number printed on it. 증명서에 인쇄된 발급번호(14자리)와 등록번호(주민 앞 6자리·사업자 10자리)로 납세증명서·소득금액증명·사업자등록증명 등 발급 사실을 확인합니다. 확인 결과는 verified(true 발급 사실 확인, false 발급 이력 없음)로 응답하며 증명서 원문은 돌려주지 않습니다.
+
+> 읽기 전용 / read-only · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `cert_no` | `string` | **필수 / required** | 증명서의 발급번호 14자리. 연계문서는 첫 자리 T (예: 20260101123456) |
+| `txpr_no` | `string` | **필수 / required** | 등록번호 — 주민등록번호 앞 6자리(개인) 또는 사업자등록번호 10자리 |
+| `txpr_clsf` | `string` (01 / 02) | 선택 / optional | 납세자 구분. 01 개인 02 사업자 (기본: 등록번호 길이로 자동 판정) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"tax_cert_verify","arguments":{"cert_no":"<cert_no>","txpr_no":"<txpr_no>"}}}
+```
+
+<a id="tax-invoice-third-party-check"></a>
+
+### `tax_invoice_third_party_check` — 전자세금계산서 발급사실 확인
+
+Verify the issuance of a Korean electronic tax invoice or e-statement (제3자 발급사실 조회). 공급자 사업자등록번호·공급받는자 등록번호·승인번호·작성일자·공급가액으로 전자세금계산서·전자계산서 발급 사실을 확인합니다. 확인 결과는 verified(true 발급 사실 확인, false 발급 이력 없음)로 응답하며 원문은 돌려주지 않습니다.
+
+> 읽기 전용 / read-only · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `splr_no` | `string` | **필수 / required** | 공급자 사업자등록번호 10자리 |
+| `dmnr_no` | `string` | **필수 / required** | 공급받는자 등록번호 — 사업자 10자리 또는 주민 13자리 |
+| `etan` | `string` | **필수 / required** | 승인번호(24자리 이상, 공백·하이픈 제거 후 사용) |
+| `wrt_dt` | `string` | **필수 / required** | 작성일자 YYYYMMDD |
+| `sum_amt` | `string` | **필수 / required** | 공급가액(원, 숫자만) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"tax_invoice_third_party_check","arguments":{"splr_no":"<splr_no>","dmnr_no":"<dmnr_no>","etan":"<etan>","wrt_dt":"<wrt_dt>","sum_amt":"<sum_amt>"}}}
+```
+
+<a id="std-price-commercial"></a>
+
+### `std_price_commercial` — 상가·오피스텔 기준시가
+
+Look up the official standard price of a commercial building unit or officetel in Korea by address. 주소(지번·도로명) 또는 법정동코드+번지로 기준시가(㎡당 고시가격)·전용면적·호별 기준시가·고시일자를 조회합니다. unit_no(호실 번호)를 함께 보내면 해당 호실만, 없으면 최대 50건 목록을 돌려주며, 고시되지 않은 지역은 count 0으로 응답합니다.
+
+> 읽기 전용 / read-only · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `address` | `string` | 선택 / optional | 지번 또는 도로명 주소 (예: 서울특별시 동대문구 장안동 123) — dong·ji를 주지 않으면 필수 |
+| `dong` | `string` | 선택 / optional | 법정동코드 10자리. address 대신 ji와 함께 직접 보낼 수 있습니다. |
+| `ji` | `string` | 선택 / optional | 번지 (예: 431). address 대신 dong과 함께 직접 보낼 수 있습니다. |
+| `ho` | `string` | 선택 / optional | 지번의 호(부번지). 건물을 특정할 때 씁니다. |
+| `unit_no` | `string` | 선택 / optional | 호실 번호 (예: 101). 보내면 해당 호실만 돌려줍니다. |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"std_price_commercial","arguments":{}}}
+```
+
 <a id="identity"></a>
 
 ## Identity Verification · 신분증 진위확인 · 마스킹
@@ -2389,7 +2700,7 @@ Result fields: `doc_type`, `business_kind` (개인/법인), `seal_kind` (seal ce
 
 ## Finance · 금융 · 계좌확인
 
-`https://apick.app/mcp/finance` — 5 tools
+`https://apick.app/mcp/finance` — 7 tools
 
 Korean bank account holder lookup and 1 KRW deposit verification.
 
@@ -2402,6 +2713,8 @@ Korean bank account holder lookup and 1 KRW deposit verification.
 | [`bank_code`](#bank-code) | 은행코드 조회 | — |
 | [`crypto_market`](#crypto-market) | 암호화폐 통합 시세·김치프리미엄 | `symbols` |
 | [`exchange_rate`](#exchange-rate) | 월평균·연평균 환율 조회 | — |
+| [`loan_interest_rate`](#loan-interest-rate) | 대출금리 조회 | — |
+| [`intl_interest_rate`](#intl-interest-rate) | 국제금리 조회 | — |
 
 <a id="transfer-1won"></a>
 
@@ -2503,6 +2816,38 @@ Monthly average and yearly average (year-to-date for the current year) exchange 
 
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"exchange_rate","arguments":{"month":"202609","currency":"USD,JPY"}}}
+```
+
+<a id="loan-interest-rate"></a>
+
+### `loan_interest_rate` — 대출금리 조회
+
+Daily fixed base rates and yields by loan term for the requested business day. 대출기간별 고정기준금리와 유통수익률을 일자별로 조회합니다. date(YYYYMMDD)를 생략하면 오늘이고, 영업일 기준이며 비영업일이면 직전 영업일 고시를 돌려주고 as_of_date 로 실제 고시일을 알립니다. 응답은 date·as_of_date·count·rates(term·rate) 입니다.
+
+> 읽기 전용 / read-only · server `finance`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `date` | `string` | 선택 / optional | 조회 일자 YYYYMMDD (예: 20261114). 생략하면 오늘 |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"loan_interest_rate","arguments":{}}}
+```
+
+<a id="intl-interest-rate"></a>
+
+### `intl_interest_rate` — 국제금리 조회
+
+Daily international interest rates (overnight RFRs such as SOFR and ESTR, term rates and CIRR) by currency and term. SOFR·ESTR·TONA 등 국제금리와 통화별 중장기 고시 금리를 일자별로 조회합니다. date(YYYYMMDD)를 생략하면 오늘이고, 영업일 기준이며 비영업일이면 직전 영업일 고시를 돌려주고 as_of_date 로 실제 고시일을 알립니다. 응답은 date·as_of_date·count·rates(currency·term·rate) 입니다.
+
+> 읽기 전용 / read-only · server `finance`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `date` | `string` | 선택 / optional | 조회 일자 YYYYMMDD (예: 20261114). 생략하면 오늘 |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"intl_interest_rate","arguments":{}}}
 ```
 
 <a id="web"></a>
@@ -3815,7 +4160,7 @@ Draw a visible text watermark across an image.
 
 ## Vision · 이미지 · 영상 분석
 
-`https://apick.app/mcp/vision` — 7 tools
+`https://apick.app/mcp/vision` — 8 tools
 
 Face detection, face similarity, image similarity, NSFW detection, and video extraction.
 
@@ -3830,6 +4175,7 @@ Face detection, face similarity, image similarity, NSFW detection, and video ext
 | [`word_cloud`](#word-cloud) | 워드클라우드 생성 | `text` |
 | [`face_detection`](#face-detection) | 이미지 얼굴 인식 | `image_url` |
 | [`face_similarity`](#face-similarity) | 얼굴 유사도 비교 | `image_url`, `compare_image_url` |
+| [`kyc_verify`](#kyc-verify) | eKYC 본인확인 | `session` |
 
 <a id="nsfw-detection"></a>
 
@@ -3969,6 +4315,26 @@ Result fields: `similarity` (0-1), `is_match`, `level` (`높음` ≥ 0.5, `보�
 ```
 
 ---
+
+<a id="kyc-verify"></a>
+
+### `kyc_verify` — eKYC 본인확인
+
+Verify identity with an ID photo and a short selfie video or photo: ID screen-capture/editor detection, real-person liveness (turning the head left and right), and face match against the ID. Requires a single-use capture session from /rest/kyc_session. 신분증 사진과 좌우로 고개를 돌린 짧은 촬영 영상(또는 사진)으로 신분증 위조·화면 캡처, 실제 사람의 움직임, 신분증 얼굴과의 일치를 한 번에 판정합니다. 촬영 세션(/rest/kyc_session) 서명이 필요합니다.
+
+> 읽기 전용 / read-only · server `vision`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `session` | `string` | **필수 / required** | 촬영 세션 서명(/rest/kyc_session 발급 → /rest/kyc_seal 서명) |
+| `threshold` | `number` | 선택 / optional | 얼굴 일치 기준 점수 (범위: 0.2 ~ 0.8, 기본값 0.4) |
+| `document_image_url` | `string` (URL) | 선택 / optional | 파일 URL (image/jpeg, image/png) |
+| `face_video_url` | `string` (URL) | 선택 / optional | 파일 URL (video/mp4, video/quicktime, video/webm, video/3gpp) |
+| `face_image_url` | `string` (URL) | 선택 / optional | 파일 URL (image/jpeg, image/png) |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"kyc_verify","arguments":{"session":"<session>"}}}
+```
 
 <a id="ai"></a>
 

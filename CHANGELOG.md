@@ -1,3 +1,11 @@
+## 5.13.0 (2026-11-20)
+
+- 국민연금 증명서 발급 9종 도구 18개를 추가했습니다: `req_`/`get_` + `nps_join_cert`(가입자 가입증명)·`nps_career_cert`(연금산정용 가입내역 확인서)·`nps_lump_sum_cert`(일시금 지급내역)·`nps_rehabilitation_cert`(개인회생 신청용 확인서)·`nps_pension_tax_cert`(연금소득 원천징수영수증)·`nps_pension_payment_cert`(수급증명서 재발급)·`nps_member_cert`(가입자증명서)·`nps_paid_cert`(보험료 납부확인서)·`nps_contribution_unpaid_cert`(보험료 미납증명). 공통 입력 `purpose`·`pdf`·`format`과 상품별 `lang`·`year`·`maskRrn`·`workplaceNo`·`fromYear`·`toYear`를 받고, PDF를 요청하면 결과의 `발급.발급문서`(base64)로 받습니다. 접수 20P, 최초 결과 60P, 재조회 무료입니다.
+- TOOLS.md·README의 도구 수를 서버 현재 목록에 맞췄습니다(전체 250개, Business 104·Finance 7·Vision 8). 이미 서버에 있던 `debarred_company`·`tax_cert_verify`·`tax_invoice_third_party_check`·`std_price_commercial`·`loan_interest_rate`·`intl_interest_rate`·`kyc_verify`도 목록에 넣었습니다.
+- 도구 정의는 서버에서 내려오므로 브릿지 코드는 그대로입니다.
+- Added 18 tools for nine National Pension certificates (`req_`/`get_` + `nps_join_cert`, `nps_career_cert`, `nps_lump_sum_cert`, `nps_rehabilitation_cert`, `nps_pension_tax_cert`, `nps_pension_payment_cert`, `nps_member_cert`, `nps_paid_cert`, `nps_contribution_unpaid_cert`). They take the shared `purpose`, `pdf` and `format` inputs plus product-specific `lang`, `year`, `maskRrn`, `workplaceNo`, `fromYear` and `toYear`; a requested PDF arrives as base64 in the result's `발급.발급문서`. Acceptance 20 points, first result 60 points, re-reads free.
+- Synced the tool counts in TOOLS.md and README with the server (250 in total; Business 104, Finance 7, Vision 8) and listed tools that were already live but undocumented.
+
 ## 5.12.2 (2026-11-19)
 
 - 부동산·법인 등기 열람·발급(`registry_realestate_jobs_create`·`registry_corporate_jobs_create`) 설명의 환급 안내를 고쳤습니다. 발급이 실패하면 같은 `job_id` 로 결과 조회(`POST /rest/registry_jobs/:job_id/download`)를 호출할 때 접수 때 차감한 금액을 환급합니다. 결과 조회를 하지 않으면 환급되지 않고, 접수 후 24시간이 지난 조회는 환급되지 않습니다.

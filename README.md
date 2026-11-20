@@ -1,4 +1,4 @@
-# APICK MCP — 225 Korean Data, AI, Image & Video Tools
+# APICK MCP — 250 Korean Data, AI, Image & Video Tools
 
 자동차등록원부 등본은 REST 결과(`/rest/get_vehicle_register_doc`)에서 원본 PDF와 `문서내용`을 제공합니다. 전용 MCP 도구는 없습니다. For the vehicle register PDF and structured text, use the REST API or the `apick-api` SDK.
 
@@ -22,9 +22,9 @@
 
 ## What is this? / 이게 뭔가요?
 
-**EN** — APICK is a Korean data and AI API platform. This MCP server exposes **225 tools** for Korean business data, identity verification, OCR, parcel tracking, image and video generation, file conversion, web intelligence, and LLM calls.
+**EN** — APICK is a Korean data and AI API platform. This MCP server exposes **250 tools** for Korean business data, identity verification, OCR, parcel tracking, image and video generation, file conversion, web intelligence, and LLM calls.
 
-**KO** — 에이픽(APICK)은 대한민국 데이터·AI API 플랫폼입니다. 이 MCP 서버는 **Tool 225개**로 사업자 조회, 신분증 진위확인, 택배 배송조회, OCR, 이미지·영상 생성, 파일 변환, 웹 검색과 LLM 호출을 **인증키 하나로** 제공합니다.
+**KO** — 에이픽(APICK)은 대한민국 데이터·AI API 플랫폼입니다. 이 MCP 서버는 **Tool 250개**로 사업자 조회, 신분증 진위확인, 택배 배송조회, OCR, 이미지·영상 생성, 파일 변환, 웹 검색과 LLM 호출을 **인증키 하나로** 제공합니다.
 
 **The server is hosted by APICK. Nothing to install, build, or keep running.**
 **서버는 에이픽이 운영합니다. 설치할 것도, 띄워둘 것도 없습니다.**
@@ -42,8 +42,8 @@ https://apick.app/mcp/all
 Sign up at **[apick.app](https://apick.app)** and copy your license key from the dashboard. New accounts get **1,000 free points**.
 **[apick.app](https://apick.app)** 에서 가입하고 대시보드에서 인증키를 복사하세요. 신규 가입 시 **1,000포인트 무료**.
 
-> `tools/list` works **without** a key — a client can connect and discover all 225 tools before you sign up. Only `tools/call` validates the key and allowed IP.
-> `tools/list`는 **인증 없이** 동작합니다. 가입 전에도 클라이언트가 연결해 225개 Tool을 확인할 수 있고, 키와 허용 IP는 `tools/call`부터 검증합니다.
+> `tools/list` works **without** a key — a client can connect and discover all 250 tools before you sign up. Only `tools/call` validates the key and allowed IP.
+> `tools/list`는 **인증 없이** 동작합니다. 가입 전에도 클라이언트가 연결해 250개 Tool을 확인할 수 있고, 키와 허용 IP는 `tools/call`부터 검증합니다.
 
 Leave the allowed-IP list blank for unrestricted access. To restrict access, register the public IPv4 address seen by APICK as an exact address or CIDR such as `/32`. Changes apply immediately with no separate synchronization.
 마이페이지의 허용 IP가 공란이면 제한 없이 사용할 수 있습니다. 제한하려면 APICK에 도착하는 공인 IPv4를 단일 주소 또는 CIDR(`/32` 등)로 등록하세요. 저장 즉시 반영되며 별도 동기화는 필요하지 않습니다.
@@ -153,37 +153,37 @@ Connect to `all` for everything, or to one server to keep the tool list short an
 
 | Server 서버 | Endpoint | Tools | Coverage 범위 |
 | --- | --- | --- | --- |
-| **All 통합** | `https://apick.app/mcp/all` | **225** | 아래 전부 + `find_tools` |
-| [Business 사업자·커머스](TOOLS.md#business) | `https://apick.app/mcp/business` | 82 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래·입찰 분석, 건축물대장, 차량 이력·리콜·하이패스 미납·자동차세, 간편인증 데이터 조회·세무 증빙서류 발급, 이메일 위험 일괄 검사, 유효성 검사 |
+| **All 통합** | `https://apick.app/mcp/all` | **250** | 아래 전부 + `find_tools` |
+| [Business 사업자·커머스](TOOLS.md#business) | `https://apick.app/mcp/business` | 104 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래·입찰 분석, 건축물대장, 차량 이력·리콜·하이패스 미납·자동차세, 간편인증 데이터 조회·세무 증빙서류 발급, 이메일 위험 일괄 검사, 유효성 검사 |
 | [Identity 신분증](TOOLS.md#identity) | `https://apick.app/mcp/identity` | 16 | 주민등록증·운전면허증·여권·외국인등록증 진위확인, 실명확인, 개인정보 마스킹 |
 | [Convert 파일변환](TOOLS.md#convert) | `https://apick.app/mcp/convert` | 57 | PDF·DOCX·엑셀 변환, 서식 문서 작성·묶음·AI 채우기, STT, 비동기 TTS, 워터마크 |
 | [Web 웹·검색](TOOLS.md#web) | `https://apick.app/mcp/web` | 35 | 도메인·IP·WHOIS, 웹페이지 조회, URL→Markdown 변환, 페이지 캡처·텍스트 좌표, 구글 검색(웹·이미지·뉴스·쇼핑·지도·장소 상세·순위), 유튜브(검색·채널·댓글·자막·영상 정보), 인스타그램·X(프로필·게시물), 아마존·쿠팡 상품, 링크드인(회사·채용공고) |
-| [Vision 이미지·영상](TOOLS.md#vision) | `https://apick.app/mcp/vision` | 7 | 얼굴 검출, 얼굴 유사도 비교, 이미지 유사도, 유해이미지 판별, 영상 추출 |
+| [Vision 이미지·영상](TOOLS.md#vision) | `https://apick.app/mcp/vision` | 8 | 얼굴 검출, 얼굴 유사도 비교, 이미지 유사도, 유해이미지 판별, 영상 추출 |
 | [OCR 문자인식](TOOLS.md#ocr) | `https://apick.app/mcp/ocr` | 7 | 이미지 텍스트 추출, 신분증 항목 추출, 사업자등록증·신고증·법인 등기부·인감증명서 판독 |
 | [AI · LLM](TOOLS.md#ai) | `https://apick.app/mcp/ai` | 15 | LLM 챗, 텍스트 요약·교정, 이미지 생성·편집·대량 작업, 비동기 영상 생성 |
-| [Finance 금융](TOOLS.md#finance) | `https://apick.app/mcp/finance` | 5 | 계좌 예금주 조회, 1원 인증, 암호화폐 통합 시세·김치프리미엄, 월평균·연평균 환율 |
+| [Finance 금융](TOOLS.md#finance) | `https://apick.app/mcp/finance` | 7 | 계좌 예금주 조회, 1원 인증, 암호화폐 통합 시세·김치프리미엄, 월평균·연평균 환율 |
 
 ### Every tool / 전체 Tool
 
-**[→ TOOLS.md](TOOLS.md)** — the current 225-tool inventory and detailed examples for common tools.
-**[→ TOOLS.md](TOOLS.md)** — 현재 225개 목록과 주요 도구의 파라미터·타입·호출 예시를 정리했습니다.
+**[→ TOOLS.md](TOOLS.md)** — the current 250-tool inventory and detailed examples for common tools.
+**[→ TOOLS.md](TOOLS.md)** — 현재 250개 목록과 주요 도구의 파라미터·타입·호출 예시를 정리했습니다.
 
 <details>
 <summary><b>Tool names at a glance / Tool 이름 한눈에 보기</b></summary>
 
-**Business** `biz_detail` `venture_biz_info` `ecommerce_registration` `bid_notice` `bid_award` `rtms_trade` `rtms_rent` `land_rt_price` `land_info` `bldrgst` `court_auction` `registry_doc_verify` `req_pccc` `get_pccc` `get_car_flooding` `get_car_scrap` `parcel_tracking` `parcel_tracking_auto` `check_email_valid` `check_phone_valid` `check_spam_number` `holiday_info` `search_juso` `info` `app_reviews` `req_cash_receipt_deduction` `get_cash_receipt_deduction` `req_tax_return_history` `get_tax_return_history` `req_employment` `get_employment` `req_personal_income` `get_personal_income` `req_nps_join_history` `get_nps_join_history` `req_nps_deduction_cert` `get_nps_deduction_cert` `req_nps_career_history` `get_nps_career_history` `req_driving_license` `get_driving_license` `req_health_checkup` `get_health_checkup` `req_income_cert_bundle` `get_income_cert_bundle` `req_business_cert_bundle` `get_business_cert_bundle` `req_nps_bundle` `get_nps_bundle` `req_hometax_bundle` `get_hometax_bundle` `req_hometax_biz_bundle` `get_hometax_biz_bundle` `geo_site_score` `geo_address_cleanup` `email_risk_batch`
+**Business** `biz_detail` `venture_biz_info` `ecommerce_registration` `bid_notice` `bid_award` `rtms_trade` `rtms_rent` `land_rt_price` `land_info` `bldrgst` `court_auction` `registry_doc_verify` `req_pccc` `get_pccc` `get_car_flooding` `get_car_scrap` `parcel_tracking` `parcel_tracking_auto` `check_email_valid` `check_phone_valid` `check_spam_number` `holiday_info` `search_juso` `info` `app_reviews` `req_cash_receipt_deduction` `get_cash_receipt_deduction` `req_tax_return_history` `get_tax_return_history` `req_employment` `get_employment` `req_personal_income` `get_personal_income` `req_nps_join_history` `get_nps_join_history` `req_nps_deduction_cert` `get_nps_deduction_cert` `req_nps_career_history` `get_nps_career_history` `req_nps_join_cert` `get_nps_join_cert` `req_nps_career_cert` `get_nps_career_cert` `req_nps_lump_sum_cert` `get_nps_lump_sum_cert` `req_nps_rehabilitation_cert` `get_nps_rehabilitation_cert` `req_nps_pension_tax_cert` `get_nps_pension_tax_cert` `req_nps_pension_payment_cert` `get_nps_pension_payment_cert` `req_nps_member_cert` `get_nps_member_cert` `req_nps_paid_cert` `get_nps_paid_cert` `req_nps_contribution_unpaid_cert` `get_nps_contribution_unpaid_cert` `req_driving_license` `get_driving_license` `req_health_checkup` `get_health_checkup` `req_income_cert_bundle` `get_income_cert_bundle` `req_business_cert_bundle` `get_business_cert_bundle` `req_nps_bundle` `get_nps_bundle` `req_hometax_bundle` `get_hometax_bundle` `req_hometax_biz_bundle` `get_hometax_biz_bundle` `geo_site_score` `geo_address_cleanup` `email_risk_batch` `debarred_company` `tax_cert_verify` `tax_invoice_third_party_check` `std_price_commercial`
 
 **Identity** `identi_card1` `identi_card2` `identi_card3` `identi_card4` `identi_card5` `identi_card_image1` `identi_card_image2` `identi_card_image3` `identi_card_image4` `identi_card_image5` `name_rrn_auth` `hide_rrn` `identity_document_residence_card` `identity_document_passport` `identity_document_id_card` `identity_document_driver_license`
 
 **OCR** `ocr` `business_doc_ocr` `ocr_identi1` `ocr_identi2` `ocr_identi3` `ocr_identi4` `ocr_identi5`
 
-**Finance** `transfer_1won` `account_realname` `bank_code` `crypto_market` `exchange_rate`
+**Finance** `transfer_1won` `account_realname` `bank_code` `crypto_market` `exchange_rate` `loan_interest_rate` `intl_interest_rate`
 
 **Web** `nslookup` `reverse_ip` `location` `ip_history` `whois` `url_html` `url_screenshot` `url_similarity` `google_search` `google_image_search` `google_lens_search` `crawl_youtube` `youtube_metadata` `youtube_thumbnail` `youtube_subtitle_list` `youtube_subtitle` `youtube_search` `youtube_channel` `youtube_playlist` `youtube_hashtag` `youtube_comments` `google_news_search` `google_shopping_search` `google_maps_search` `google_rank_check` `instagram_profile` `instagram_post` `coupang_product` `linkedin_company` `linkedin_job` `url_to_markdown` `web_capture_extract`
 
 **Convert** `stt` `tts_jobs_create` `tts_gemini_create` `tts_gemini_voices` `tts_openai_create` `tts_openai_voices` `tts_options` `tts_quote` `tts_jobs_status` `tts_jobs_cancel` `tts_jobs_result` `tts_jobs_subtitles` `voice_change` `face_blur` `pdf_to_docx` `pdf_to_image` `pdf_merge` `html_to_pdf` `docx_to_pdf` `json_to_excel` `base64_to_image` `set_watermark` `get_watermark` `draw_watermark_pdf` `draw_watermark_image`
 
-**Vision** `nsfw_detection` `image_similarity` `video_to_mp3` `extract_video_thumbnail` `word_cloud` `face_detection` `face_similarity`
+**Vision** `nsfw_detection` `image_similarity` `video_to_mp3` `extract_video_thumbnail` `word_cloud` `face_detection` `face_similarity` `kyc_verify`
 
 **AI** `llm_models` `llm_chat` `text_summary` `text_polish` `image_generate` `image_edit` `image_batch_create` `image_batch_status` `image_batch_result` `seedance_jobs_create` `seedance_jobs_status` `veo_jobs_create` `veo_jobs_status` `kling_jobs_create` `kling_jobs_status`
 
@@ -195,9 +195,9 @@ Connect to `all` for everything, or to one server to keep the tool list short an
 
 ### Find the right tool / 알맞은 Tool 찾기 — `find_tools`
 
-**EN** — The `all` server has 225 tools. `find_tools` recommends the best-matching APICK tools for a task described in natural language (Korean or English). It returns each tool's name, title, description and a relevance label (`high`, `medium`, `low`). It is free, works without an API key, and is available on the `all` server only; domain servers are small enough to choose from `tools/list` directly.
+**EN** — The `all` server has 250 tools. `find_tools` recommends the best-matching APICK tools for a task described in natural language (Korean or English). It returns each tool's name, title, description and a relevance label (`high`, `medium`, `low`). It is free, works without an API key, and is available on the `all` server only; domain servers are small enough to choose from `tools/list` directly.
 
-**KO** — `all` 서버에는 Tool이 225개 있습니다. `find_tools`는 자연어(한국어·영어)로 설명한 작업에 가장 알맞은 에이픽 Tool을 추천하고, Tool 이름·제목·설명과 관련도(`high`·`medium`·`low`)를 돌려줍니다. 무료이며 인증키 없이 호출할 수 있고, `all` 서버에서만 제공합니다. 분야별 서버는 Tool 수가 적어 `tools/list`만으로 고를 수 있습니다.
+**KO** — `all` 서버에는 Tool이 250개 있습니다. `find_tools`는 자연어(한국어·영어)로 설명한 작업에 가장 알맞은 에이픽 Tool을 추천하고, Tool 이름·제목·설명과 관련도(`high`·`medium`·`low`)를 돌려줍니다. 무료이며 인증키 없이 호출할 수 있고, `all` 서버에서만 제공합니다. 분야별 서버는 Tool 수가 적어 `tools/list`만으로 고를 수 있습니다.
 
 | Parameter | Type | Required | Description 설명 |
 | --- | --- | --- | --- |
@@ -318,7 +318,7 @@ Seedance 참조 소재 모드는 지원 버전에서 참조 이미지·영상·�
 | **Transport** | Streamable HTTP — one endpoint per server, JSON-RPC 2.0 over HTTPS POST, stateless | 서버당 단일 엔드포인트, HTTPS POST로 JSON-RPC 2.0, 세션 없이 요청 단위 |
 | **Protocol** | MCP `2026-07-28`, auto-compatible with earlier client versions | MCP `2026-07-28` 기본, 이전 규격 클라이언트 자동 호환 |
 | **Discovery** | `tools/list` returns every tool with JSON Schema, description and live price — no key needed | `tools/list`가 스키마·설명·실시간 단가를 반환, 인증 불필요 |
-| **Annotations** | Every tool declares `title`, `readOnlyHint`, `openWorldHint`. 62 of 225 are not read-only | 전 Tool이 `title`·`readOnlyHint`·`openWorldHint` 선언. 225개 중 상태 변경 Tool은 62개 |
+| **Annotations** | Every tool declares `title`, `readOnlyHint`, `openWorldHint`. 80 of 250 are not read-only | 전 Tool이 `title`·`readOnlyHint`·`openWorldHint` 선언. 250개 중 상태 변경 Tool은 80개 |
 | **Results** | Text (JSON) + `structuredContent`. Images as image content; files up to 8MB as base64 | 텍스트(JSON)와 `structuredContent` 동시 반환. 이미지는 이미지 콘텐츠, 8MB 이하 파일은 base64 |
 | **File input** | File-taking tools accept a public `https` URL (`image_url`, `pdf_url`, …) — APICK downloads and processes it | 파일 Tool은 공개 `https` URL을 받습니다. 에이픽 서버가 내려받아 처리합니다 |
 | **Errors** | Delivered via `isError`; identity masking also preserves `structuredContent.error_code` | `isError`로 전달되며 신분증 마스킹은 `structuredContent.error_code`도 보존합니다 |
@@ -337,6 +337,15 @@ Call the request tool on Business or All, ask the user to approve on their phone
 | 국민연금 가입내역 | `requestNpsJoinHistory` / `getNpsJoinHistory` | `req_nps_join_history` / `get_nps_join_history` |
 | 국민연금 소득공제용 납부확인서 | `requestNpsDeductionCert` / `getNpsDeductionCert` | `req_nps_deduction_cert` / `get_nps_deduction_cert` |
 | 국민연금 경력 이력 | `requestNpsCareerHistory` / `getNpsCareerHistory` | `req_nps_career_history` / `get_nps_career_history` |
+| 국민연금 가입자 가입증명 발급 | `requestNpsJoinCert` / `getNpsJoinCert` | `req_nps_join_cert` / `get_nps_join_cert` |
+| 국민연금 연금산정용 가입내역 확인서 발급 | `requestNpsCareerCert` / `getNpsCareerCert` | `req_nps_career_cert` / `get_nps_career_cert` |
+| 국민연금 일시금 지급내역 발급 | `requestNpsLumpSumCert` / `getNpsLumpSumCert` | `req_nps_lump_sum_cert` / `get_nps_lump_sum_cert` |
+| 국민연금 개인회생 신청용 확인서 발급 | `requestNpsRehabilitationCert` / `getNpsRehabilitationCert` | `req_nps_rehabilitation_cert` / `get_nps_rehabilitation_cert` |
+| 국민연금 연금소득 원천징수영수증 발급 | `requestNpsPensionTaxCert` / `getNpsPensionTaxCert` | `req_nps_pension_tax_cert` / `get_nps_pension_tax_cert` |
+| 국민연금 수급증명서 재발급 | `requestNpsPensionPaymentCert` / `getNpsPensionPaymentCert` | `req_nps_pension_payment_cert` / `get_nps_pension_payment_cert` |
+| 국민연금 가입자증명서 발급 | `requestNpsMemberCert` / `getNpsMemberCert` | `req_nps_member_cert` / `get_nps_member_cert` |
+| 국민연금보험료 납부확인서 발급 | `requestNpsPaidCert` / `getNpsPaidCert` | `req_nps_paid_cert` / `get_nps_paid_cert` |
+| 국민연금보험료 미납증명 발급 | `requestNpsContributionUnpaidCert` / `getNpsContributionUnpaidCert` | `req_nps_contribution_unpaid_cert` / `get_nps_contribution_unpaid_cert` |
 | 운전면허 조회 | `requestDrivingLicense` / `getDrivingLicense` | `req_driving_license` / `get_driving_license` |
 | 국가 건강검진 결과 | `requestHealthCheckup` / `getHealthCheckup` | `req_health_checkup` / `get_health_checkup` |
 | 현금영수증 소득공제 내역 | `requestCashReceiptDeduction` / `getCashReceiptDeduction` | `req_cash_receipt_deduction` / `get_cash_receipt_deduction` |
@@ -355,6 +364,10 @@ Common inputs match the SDK: `name`, `birthDate`, `phone`, and `authProvider`. T
 
 **Certificate bundles:** one approval issues several certificates. Besides the common inputs they need `year`, `use_purpose`, `submit_to` and `delivery`; the business bundle also needs `business_no` and representative consent (`agreed: true` or a previous `bind_id`). Each certificate has its own result section; use `format: "json"` in chat clients to skip the PDF payload. First result: 84P (income) and 126P (business).
 
+**국민연금 증명서 발급 9종:** `req_nps_*_cert`는 공통으로 `purpose`(01~04, 기본 01 개인 확인용)·`pdf`(boolean)·`format`(json·pdf·both, 기본 json)을 받고, 가입증명·연금산정용·일시금·수급증명은 `lang`(K·E), 원천징수영수증은 `year`, 가입자증명서는 `maskRrn`, 납부확인서는 `workplaceNo`·`fromYear`·`toYear`를 더 받습니다. 기본은 조회값만 받고, PDF를 요청하면 `result.<상품>.발급`에 발급번호와 `발급문서`(PDF base64, format이 pdf·both일 때)가 옵니다. 접수 20P, 최초 결과 60P(PDF 포함 같은 금액), 재조회 무료입니다.
+
+**National Pension certificates (9):** `req_nps_*_cert` share `purpose` (01-04, default 01 personal use), `pdf` (boolean) and `format` (json, pdf or both; default json); the enrollment, pension-calculation, lump-sum and recipient certificates also take `lang` (K or E), the withholding receipt takes `year`, the subscriber certificate takes `maskRrn`, and the payment confirmation takes `workplaceNo`, `fromYear` and `toYear`. By default only the looked-up values are returned; when a PDF is requested, `result.<product>.발급` carries the issue number and `발급문서` (PDF as base64, when format is pdf or both). Acceptance 20 points, first result 60 points (same with a PDF), re-reads free.
+
 **통합 조회 묶음:** 승인 한 번으로 여러 조회를 처리합니다. `req_nps_bundle`은 국민연금 3종을 항상 함께 조회하고, `req_hometax_bundle`·`req_hometax_biz_bundle`은 `products`로 고른 조회만 실행합니다. 과금은 고른 상품 단가의 합(국민연금은 묶음 126P)이고 모두 실패하면 과금되지 않습니다. 사업자 묶음은 `business_no`와 대표자 확인(`agreed: true` 또는 이전 응답의 `bind_id`)이 필요합니다. 고를 수 있는 키는 [TOOLS.md](TOOLS.md#req-hometax-bundle)에 있습니다.
 
 **Lookup bundles:** one approval runs several lookups. `req_nps_bundle` always runs the three pension lookups; `req_hometax_bundle` and `req_hometax_biz_bundle` run only the products named in `products`. Billing is the sum of the selected products (126P fixed for the pension bundle) and nothing is charged when every lookup fails. The business bundle also needs `business_no` and representative consent (`agreed: true` or a previous `bind_id`).
@@ -367,8 +380,8 @@ Common inputs match the SDK: `name`, `birthDate`, `phone`, and `authProvider`. T
 
 ### Tools with side effects / 부작용이 있는 Tool
 
-163 of 225 tools are read-only. The other 62 change state, charge points, cancel work, or consume a result and carry `readOnlyHint: false` so your client can require approval:
-225개 중 163개는 조회입니다. 나머지 62개는 과금·취소·결과 생성 등 상태를 바꾸므로 `readOnlyHint: false`가 붙습니다.
+170 of 250 tools are read-only. The other 80 change state, charge points, cancel work, or consume a result and carry `readOnlyHint: false` so your client can require approval:
+250개 중 170개는 조회입니다. 나머지 80개는 과금·취소·결과 생성 등 상태를 바꾸므로 `readOnlyHint: false`가 붙습니다.
 
 | Tool | What it does / 하는 일 |
 | --- | --- |
@@ -382,6 +395,24 @@ Common inputs match the SDK: `name`, `birthDate`, `phone`, and `authProvider`. T
 | `get_nps_deduction_cert` | Collects and bills the first result; repeat reads are free · 최초 결과 반환 시 과금, 재조회 무료 |
 | `req_nps_career_history` | Requests phone approval and charges acceptance · 국민연금 경력 이력 인증 요청·접수 과금 |
 | `get_nps_career_history` | Collects and bills the first result; repeat reads are free · 최초 결과 반환 시 과금, 재조회 무료 |
+| `req_nps_join_cert` | Requests phone approval and charges acceptance · 국민연금 가입자 가입증명 발급 인증 요청·접수 과금 |
+| `get_nps_join_cert` | Collects and bills the first result; repeat reads are free · 최초 결과 반환 시 과금, 재조회 무료 |
+| `req_nps_career_cert` | Requests phone approval and charges acceptance · 국민연금 연금산정용 가입내역 확인서 발급 인증 요청·접수 과금 |
+| `get_nps_career_cert` | Collects and bills the first result; repeat reads are free · 최초 결과 반환 시 과금, 재조회 무료 |
+| `req_nps_lump_sum_cert` | Requests phone approval and charges acceptance · 국민연금 일시금 지급내역 발급 인증 요청·접수 과금 |
+| `get_nps_lump_sum_cert` | Collects and bills the first result; repeat reads are free · 최초 결과 반환 시 과금, 재조회 무료 |
+| `req_nps_rehabilitation_cert` | Requests phone approval and charges acceptance · 국민연금 개인회생 신청용 확인서 발급 인증 요청·접수 과금 |
+| `get_nps_rehabilitation_cert` | Collects and bills the first result; repeat reads are free · 최초 결과 반환 시 과금, 재조회 무료 |
+| `req_nps_pension_tax_cert` | Requests phone approval and charges acceptance · 국민연금 연금소득 원천징수영수증 발급 인증 요청·접수 과금 |
+| `get_nps_pension_tax_cert` | Collects and bills the first result; repeat reads are free · 최초 결과 반환 시 과금, 재조회 무료 |
+| `req_nps_pension_payment_cert` | Requests phone approval and charges acceptance · 국민연금 수급증명서 재발급 인증 요청·접수 과금 |
+| `get_nps_pension_payment_cert` | Collects and bills the first result; repeat reads are free · 최초 결과 반환 시 과금, 재조회 무료 |
+| `req_nps_member_cert` | Requests phone approval and charges acceptance · 국민연금 가입자증명서 발급 인증 요청·접수 과금 |
+| `get_nps_member_cert` | Collects and bills the first result; repeat reads are free · 최초 결과 반환 시 과금, 재조회 무료 |
+| `req_nps_paid_cert` | Requests phone approval and charges acceptance · 국민연금보험료 납부확인서 발급 인증 요청·접수 과금 |
+| `get_nps_paid_cert` | Collects and bills the first result; repeat reads are free · 최초 결과 반환 시 과금, 재조회 무료 |
+| `req_nps_contribution_unpaid_cert` | Requests phone approval and charges acceptance · 국민연금보험료 미납증명 발급 인증 요청·접수 과금 |
+| `get_nps_contribution_unpaid_cert` | Collects and bills the first result; repeat reads are free · 최초 결과 반환 시 과금, 재조회 무료 |
 | `req_driving_license` | Requests phone approval and charges acceptance · 운전면허 조회 인증 요청·접수 과금 |
 | `get_driving_license` | Collects and bills the first result; repeat reads are free · 최초 결과 반환 시 과금, 재조회 무료 |
 | `req_health_checkup` | Requests phone approval and charges acceptance · 국가 건강검진 결과 인증 요청·접수 과금 |

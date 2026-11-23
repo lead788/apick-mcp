@@ -216,7 +216,7 @@ Korean business registry, corporate credit, parcel tracking, real-estate prices,
 | [`get_car_flooding`](#get-car-flooding) | 차량 침수차 여부 조회 | `type`, `value` |
 | [`get_car_scrap`](#get-car-scrap) | 차량 폐차사고처리 여부 조회 | `type`, `value` |
 | [`vehicle_model_info`](#vehicle-model-info) | 차종별 차량정보 조회 | — |
-| [`vehicle_catalog`](#vehicle-catalog) | 차량목록 조회 | — |
+| [`vehicle_catalog`](#vehicle-catalog) | 차량목록 조회 (무료) | — |
 | [`vehicle_emission`](#vehicle-emission) | 배출가스 인증정보 조회 | `cert_no` |
 | [`vehicle_recall`](#vehicle-recall) | 자동차 리콜 대상 조회 | — |
 | [`hipass_unpaid`](#hipass-unpaid) | 하이패스 미납 여부 조회 | `car_no` |
@@ -1280,9 +1280,9 @@ Vehicle information prioritizes the same trim across spacing and case variations
 
 ### `vehicle_catalog` — 차량목록 조회
 
-List Korean-market vehicles as flat rows of brand, model, model year and trim (with front/rear tire and wheel size when known). Pass only `maker` to get that brand's full list, or nothing for every vehicle. Up to 10,000 rows per call; pass the response's `다음오프셋` as `offset` to continue. If no model name matches exactly, models containing the text are returned with a `안내` notice. 10 points per call; a normal call is charged even when it returns no rows. Input errors (including unknown brands) and server errors are not charged.
+List Korean-market vehicles as flat rows of brand, model, model year and trim (with front/rear tire and wheel size when known). Pass only `maker` to get that brand's full list, or nothing for every vehicle. Up to 10,000 rows per call; pass the response's `다음오프셋` as `offset` to continue. If no model name matches exactly, models containing the text are returned with a `안내` notice. Free of charge: no points are deducted. Input errors (including unknown brands) and server errors are returned as errors.
 
-제조사·차명·연식·등급 단위의 평면 차량 목록을 돌려줍니다(타이어 규격이 있으면 전륜·후륜 타이어와 휠 크기 포함). 제조사만 넣으면 그 제조사의 전체 목록, 모두 비우면 전체 차량 목록입니다. 한 번에 최대 10,000건이며 응답의 `다음오프셋`을 `offset`으로 넘겨 이어 받습니다. 차명이 정확히 일치하지 않으면 그 글자가 들어간 차명으로 찾고 `안내`에 적습니다. 건당 10P이며 정상 조회는 0건이어도 환불되지 않습니다. 입력 오류(알 수 없는 브랜드 포함)·서버 오류는 과금되지 않습니다. 등급별 제원 상세는 `vehicle_model_info`를 쓰세요.
+제조사·차명·연식·등급 단위의 평면 차량 목록을 돌려줍니다(타이어 규격이 있으면 전륜·후륜 타이어와 휠 크기 포함). 제조사만 넣으면 그 제조사의 전체 목록, 모두 비우면 전체 차량 목록입니다. 한 번에 최대 10,000건이며 응답의 `다음오프셋`을 `offset`으로 넘겨 이어 받습니다. 차명이 정확히 일치하지 않으면 그 글자가 들어간 차명으로 찾고 `안내`에 적습니다. 무료이며 포인트가 차감되지 않습니다. 입력 오류(알 수 없는 브랜드 포함)·서버 오류는 오류로 응답합니다.
 
 > 읽기 전용 / read-only · 외부 조회 없음 / no external fetch · server `business`
 

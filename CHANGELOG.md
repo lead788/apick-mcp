@@ -1,3 +1,10 @@
+## 5.14.1 (2026-11-23)
+
+- 차량목록 조회 도구 `vehicle_catalog` 가 무료가 되었습니다. 포인트가 차감되지 않으며 입력 오류·서버 오류는 오류로 응답합니다. 도구 정의는 서버에서 내려오므로 브릿지 코드는 그대로입니다.
+- 자동차등록원부 REST 결과에 차량 제원이 `제원`으로 항상 함께 담기며 추가 요금이 없다는 점을 문서에 적었습니다.
+- The `vehicle_catalog` tool is now free of charge; no points are deducted. Input and server errors are returned as errors. Tool definitions come from the server, so the bridge code is unchanged.
+- Documented that the vehicle register REST result always includes the vehicle specifications as `제원` at no extra charge.
+
 ## 5.14.0 (2026-11-23)
 
 - 차량목록 조회 도구 `vehicle_catalog` 를 추가했습니다(건당 10P). 제조사만 넣으면 그 제조사의 전체 목록을, 모두 비우면 전체 차량 목록을 제조사·차명·연식·등급 단위로 돌려줍니다(타이어 규격이 있으면 전륜·후륜 타이어와 휠 크기 포함). 한 번에 최대 10,000건이며 `다음오프셋`으로 이어 조회합니다. 정상 조회는 0건이어도 과금되고, 입력 오류(알 수 없는 브랜드 포함)·서버 오류는 과금되지 않습니다.

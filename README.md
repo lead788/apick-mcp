@@ -1,6 +1,6 @@
 # APICK MCP — 251 Korean Data, AI, Image & Video Tools
 
-자동차등록원부 등본은 REST 결과(`/rest/get_vehicle_register_doc`)에서 원본 PDF와 `문서내용`을 제공합니다. 전용 MCP 도구는 없습니다. For the vehicle register PDF and structured text, use the REST API or the `apick-api` SDK.
+자동차등록원부 등본은 REST 결과(`/rest/get_vehicle_register_doc`)에서 원본 PDF와 `문서내용`을 제공합니다. 결과에는 차량 제원(배기량·연료·치수·타이어·휠 등)이 `제원`으로 항상 함께 담기며 추가 요금이 없습니다. 전용 MCP 도구는 없습니다. The result always includes the vehicle specifications as `제원` at no extra charge. For the vehicle register PDF and structured text, use the REST API or the `apick-api` SDK.
 
 >
 

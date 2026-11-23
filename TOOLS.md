@@ -3968,7 +3968,9 @@ JSON 데이터를 EXCEL(XLSX) 파일로 변환해 반환합니다. data_list 는
 
 Generate a Korean business form from free-form text or explicit fields and return it as PDF, DOCX, HWPX, RTF, HTML, Markdown, TXT, JSON, or XLSX.
 
-자유 문장 또는 정형 필드로 계약서·증명서·신고서 등 200종 서식을 만들어 파일로 돌려줍니다. `data` 가 `text` 보다 우선하며, 입력하지 않은 항목은 오류가 아니라 빈칸으로 출력됩니다. 서식 키·필드 정의는 `form_list`·`form_fields`(무료)에서 확인합니다. 문서(PDF·DOCX·HWPX·RTF) 100P, 값·미리보기 포맷 30P.
+자유 문장 또는 정형 필드로 계약서·증명서·신고서 등 200종 서식을 만들어 파일로 돌려줍니다. `data` 가 `text` 보다 우선하며, 입력하지 않은 항목은 오류가 아니라 빈칸으로 출력됩니다. 서식 키·필드 정의는 `form_list`·`form_fields`(무료)에서 확인합니다. 실제 통용 양식을 확인 중인 준비중 서식(`form_list` 의 `available: false`)은 만들지 않고 `FORM_PREPARING` 오류로 답하며 차감하지 않습니다. 문서(PDF·DOCX·HWPX·RTF) 100P, 값·미리보기 포맷 30P.
+
+Forms still in preparation (`available: false` in `form_list`) are not generated; the call returns `FORM_PREPARING` and nothing is charged.
 
 읽기 전용 / read-only · 입력 변환 / transforms your input · server `convert`
 
@@ -3987,9 +3989,9 @@ Generate a Korean business form from free-form text or explicit fields and retur
 
 ### `form_list` — 서식 목록
 
-List the Korean form documents that `form_document` can generate, with category, purpose, and field counts.
+List the Korean form documents that `form_document` can generate, with category, purpose, field counts, and availability (`status`, `available`).
 
-`form_document` 로 만들 수 있는 200종 서식의 키·이름·분류·필드 수를 돌려줍니다. 무료이며 과금되지 않습니다. 문서를 만들기 전에 `form` 키를 고를 때 씁니다.
+`form_document` 로 만들 수 있는 200종 서식의 키·이름·분류·필드 수와 제공 상태(`status`: 서비스·준비중, `available`)를 돌려줍니다. 무료이며 과금되지 않습니다. 문서를 만들기 전에 `available` 이 `true` 인 `form` 키를 고를 때 씁니다. 준비중 서식은 `form_document` 가 `FORM_PREPARING` 으로 거절하고(무과금), `form_bundle` 은 ZIP 의 `_index.txt` 에 실패로 적습니다.
 
 읽기 전용 / read-only · server `convert`
 

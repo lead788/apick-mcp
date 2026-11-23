@@ -1,3 +1,9 @@
+## 5.14.4 (2026-11-23)
+
+- 서식 목록 `form_list`·서식 필드 `form_fields` 결과의 제공 상태 `status`(서비스·준비중)와 `available`을 문서에 반영했습니다. 실제로 통용되는 양식을 확인하는 중인 준비중 서식(`available: false`)은 `form_document`가 `FORM_PREPARING` 오류로 답하며 차감하지 않고, `form_bundle`은 ZIP의 `_index.txt`에 실패로 적습니다.
+- 도구 정의는 서버에서 내려오므로 브릿지 코드는 그대로입니다.
+- Documented the availability fields `status` and `available` in `form_list`/`form_fields` results. Forms in preparation (`available: false`) are rejected by `form_document` with `FORM_PREPARING` at no charge, and `form_bundle` lists them as failures in the ZIP's `_index.txt`.
+
 ## 5.14.3 (2026-11-23)
 
 - 차량목록 조회 `vehicle_catalog` 에 `specId`(제원관리번호) 파라미터를 문서에 추가했습니다. 넣으면 그 한 건만 `차량`으로 돌려주며 다른 조건은 무시합니다. 목록의 각 행에 `제원관리번호`가 담기는 것도 적었습니다. 무료입니다.

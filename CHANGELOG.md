@@ -1,3 +1,9 @@
+## 5.14.3 (2026-11-23)
+
+- 차량목록 조회 `vehicle_catalog` 에 `specId`(제원관리번호) 파라미터를 문서에 추가했습니다. 넣으면 그 한 건만 `차량`으로 돌려주며 다른 조건은 무시합니다. 목록의 각 행에 `제원관리번호`가 담기는 것도 적었습니다. 무료입니다.
+- 도구 정의는 서버에서 내려오므로 브릿지 코드는 그대로입니다.
+- Documented the `specId` (spec ID) parameter of `vehicle_catalog`: when set, only that vehicle is returned in `차량` and other filters are ignored. List rows now include `제원관리번호`. Free of charge.
+
 ## 5.14.2 (2026-11-23)
 
 - 문서 도구 `document_create`·`document_update`의 `content` 설명에 글 속 이미지 노드 `inlineImage`(서명·도장·이미지를 글자 사이에 넣고, 글자처럼 취급하거나 글자 위에 표시)를 적었습니다. 도구 정의는 서버에서 오므로 브릿지 코드는 바뀌지 않았습니다.

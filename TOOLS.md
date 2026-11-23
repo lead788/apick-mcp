@@ -1280,9 +1280,9 @@ Vehicle information prioritizes the same trim across spacing and case variations
 
 ### `vehicle_catalog` — 차량목록 조회
 
-List Korean-market vehicles as flat rows of brand, model, model year and trim (with front/rear tire and wheel size when known). Pass only `maker` to get that brand's full list, or nothing for every vehicle. Up to 10,000 rows per call; pass the response's `다음오프셋` as `offset` to continue. If no model name matches exactly, models containing the text are returned with a `안내` notice. Free of charge: no points are deducted. Input errors (including unknown brands) and server errors are returned as errors.
+List Korean-market vehicles as flat rows of brand, model, model year and trim (with front/rear tire and wheel size when known). Pass only `maker` to get that brand's full list, or nothing for every vehicle. Up to 10,000 rows per call; pass the response's `다음오프셋` as `offset` to continue. If no model name matches exactly, models containing the text are returned with a `안내` notice. Pass a row's `제원관리번호` as `specId` to get only that vehicle in `차량` (other filters are ignored). Free of charge: no points are deducted. Input errors (including unknown brands) and server errors are returned as errors.
 
-제조사·차명·연식·등급 단위의 평면 차량 목록을 돌려줍니다(타이어 규격이 있으면 전륜·후륜 타이어와 휠 크기 포함). 제조사만 넣으면 그 제조사의 전체 목록, 모두 비우면 전체 차량 목록입니다. 한 번에 최대 10,000건이며 응답의 `다음오프셋`을 `offset`으로 넘겨 이어 받습니다. 차명이 정확히 일치하지 않으면 그 글자가 들어간 차명으로 찾고 `안내`에 적습니다. 무료이며 포인트가 차감되지 않습니다. 입력 오류(알 수 없는 브랜드 포함)·서버 오류는 오류로 응답합니다.
+제조사·차명·연식·등급 단위의 평면 차량 목록을 돌려줍니다(타이어 규격이 있으면 전륜·후륜 타이어와 휠 크기 포함). 제조사만 넣으면 그 제조사의 전체 목록, 모두 비우면 전체 차량 목록입니다. 한 번에 최대 10,000건이며 응답의 `다음오프셋`을 `offset`으로 넘겨 이어 받습니다. 차명이 정확히 일치하지 않으면 그 글자가 들어간 차명으로 찾고 `안내`에 적습니다. 각 행의 `제원관리번호`를 `specId`로 넣으면 그 한 건만 `차량`으로 받습니다(다른 조건은 무시). 무료이며 포인트가 차감되지 않습니다. 입력 오류(알 수 없는 브랜드 포함)·서버 오류는 오류로 응답합니다.
 
 > 읽기 전용 / read-only · 외부 조회 없음 / no external fetch · server `business`
 
@@ -1295,14 +1295,15 @@ List Korean-market vehicles as flat rows of brand, model, model year and trim (w
 | `tireOnly` | `boolean` | 선택 / optional | true 면 타이어 규격이 있는 차량만 |
 | `limit` | `integer` | 선택 / optional | 1~10,000, 기본 1,000 |
 | `offset` | `integer` | 선택 / optional | 건너뛸 건수. 응답의 `다음오프셋` |
+| `specId` | `integer` | 선택 / optional | 제원관리번호. 넣으면 그 한 건만 돌려줌(다른 조건 무시) |
 
 ```json
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"vehicle_catalog","arguments":{"maker":"테슬라","limit":10000}}}
 ```
 
-응답: `차량목록[]`(`제조사`·`차명`·`연식`·`등급`·`항목수`·`타이어있음`, 있으면 `전륜타이어`·`후륜타이어`·`휠크기`), `총건수`, 다음 페이지가 있으면 `다음오프셋`, 필요하면 `안내`.
+응답: `차량목록[]`(`제원관리번호`·`제조사`·`차명`·`연식`·`등급`·`항목수`·`타이어있음`, 있으면 `전륜타이어`·`후륜타이어`·`휠크기`), `총건수`, 다음 페이지가 있으면 `다음오프셋`, 필요하면 `안내`. `specId`를 넣으면 같은 모양의 한 건이 `차량`으로 오고, 없는 번호면 `안내`만 옵니다.
 
-Response: `차량목록[]` (brand, model, year, trim, field count, tire flag, and tire/wheel sizes when present), `총건수` (total), `다음오프셋` when more rows exist, and `안내` when relevant.
+Response: `차량목록[]` (spec ID, brand, model, year, trim, field count, tire flag, and tire/wheel sizes when present), `총건수` (total), `다음오프셋` when more rows exist, and `안내` when relevant. With `specId`, one row of the same shape comes back in `차량`; an unknown ID returns only `안내`.
 
 <a id="parcel-tracking"></a>
 

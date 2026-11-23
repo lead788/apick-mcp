@@ -4796,7 +4796,7 @@ Server: `convert` / `all`.
 | --- | --- | --- | --- |
 | `title` | `string` | 선택 / optional | 문서에 표시할 제목, 최대 120자 |
 | `form` | `string` | 선택 / optional | 서식 키. 자유 문서는 빈 문자열 |
-| `content` | `object` | 선택 / optional | 문서 JSON. type=doc, content에 문단·표·텍스트를 넣습니다. 스키마 버전 1 |
+| `content` | `object` | 선택 / optional | 문서 JSON. type=doc, content에 문단·표·텍스트·서명·도장 이미지(inlineImage)를 넣습니다. 스키마 버전 1 |
 | `request_id` | `string` | 필수 / required | 중복 방지 요청 ID. UUID 권장, 같은 요청의 재시도는 같은 값 |
 
 ### `document_list`
@@ -4831,7 +4831,7 @@ Server: `convert` / `all`.
 | `version` | `integer` | 필수 / required | 마지막으로 읽은 문서 버전 |
 | `title` | `string` | 선택 / optional | 문서에 표시할 제목, 최대 120자 |
 | `form` | `string` | 선택 / optional | 서식 키. 자유 문서는 빈 문자열 |
-| `content` | `object` | 선택 / optional | 문서 JSON. type=doc, content에 문단·표·텍스트를 넣습니다. 스키마 버전 1 |
+| `content` | `object` | 선택 / optional | 문서 JSON. type=doc, content에 문단·표·텍스트·서명·도장 이미지(inlineImage)를 넣습니다. 스키마 버전 1 |
 | `request_id` | `string` | 필수 / required | 중복 방지 요청 ID. UUID 권장, 같은 요청의 재시도는 같은 값 |
 
 ### `document_delete`

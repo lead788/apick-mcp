@@ -1,3 +1,8 @@
+## 5.14.2 (2026-11-23)
+
+- 문서 도구 `document_create`·`document_update`의 `content` 설명에 글 속 이미지 노드 `inlineImage`(서명·도장·이미지를 글자 사이에 넣고, 글자처럼 취급하거나 글자 위에 표시)를 적었습니다. 도구 정의는 서버에서 오므로 브릿지 코드는 바뀌지 않았습니다.
+- Documented the inline image node `inlineImage` (signature, stamp or image placed between characters, treated like a character or drawn over the text) in the `content` description of `document_create` and `document_update`. Tool definitions come from the server, so the bridge code is unchanged.
+
 ## 5.14.1 (2026-11-23)
 
 - 차량목록 조회 도구 `vehicle_catalog` 가 무료가 되었습니다. 포인트가 차감되지 않으며 입력 오류·서버 오류는 오류로 응답합니다. 도구 정의는 서버에서 내려오므로 브릿지 코드는 그대로입니다.

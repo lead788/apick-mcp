@@ -22,15 +22,15 @@ test('신분증 structuredContent 오류 코드를 변경 없이 전달한다', 
 	assert.deepEqual(output, [serverMessage]);
 });
 
-test('공개 메타데이터는 대상 250개·Convert 57개·AI 15개와 이미지 작업 계약에 일치한다', () => {
+test('공개 메타데이터는 대상 251개·Convert 57개·AI 15개와 이미지 작업 계약에 일치한다', () => {
 	const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
 	const readme = readFileSync(new URL('../README.md', import.meta.url), 'utf8');
 	const tools = readFileSync(new URL('../TOOLS.md', import.meta.url), 'utf8');
-	assert.equal(pkg.version, '5.13.0');
-	assert.match(pkg.description, /250 Korean data, AI, image & video tools/);
+	assert.equal(pkg.version, '5.14.0');
+	assert.match(pkg.description, /251 Korean data, AI, image & video tools/);
 	assert.match(readme, /\| \[AI · LLM\]\(TOOLS\.md#ai\) \| `https:\/\/apick\.app\/mcp\/ai` \| 15 \|/);
-	assert.match(tools, /\| \*\*All 통합\*\* \| `\/mcp\/all` \| \*\*250\*\* \|/);
-	assert.match(tools, /`https:\/\/apick\.app\/mcp\/business` — 104 tools/);
+	assert.match(tools, /\| \*\*All 통합\*\* \| `\/mcp\/all` \| \*\*251\*\* \|/);
+	assert.match(tools, /`https:\/\/apick\.app\/mcp\/business` — 105 tools/);
 	assert.match(tools, /`https:\/\/apick\.app\/mcp\/web` — 35 tools/);
 	assert.doesNotMatch(tools, /`check_pccc`/);
 	assert.doesNotMatch(readme, /`check_pccc`/);

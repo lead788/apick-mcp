@@ -1,3 +1,11 @@
+## 5.14.0 (2026-11-23)
+
+- 차량목록 조회 도구 `vehicle_catalog` 를 추가했습니다(건당 10P). 제조사만 넣으면 그 제조사의 전체 목록을, 모두 비우면 전체 차량 목록을 제조사·차명·연식·등급 단위로 돌려줍니다(타이어 규격이 있으면 전륜·후륜 타이어와 휠 크기 포함). 한 번에 최대 10,000건이며 `다음오프셋`으로 이어 조회합니다. 정상 조회는 0건이어도 과금되고, 입력 오류(알 수 없는 브랜드 포함)·서버 오류는 과금되지 않습니다.
+- `vehicle_model_info` 의 차종 목록 응답(`차종목록[]`)에 `연식별등급`이 더해진 것을 문서에 적었습니다.
+- 도구 정의는 서버에서 내려오므로 브릿지 코드는 그대로입니다.
+- Added the `vehicle_catalog` tool (10 points per call): flat brand/model/year/trim rows (with tire and wheel sizes when known) for one brand or every vehicle, up to 10,000 rows per call and continued with `다음오프셋`. Normal calls are charged even when empty; input errors (including unknown brands) and server errors are free.
+- Documented the `연식별등급` (model year → trims) field now included in `vehicle_model_info` model lists.
+
 ## 5.13.0 (2026-11-20)
 
 - 국민연금 증명서 발급 9종 도구 18개를 추가했습니다: `req_`/`get_` + `nps_join_cert`(가입자 가입증명)·`nps_career_cert`(연금산정용 가입내역 확인서)·`nps_lump_sum_cert`(일시금 지급내역)·`nps_rehabilitation_cert`(개인회생 신청용 확인서)·`nps_pension_tax_cert`(연금소득 원천징수영수증)·`nps_pension_payment_cert`(수급증명서 재발급)·`nps_member_cert`(가입자증명서)·`nps_paid_cert`(보험료 납부확인서)·`nps_contribution_unpaid_cert`(보험료 미납증명). 공통 입력 `purpose`·`pdf`·`format`과 상품별 `lang`·`year`·`maskRrn`·`workplaceNo`·`fromYear`·`toYear`를 받고, PDF를 요청하면 결과의 `발급.발급문서`(base64)로 받습니다. 접수 20P, 최초 결과 60P, 재조회 무료입니다.

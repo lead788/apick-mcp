@@ -2,10 +2,10 @@
 
 자동차등록원부 등본의 PDF·본문·차대번호는 REST 또는 `apick-api` SDK로 받습니다. 이 상품에는 전용 MCP 도구가 없습니다. The vehicle register is available through REST or the SDK. Read `data.result.vehicleRegisterDoc.문서내용` for the text and optional VIN.
 
-**249 tools** across **8 domain servers**, plus the combined `all` server.
-**Tool 249개**, 분야별 서버 8개와 통합 서버 `all`.
+**250 tools** across **8 domain servers**, plus the combined `all` server.
+**Tool 250개**, 분야별 서버 8개와 통합 서버 `all`.
 
-5.13.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
+5.14.0 계약 기준입니다. 실제 연결한 서버의 현재 제공 목록은 `tools/list`로 확인하세요. Current availability is returned by `tools/list` on the connected server.
 
 
 
@@ -18,7 +18,7 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 | Server 서버 | Endpoint | Tools | Coverage 범위 |
 | --- | --- | --- | --- |
-| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 104 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 간편인증 데이터 조회·세무 증빙서류 발급, 이메일 위험 일괄 검사, 유효성 검사. |
+| [Business & Commerce · 사업자 · 커머스](#business) | `/mcp/business` | 105 | 사업자·법인 조회, 택배 배송조회, 부동산 실거래가, 차량 이력, 간편인증 데이터 조회·세무 증빙서류 발급, 이메일 위험 일괄 검사, 유효성 검사. |
 | [Identity Verification · 신분증 진위확인 · 마스킹](#identity) | `/mcp/identity` | 16 | 주민등록증·운전면허증·여권·외국인등록증 진위확인, 실명확인, 개인정보 마스킹. |
 | [OCR · OCR 문자인식](#ocr) | `/mcp/ocr` | 7 | 이미지 텍스트 추출, 신분증 항목 추출, 사업자 서류 판독. |
 | [Finance · 금융 · 계좌확인](#finance) | `/mcp/finance` | 7 | 계좌 예금주 실명조회, 1원 인증, 암호화폐 통합 시세·김치프리미엄, 월평균·연평균 환율. |
@@ -26,11 +26,11 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 | [File Conversion · 파일 변환 · 워터마크](#convert) | `/mcp/convert` | 57 | PDF·DOCX·엑셀 변환, 서식 문서 작성·목록·미리보기·AI 채우기, 음성인식(STT), 비동기 TTS, 워터마크. |
 | [Vision · 이미지 · 영상 분석](#vision) | `/mcp/vision` | 8 | 얼굴 검출, 얼굴 유사도 비교, 이미지 유사도, 유해이미지 판별, 영상 추출. |
 | [AI & LLM · AI · LLM](#ai) | `/mcp/ai` | 15 | LLM 챗, 텍스트 도구, 이미지 생성·편집·대량 작업, 비동기 영상 생성. |
-| **All 통합** | `/mcp/all` | **250** | 아래 전부 + [`find_tools`](#find-tools) |
+| **All 통합** | `/mcp/all` | **251** | 아래 전부 + [`find_tools`](#find-tools) |
 
-<details><summary><b>All 250 MCP tool names / 전체 MCP Tool 이름</b></summary>
+<details><summary><b>All 251 MCP tool names / 전체 MCP Tool 이름</b></summary>
 
-`biz_detail` · `venture_biz_info` · `ecommerce_registration` · `bid_notice` · `bid_award` · `dart_disclosure` · `dart_company` · `dart_financials` · `rtms_trade` · `rtms_rent` · `land_rt_price` · `land_info` · `bldrgst` · `court_auction` · `registry_doc_verify` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `vehicle_model_info` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_nps_join_cert` · `get_nps_join_cert` · `req_nps_career_cert` · `get_nps_career_cert` · `req_nps_lump_sum_cert` · `get_nps_lump_sum_cert` · `req_nps_rehabilitation_cert` · `get_nps_rehabilitation_cert` · `req_nps_pension_tax_cert` · `get_nps_pension_tax_cert` · `req_nps_pension_payment_cert` · `get_nps_pension_payment_cert` · `req_nps_member_cert` · `get_nps_member_cert` · `req_nps_paid_cert` · `get_nps_paid_cert` · `req_nps_contribution_unpaid_cert` · `get_nps_contribution_unpaid_cert` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `req_income_cert_bundle` · `get_income_cert_bundle` · `req_business_cert_bundle` · `get_business_cert_bundle` · `req_nps_bundle` · `get_nps_bundle` · `req_hometax_bundle` · `get_hometax_bundle` · `req_hometax_biz_bundle` · `get_hometax_biz_bundle` · `vehicle_emission` · `vehicle_recall` · `hipass_unpaid` · `vehicle_tax_calc` · `corp_finance` · `geo_standardize` · `geo_batch_geocode` · `geo_reverse` · `geo_address_search` · `geo_place_search` · `geo_admin_code` · `geo_compare_address` · `geo_measure` · `geo_geojson_analyze` · `geo_address_quality` · `geo_address_autocomplete` · `geo_district_boundary` · `geo_neighborhood` · `geo_site_score` · `geo_address_cleanup` · `registry_realestate_search` · `registry_corporate_search` · `registry_realestate_jobs_create` · `registry_corporate_jobs_create` · `email_risk_batch` · `debarred_company` · `tax_cert_verify` · `tax_invoice_third_party_check` · `std_price_commercial`
+`biz_detail` · `venture_biz_info` · `ecommerce_registration` · `bid_notice` · `bid_award` · `dart_disclosure` · `dart_company` · `dart_financials` · `rtms_trade` · `rtms_rent` · `land_rt_price` · `land_info` · `bldrgst` · `court_auction` · `registry_doc_verify` · `req_pccc` · `get_pccc` · `get_car_flooding` · `get_car_scrap` · `vehicle_model_info` · `vehicle_catalog` · `parcel_tracking` · `parcel_tracking_auto` · `check_email_valid` · `check_phone_valid` · `check_spam_number` · `holiday_info` · `search_juso` · `info` · `app_reviews` · `req_cash_receipt_deduction` · `get_cash_receipt_deduction` · `req_tax_return_history` · `get_tax_return_history` · `req_employment` · `get_employment` · `req_personal_income` · `get_personal_income` · `req_nps_join_history` · `get_nps_join_history` · `req_nps_deduction_cert` · `get_nps_deduction_cert` · `req_nps_career_history` · `get_nps_career_history` · `req_nps_join_cert` · `get_nps_join_cert` · `req_nps_career_cert` · `get_nps_career_cert` · `req_nps_lump_sum_cert` · `get_nps_lump_sum_cert` · `req_nps_rehabilitation_cert` · `get_nps_rehabilitation_cert` · `req_nps_pension_tax_cert` · `get_nps_pension_tax_cert` · `req_nps_pension_payment_cert` · `get_nps_pension_payment_cert` · `req_nps_member_cert` · `get_nps_member_cert` · `req_nps_paid_cert` · `get_nps_paid_cert` · `req_nps_contribution_unpaid_cert` · `get_nps_contribution_unpaid_cert` · `req_driving_license` · `get_driving_license` · `req_health_checkup` · `get_health_checkup` · `req_income_cert_bundle` · `get_income_cert_bundle` · `req_business_cert_bundle` · `get_business_cert_bundle` · `req_nps_bundle` · `get_nps_bundle` · `req_hometax_bundle` · `get_hometax_bundle` · `req_hometax_biz_bundle` · `get_hometax_biz_bundle` · `vehicle_emission` · `vehicle_recall` · `hipass_unpaid` · `vehicle_tax_calc` · `corp_finance` · `geo_standardize` · `geo_batch_geocode` · `geo_reverse` · `geo_address_search` · `geo_place_search` · `geo_admin_code` · `geo_compare_address` · `geo_measure` · `geo_geojson_analyze` · `geo_address_quality` · `geo_address_autocomplete` · `geo_district_boundary` · `geo_neighborhood` · `geo_site_score` · `geo_address_cleanup` · `registry_realestate_search` · `registry_corporate_search` · `registry_realestate_jobs_create` · `registry_corporate_jobs_create` · `email_risk_batch` · `debarred_company` · `tax_cert_verify` · `tax_invoice_third_party_check` · `std_price_commercial`
 
 `identi_card1` · `identi_card2` · `identi_card3` · `identi_card4` · `identi_card5` · `identi_card_image1` · `identi_card_image2` · `identi_card_image3` · `identi_card_image4` · `identi_card_image5` · `name_rrn_auth` · `hide_rrn` · `identity_document_residence_card` · `identity_document_passport` · `identity_document_id_card` · `identity_document_driver_license`
 
@@ -153,11 +153,11 @@ Endpoint pattern: `https://apick.app/mcp/{server}` — connect to `all` for ever
 
 ## All server only · 통합 서버 전용
 
-`https://apick.app/mcp/all` — 1 tool in addition to the 249 domain tools
+`https://apick.app/mcp/all` — 1 tool in addition to the 250 domain tools
 
 Tools that exist only on the combined `all` server. Domain servers keep their own tool counts.
 
-분야별 Tool 249개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
+분야별 Tool 250개에 더해 통합 서버 `all`에만 있는 Tool입니다. 분야별 서버의 Tool 수는 바뀌지 않습니다.
 
 <a id="find-tools"></a>
 
@@ -198,7 +198,7 @@ Call the recommended tool afterwards with your API key as usual. 추천받은 To
 
 ## Business & Commerce · 사업자 · 커머스
 
-`https://apick.app/mcp/business` — 104 tools
+`https://apick.app/mcp/business` — 105 tools
 
 Korean business registry, corporate credit, parcel tracking, real-estate prices, vehicle history, and input validation.
 
@@ -216,6 +216,7 @@ Korean business registry, corporate credit, parcel tracking, real-estate prices,
 | [`get_car_flooding`](#get-car-flooding) | 차량 침수차 여부 조회 | `type`, `value` |
 | [`get_car_scrap`](#get-car-scrap) | 차량 폐차사고처리 여부 조회 | `type`, `value` |
 | [`vehicle_model_info`](#vehicle-model-info) | 차종별 차량정보 조회 | — |
+| [`vehicle_catalog`](#vehicle-catalog) | 차량목록 조회 | — |
 | [`vehicle_emission`](#vehicle-emission) | 배출가스 인증정보 조회 | `cert_no` |
 | [`vehicle_recall`](#vehicle-recall) | 자동차 리콜 대상 조회 | — |
 | [`hipass_unpaid`](#hipass-unpaid) | 하이패스 미납 여부 조회 | `car_no` |
@@ -1265,6 +1266,8 @@ Look up specifications of a Korean-market vehicle model (passenger cars and moto
 {"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"vehicle_model_info","arguments":{"maker":"현대","model":"아반떼","modelYear":"2024"}}}
 ```
 
+차명을 비운 목록 응답의 `차종목록[]` 에는 차종마다 `연식별등급`(연식 → 등급 배열)이 함께 나가 등급을 골라 다시 조회할 수 있습니다.
+
 응답의 `제원` 은 값이 있는 항목만 담고, 항목 이름은 한글입니다(`제조사`, `차명`, `연식`, `등급`, `배기량`, `복합연비`, `전장`, `전륜타이어` 등). 표기 차이로 찾았거나 등급을 대신 골랐으면 `안내` 와 `추천`/`등급후보` 가 함께 나갑니다.
 
 Responses include `차종` (brand, group, model), `제원` (only filled fields, Korean keys), and — when the input was matched by similarity or the trim was substituted — `안내`, `추천` (`{입력, 자동선택, 대안}`), and `제원.등급후보`.
@@ -1272,6 +1275,34 @@ Responses include `차종` (brand, group, model), `제원` (only filled fields, 
 차량정보는 공백·대소문자가 다른 동일 등급을 우선해 찾으며 연식·사양이 다른 차량은 구분합니다. 기존 `안내`에서 연식·사양 대체, 사양 충돌, 국내 출시 여부 확인 보류, 일부 제원의 추가 검증 상태를 확인할 수 있습니다. 국내 미출시가 확인된 차량은 해외 자료 기준이며 100% 정확성을 보장하지 않는다는 안내가 추가됩니다. 반환된 연식·등급과 안내를 확인하세요. 입력·응답 구조와 과금 방식은 유지됩니다.
 
 Vehicle information prioritizes the same trim across spacing and case variations while distinguishing model years and specifications. The existing `안내` notice can describe year/specification substitutions, conflicting specifications, unverified Korean-market availability, or specifications still under review. Confirmed non-Korean-market vehicles receive an additional notice that overseas data does not guarantee 100% accuracy. Check the returned year, trim and notices. Request/response shapes and billing behavior remain unchanged.
+
+<a id="vehicle-catalog"></a>
+
+### `vehicle_catalog` — 차량목록 조회
+
+List Korean-market vehicles as flat rows of brand, model, model year and trim (with front/rear tire and wheel size when known). Pass only `maker` to get that brand's full list, or nothing for every vehicle. Up to 10,000 rows per call; pass the response's `다음오프셋` as `offset` to continue. If no model name matches exactly, models containing the text are returned with a `안내` notice. 10 points per call; a normal call is charged even when it returns no rows. Input errors (including unknown brands) and server errors are not charged.
+
+제조사·차명·연식·등급 단위의 평면 차량 목록을 돌려줍니다(타이어 규격이 있으면 전륜·후륜 타이어와 휠 크기 포함). 제조사만 넣으면 그 제조사의 전체 목록, 모두 비우면 전체 차량 목록입니다. 한 번에 최대 10,000건이며 응답의 `다음오프셋`을 `offset`으로 넘겨 이어 받습니다. 차명이 정확히 일치하지 않으면 그 글자가 들어간 차명으로 찾고 `안내`에 적습니다. 건당 10P이며 정상 조회는 0건이어도 환불되지 않습니다. 입력 오류(알 수 없는 브랜드 포함)·서버 오류는 과금되지 않습니다. 등급별 제원 상세는 `vehicle_model_info`를 쓰세요.
+
+> 읽기 전용 / read-only · 외부 조회 없음 / no external fetch · server `business`
+
+| Parameter | Type | Required | Description 설명 |
+| --- | --- | --- | --- |
+| `maker` | `string` | 선택 / optional | 브랜드. 예: 현대, 테슬라, BMW |
+| `model` | `string` | 선택 / optional | 차명. 예: 그랜저, 모델 Y |
+| `modelYear` | `string` | 선택 / optional | 연식. 예: 2026, 26 |
+| `trim` | `string` | 선택 / optional | 등급 |
+| `tireOnly` | `boolean` | 선택 / optional | true 면 타이어 규격이 있는 차량만 |
+| `limit` | `integer` | 선택 / optional | 1~10,000, 기본 1,000 |
+| `offset` | `integer` | 선택 / optional | 건너뛸 건수. 응답의 `다음오프셋` |
+
+```json
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"vehicle_catalog","arguments":{"maker":"테슬라","limit":10000}}}
+```
+
+응답: `차량목록[]`(`제조사`·`차명`·`연식`·`등급`·`항목수`·`타이어있음`, 있으면 `전륜타이어`·`후륜타이어`·`휠크기`), `총건수`, 다음 페이지가 있으면 `다음오프셋`, 필요하면 `안내`.
+
+Response: `차량목록[]` (brand, model, year, trim, field count, tire flag, and tire/wheel sizes when present), `총건수` (total), `다음오프셋` when more rows exist, and `안내` when relevant.
 
 <a id="parcel-tracking"></a>
 

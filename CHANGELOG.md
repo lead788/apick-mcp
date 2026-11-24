@@ -1,3 +1,10 @@
+## 5.14.5 (2026-11-24)
+
+- 등기 열람·발급 도구(`registry_realestate_jobs_create`·`registry_corporate_jobs_create`) 설명의 요금을 현재 값으로 맞췄습니다: 열람 1300P · 발급 1700P(PDF 전송 포함). 2026-11-23 요금 변경 안내 문구는 지웠습니다.
+- 도구 정의는 서버에서 내려오므로 브릿지 코드는 그대로입니다.
+- Updated the pricing in the registry view/issue tool descriptions to the current rates: 1300P for view and 1700P for issue (PDF delivery included). The notice about the 2026-11-23 change was removed.
+- Tool definitions are served by the server, so the bridge code is unchanged.
+
 ## 5.14.4 (2026-11-23)
 
 - 서식 목록 `form_list`·서식 필드 `form_fields` 결과의 제공 상태 `status`(서비스·준비중)와 `available`을 문서에 반영했습니다. 실제로 통용되는 양식을 확인하는 중인 준비중 서식(`available: false`)은 `form_document`가 `FORM_PREPARING` 오류로 답하며 차감하지 않고, `form_bundle`은 ZIP의 `_index.txt`에 실패로 적습니다.

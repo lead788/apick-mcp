@@ -2105,7 +2105,7 @@ Find corporate registry targets in Korea by 13-digit corporate registration numb
 
 View and issue a real estate registry certificate in one call.
 
-검색 결과의 대상을 지정하면 결제와 PDF 확보를 같은 호출에서 끝내고 PDF 를 돌려줍니다. 주소(query)로 접수하면 입력 주소와 정확히 맞는 등기부 중 맨 위 대상을 발급하므로(같은 주소에 건물이 여러 개여도 맨 위), 특정 건물·호실은 pin(부동산고유번호) 접수를 권장합니다. 최대 180초까지 걸릴 수 있습니다. 열람(view) 850P, 발급(issue) 1250P(PDF 전송 포함), 2026-11-23 00:00(KST)부터 열람 1300P · 발급 1700P. 발급이 실패하면 같은 job_id 로 결과 조회(POST /rest/registry_jobs/:job_id/download)를 호출할 때 접수 때 차감한 금액을 환급합니다. 결과 조회를 하지 않으면 환급되지 않고, 접수 후 24시간이 지난 조회는 환급되지 않습니다. 이미 발급한 PDF는 응답 헤더 X-Apick-Job-Id 를 job_id 로 POST /rest/registry_jobs/:job_id/download 에 보내 다시 받을 수 있습니다(건당 30P, 횟수 제한 없음).
+검색 결과의 대상을 지정하면 결제와 PDF 확보를 같은 호출에서 끝내고 PDF 를 돌려줍니다. 주소(query)로 접수하면 입력 주소와 정확히 맞는 등기부 중 맨 위 대상을 발급하므로(같은 주소에 건물이 여러 개여도 맨 위), 특정 건물·호실은 pin(부동산고유번호) 접수를 권장합니다. 최대 180초까지 걸릴 수 있습니다. 열람(view) 1300P, 발급(issue) 1700P(PDF 전송 포함). 발급이 실패하면 같은 job_id 로 결과 조회(POST /rest/registry_jobs/:job_id/download)를 호출할 때 접수 때 차감한 금액을 환급합니다. 결과 조회를 하지 않으면 환급되지 않고, 접수 후 24시간이 지난 조회는 환급되지 않습니다. 이미 발급한 PDF는 응답 헤더 X-Apick-Job-Id 를 job_id 로 POST /rest/registry_jobs/:job_id/download 에 보내 다시 받을 수 있습니다(건당 30P, 횟수 제한 없음).
 
 > 과금 / billable · 외부 데이터 조회 / external lookup · server `business`
 
@@ -2130,7 +2130,7 @@ View and issue a real estate registry certificate in one call.
 
 View and issue a corporate registry certificate in one call.
 
-법인등록번호로 열람·발급을 끝내고 PDF 를 돌려줍니다. 최대 180초까지 걸릴 수 있습니다. 열람(view) 850P, 발급(issue) 1250P(PDF 전송 포함), 2026-11-23 00:00(KST)부터 열람 1300P · 발급 1700P. 발급이 실패하면 같은 job_id 로 결과 조회(POST /rest/registry_jobs/:job_id/download)를 호출할 때 접수 때 차감한 금액을 환급합니다. 결과 조회를 하지 않으면 환급되지 않고, 접수 후 24시간이 지난 조회는 환급되지 않습니다. 이미 발급한 PDF는 응답 헤더 X-Apick-Job-Id 를 job_id 로 POST /rest/registry_jobs/:job_id/download 에 보내 다시 받을 수 있습니다(건당 30P, 횟수 제한 없음).
+법인등록번호로 열람·발급을 끝내고 PDF 를 돌려줍니다. 최대 180초까지 걸릴 수 있습니다. 열람(view) 1300P, 발급(issue) 1700P(PDF 전송 포함). 발급이 실패하면 같은 job_id 로 결과 조회(POST /rest/registry_jobs/:job_id/download)를 호출할 때 접수 때 차감한 금액을 환급합니다. 결과 조회를 하지 않으면 환급되지 않고, 접수 후 24시간이 지난 조회는 환급되지 않습니다. 이미 발급한 PDF는 응답 헤더 X-Apick-Job-Id 를 job_id 로 POST /rest/registry_jobs/:job_id/download 에 보내 다시 받을 수 있습니다(건당 30P, 횟수 제한 없음).
 
 > 과금 / billable · 외부 데이터 조회 / external lookup · server `business`
 
